@@ -25,6 +25,21 @@
 		D64FA17D1D1D1D95007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA16E1D1D1D95007DE414 /* README.md */; };
 		D64FA17E1D1D1D95007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1701D1D1D95007DE414 /* README.md */; };
 		D64FA17F1D1D1D95007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1721D1D1D95007DE414 /* README.md */; };
+		D64FA1861D1D2B41007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1811D1D2B41007DE414 /* README.md */; };
+		D64FA1871D1D2B41007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1831D1D2B41007DE414 /* README.md */; };
+		D64FA1881D1D2B41007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1851D1D2B41007DE414 /* README.md */; };
+		D64FA18F1D1D2B63007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA18A1D1D2B63007DE414 /* README.md */; };
+		D64FA1901D1D2B63007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA18C1D1D2B63007DE414 /* README.md */; };
+		D64FA1911D1D2B63007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA18E1D1D2B63007DE414 /* README.md */; };
+		D64FA1A11D1D2B8D007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA19C1D1D2B8D007DE414 /* README.md */; };
+		D64FA1A21D1D2B8D007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA19E1D1D2B8D007DE414 /* README.md */; };
+		D64FA1A31D1D2B8D007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1A01D1D2B8D007DE414 /* README.md */; };
+		D64FA1AA1D1D2B97007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1A51D1D2B97007DE414 /* README.md */; };
+		D64FA1AB1D1D2B97007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1A71D1D2B97007DE414 /* README.md */; };
+		D64FA1AC1D1D2B97007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1A91D1D2B97007DE414 /* README.md */; };
+		D64FA1B31D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1AE1D1D2B9F007DE414 /* README.md */; };
+		D64FA1B41D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1B01D1D2B9F007DE414 /* README.md */; };
+		D64FA1B51D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1B21D1D2B9F007DE414 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +66,21 @@
 		D64FA16E1D1D1D95007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D64FA1701D1D1D95007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D64FA1721D1D1D95007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA1811D1D2B41007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA1831D1D2B41007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA1851D1D2B41007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA18A1D1D2B63007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA18C1D1D2B63007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA18E1D1D2B63007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA19C1D1D2B8D007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA19E1D1D2B8D007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA1A01D1D2B8D007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA1A51D1D2B97007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA1A71D1D2B97007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA1A91D1D2B97007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA1AE1D1D2B9F007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA1B01D1D2B9F007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D64FA1B21D1D2B9F007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +230,9 @@
 		D64FA1671D1D1D95007DE414 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				D64FA1801D1D2B41007DE414 /* Controller */,
+				D64FA1821D1D2B41007DE414 /* Model */,
+				D64FA1841D1D2B41007DE414 /* View */,
 				D64FA1681D1D1D95007DE414 /* README.md */,
 			);
 			path = Map;
@@ -208,6 +241,9 @@
 		D64FA1691D1D1D95007DE414 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				D64FA1891D1D2B63007DE414 /* Controller */,
+				D64FA18B1D1D2B63007DE414 /* Model */,
+				D64FA18D1D1D2B63007DE414 /* View */,
 				D64FA16A1D1D1D95007DE414 /* README.md */,
 			);
 			path = Music;
@@ -216,6 +252,9 @@
 		D64FA16B1D1D1D95007DE414 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				D64FA19B1D1D2B8D007DE414 /* Controller */,
+				D64FA19D1D1D2B8D007DE414 /* Model */,
+				D64FA19F1D1D2B8D007DE414 /* View */,
 				D64FA16C1D1D1D95007DE414 /* README.md */,
 			);
 			path = News;
@@ -224,6 +263,9 @@
 		D64FA16D1D1D1D95007DE414 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				D64FA1A41D1D2B97007DE414 /* Controller */,
+				D64FA1A61D1D2B97007DE414 /* Model */,
+				D64FA1A81D1D2B97007DE414 /* View */,
 				D64FA16E1D1D1D95007DE414 /* README.md */,
 			);
 			path = User;
@@ -232,6 +274,9 @@
 		D64FA16F1D1D1D95007DE414 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
+				D64FA1AD1D1D2B9F007DE414 /* Controller */,
+				D64FA1AF1D1D2B9F007DE414 /* Model */,
+				D64FA1B11D1D2B9F007DE414 /* View */,
 				D64FA1701D1D1D95007DE414 /* README.md */,
 			);
 			path = Videos;
@@ -243,6 +288,126 @@
 				D64FA1721D1D1D95007DE414 /* README.md */,
 			);
 			path = Vendors;
+			sourceTree = "<group>";
+		};
+		D64FA1801D1D2B41007DE414 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA1811D1D2B41007DE414 /* README.md */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D64FA1821D1D2B41007DE414 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA1831D1D2B41007DE414 /* README.md */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D64FA1841D1D2B41007DE414 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA1851D1D2B41007DE414 /* README.md */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D64FA1891D1D2B63007DE414 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA18A1D1D2B63007DE414 /* README.md */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D64FA18B1D1D2B63007DE414 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA18C1D1D2B63007DE414 /* README.md */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D64FA18D1D1D2B63007DE414 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA18E1D1D2B63007DE414 /* README.md */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D64FA19B1D1D2B8D007DE414 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA19C1D1D2B8D007DE414 /* README.md */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D64FA19D1D1D2B8D007DE414 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA19E1D1D2B8D007DE414 /* README.md */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D64FA19F1D1D2B8D007DE414 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA1A01D1D2B8D007DE414 /* README.md */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D64FA1A41D1D2B97007DE414 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA1A51D1D2B97007DE414 /* README.md */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D64FA1A61D1D2B97007DE414 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA1A71D1D2B97007DE414 /* README.md */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D64FA1A81D1D2B97007DE414 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA1A91D1D2B97007DE414 /* README.md */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D64FA1AD1D1D2B9F007DE414 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA1AE1D1D2B9F007DE414 /* README.md */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D64FA1AF1D1D2B9F007DE414 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA1B01D1D2B9F007DE414 /* README.md */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D64FA1B11D1D2B9F007DE414 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D64FA1B21D1D2B9F007DE414 /* README.md */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,18 +482,33 @@
 			files = (
 				D64FA1761D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1191D1D1C92007DE414 /* ViewController.m in Sources */,
+				D64FA1901D1D2B63007DE414 /* README.md in Sources */,
+				D64FA1911D1D2B63007DE414 /* README.md in Sources */,
+				D64FA1AB1D1D2B97007DE414 /* README.md in Sources */,
 				D64FA17A1D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1131D1D1C92007DE414 /* main.m in Sources */,
+				D64FA1A31D1D2B8D007DE414 /* README.md in Sources */,
 				D64FA17D1D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1771D1D1D95007DE414 /* README.md in Sources */,
+				D64FA1B31D1D2B9F007DE414 /* README.md in Sources */,
+				D64FA1A21D1D2B8D007DE414 /* README.md in Sources */,
+				D64FA1B51D1D2B9F007DE414 /* README.md in Sources */,
+				D64FA1881D1D2B41007DE414 /* README.md in Sources */,
+				D64FA1B41D1D2B9F007DE414 /* README.md in Sources */,
+				D64FA1861D1D2B41007DE414 /* README.md in Sources */,
+				D64FA1AA1D1D2B97007DE414 /* README.md in Sources */,
 				D64FA1741D1D1D95007DE414 /* README.md in Sources */,
+				D64FA1AC1D1D2B97007DE414 /* README.md in Sources */,
 				D64FA17C1D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1751D1D1D95007DE414 /* UIScrollView+Touches.m in Sources */,
 				D64FA1791D1D1D95007DE414 /* README.md in Sources */,
+				D64FA1871D1D2B41007DE414 /* README.md in Sources */,
+				D64FA18F1D1D2B63007DE414 /* README.md in Sources */,
 				D64FA17E1D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1781D1D1D95007DE414 /* README.md in Sources */,
 				D64FA17F1D1D1D95007DE414 /* README.md in Sources */,
 				D64FA17B1D1D1D95007DE414 /* README.md in Sources */,
+				D64FA1A11D1D2B8D007DE414 /* README.md in Sources */,
 				D64FA1731D1D1D95007DE414 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +656,7 @@
 				D64FA1271D1D1C92007DE414 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
