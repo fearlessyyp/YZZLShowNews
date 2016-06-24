@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FC2CE9D4EB4A8CDA9AB3DBA /* libPods-ShowNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AD0E98A66EEF8312CF716E /* libPods-ShowNews.a */; };
 		D64FA1131D1D1C92007DE414 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1121D1D1C92007DE414 /* main.m */; };
 		D64FA1191D1D1C92007DE414 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1181D1D1C92007DE414 /* ViewController.m */; };
 		D64FA11C1D1D1C92007DE414 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D64FA11A1D1D1C92007DE414 /* Main.storyboard */; };
@@ -48,9 +49,15 @@
 		D6EA5EA91D1D2E11006B6C33 /* NewsSpecialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5EA71D1D2E11006B6C33 /* NewsSpecialCell.xib */; };
 		D6EA5EAC1D1D494E006B6C33 /* NewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5EAB1D1D494E006B6C33 /* NewsController.m */; };
 		D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED41D1D576D006B6C33 /* UILabel+Font.m */; };
+		F570BD0D1D1D5CD30031CDB3 /* VideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F570BD0C1D1D5CD30031CDB3 /* VideoTableViewController.m */; };
+		F570BD111D1D5D000031CDB3 /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F570BD0F1D1D5D000031CDB3 /* VideoCell.m */; };
+		F570BD121D1D5D000031CDB3 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F570BD101D1D5D000031CDB3 /* VideoCell.xib */; };
+		F570BD151D1D6C9A0031CDB3 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F570BD141D1D6C9A0031CDB3 /* VideoModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		79CF943A678FF3DE14FD163E /* Pods-ShowNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowNews/Pods-ShowNews.debug.xcconfig"; sourceTree = "<group>"; };
+		96AD0E98A66EEF8312CF716E /* libPods-ShowNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShowNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D64FA10E1D1D1C92007DE414 /* ShowNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D64FA1121D1D1C92007DE414 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D64FA1171D1D1C92007DE414 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -102,6 +109,15 @@
 		D6EA5EAB1D1D494E006B6C33 /* NewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsController.m; sourceTree = "<group>"; };
 		D6EA5ED31D1D576D006B6C33 /* UILabel+Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Font.h"; sourceTree = "<group>"; };
 		D6EA5ED41D1D576D006B6C33 /* UILabel+Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Font.m"; sourceTree = "<group>"; };
+		D99B500FD685B92161D43C8B /* Pods-ShowNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowNews/Pods-ShowNews.release.xcconfig"; sourceTree = "<group>"; };
+		F570BD0B1D1D5CD30031CDB3 /* VideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTableViewController.h; sourceTree = "<group>"; };
+		F570BD0C1D1D5CD30031CDB3 /* VideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewController.m; sourceTree = "<group>"; };
+		F570BD0E1D1D5D000031CDB3 /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
+		F570BD0F1D1D5D000031CDB3 /* VideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCell.m; sourceTree = "<group>"; };
+		F570BD101D1D5D000031CDB3 /* VideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
+		F570BD131D1D6C9A0031CDB3 /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
+		F570BD141D1D6C9A0031CDB3 /* VideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
+		F570BD161D1D707D0031CDB3 /* NewsUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsUrl.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,17 +125,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC2CE9D4EB4A8CDA9AB3DBA /* libPods-ShowNews.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B61C3E55DC25BB3517D4F597 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				79CF943A678FF3DE14FD163E /* Pods-ShowNews.debug.xcconfig */,
+				D99B500FD685B92161D43C8B /* Pods-ShowNews.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D64FA1051D1D1C92007DE414 = {
 			isa = PBXGroup;
 			children = (
 				D64FA1101D1D1C92007DE414 /* ShowNews */,
 				D64FA10F1D1D1C92007DE414 /* Products */,
+				B61C3E55DC25BB3517D4F597 /* Pods */,
+				EBC2337212AA4DE4AE825C25 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				D64FA1611D1D1D95007DE414 /* README.md */,
+				F570BD161D1D707D0031CDB3 /* NewsUrl.h */,
 			);
 			path = Marco;
 			sourceTree = "<group>";
@@ -424,6 +453,8 @@
 			isa = PBXGroup;
 			children = (
 				D64FA1AE1D1D2B9F007DE414 /* README.md */,
+				F570BD0B1D1D5CD30031CDB3 /* VideoTableViewController.h */,
+				F570BD0C1D1D5CD30031CDB3 /* VideoTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -432,6 +463,8 @@
 			isa = PBXGroup;
 			children = (
 				D64FA1B01D1D2B9F007DE414 /* README.md */,
+				F570BD131D1D6C9A0031CDB3 /* VideoModel.h */,
+				F570BD141D1D6C9A0031CDB3 /* VideoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -440,8 +473,19 @@
 			isa = PBXGroup;
 			children = (
 				D64FA1B21D1D2B9F007DE414 /* README.md */,
+				F570BD0E1D1D5D000031CDB3 /* VideoCell.h */,
+				F570BD0F1D1D5D000031CDB3 /* VideoCell.m */,
+				F570BD101D1D5D000031CDB3 /* VideoCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EBC2337212AA4DE4AE825C25 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96AD0E98A66EEF8312CF716E /* libPods-ShowNews.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,9 +495,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D64FA1251D1D1C92007DE414 /* Build configuration list for PBXNativeTarget "ShowNews" */;
 			buildPhases = (
+				089B828A87202E92E17AE6E7 /* 📦 Check Pods Manifest.lock */,
 				D64FA10A1D1D1C92007DE414 /* Sources */,
 				D64FA10B1D1D1C92007DE414 /* Frameworks */,
 				D64FA10C1D1D1C92007DE414 /* Resources */,
+				36C413AF1736369356E8D83E /* 📦 Embed Pods Frameworks */,
+				0521704254F388981311C8E1 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -503,6 +550,7 @@
 			files = (
 				D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */,
 				D64FA1211D1D1C92007DE414 /* LaunchScreen.storyboard in Resources */,
+				F570BD121D1D5D000031CDB3 /* VideoCell.xib in Resources */,
 				D6EA5EA91D1D2E11006B6C33 /* NewsSpecialCell.xib in Resources */,
 				D6EA5EA41D1D2DF4006B6C33 /* NewsArticleCell.xib in Resources */,
 				D64FA11E1D1D1C92007DE414 /* Assets.xcassets in Resources */,
@@ -512,6 +560,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0521704254F388981311C8E1 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShowNews/Pods-ShowNews-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		089B828A87202E92E17AE6E7 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		36C413AF1736369356E8D83E /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShowNews/Pods-ShowNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D64FA10A1D1D1C92007DE414 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -520,6 +616,8 @@
 				D64FA1761D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1191D1D1C92007DE414 /* ViewController.m in Sources */,
 				D64FA1901D1D2B63007DE414 /* README.md in Sources */,
+				F570BD151D1D6C9A0031CDB3 /* VideoModel.m in Sources */,
+				F570BD0D1D1D5CD30031CDB3 /* VideoTableViewController.m in Sources */,
 				D64FA1911D1D2B63007DE414 /* README.md in Sources */,
 				D64FA1AB1D1D2B97007DE414 /* README.md in Sources */,
 				D64FA17A1D1D1D95007DE414 /* README.md in Sources */,
@@ -538,6 +636,7 @@
 				D64FA1741D1D1D95007DE414 /* README.md in Sources */,
 				D6EA5EA81D1D2E11006B6C33 /* NewsSpecialCell.m in Sources */,
 				D64FA1AC1D1D2B97007DE414 /* README.md in Sources */,
+				F570BD111D1D5D000031CDB3 /* VideoCell.m in Sources */,
 				D64FA17C1D1D1D95007DE414 /* README.md in Sources */,
 				D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */,
 				D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */,
@@ -659,6 +758,7 @@
 		};
 		D64FA1261D1D1C92007DE414 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79CF943A678FF3DE14FD163E /* Pods-ShowNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ShowNews/Info.plist;
@@ -670,6 +770,7 @@
 		};
 		D64FA1271D1D1C92007DE414 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D99B500FD685B92161D43C8B /* Pods-ShowNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ShowNews/Info.plist;
