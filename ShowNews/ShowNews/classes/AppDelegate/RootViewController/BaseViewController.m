@@ -61,7 +61,21 @@
         make.right.equalTo(weakSelf.myView);
         make.left.equalTo(weakSelf.myView);
     }];
-    
+
+    self.button = [UIButton new];
+    self.button.backgroundColor = [UIColor clearColor];
+    [self.myView addSubview:self.button];
+    [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.myView);
+        make.left.equalTo(weakSelf.myView);
+        make.bottom.equalTo(weakSelf.myView);
+        make.right.equalTo(weakSelf.myView);
+    }];
+    [self.button addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)test {
+    NSLog(@"===========");
 }
 
 /*
