@@ -44,10 +44,12 @@
 		D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA653F1D1E253200ECA213 /* WeatherHandle.m */; };
 		D6BA65461D1E2C7B00ECA213 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65451D1E2C7B00ECA213 /* Weather.m */; };
 		D6BA654C1D1E30C900ECA213 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA654B1D1E30C900ECA213 /* BaseViewController.m */; };
-		D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC411D1E5E0200B18F0E /* Music.m */; };
 		D6BA65521D1E44CE00ECA213 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65511D1E44CE00ECA213 /* testViewController.m */; };
 		D6BA65551D1E5B3400ECA213 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65541D1E5B3400ECA213 /* City.m */; };
 		D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */; };
+		D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC411D1E5E0200B18F0E /* Music.m */; };
+		D6E2AC461D1E681900B18F0E /* MusicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC441D1E681900B18F0E /* MusicListCell.m */; };
+		D6E2AC471D1E681900B18F0E /* MusicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E2AC451D1E681900B18F0E /* MusicListCell.xib */; };
 		D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */; };
 		D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5E9D1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib */; };
 		D6EA5EA31D1D2DF4006B6C33 /* NewsArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5EA11D1D2DF4006B6C33 /* NewsArticleCell.m */; };
@@ -117,14 +119,17 @@
 		D6BA65451D1E2C7B00ECA213 /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 		D6BA654A1D1E30C900ECA213 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		D6BA654B1D1E30C900ECA213 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		D6E2AC401D1E5E0200B18F0E /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
-		D6E2AC411D1E5E0200B18F0E /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
 		D6BA65501D1E44CE00ECA213 /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
 		D6BA65511D1E44CE00ECA213 /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
 		D6BA65531D1E5B3400ECA213 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
 		D6BA65541D1E5B3400ECA213 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		D6BA65561D1E5E0B00ECA213 /* GetPinYinFromChinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPinYinFromChinese.h; sourceTree = "<group>"; };
 		D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPinYinFromChinese.m; sourceTree = "<group>"; };
+		D6E2AC401D1E5E0200B18F0E /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
+		D6E2AC411D1E5E0200B18F0E /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
+		D6E2AC431D1E681900B18F0E /* MusicListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicListCell.h; sourceTree = "<group>"; };
+		D6E2AC441D1E681900B18F0E /* MusicListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicListCell.m; sourceTree = "<group>"; };
+		D6E2AC451D1E681900B18F0E /* MusicListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicListCell.xib; sourceTree = "<group>"; };
 		D6EA5E9B1D1D2DCF006B6C33 /* NewsPhotoSetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPhotoSetCell.h; sourceTree = "<group>"; };
 		D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPhotoSetCell.m; sourceTree = "<group>"; };
 		D6EA5E9D1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsPhotoSetCell.xib; sourceTree = "<group>"; };
@@ -445,6 +450,9 @@
 			isa = PBXGroup;
 			children = (
 				D64FA18E1D1D2B63007DE414 /* README.md */,
+				D6E2AC431D1E681900B18F0E /* MusicListCell.h */,
+				D6E2AC441D1E681900B18F0E /* MusicListCell.m */,
+				D6E2AC451D1E681900B18F0E /* MusicListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -619,6 +627,7 @@
 				D6EA5EA41D1D2DF4006B6C33 /* NewsArticleCell.xib in Resources */,
 				D64FA11E1D1D1C92007DE414 /* Assets.xcassets in Resources */,
 				D64FA11C1D1D1C92007DE414 /* Main.storyboard in Resources */,
+				D6E2AC471D1E681900B18F0E /* MusicListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +719,7 @@
 				D64FA17C1D1D1D95007DE414 /* README.md in Sources */,
 				D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */,
 				D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */,
+				D6E2AC461D1E681900B18F0E /* MusicListCell.m in Sources */,
 				D64FA1751D1D1D95007DE414 /* UIScrollView+Touches.m in Sources */,
 				D6EA5ED91D1D6BF1006B6C33 /* MusicSearchController.m in Sources */,
 				D6EA5EAC1D1D494E006B6C33 /* NewsController.m in Sources */,

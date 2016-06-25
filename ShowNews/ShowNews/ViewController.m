@@ -23,10 +23,10 @@
 //    VideoTableViewController *VTVC = [[VideoTableViewController alloc] init];
 //    VideoTableViewController *VTVC = [[VideoTableViewController alloc] init];
 //    [self.navigationController pushViewController:VTVC animated:YES];
-//    MusicSearchController *VTVC = [[MusicSearchController alloc] init];
-//    [self.navigationController pushViewController:VTVC animated:YES];
-    testViewController *VTVC = [[testViewController alloc] init];
+    MusicSearchController *VTVC = [[MusicSearchController alloc] init];
     [self.navigationController pushViewController:VTVC animated:YES];
+//    testViewController *VTVC = [[testViewController alloc] init];
+//    [self.navigationController pushViewController:VTVC animated:YES];
 //    MusicSearchController *VTVC = [[MusicSearchController alloc] init];
 //    [self.navigationController pushViewController:VTVC animated:YES];
 }

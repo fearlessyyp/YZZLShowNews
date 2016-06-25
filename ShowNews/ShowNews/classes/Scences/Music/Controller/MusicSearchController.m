@@ -11,9 +11,11 @@
 #import "NewsUrl.h"
 #import <AFNetworkActivityIndicatorManager.h>
 #import "Music.h"
+#import "MusicListCell.h"
 @interface MusicSearchController ()<UITableViewDelegate, UITableViewDataSource>
 /// 搜索栏
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+
 /// 搜索结果列表
 @property (weak, nonatomic) IBOutlet UITableView *listResultTableView;
 
@@ -36,15 +38,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.navigationController setNavigationBarHidden:YES];
     // 单例 初始化session对象
     self.session = [AFHTTPSessionManager manager];
     
-    [self requestData];
-    //    NSString *str = [NSString stringWithFormat:NEWS_MUSIC_SEARCH_URL231, @"周杰伦"];
-    //    NSLog(@"%@", str)
-    // Do any additional setup after loading the view from its nib.
+    // 注册cell
+    [self.listResultTableView registerNib:[UINib nibWithNibName:@"MusicListCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    
+    
+
     
 }
+
+- (IBAction)searchButtonAction:(UIButton *)sender {
+    [self.allArr removeAllObjects];
+    [self requestData];
+    
+}
+
+
 // 请求数据
 - (void)requestData{
     
@@ -82,20 +95,24 @@
     // 转圈圈的菊花默认是关闭的，需要手动打开，在网络慢的情况下请求数据时，手机左上角就会出现转圈圈的菊花
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
-    NSString *str = [NSString stringWithFormat:NEWS_MUSIC_SEARCH_URL231, [self.searchTextField.text UTF8String]];
-    
+    NSString *str = [NSString stringWithFormat:NEWS_MUSIC_SEARCH_URL231,self.searchTextField.text ];
+    NSString *urlStr = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
     __weak typeof(self) weakSelf = self;
-    [self.session GET:str parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [self.session GET:urlStr parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"下载进度");
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         // 打印请求到的数据
         //                 responseObject[@"data"];
-        
-        NSArray *array = responseObject[@"data"][@"song"][@"list"];
+        NSDictionary *resultDict = responseObject;
+        NSArray *array = resultDict[@"data"][@"song"][@"list"];
         if (array.count > 0) {
             for (NSDictionary *dic in array) {
                 NSArray *arr = [dic[@"f"] componentsSeparatedByString:@"|"];
+                if (arr.count < 23) {
+                    continue;
+                }
+                NSLog(@"!!!!!!!!!!!!!!%@", arr);
                 // 初始化model 并赋值
                 Music *music = [[Music alloc] init];
                 music.musicName = arr[1];
@@ -108,7 +125,10 @@
             }
             
         }
-        [weakSelf.listResultTableView reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.listResultTableView reloadData];
+        });
+        
         // 解析数据代码写在这里
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败, error = %@", error);
@@ -122,27 +142,27 @@
 //  设置分区个数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 // 设置每个分区的行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 0;
+    return self.allArr.count;
 }
 
 // 返回cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //    UITableView *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    //    VideoModel *model = self.allDataArray[indexPath.row];
-    //    [cell bindModel:model];
+        MusicListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    Music *music = self.allArr[indexPath.row];
+    [cell bindModel:music];
+    
     return cell;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 180;
+    return 60;
 }
 
 
