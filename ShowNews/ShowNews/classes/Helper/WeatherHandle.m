@@ -53,6 +53,7 @@ static WeatherHandle *manager = nil;
     __weak typeof(self) weakSelf = self;
     [self.session GET:WEATHER_ALLCITY parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"解析数据成功");
+        
         NSDictionary *resultDict = responseObject;
         for (NSDictionary *dic in resultDict[@"city_info"]) {
             City *city = [[City alloc] init];
@@ -72,6 +73,11 @@ static WeatherHandle *manager = nil;
         // 给城市字典排序
         [self sortCity];
         NSLog(@"%@", self.cityListDic);
+        NSString *documentsStr = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *fileStr = [documentsStr stringByAppendingPathComponent:@"city.json"];
+        BOOL result = [self.cityListDic writeToFile:fileStr atomically:YES];
+        NSLog(@" %d fileStr = %@", result, fileStr);
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求所有城市信息失败 %@", error);
     }];

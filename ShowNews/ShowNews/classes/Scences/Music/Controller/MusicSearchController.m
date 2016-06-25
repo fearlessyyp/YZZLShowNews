@@ -115,6 +115,7 @@
                 NSLog(@"!!!!!!!!!!!!!!%@", arr);
                 // 初始化model 并赋值
                 Music *music = [[Music alloc] init];
+                
                 music.musicName = arr[1];
                 music.lrc = arr[0];
                 music.singerName = arr[3];
