@@ -21,6 +21,14 @@
 @property (nonatomic, copy) NSString *ID;
 // 图片
 @property (nonatomic, copy) NSString *image;
+// 时间
+@property (nonatomic, strong) NSString * duration;     // 歌曲的时长
+
+@property (nonatomic, strong) NSMutableArray * timeForLyric;  // 时间对应的歌词
+@property (nonatomic, strong) NSString * mp3Url;       // 歌曲的Url
+
+@property (nonatomic, strong) NSString * picUrl;       // 歌曲的图片Url
 
 
+@property (nonatomic, strong) NSString * lyric;  // 歌词
 @end

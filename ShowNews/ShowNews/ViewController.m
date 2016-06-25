@@ -31,7 +31,7 @@
 //    [self.navigationController pushViewController:VTVC animated:YES];
 //    MusicSearchController *VTVC = [[MusicSearchController alloc] init];
 //    [self.navigationController pushViewController:VTVC animated:YES];
-    [WeatherHandle sharedWeatherHandle];
+//    [WeatherHandle sharedWeatherHandle];
 }
 
 - (void)didReceiveMemoryWarning {
