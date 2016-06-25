@@ -49,6 +49,8 @@
 		D6EA5EA91D1D2E11006B6C33 /* NewsSpecialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5EA71D1D2E11006B6C33 /* NewsSpecialCell.xib */; };
 		D6EA5EAC1D1D494E006B6C33 /* NewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5EAB1D1D494E006B6C33 /* NewsController.m */; };
 		D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED41D1D576D006B6C33 /* UILabel+Font.m */; };
+		D6EA5ED91D1D6BF1006B6C33 /* MusicSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */; };
+		D6EA5EDA1D1D6BF1006B6C33 /* MusicSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */; };
 		F570BD0D1D1D5CD30031CDB3 /* VideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F570BD0C1D1D5CD30031CDB3 /* VideoTableViewController.m */; };
 		F570BD111D1D5D000031CDB3 /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F570BD0F1D1D5D000031CDB3 /* VideoCell.m */; };
 		F570BD121D1D5D000031CDB3 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F570BD101D1D5D000031CDB3 /* VideoCell.xib */; };
@@ -109,6 +111,9 @@
 		D6EA5EAB1D1D494E006B6C33 /* NewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsController.m; sourceTree = "<group>"; };
 		D6EA5ED31D1D576D006B6C33 /* UILabel+Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Font.h"; sourceTree = "<group>"; };
 		D6EA5ED41D1D576D006B6C33 /* UILabel+Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Font.m"; sourceTree = "<group>"; };
+		D6EA5ED61D1D6BF1006B6C33 /* MusicSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicSearchController.h; sourceTree = "<group>"; };
+		D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicSearchController.m; sourceTree = "<group>"; };
+		D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicSearchController.xib; sourceTree = "<group>"; };
 		D99B500FD685B92161D43C8B /* Pods-ShowNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowNews/Pods-ShowNews.release.xcconfig"; sourceTree = "<group>"; };
 		F570BD0B1D1D5CD30031CDB3 /* VideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTableViewController.h; sourceTree = "<group>"; };
 		F570BD0C1D1D5CD30031CDB3 /* VideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewController.m; sourceTree = "<group>"; };
@@ -370,6 +375,9 @@
 			isa = PBXGroup;
 			children = (
 				D64FA18A1D1D2B63007DE414 /* README.md */,
+				D6EA5ED61D1D6BF1006B6C33 /* MusicSearchController.h */,
+				D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */,
+				D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -552,6 +560,7 @@
 				D64FA1211D1D1C92007DE414 /* LaunchScreen.storyboard in Resources */,
 				F570BD121D1D5D000031CDB3 /* VideoCell.xib in Resources */,
 				D6EA5EA91D1D2E11006B6C33 /* NewsSpecialCell.xib in Resources */,
+				D6EA5EDA1D1D6BF1006B6C33 /* MusicSearchController.xib in Resources */,
 				D6EA5EA41D1D2DF4006B6C33 /* NewsArticleCell.xib in Resources */,
 				D64FA11E1D1D1C92007DE414 /* Assets.xcassets in Resources */,
 				D64FA11C1D1D1C92007DE414 /* Main.storyboard in Resources */,
@@ -641,6 +650,7 @@
 				D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */,
 				D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */,
 				D64FA1751D1D1D95007DE414 /* UIScrollView+Touches.m in Sources */,
+				D6EA5ED91D1D6BF1006B6C33 /* MusicSearchController.m in Sources */,
 				D6EA5EAC1D1D494E006B6C33 /* NewsController.m in Sources */,
 				D64FA1791D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1871D1D2B41007DE414 /* README.md in Sources */,
