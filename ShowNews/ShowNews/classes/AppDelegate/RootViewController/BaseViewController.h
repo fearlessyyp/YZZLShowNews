@@ -16,6 +16,8 @@
 /// 显示天气的图标
 @property (nonatomic, strong) UIImageView *iconImage;
 
+@property (nonatomic, strong) UIButton *button;
+
 // 设置天气
 
 @end
