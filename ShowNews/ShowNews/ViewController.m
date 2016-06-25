@@ -10,6 +10,7 @@
 #import "NewsController.h"
 #import "VideoTableViewController.h"
 #import "MusicSearchController.h"
+
 @interface ViewController ()
 
 @end

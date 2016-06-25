@@ -1,5 +1,5 @@
 //
-//  WeatherHandle.h
+//  Weather.h
 //  ShowNews
 //
 //  Created by YYP on 16/6/25.
@@ -7,12 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Singleton.h"
 
-@interface WeatherHandle : NSObject
-// 声明单例
-singleton_interface(WeatherHandle)
-
-
-
+@interface Weather : NSObject
+//@property (nonatomic, copy) NSString *
 @end
