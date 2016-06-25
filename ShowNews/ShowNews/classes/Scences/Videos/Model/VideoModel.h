@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSString *cover;
 
 // / 视频长度 单位：秒
-@property (nonatomic, strong) NSString *length;
+@property (nonatomic, assign) NSInteger length;
 
 // /视频链接
 @property (nonatomic, strong) NSString *mp4_url;

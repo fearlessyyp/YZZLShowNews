@@ -8,6 +8,8 @@
 
 #import "VideoCell.h"
 #import "VideoModel.h"
+#import <UIImageView+WebCache.h>
+#import "NSString+TimeFormatter.h"
 @implementation VideoCell
 - (void)awakeFromNib {
     // Initialization code
@@ -23,6 +25,9 @@
 {
     self.titleLable.text = model.title;
     self.topicNameLable.text = model.topicName;
+    [self.backImageView sd_setImageWithURL:[NSURL URLWithString:model.cover]];
+    [self.topicImgImageView sd_setImageWithURL:[NSURL URLWithString:model.topicImg]];
+    self.timeLable.text = [NSString getStringWithTime:model.length];
     
 }
 

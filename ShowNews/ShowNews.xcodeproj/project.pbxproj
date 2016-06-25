@@ -56,6 +56,7 @@
 		F570BD111D1D5D000031CDB3 /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F570BD0F1D1D5D000031CDB3 /* VideoCell.m */; };
 		F570BD121D1D5D000031CDB3 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F570BD101D1D5D000031CDB3 /* VideoCell.xib */; };
 		F570BD151D1D6C9A0031CDB3 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F570BD141D1D6C9A0031CDB3 /* VideoModel.m */; };
+		F5D8CC9D1D1E2620006077C7 /* NSString+TimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D8CC9C1D1E2620006077C7 /* NSString+TimeFormatter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,8 @@
 		F570BD131D1D6C9A0031CDB3 /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
 		F570BD141D1D6C9A0031CDB3 /* VideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
 		F570BD161D1D707D0031CDB3 /* NewsUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsUrl.h; sourceTree = "<group>"; };
+		F5D8CC9B1D1E2620006077C7 /* NSString+TimeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeFormatter.h"; sourceTree = "<group>"; };
+		F5D8CC9C1D1E2620006077C7 /* NSString+TimeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TimeFormatter.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +243,8 @@
 				D6EA5ED41D1D576D006B6C33 /* UILabel+Font.m */,
 				D64FA15C1D1D1D95007DE414 /* UIScrollView+Touches.h */,
 				D64FA15D1D1D1D95007DE414 /* UIScrollView+Touches.m */,
+				F5D8CC9B1D1E2620006077C7 /* NSString+TimeFormatter.h */,
+				F5D8CC9C1D1E2620006077C7 /* NSString+TimeFormatter.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -665,6 +670,7 @@
 				D64FA1781D1D1D95007DE414 /* README.md in Sources */,
 				D64FA17F1D1D1D95007DE414 /* README.md in Sources */,
 				D64FA17B1D1D1D95007DE414 /* README.md in Sources */,
+				F5D8CC9D1D1E2620006077C7 /* NSString+TimeFormatter.m in Sources */,
 				D64FA1A11D1D2B8D007DE414 /* README.md in Sources */,
 				D64FA1731D1D1D95007DE414 /* AppDelegate.m in Sources */,
 			);
