@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -106,7 +106,14 @@
                     <constraint firstItem="kVv-Ja-1nb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="zm6-ii-Qxs"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="273" y="198"/>
+            <connections>
+                <outlet property="backImageView" destination="ITx-Gc-hY2" id="sLK-9V-OsG"/>
+                <outlet property="timeLable" destination="blH-dn-a2N" id="lew-on-d5g"/>
+                <outlet property="titleLable" destination="kVv-Ja-1nb" id="MbN-Rw-2yg"/>
+                <outlet property="topicImgImageView" destination="dW9-oz-6vF" id="tBs-sQ-7Ly"/>
+                <outlet property="topicNameLable" destination="VDn-H5-xXA" id="5ve-iz-I9k"/>
+            </connections>
+            <point key="canvasLocation" x="-140" y="153"/>
         </tableViewCell>
     </objects>
 </document>
