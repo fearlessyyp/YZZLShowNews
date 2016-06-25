@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -55,16 +55,21 @@
                         <state key="normal" title="Button"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啊啊啊啊啊" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVv-Ja-1nb">
-                        <rect key="frame" x="15" y="15" width="379" height="40"/>
+                        <rect key="frame" x="15" y="0.0" width="379" height="39"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="nI0-uq-0C2"/>
+                            <constraint firstAttribute="height" constant="55" id="nI0-uq-0C2"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="nI0-uq-0C2"/>
+                            </mask>
+                        </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:11" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blH-dn-a2N">
-                        <rect key="frame" x="334" y="108" width="60" height="20"/>
+                        <rect key="frame" x="334" y="114" width="60" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="E3u-NU-JZf"/>
                             <constraint firstAttribute="width" constant="60" id="om2-KK-DcD"/>
@@ -74,7 +79,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gO1-GW-IGE">
-                        <rect key="frame" x="192" y="65" width="30" height="30"/>
+                        <rect key="frame" x="192" y="55" width="30" height="30"/>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Jjs-f6-PFM"/>
@@ -93,9 +98,11 @@
                     <constraint firstItem="ITx-Gc-hY2" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="HzE-a6-Shb"/>
                     <constraint firstAttribute="bottom" secondItem="ITx-Gc-hY2" secondAttribute="bottom" constant="40" id="KCU-5z-ZI4"/>
                     <constraint firstItem="gO1-GW-IGE" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="LEP-kY-1iT"/>
-                    <constraint firstItem="kVv-Ja-1nb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Mhp-Vh-HvI"/>
+                    <constraint firstItem="kVv-Ja-1nb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Mhp-Vh-HvI"/>
                     <constraint firstItem="gO1-GW-IGE" firstAttribute="top" secondItem="kVv-Ja-1nb" secondAttribute="bottom" constant="10" id="Mn5-NB-4Fg"/>
+                    <constraint firstItem="ahB-Ew-j9h" firstAttribute="top" secondItem="blH-dn-a2N" secondAttribute="bottom" constant="10" id="T20-jg-oOe"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ahB-Ew-j9h" secondAttribute="trailing" constant="12" id="VfZ-F2-iSH"/>
+                    <constraint firstItem="gO1-GW-IGE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-20" id="W8k-cj-KtN"/>
                     <constraint firstAttribute="trailing" secondItem="kVv-Ja-1nb" secondAttribute="trailing" constant="20" id="bu8-jk-T4J"/>
                     <constraint firstItem="ITx-Gc-hY2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dDn-0a-Ja0"/>
                     <constraint firstAttribute="trailing" secondItem="blH-dn-a2N" secondAttribute="trailing" constant="20" id="dzX-0I-EgT"/>
@@ -105,6 +112,12 @@
                     <constraint firstItem="VDn-H5-xXA" firstAttribute="leading" secondItem="dW9-oz-6vF" secondAttribute="trailing" constant="10" id="vCf-lq-5Xa"/>
                     <constraint firstItem="kVv-Ja-1nb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="zm6-ii-Qxs"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Mn5-NB-4Fg"/>
+                        <exclude reference="tWf-Dh-F6I"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="backImageView" destination="ITx-Gc-hY2" id="sLK-9V-OsG"/>

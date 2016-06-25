@@ -48,7 +48,6 @@
     return _allDataArray;
 }
 
-
 // 解析数据
 - (void)readData
 {
@@ -68,8 +67,10 @@
             [videoModel setValuesForKeysWithDictionary:dict];
             [weakSelf.allDataArray addObject:videoModel];
         }
-        
-        NSLog(@"%@", weakSelf.allDataArray);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+        NSLog(@"=============%@", weakSelf.allDataArray);
         
         NSLog(@"请求成功%@", responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -92,6 +93,7 @@
 // 设置每个分区的行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
+    NSLog(@"------------------------%ld", self.allDataArray.count);
     return self.allDataArray.count;
 }
 
