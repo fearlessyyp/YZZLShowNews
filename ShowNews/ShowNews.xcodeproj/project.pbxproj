@@ -42,6 +42,7 @@
 		D64FA1B41D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1B01D1D2B9F007DE414 /* README.md */; };
 		D64FA1B51D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1B21D1D2B9F007DE414 /* README.md */; };
 		D6BA653D1D1E1EFC00ECA213 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA653C1D1E1EFC00ECA213 /* RootViewController.m */; };
+		D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA653F1D1E253200ECA213 /* WeatherHandle.m */; };
 		D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */; };
 		D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5E9D1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib */; };
 		D6EA5EA31D1D2DF4006B6C33 /* NewsArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5EA11D1D2DF4006B6C33 /* NewsArticleCell.m */; };
@@ -102,6 +103,10 @@
 		D64FA1B21D1D2B9F007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D6BA653B1D1E1EFC00ECA213 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		D6BA653C1D1E1EFC00ECA213 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		D6BA653E1D1E253200ECA213 /* WeatherHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherHandle.h; sourceTree = "<group>"; };
+		D6BA653F1D1E253200ECA213 /* WeatherHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherHandle.m; sourceTree = "<group>"; };
+		D6BA65411D1E259400ECA213 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		D6BA65421D1E268F00ECA213 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D6EA5E9B1D1D2DCF006B6C33 /* NewsPhotoSetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPhotoSetCell.h; sourceTree = "<group>"; };
 		D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPhotoSetCell.m; sourceTree = "<group>"; };
 		D6EA5E9D1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsPhotoSetCell.xib; sourceTree = "<group>"; };
@@ -253,6 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				D64FA15F1D1D1D95007DE414 /* README.md */,
+				D6BA653E1D1E253200ECA213 /* WeatherHandle.h */,
+				D6BA653F1D1E253200ECA213 /* WeatherHandle.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -261,7 +268,9 @@
 			isa = PBXGroup;
 			children = (
 				D64FA1611D1D1D95007DE414 /* README.md */,
+				D6BA65411D1E259400ECA213 /* Singleton.h */,
 				F570BD161D1D707D0031CDB3 /* NewsUrl.h */,
+				D6BA65421D1E268F00ECA213 /* PrefixHeader.pch */,
 			);
 			path = Marco;
 			sourceTree = "<group>";
@@ -650,6 +659,7 @@
 				D6EA5EA31D1D2DF4006B6C33 /* NewsArticleCell.m in Sources */,
 				D64FA1881D1D2B41007DE414 /* README.md in Sources */,
 				D64FA1B41D1D2B9F007DE414 /* README.md in Sources */,
+				D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */,
 				D64FA1861D1D2B41007DE414 /* README.md in Sources */,
 				D64FA1AA1D1D2B97007DE414 /* README.md in Sources */,
 				D64FA1741D1D1D95007DE414 /* README.md in Sources */,

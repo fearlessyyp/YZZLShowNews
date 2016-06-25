@@ -17,4 +17,8 @@
 @property (nonatomic, copy) NSString *temperature;
 /// 实时天气
 @property (nonatomic, copy) NSString *weather;
+/// 显示天气的图标
+@property (nonatomic, strong) UIImageView *iconImage;
+/// 代表天气的代码
+@property (nonatomic, strong) NSString *weatherNum;
 @end
