@@ -14,4 +14,8 @@
 
 
 
+// 音乐搜索的URL
+
+#define NEWS_MUSIC_SEARCH_URL(aaa,bbb,ccc) @"http://s.music.qq.com/fcgi-bin/music_search_new_platform?t=0&n=##bbb&aggr=1&cr=1&loginUin=##ccc&format=json&inCharset=GB2312&outCharset=utf-8&notice=0&platform=jqminiframe.json&needNewCode=0&p=##aaa&catZhida=0&remoteplace=sizer.newclient.next_song&w=0"
+
 #endif /* NewsUrl_h */

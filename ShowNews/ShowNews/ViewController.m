@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "NewsController.h"
 #import "VideoTableViewController.h"
+#import "MusicSearchController.h"
+
 @interface ViewController ()
 
 @end
@@ -18,7 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    VideoTableViewController *VTVC = [[VideoTableViewController alloc] init];
+//    VideoTableViewController *VTVC = [[VideoTableViewController alloc] init];
+//    [self.navigationController pushViewController:VTVC animated:YES];
+    MusicSearchController *VTVC = [[MusicSearchController alloc] init];
     [self.navigationController pushViewController:VTVC animated:YES];
 }
 
