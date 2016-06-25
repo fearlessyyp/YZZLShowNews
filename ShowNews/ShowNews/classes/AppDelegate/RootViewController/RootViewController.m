@@ -7,15 +7,34 @@
 //
 
 #import "RootViewController.h"
+#import <Masonry.h>
+
+// 图标的尺寸
+#define kIconSize CGSizeMake(16, 16)
 
 @interface RootViewController ()
-
+@property (nonatomic, strong) UIView *myView;
 @end
 
 @implementation RootViewController
 
+- (instancetype)init {
+    if (self = [super init]) {
+//        []
+        [self initLayout];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
-//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem alloc] initWithCustomView:<#(nonnull UIView *)#>
+}
+
+- (void)initLayout {
+    
+    
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.myView];
+
 }
 
 /*

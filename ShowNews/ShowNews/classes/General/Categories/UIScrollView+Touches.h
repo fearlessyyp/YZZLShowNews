@@ -1,9 +1,9 @@
 //
 //  UIScrollView+Touches.h
-//  DouBan
+//  ShowNews
 //
-//  Created by lanou3g on 16/6/20.
-//  Copyright © 2016年 yyp. All rights reserved.
+//  Created by YYP on 16/6/20.
+//  Copyright © 2016年 YZZL. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
