@@ -119,10 +119,26 @@
                 Music *music = [[Music alloc] init];
                 
 //                const char *arr1 = [arr[1] UTF8String];
-                music.musicName = arr[1];
+                NSString *name = arr[1];
+                if (name.length > 7) {
+                    music.musicName = [self editStr:name];
+                } else {
+                    music.musicName = arr[1];
+                }
+
                 music.lrc = arr[0];
-                music.singerName = arr[3];
-                music.specialName = arr[5];
+                NSString *singer = arr[3];
+                if (singer.length > 7) {
+                    music.singerName = [self editStr:singer];
+                } else {
+                    music.singerName = arr[3];
+                }
+                NSString *special = arr[5];
+                if (special.length > 7) {
+                    music.specialName = [self editStr:special];
+                } else {
+                    music.specialName = arr[5];
+                }
 //                music.duration = [array[7] stringByAppendingString:@"000"];
                 music.ID = arr[20];
                 music.image = arr[22];
@@ -151,6 +167,38 @@
         NSLog(@"请求失败, error = %@", error);
     }];
 }
+
+
+#warning 这儿
+- (NSString *)editStr:(NSString *)name {
+    name = [name substringFromIndex:6];
+    name = [name stringByReplacingOccurrencesOfString:@";" withString:@""];
+    NSLog(@"++++++++++++%@", name);
+    NSArray *nameArr = [name componentsSeparatedByString:@"&amp#"];
+    NSMutableString *resultStr = [NSMutableString string];
+    for (NSString *str in nameArr) {
+        
+        NSString *hexString = [NSString stringWithFormat:@"%@",[[NSString alloc] initWithFormat:@"%1x", str.intValue]];
+        NSLog(@"=========%@", str);
+        NSString *str1 = [MusicSearchController replaceUnicode:[NSString stringWithFormat:@"\\U%@", hexString]];
+        [resultStr appendString:str1];
+    }
+    return resultStr;
+    
+}
+#warning 这儿
+#pragma mark - 转换韩文
++ (NSString *)replaceUnicode:(NSString *)unicodeStr {
+    
+    NSString *tempStr1 = [unicodeStr stringByReplacingOccurrencesOfString:@"\\u"withString:@"\\U"];
+    // NSString *tempStr1 = [unicodeStr stringByReplacingOccurrencesOfString:@"%u"withString:@"\\U"];
+    NSString *tempStr2 = [tempStr1 stringByReplacingOccurrencesOfString:@"\""withString:@"\\\""];
+    NSString *tempStr3 = [[@"\""stringByAppendingString:tempStr2]stringByAppendingString:@"\""];
+    NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
+    NSString* returnStr = [ NSPropertyListSerialization  propertyListFromData:tempData mutabilityOption:NSPropertyListImmutable format:NULL errorDescription:NULL];
+    return [returnStr stringByReplacingOccurrencesOfString:@"\\r\\n"withString:@"\n"];
+}
+
 
 //- (NSString *)requestLrc:(NSString *)str {
 //    __weak typeof(self) weakSelf = self;
