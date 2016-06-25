@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3FC2CE9D4EB4A8CDA9AB3DBA /* libPods-ShowNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AD0E98A66EEF8312CF716E /* libPods-ShowNews.a */; };
+		D6224A3E1D1E6A560048ED57 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = D6224A3D1D1E6A560048ED57 /* Foundation+Log.m */; };
+		D6224A471D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A411D1E6F6E0048ED57 /* README.md */; };
+		D6224A481D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A431D1E6F6E0048ED57 /* README.md */; };
+		D6224A491D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A441D1E6F6E0048ED57 /* README.md */; };
+		D6224A4A1D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A461D1E6F6E0048ED57 /* README.md */; };
 		D64FA1131D1D1C92007DE414 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1121D1D1C92007DE414 /* main.m */; };
 		D64FA1191D1D1C92007DE414 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1181D1D1C92007DE414 /* ViewController.m */; };
 		D64FA11C1D1D1C92007DE414 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D64FA11A1D1D1C92007DE414 /* Main.storyboard */; };
@@ -44,10 +49,10 @@
 		D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA653F1D1E253200ECA213 /* WeatherHandle.m */; };
 		D6BA65461D1E2C7B00ECA213 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65451D1E2C7B00ECA213 /* Weather.m */; };
 		D6BA654C1D1E30C900ECA213 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA654B1D1E30C900ECA213 /* BaseViewController.m */; };
-		D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC411D1E5E0200B18F0E /* Music.m */; };
 		D6BA65521D1E44CE00ECA213 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65511D1E44CE00ECA213 /* testViewController.m */; };
 		D6BA65551D1E5B3400ECA213 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65541D1E5B3400ECA213 /* City.m */; };
 		D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */; };
+		D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC411D1E5E0200B18F0E /* Music.m */; };
 		D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */; };
 		D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5E9D1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib */; };
 		D6EA5EA31D1D2DF4006B6C33 /* NewsArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5EA11D1D2DF4006B6C33 /* NewsArticleCell.m */; };
@@ -70,6 +75,11 @@
 /* Begin PBXFileReference section */
 		79CF943A678FF3DE14FD163E /* Pods-ShowNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowNews/Pods-ShowNews.debug.xcconfig"; sourceTree = "<group>"; };
 		96AD0E98A66EEF8312CF716E /* libPods-ShowNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShowNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6224A3D1D1E6A560048ED57 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		D6224A411D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D6224A431D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D6224A441D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D6224A461D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D64FA10E1D1D1C92007DE414 /* ShowNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D64FA1121D1D1C92007DE414 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D64FA1171D1D1C92007DE414 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -117,14 +127,14 @@
 		D6BA65451D1E2C7B00ECA213 /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 		D6BA654A1D1E30C900ECA213 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		D6BA654B1D1E30C900ECA213 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		D6E2AC401D1E5E0200B18F0E /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
-		D6E2AC411D1E5E0200B18F0E /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
 		D6BA65501D1E44CE00ECA213 /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
 		D6BA65511D1E44CE00ECA213 /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
 		D6BA65531D1E5B3400ECA213 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
 		D6BA65541D1E5B3400ECA213 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		D6BA65561D1E5E0B00ECA213 /* GetPinYinFromChinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPinYinFromChinese.h; sourceTree = "<group>"; };
 		D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPinYinFromChinese.m; sourceTree = "<group>"; };
+		D6E2AC401D1E5E0200B18F0E /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
+		D6E2AC411D1E5E0200B18F0E /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
 		D6EA5E9B1D1D2DCF006B6C33 /* NewsPhotoSetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPhotoSetCell.h; sourceTree = "<group>"; };
 		D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPhotoSetCell.m; sourceTree = "<group>"; };
 		D6EA5E9D1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsPhotoSetCell.xib; sourceTree = "<group>"; };
@@ -176,6 +186,41 @@
 				D99B500FD685B92161D43C8B /* Pods-ShowNews.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D6224A3F1D1E6F6E0048ED57 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				D6224A401D1E6F6E0048ED57 /* Controller */,
+				D6224A421D1E6F6E0048ED57 /* Model */,
+				D6224A441D1E6F6E0048ED57 /* README.md */,
+				D6224A451D1E6F6E0048ED57 /* View */,
+			);
+			path = City;
+			sourceTree = "<group>";
+		};
+		D6224A401D1E6F6E0048ED57 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D6224A411D1E6F6E0048ED57 /* README.md */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D6224A421D1E6F6E0048ED57 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D6224A431D1E6F6E0048ED57 /* README.md */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D6224A451D1E6F6E0048ED57 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6224A461D1E6F6E0048ED57 /* README.md */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D64FA1051D1D1C92007DE414 = {
@@ -281,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				D64FA15F1D1D1D95007DE414 /* README.md */,
+				D6224A3D1D1E6A560048ED57 /* Foundation+Log.m */,
 				D6BA65561D1E5E0B00ECA213 /* GetPinYinFromChinese.h */,
 				D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */,
 				D6BA653E1D1E253200ECA213 /* WeatherHandle.h */,
@@ -324,6 +370,7 @@
 		D64FA1661D1D1D95007DE414 /* Scences */ = {
 			isa = PBXGroup;
 			children = (
+				D6224A3F1D1E6F6E0048ED57 /* City */,
 				D64FA1671D1D1D95007DE414 /* Map */,
 				D64FA1691D1D1D95007DE414 /* Music */,
 				D64FA16B1D1D1D95007DE414 /* News */,
@@ -689,9 +736,12 @@
 				D64FA17A1D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1131D1D1C92007DE414 /* main.m in Sources */,
 				D64FA1A31D1D2B8D007DE414 /* README.md in Sources */,
+				D6224A4A1D1E6F6E0048ED57 /* README.md in Sources */,
+				D6224A471D1E6F6E0048ED57 /* README.md in Sources */,
 				D64FA17D1D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1771D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1B31D1D2B9F007DE414 /* README.md in Sources */,
+				D6224A3E1D1E6A560048ED57 /* Foundation+Log.m in Sources */,
 				D64FA1A21D1D2B8D007DE414 /* README.md in Sources */,
 				D64FA1B51D1D2B9F007DE414 /* README.md in Sources */,
 				D6EA5EA31D1D2DF4006B6C33 /* NewsArticleCell.m in Sources */,
@@ -705,6 +755,7 @@
 				D6BA65521D1E44CE00ECA213 /* testViewController.m in Sources */,
 				D64FA1741D1D1D95007DE414 /* README.md in Sources */,
 				D6EA5EA81D1D2E11006B6C33 /* NewsSpecialCell.m in Sources */,
+				D6224A491D1E6F6E0048ED57 /* README.md in Sources */,
 				D64FA1AC1D1D2B97007DE414 /* README.md in Sources */,
 				F570BD111D1D5D000031CDB3 /* VideoCell.m in Sources */,
 				D64FA17C1D1D1D95007DE414 /* README.md in Sources */,
@@ -720,6 +771,7 @@
 				D64FA17E1D1D1D95007DE414 /* README.md in Sources */,
 				D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */,
 				D64FA1781D1D1D95007DE414 /* README.md in Sources */,
+				D6224A481D1E6F6E0048ED57 /* README.md in Sources */,
 				D64FA17F1D1D1D95007DE414 /* README.md in Sources */,
 				D64FA17B1D1D1D95007DE414 /* README.md in Sources */,
 				F5D8CC9D1D1E2620006077C7 /* NSString+TimeFormatter.m in Sources */,

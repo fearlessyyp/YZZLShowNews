@@ -25,4 +25,7 @@
 // 所在省
 @property (nonatomic, strong) NSString *prov;
 
+// 拼音首字母
+@property (nonatomic, strong) NSString *pinyin;
+
 @end

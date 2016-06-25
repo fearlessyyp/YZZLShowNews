@@ -17,4 +17,8 @@
     }
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@", self.city];
+}
+
 @end

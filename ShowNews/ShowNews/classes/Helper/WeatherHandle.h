@@ -15,6 +15,8 @@
 /// 存储城市列表的字典
 @property (nonatomic, strong) NSMutableDictionary *cityListDic;
 
+// 存储城市字典key的数组
+@property (nonatomic, strong) NSMutableArray *cityKeyArr;
 // 声明单例
 singleton_interface(WeatherHandle)
 

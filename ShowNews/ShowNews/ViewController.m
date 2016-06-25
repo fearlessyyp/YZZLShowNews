@@ -11,6 +11,8 @@
 #import "VideoTableViewController.h"
 #import "MusicSearchController.h"
 #import "testViewController.h"
+#import "WeatherHandle.h"
+
 @interface ViewController ()
 
 @end
@@ -29,6 +31,7 @@
     [self.navigationController pushViewController:VTVC animated:YES];
 //    MusicSearchController *VTVC = [[MusicSearchController alloc] init];
 //    [self.navigationController pushViewController:VTVC animated:YES];
+    [WeatherHandle sharedWeatherHandle];
 }
 
 - (void)didReceiveMemoryWarning {
