@@ -8,9 +8,15 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "MapViewController.h"
+#import "MusicSearchController.h"
+#import "NewsViewController.h"
+#import "UserViewController.h"
+#import "VideoTableViewController.h"
+#import <RESideMenu.h>
 
-@interface AppDelegate ()
-
+@interface AppDelegate ()<RESideMenuDelegate>
+@property (nonatomic, strong) UITabBarController *rootTVC;
 @end
 
 @implementation AppDelegate
@@ -20,11 +26,69 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
+    self.rootTVC = [[UITabBarController alloc] init];
+    [self createChildViewControllers];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.rootTVC];
+    MusicSearchController *musicVC = [[MusicSearchController alloc] init];
+    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:self.rootTVC
+                                                                    leftMenuViewController:nil
+                                                                   rightMenuViewController:musicVC];
+    sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
+    sideMenuViewController.delegate = self;
+    sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
+    sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
+    sideMenuViewController.contentViewShadowOpacity = 0.6;
+    sideMenuViewController.contentViewShadowRadius = 12;
+    sideMenuViewController.contentViewShadowEnabled = YES;
 
     // Override point for customization after application launch.
     return YES;
 }
+
+- (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"didShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu willHideMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"willHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu didHideMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"didHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
+}
+
+
+#pragma mark - 创建四个根视图控制器
+- (void)createChildViewControllers {
+    [self addOneChildViewController:[[UserViewController alloc] init] title:@"新闻" normalImage:nil selectedImage:nil];
+    [self addOneChildViewController:[[VideoTableViewController alloc] init] title:@"视频" normalImage:nil selectedImage:nil];
+    [self addOneChildViewController:[[MusicSearchController alloc] init] title:@"地图" normalImage:nil selectedImage:nil];
+    [self addOneChildViewController:[[UserViewController alloc] init] title:@"我" normalImage:nil selectedImage:nil];
+}
+
+#pragma mark - 添加控制器
+- (void)addOneChildViewController:(UIViewController *)viewController
+                            title:(NSString *)title
+                      normalImage:(NSString *)normalImage
+                    selectedImage:(NSString *)selectedImage{
+    viewController.view.backgroundColor = [UIColor whiteColor];
+    viewController.title = title;
+    viewController.tabBarItem.image = [UIImage imageNamed:normalImage];
+    UIImage *image = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    viewController.tabBarItem.selectedImage = image;
+//    UINavigationController *mainNC = [[UINavigationController alloc] initWithRootViewController:viewController];
+//    // 添加子控制器
+    [self.rootTVC addChildViewController:viewController];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

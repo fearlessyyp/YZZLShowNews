@@ -1,5 +1,5 @@
 //
-//  testViewController.h
+//  MapViewController.h
 //  ShowNews
 //
 //  Created by YYP on 16/6/25.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface testViewController : BaseViewController
+@interface MapViewController : BaseViewController
 
 @end

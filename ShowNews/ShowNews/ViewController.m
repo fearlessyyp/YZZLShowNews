@@ -7,10 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "NewsController.h"
 #import "VideoTableViewController.h"
 #import "MusicSearchController.h"
-#import "testViewController.h"
 #import "WeatherHandle.h"
 
 @interface ViewController ()
