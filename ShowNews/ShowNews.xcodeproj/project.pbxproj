@@ -57,6 +57,16 @@
 		D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC411D1E5E0200B18F0E /* Music.m */; };
 		D6E2AC461D1E681900B18F0E /* MusicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC441D1E681900B18F0E /* MusicListCell.m */; };
 		D6E2AC471D1E681900B18F0E /* MusicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E2AC451D1E681900B18F0E /* MusicListCell.xib */; };
+		D6E2AC4B1D1E873600B18F0E /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC491D1E873600B18F0E /* PlayViewController.m */; };
+		D6E2AC4C1D1E873600B18F0E /* PlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E2AC4A1D1E873600B18F0E /* PlayViewController.xib */; };
+		D6E2AC511D1E876700B18F0E /* PlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC4E1D1E876700B18F0E /* PlayerManager.m */; };
+		D6E2AC521D1E876700B18F0E /* PlayerConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC501D1E876700B18F0E /* PlayerConsole.m */; };
+		D6E2AC551D1E878B00B18F0E /* MusicTimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC541D1E878B00B18F0E /* MusicTimeFormatter.m */; };
+		D6E2AC5C1D1E879D00B18F0E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E2AC561D1E879D00B18F0E /* background.png */; };
+		D6E2AC5D1D1E879D00B18F0E /* collect.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E2AC571D1E879D00B18F0E /* collect.png */; };
+		D6E2AC5E1D1E879D00B18F0E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E2AC581D1E879D00B18F0E /* icon.png */; };
+		D6E2AC5F1D1E879D00B18F0E /* lyric.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E2AC591D1E879D00B18F0E /* lyric.png */; };
+		D6E2AC601D1E879D00B18F0E /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E2AC5A1D1E879D00B18F0E /* thumb.png */; };
 		D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */; };
 		D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5E9D1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib */; };
 		D6EA5EA31D1D2DF4006B6C33 /* NewsArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5EA11D1D2DF4006B6C33 /* NewsArticleCell.m */; };
@@ -145,6 +155,20 @@
 		D6E2AC431D1E681900B18F0E /* MusicListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicListCell.h; sourceTree = "<group>"; };
 		D6E2AC441D1E681900B18F0E /* MusicListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicListCell.m; sourceTree = "<group>"; };
 		D6E2AC451D1E681900B18F0E /* MusicListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicListCell.xib; sourceTree = "<group>"; };
+		D6E2AC481D1E873600B18F0E /* PlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
+		D6E2AC491D1E873600B18F0E /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
+		D6E2AC4A1D1E873600B18F0E /* PlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayViewController.xib; sourceTree = "<group>"; };
+		D6E2AC4D1D1E876700B18F0E /* PlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerManager.h; sourceTree = "<group>"; };
+		D6E2AC4E1D1E876700B18F0E /* PlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerManager.m; sourceTree = "<group>"; };
+		D6E2AC4F1D1E876700B18F0E /* PlayerConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerConsole.h; sourceTree = "<group>"; };
+		D6E2AC501D1E876700B18F0E /* PlayerConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerConsole.m; sourceTree = "<group>"; };
+		D6E2AC531D1E878B00B18F0E /* MusicTimeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTimeFormatter.h; sourceTree = "<group>"; };
+		D6E2AC541D1E878B00B18F0E /* MusicTimeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicTimeFormatter.m; sourceTree = "<group>"; };
+		D6E2AC561D1E879D00B18F0E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		D6E2AC571D1E879D00B18F0E /* collect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collect.png; sourceTree = "<group>"; };
+		D6E2AC581D1E879D00B18F0E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		D6E2AC591D1E879D00B18F0E /* lyric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lyric.png; sourceTree = "<group>"; };
+		D6E2AC5A1D1E879D00B18F0E /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
 		D6EA5E9B1D1D2DCF006B6C33 /* NewsPhotoSetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPhotoSetCell.h; sourceTree = "<group>"; };
 		D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPhotoSetCell.m; sourceTree = "<group>"; };
 		D6EA5E9D1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsPhotoSetCell.xib; sourceTree = "<group>"; };
@@ -346,6 +370,8 @@
 				D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */,
 				D6BA653E1D1E253200ECA213 /* WeatherHandle.h */,
 				D6BA653F1D1E253200ECA213 /* WeatherHandle.m */,
+				D6E2AC531D1E878B00B18F0E /* MusicTimeFormatter.h */,
+				D6E2AC541D1E878B00B18F0E /* MusicTimeFormatter.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -375,6 +401,7 @@
 		D64FA1641D1D1D95007DE414 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D6E2AC5B1D1E879D00B18F0E /* Image */,
 				D64FA1651D1D1D95007DE414 /* README.md */,
 			);
 			path = Resources;
@@ -487,6 +514,9 @@
 				D6EA5ED61D1D6BF1006B6C33 /* MusicSearchController.h */,
 				D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */,
 				D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */,
+				D6E2AC481D1E873600B18F0E /* PlayViewController.h */,
+				D6E2AC491D1E873600B18F0E /* PlayViewController.m */,
+				D6E2AC4A1D1E873600B18F0E /* PlayViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -494,6 +524,10 @@
 		D64FA18B1D1D2B63007DE414 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D6E2AC4D1D1E876700B18F0E /* PlayerManager.h */,
+				D6E2AC4E1D1E876700B18F0E /* PlayerManager.m */,
+				D6E2AC4F1D1E876700B18F0E /* PlayerConsole.h */,
+				D6E2AC501D1E876700B18F0E /* PlayerConsole.m */,
 				D64FA18C1D1D2B63007DE414 /* README.md */,
 				D6E2AC401D1E5E0200B18F0E /* Music.h */,
 				D6E2AC411D1E5E0200B18F0E /* Music.m */,
@@ -605,6 +639,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D6E2AC5B1D1E879D00B18F0E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				D6E2AC561D1E879D00B18F0E /* background.png */,
+				D6E2AC571D1E879D00B18F0E /* collect.png */,
+				D6E2AC581D1E879D00B18F0E /* icon.png */,
+				D6E2AC591D1E879D00B18F0E /* lyric.png */,
+				D6E2AC5A1D1E879D00B18F0E /* thumb.png */,
+			);
+			name = Image;
+			path = "../../../../../../Documents/zzq/未命名文件夹/DAY16/模仿音乐播放器/UIpdd_test___音乐播放器/UIpdd_test___音乐播放器/Resources/Image";
+			sourceTree = "<group>";
+		};
 		EBC2337212AA4DE4AE825C25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -674,15 +721,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */,
+				D6E2AC5C1D1E879D00B18F0E /* background.png in Resources */,
 				F53D26271D1E2C20002E0644 /* VideoPlayerViewController.xib in Resources */,
 				D64FA1211D1D1C92007DE414 /* LaunchScreen.storyboard in Resources */,
 				F570BD121D1D5D000031CDB3 /* VideoCell.xib in Resources */,
 				D6EA5EA91D1D2E11006B6C33 /* NewsSpecialCell.xib in Resources */,
 				D6EA5EDA1D1D6BF1006B6C33 /* MusicSearchController.xib in Resources */,
 				D6EA5EA41D1D2DF4006B6C33 /* NewsArticleCell.xib in Resources */,
+				D6E2AC5E1D1E879D00B18F0E /* icon.png in Resources */,
+				D6E2AC4C1D1E873600B18F0E /* PlayViewController.xib in Resources */,
 				D64FA11E1D1D1C92007DE414 /* Assets.xcassets in Resources */,
+				D6E2AC5D1D1E879D00B18F0E /* collect.png in Resources */,
+				D6E2AC601D1E879D00B18F0E /* thumb.png in Resources */,
 				D64FA11C1D1D1C92007DE414 /* Main.storyboard in Resources */,
 				D6224A551D1E9EDA0048ED57 /* CityViewController.xib in Resources */,
+				D6E2AC5F1D1E879D00B18F0E /* lyric.png in Resources */,
 				D6E2AC471D1E681900B18F0E /* MusicListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -761,6 +814,7 @@
 				D64FA1771D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1B31D1D2B9F007DE414 /* README.md in Sources */,
 				D6224A3E1D1E6A560048ED57 /* Foundation+Log.m in Sources */,
+				D6E2AC511D1E876700B18F0E /* PlayerManager.m in Sources */,
 				D64FA1A21D1D2B8D007DE414 /* README.md in Sources */,
 				D64FA1B51D1D2B9F007DE414 /* README.md in Sources */,
 				D6EA5EA31D1D2DF4006B6C33 /* NewsArticleCell.m in Sources */,
@@ -777,9 +831,11 @@
 				D64FA1AC1D1D2B97007DE414 /* README.md in Sources */,
 				F570BD111D1D5D000031CDB3 /* VideoCell.m in Sources */,
 				D64FA17C1D1D1D95007DE414 /* README.md in Sources */,
+				D6E2AC521D1E876700B18F0E /* PlayerConsole.m in Sources */,
 				D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */,
 				D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */,
 				D6E2AC461D1E681900B18F0E /* MusicListCell.m in Sources */,
+				D6E2AC4B1D1E873600B18F0E /* PlayViewController.m in Sources */,
 				D64FA1751D1D1D95007DE414 /* UIScrollView+Touches.m in Sources */,
 				D6EA5ED91D1D6BF1006B6C33 /* MusicSearchController.m in Sources */,
 				D6EA5EAC1D1D494E006B6C33 /* NewsController.m in Sources */,
@@ -795,6 +851,7 @@
 				D64FA17B1D1D1D95007DE414 /* README.md in Sources */,
 				F5D8CC9D1D1E2620006077C7 /* NSString+TimeFormatter.m in Sources */,
 				D6224A541D1E9EDA0048ED57 /* CityViewController.m in Sources */,
+				D6E2AC551D1E878B00B18F0E /* MusicTimeFormatter.m in Sources */,
 				D64FA1A11D1D2B8D007DE414 /* README.md in Sources */,
 				D64FA1731D1D1D95007DE414 /* AppDelegate.m in Sources */,
 			);

@@ -12,6 +12,8 @@
 #import <AFNetworkActivityIndicatorManager.h>
 #import "Music.h"
 #import "MusicListCell.h"
+#import "PlayViewController.h"
+#import "PlayerManager.h"
 @interface MusicSearchController ()<UITableViewDelegate, UITableViewDataSource>
 /// 搜索栏
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -116,17 +118,31 @@
                 // 初始化model 并赋值
                 Music *music = [[Music alloc] init];
                 
+//                const char *arr1 = [arr[1] UTF8String];
                 music.musicName = arr[1];
                 music.lrc = arr[0];
                 music.singerName = arr[3];
                 music.specialName = arr[5];
+//                music.duration = [array[7] stringByAppendingString:@"000"];
                 music.ID = arr[20];
                 music.image = arr[22];
+
+                // 歌曲图片网址
+                music.picUrl = [NSString stringWithFormat:@"http://imgcache.qq.com/music/photo/mid_album_90/%@/%@/%@.jpg",[music.image substringWithRange:NSMakeRange(music.image.length-2, 1)], [music.image substringFromIndex:music.image.length-1], music.image];
+                
+                // 歌曲网址
+                music.mp3Url = [NSString stringWithFormat:NEWS_MUSIC_PLAY_URL, music.ID];
+                // 歌词网址
+                music.lyric = [NSString stringWithFormat:@"http://music.qq.com/miniportal/static/lyric/%@/%@.xml", [music.lrc substringFromIndex:music.lrc.length - 2], music.lrc];
+                
+//                [self requestLrc:music.lrc];
+                
                 [weakSelf.allArr addObject:music];
             }
             
         }
         dispatch_async(dispatch_get_main_queue(), ^{
+            [PlayerManager sharePlayer].playList = weakSelf.allArr;
             [weakSelf.listResultTableView reloadData];
         });
         
@@ -134,10 +150,27 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败, error = %@", error);
     }];
-    
-    
-    
 }
+
+//- (NSString *)requestLrc:(NSString *)str {
+//    __weak typeof(self) weakSelf = self;
+//    [self.session GET:str parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+//        NSLog(@"下载进度");
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        
+//        NSLog(@"%@", responseObject);
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [weakSelf.listResultTableView reloadData];
+//        });
+//        
+//        // 解析数据代码写在这里
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"请求失败, error = %@", error);
+//    }];
+//}
+
+
+
 
 #pragma mark - Table view data source
 //  设置分区个数
@@ -158,6 +191,14 @@
     [cell bindModel:music];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PlayViewController *playVC = [PlayViewController sharePlayView];
+    
+    playVC.musicIndex = indexPath.row;
+    
+    [self.navigationController pushViewController:playVC animated:YES];
 }
 
 
