@@ -12,6 +12,7 @@
 #import <AFNetworkActivityIndicatorManager.h>
 #import "NewsUrl.h"
 #import "VideoModel.h"
+#import "VideoPlayerViewController.h"
 @interface VideoTableViewController ()
 // / 存储数据的数组
 @property (nonatomic, strong) NSMutableArray *allDataArray;
@@ -110,6 +111,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 180;
+}
+
+// 点击cell
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    VideoPlayerViewController *VideoVC = [[VideoPlayerViewController alloc] init];
+    [self presentViewController:VideoVC animated:YES completion:nil];
 }
 
 

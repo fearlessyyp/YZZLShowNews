@@ -21,6 +21,7 @@
     // Configure the view for the selected state
 }
 
+// 传值
 - (void)bindModel:(VideoModel *)model
 {
     self.titleLable.text = model.title;

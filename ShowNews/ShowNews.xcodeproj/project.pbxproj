@@ -53,6 +53,8 @@
 		D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED41D1D576D006B6C33 /* UILabel+Font.m */; };
 		D6EA5ED91D1D6BF1006B6C33 /* MusicSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */; };
 		D6EA5EDA1D1D6BF1006B6C33 /* MusicSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */; };
+		F53D26261D1E2C20002E0644 /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F53D26241D1E2C20002E0644 /* VideoPlayerViewController.m */; };
+		F53D26271D1E2C20002E0644 /* VideoPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F53D26251D1E2C20002E0644 /* VideoPlayerViewController.xib */; };
 		F570BD0D1D1D5CD30031CDB3 /* VideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F570BD0C1D1D5CD30031CDB3 /* VideoTableViewController.m */; };
 		F570BD111D1D5D000031CDB3 /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F570BD0F1D1D5D000031CDB3 /* VideoCell.m */; };
 		F570BD121D1D5D000031CDB3 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F570BD101D1D5D000031CDB3 /* VideoCell.xib */; };
@@ -124,6 +126,9 @@
 		D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicSearchController.m; sourceTree = "<group>"; };
 		D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicSearchController.xib; sourceTree = "<group>"; };
 		D99B500FD685B92161D43C8B /* Pods-ShowNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowNews/Pods-ShowNews.release.xcconfig"; sourceTree = "<group>"; };
+		F53D26231D1E2C20002E0644 /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
+		F53D26241D1E2C20002E0644 /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
+		F53D26251D1E2C20002E0644 /* VideoPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoPlayerViewController.xib; sourceTree = "<group>"; };
 		F570BD0B1D1D5CD30031CDB3 /* VideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTableViewController.h; sourceTree = "<group>"; };
 		F570BD0C1D1D5CD30031CDB3 /* VideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewController.m; sourceTree = "<group>"; };
 		F570BD0E1D1D5D000031CDB3 /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
@@ -482,6 +487,9 @@
 				D64FA1AE1D1D2B9F007DE414 /* README.md */,
 				F570BD0B1D1D5CD30031CDB3 /* VideoTableViewController.h */,
 				F570BD0C1D1D5CD30031CDB3 /* VideoTableViewController.m */,
+				F53D26231D1E2C20002E0644 /* VideoPlayerViewController.h */,
+				F53D26241D1E2C20002E0644 /* VideoPlayerViewController.m */,
+				F53D26251D1E2C20002E0644 /* VideoPlayerViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -576,6 +584,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */,
+				F53D26271D1E2C20002E0644 /* VideoPlayerViewController.xib in Resources */,
 				D64FA1211D1D1C92007DE414 /* LaunchScreen.storyboard in Resources */,
 				F570BD121D1D5D000031CDB3 /* VideoCell.xib in Resources */,
 				D6EA5EA91D1D2E11006B6C33 /* NewsSpecialCell.xib in Resources */,
@@ -661,6 +670,7 @@
 				D64FA1B41D1D2B9F007DE414 /* README.md in Sources */,
 				D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */,
 				D64FA1861D1D2B41007DE414 /* README.md in Sources */,
+				F53D26261D1E2C20002E0644 /* VideoPlayerViewController.m in Sources */,
 				D64FA1AA1D1D2B97007DE414 /* README.md in Sources */,
 				D64FA1741D1D1D95007DE414 /* README.md in Sources */,
 				D6EA5EA81D1D2E11006B6C33 /* NewsSpecialCell.m in Sources */,
