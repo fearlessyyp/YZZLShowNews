@@ -20,10 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-//    VideoTableViewController *VTVC = [[VideoTableViewController alloc] init];
-//    [self.navigationController pushViewController:VTVC animated:YES];
-    MusicSearchController *VTVC = [[MusicSearchController alloc] init];
+    VideoTableViewController *VTVC = [[VideoTableViewController alloc] init];
     [self.navigationController pushViewController:VTVC animated:YES];
+//    MusicSearchController *VTVC = [[MusicSearchController alloc] init];
+//    [self.navigationController pushViewController:VTVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

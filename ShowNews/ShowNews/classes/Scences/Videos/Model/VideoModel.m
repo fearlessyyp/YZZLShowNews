@@ -12,7 +12,7 @@
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
-    
+    //NSLog(@"没有的key %@", key);
 }
 
 

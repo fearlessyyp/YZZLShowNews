@@ -10,20 +10,71 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
 #import "VideoModel.h"
+#import <AFNetworking.h>
+#import "NewsUrl.h"
 @interface VideoPlayerViewController ()
 // 声明播放视频的控件属性 [既可以播放音频,又可以播放视频]
 @property (nonatomic, strong) AVPlayer *player;
 
+@property (nonatomic, strong) AFHTTPSessionManager *session;
+@property (nonatomic, strong) NSMutableArray *allDataArray;
 @end
 
 @implementation VideoPlayerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backBarButtonItemAction:)];
+    self.navigationItem.leftBarButtonItem = backButtonItem;
+   // VideoModel *model = [[VideoModel alloc] init];
     // Do any additional setup after loading the view from its nib.
-    VideoModel *model = [[VideoModel alloc] init];
+    [self showUIWithVideoModel:self.model];
+   }
+
+// 懒加载数组
+- (NSMutableArray *)allDataArray
+{
+    if (!_allDataArray) {
+        _allDataArray = [NSMutableArray array];
+    }
+    return _allDataArray;
+}
+
+// 解析数据
+- (void)readData
+{
+    __weak typeof (self)weakSelf = self;
+    
+    [self.session GET:NEWS_VIDEO_LIST_URL parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        NSLog(@"下载的进度");
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        // 请求数据
+        NSLog(@"请求成功");
+        
+        // 处理数据...
+        NSArray *reusltArr = responseObject[@"V9LG4B3A0"];
+        
+        for (NSDictionary *dict in reusltArr) {
+            VideoModel *videoModel = [[VideoModel alloc] init];
+            [videoModel setValuesForKeysWithDictionary:dict];
+            [weakSelf.allDataArray addObject:videoModel];
+            
+        }
+       
+        NSLog(@"=============%@", weakSelf.allDataArray);
+        
+        NSLog(@"请求成功%@", responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"请求失败%@", error);
+    }];
+}
+
+- (void)showUIWithVideoModel:(VideoModel*)model
+{
+ 
     NSURL *sourceMovieURL = [NSURL URLWithString:model.mp4_url];
-   
+    NSLog(@"----++++++++++++++++++++++++++++++++----------------%@", model.mp4_url);
     // 设置播放的项目
     AVPlayerItem *item = [[AVPlayerItem alloc] initWithURL:sourceMovieURL];
     
@@ -47,13 +98,19 @@
     [self.view.layer addSublayer:layer];
     
     // 设置播放进度的默认值
-   
+    
     // 设置播放的默认音量值
     self.player.volume = 1.0f;
     
-
+    
     [self.player play];
+    
 
+}
+
+- (void)backBarButtonItemAction:(UIBarButtonItem *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideoTableViewController : UITableViewController
+@interface VideoTableViewController : BaseViewController
 
 @end

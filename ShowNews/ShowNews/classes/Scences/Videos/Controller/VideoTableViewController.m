@@ -13,28 +13,33 @@
 #import "NewsUrl.h"
 #import "VideoModel.h"
 #import "VideoPlayerViewController.h"
-@interface VideoTableViewController ()
+@interface VideoTableViewController ()<UITableViewDataSource,UITableViewDelegate>
 // / 存储数据的数组
 @property (nonatomic, strong) NSMutableArray *allDataArray;
 
 // / 用于网络请求的session对象
 @property (nonatomic, strong) AFHTTPSessionManager *session;
 
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation VideoTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
     // 单例 初始化session对象
     self.session = [AFHTTPSessionManager manager];
     // 解析数据
     [self readData];
     // 设置请求返回支持的文件类型
-    self.session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"application/x-json",@"text/html", nil];
+    //self.session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"application/x-json",@"text/html", nil];
     
          // 转圈圈的菊花默认是关闭的，需要手动打开，在网络慢的情况下请求数据时，手机左上角就会出现转圈圈的菊花
-    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+   // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
@@ -117,7 +122,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     VideoPlayerViewController *VideoVC = [[VideoPlayerViewController alloc] init];
-    [self presentViewController:VideoVC animated:YES completion:nil];
+    
+    VideoVC.model = self.allDataArray[indexPath.row];
+    
+    [self.navigationController pushViewController:VideoVC animated:YES];
 }
 
 
