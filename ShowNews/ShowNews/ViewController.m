@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "NewsController.h"
-
+#import "VideoTableViewController.h"
 @interface ViewController ()
 
 @end
@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    VideoTableViewController *VTVC = [[VideoTableViewController alloc] init];
+    [self.navigationController pushViewController:VTVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
