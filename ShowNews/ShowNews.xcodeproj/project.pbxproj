@@ -44,6 +44,10 @@
 		D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA653F1D1E253200ECA213 /* WeatherHandle.m */; };
 		D6BA65461D1E2C7B00ECA213 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65451D1E2C7B00ECA213 /* Weather.m */; };
 		D6BA654C1D1E30C900ECA213 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA654B1D1E30C900ECA213 /* BaseViewController.m */; };
+		D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC411D1E5E0200B18F0E /* Music.m */; };
+		D6BA65521D1E44CE00ECA213 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65511D1E44CE00ECA213 /* testViewController.m */; };
+		D6BA65551D1E5B3400ECA213 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65541D1E5B3400ECA213 /* City.m */; };
+		D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */; };
 		D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */; };
 		D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5E9D1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib */; };
 		D6EA5EA31D1D2DF4006B6C33 /* NewsArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5EA11D1D2DF4006B6C33 /* NewsArticleCell.m */; };
@@ -113,6 +117,14 @@
 		D6BA65451D1E2C7B00ECA213 /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 		D6BA654A1D1E30C900ECA213 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		D6BA654B1D1E30C900ECA213 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		D6E2AC401D1E5E0200B18F0E /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
+		D6E2AC411D1E5E0200B18F0E /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
+		D6BA65501D1E44CE00ECA213 /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
+		D6BA65511D1E44CE00ECA213 /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
+		D6BA65531D1E5B3400ECA213 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		D6BA65541D1E5B3400ECA213 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		D6BA65561D1E5E0B00ECA213 /* GetPinYinFromChinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPinYinFromChinese.h; sourceTree = "<group>"; };
+		D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPinYinFromChinese.m; sourceTree = "<group>"; };
 		D6EA5E9B1D1D2DCF006B6C33 /* NewsPhotoSetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPhotoSetCell.h; sourceTree = "<group>"; };
 		D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPhotoSetCell.m; sourceTree = "<group>"; };
 		D6EA5E9D1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsPhotoSetCell.xib; sourceTree = "<group>"; };
@@ -238,6 +250,8 @@
 				D64FA1591D1D1D95007DE414 /* README.md */,
 				D6BA654A1D1E30C900ECA213 /* BaseViewController.h */,
 				D6BA654B1D1E30C900ECA213 /* BaseViewController.m */,
+				D6BA65501D1E44CE00ECA213 /* testViewController.h */,
+				D6BA65511D1E44CE00ECA213 /* testViewController.m */,
 			);
 			path = RootViewController;
 			sourceTree = "<group>";
@@ -267,6 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				D64FA15F1D1D1D95007DE414 /* README.md */,
+				D6BA65561D1E5E0B00ECA213 /* GetPinYinFromChinese.h */,
+				D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */,
 				D6BA653E1D1E253200ECA213 /* WeatherHandle.h */,
 				D6BA653F1D1E253200ECA213 /* WeatherHandle.m */,
 			);
@@ -291,6 +307,8 @@
 				D64FA1631D1D1D95007DE414 /* README.md */,
 				D6BA65441D1E2C7B00ECA213 /* Weather.h */,
 				D6BA65451D1E2C7B00ECA213 /* Weather.m */,
+				D6BA65531D1E5B3400ECA213 /* City.h */,
+				D6BA65541D1E5B3400ECA213 /* City.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -417,6 +435,8 @@
 			isa = PBXGroup;
 			children = (
 				D64FA18C1D1D2B63007DE414 /* README.md */,
+				D6E2AC401D1E5E0200B18F0E /* Music.h */,
+				D6E2AC411D1E5E0200B18F0E /* Music.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -677,10 +697,12 @@
 				D6EA5EA31D1D2DF4006B6C33 /* NewsArticleCell.m in Sources */,
 				D64FA1881D1D2B41007DE414 /* README.md in Sources */,
 				D64FA1B41D1D2B9F007DE414 /* README.md in Sources */,
+				D6BA65551D1E5B3400ECA213 /* City.m in Sources */,
 				D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */,
 				D64FA1861D1D2B41007DE414 /* README.md in Sources */,
 				F53D26261D1E2C20002E0644 /* VideoPlayerViewController.m in Sources */,
 				D64FA1AA1D1D2B97007DE414 /* README.md in Sources */,
+				D6BA65521D1E44CE00ECA213 /* testViewController.m in Sources */,
 				D64FA1741D1D1D95007DE414 /* README.md in Sources */,
 				D6EA5EA81D1D2E11006B6C33 /* NewsSpecialCell.m in Sources */,
 				D64FA1AC1D1D2B97007DE414 /* README.md in Sources */,
@@ -693,8 +715,10 @@
 				D6EA5EAC1D1D494E006B6C33 /* NewsController.m in Sources */,
 				D64FA1791D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1871D1D2B41007DE414 /* README.md in Sources */,
+				D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */,
 				D64FA18F1D1D2B63007DE414 /* README.md in Sources */,
 				D64FA17E1D1D1D95007DE414 /* README.md in Sources */,
+				D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */,
 				D64FA1781D1D1D95007DE414 /* README.md in Sources */,
 				D64FA17F1D1D1D95007DE414 /* README.md in Sources */,
 				D64FA17B1D1D1D95007DE414 /* README.md in Sources */,

@@ -9,22 +9,112 @@
 #import "MusicSearchController.h"
 #import <AFNetworking.h>
 #import "NewsUrl.h"
+#import <AFNetworkActivityIndicatorManager.h>
+#import "Music.h"
 @interface MusicSearchController ()<UITableViewDelegate, UITableViewDataSource>
 /// 搜索栏
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 /// 搜索结果列表
 @property (weak, nonatomic) IBOutlet UITableView *listResultTableView;
 
+/// 用于网络请求的session对象
+@property (nonatomic, strong) AFHTTPSessionManager *session;
+
+/// 大数组
+@property (nonatomic, strong) NSMutableArray *allArr;
 @end
 
 @implementation MusicSearchController
 
+// 懒加载
+- (NSMutableArray *)allArr {
+    if (!_allArr) {
+        _allArr = [NSMutableArray array];
+    }
+    return _allArr;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 单例 初始化session对象
+    self.session = [AFHTTPSessionManager manager];
     
-
-    NSLog(@"%@",NEWS_MUSIC_SEARCH_URL(周子琦, 雷坤, 岳云鹏));
+    [self requestData];
+    //    NSString *str = [NSString stringWithFormat:NEWS_MUSIC_SEARCH_URL231, @"周杰伦"];
+    //    NSLog(@"%@", str)
     // Do any additional setup after loading the view from its nib.
+    
+}
+// 请求数据
+- (void)requestData{
+    
+    
+    //     判断当前是wifi状态、3g、4g还是网络不可用状态
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        /**
+         32          AFNetworkReachabilityStatusUnknown          = -1,   未知网络
+         33          AFNetworkReachabilityStatusNotReachable     = 0,    没有网络连接
+         34          AFNetworkReachabilityStatusReachableViaWWAN = 1,    3g,4g
+         35          AFNetworkReachabilityStatusReachableViaWiFi = 2,    WIFI状态
+         36          */
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown:
+                NSLog(@"当前网络处于未知状态");
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+                NSLog(@"当前没有网络连接");
+                break;
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                NSLog(@"当前处于WIFI状态");
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                NSLog(@"当前处于移动网络状态，请您注意您的流量");
+                break;
+            default:
+                break;
+        }
+    }];
+    
+    
+    // 设置请求返回支持的文件类型
+    self.session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"application/x-json",@"text/html", @"application/x-javascript", nil];
+    
+    // 转圈圈的菊花默认是关闭的，需要手动打开，在网络慢的情况下请求数据时，手机左上角就会出现转圈圈的菊花
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    NSString *str = [NSString stringWithFormat:NEWS_MUSIC_SEARCH_URL231, [self.searchTextField.text UTF8String]];
+    
+    
+    __weak typeof(self) weakSelf = self;
+    [self.session GET:str parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        NSLog(@"下载进度");
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        // 打印请求到的数据
+        //                 responseObject[@"data"];
+        
+        NSArray *array = responseObject[@"data"][@"song"][@"list"];
+        if (array.count > 0) {
+            for (NSDictionary *dic in array) {
+                NSArray *arr = [dic[@"f"] componentsSeparatedByString:@"|"];
+                // 初始化model 并赋值
+                Music *music = [[Music alloc] init];
+                music.musicName = arr[1];
+                music.lrc = arr[0];
+                music.singerName = arr[3];
+                music.specialName = arr[5];
+                music.ID = arr[20];
+                music.image = arr[22];
+                [weakSelf.allArr addObject:music];
+            }
+            
+        }
+        [weakSelf.listResultTableView reloadData];
+        // 解析数据代码写在这里
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"请求失败, error = %@", error);
+    }];
+    
+    
     
 }
 
@@ -36,16 +126,16 @@
 }
 // 设置每个分区的行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     return 0;
 }
 
 // 返回cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableView *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    //    UITableView *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-//    VideoModel *model = self.allDataArray[indexPath.row];
-//    [cell bindModel:model];
+    //    VideoModel *model = self.allDataArray[indexPath.row];
+    //    [cell bindModel:model];
     return cell;
 }
 
@@ -63,13 +153,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

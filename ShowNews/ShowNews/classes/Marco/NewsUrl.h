@@ -15,7 +15,23 @@
 
 
 // 音乐搜索的URL
+//#define str @"http://s.music.qq.com/fcgi-bin/music_search_new_platform?t=0&n=
+//#define str1(bbb) #bbb
+//#define str2 @"#&aggr=1&cr=1&loginUin="
+//#define str3(ccc) #ccc
+//#define str4 @"&format=json&inCharset=GB2312&outCharset=utf-8&notice=0&platform=jqminiframe.json&needNewCode=0&p="
+//#define str5 (aaa) #aaa
+//#define str6 @"&catZhida=0&remoteplace=sizer.newclient.next_song&w=0"
+#define NEWS_MUSIC_SEARCH_URL231 @"http://s.music.qq.com/fcgi-bin/music_search_new_platform?t=0&n=20&aggr=1&cr=1&loginUin=0&format=json&inCharset=GB2312&outCharset=utf-8&notice=0&platform=jqminiframe.json&needNewCode=0&p=1&catZhida=0&remoteplace=sizer.newclient.next_song&w=%s"
 
-#define NEWS_MUSIC_SEARCH_URL(aaa,bbb,ccc) @"http://s.music.qq.com/fcgi-bin/music_search_new_platform?t=0&n=##bbb&aggr=1&cr=1&loginUin=##ccc&format=json&inCharset=GB2312&outCharset=utf-8&notice=0&platform=jqminiframe.json&needNewCode=0&p=##aaa&catZhida=0&remoteplace=sizer.newclient.next_song&w=0"
+
+
+
+#pragma mark - 获取城市列表
+#define WEATHER_ALLCITY @"https://api.heweather.com/x3/citylist?search=allchina&key=741e9450a52942b8aecf694beeda6b7e"
+
+#pragma mark - 获取某个城市当前天气
+#define WEATHER_NOW_CITY(cityId) [NSString stringWithFormat:@"https://api.heweather.com/x3/weather?cityid=%@&key=741e9450a52942b8aecf694beeda6b7e", cityID]
+
 
 #endif /* NewsUrl_h */
