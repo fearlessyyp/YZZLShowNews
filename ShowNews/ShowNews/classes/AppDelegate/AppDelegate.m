@@ -28,7 +28,7 @@
     [self.window makeKeyAndVisible];
     self.rootTVC = [[UITabBarController alloc] init];
     [self createChildViewControllers];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.rootTVC];
+    
     MusicSearchController *musicVC = [[MusicSearchController alloc] init];
     RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:self.rootTVC
                                                                     leftMenuViewController:nil
@@ -40,37 +40,24 @@
     sideMenuViewController.contentViewShadowOpacity = 0.6;
     sideMenuViewController.contentViewShadowRadius = 12;
     sideMenuViewController.contentViewShadowEnabled = YES;
-
+    // 抽屉效果不变小
+    sideMenuViewController.scaleContentView = NO;
+    // 设置不能侧滑效果
+    sideMenuViewController.panGestureEnabled = NO;
+    // 设置平移偏移量
+    sideMenuViewController.contentViewInLandscapeOffsetCenterX = [UIScreen mainScreen].bounds.size.width * 0.35;
+    sideMenuViewController.contentViewInPortraitOffsetCenterX  = [UIScreen mainScreen].bounds.size.width * 0.35;
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:sideMenuViewController];
     // Override point for customization after application launch.
     return YES;
-}
-
-- (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController
-{
-    NSLog(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
-}
-
-- (void)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(UIViewController *)menuViewController
-{
-    NSLog(@"didShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
-}
-
-- (void)sideMenu:(RESideMenu *)sideMenu willHideMenuViewController:(UIViewController *)menuViewController
-{
-    NSLog(@"willHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
-}
-
-- (void)sideMenu:(RESideMenu *)sideMenu didHideMenuViewController:(UIViewController *)menuViewController
-{
-    NSLog(@"didHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
 }
 
 
 #pragma mark - 创建四个根视图控制器
 - (void)createChildViewControllers {
-    [self addOneChildViewController:[[UserViewController alloc] init] title:@"新闻" normalImage:nil selectedImage:nil];
+    [self addOneChildViewController:[[NewsViewController alloc] init] title:@"新闻" normalImage:nil selectedImage:nil];
     [self addOneChildViewController:[[VideoTableViewController alloc] init] title:@"视频" normalImage:nil selectedImage:nil];
-    [self addOneChildViewController:[[MusicSearchController alloc] init] title:@"地图" normalImage:nil selectedImage:nil];
+    [self addOneChildViewController:[[MapViewController alloc] init] title:@"地图" normalImage:nil selectedImage:nil];
     [self addOneChildViewController:[[UserViewController alloc] init] title:@"我" normalImage:nil selectedImage:nil];
 }
 
@@ -79,14 +66,13 @@
                             title:(NSString *)title
                       normalImage:(NSString *)normalImage
                     selectedImage:(NSString *)selectedImage{
-    viewController.view.backgroundColor = [UIColor whiteColor];
     viewController.title = title;
     viewController.tabBarItem.image = [UIImage imageNamed:normalImage];
     UIImage *image = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     viewController.tabBarItem.selectedImage = image;
-//    UINavigationController *mainNC = [[UINavigationController alloc] initWithRootViewController:viewController];
+    UINavigationController *mainNC = [[UINavigationController alloc] initWithRootViewController:viewController];
 //    // 添加子控制器
-    [self.rootTVC addChildViewController:viewController];
+    [self.rootTVC addChildViewController:mainNC];
 }
 
 

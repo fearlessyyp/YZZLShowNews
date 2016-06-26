@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import <Masonry.h>
+#import <RESideMenu.h>
 // 导航栏高度
 #define kNavHeight self.navigationController.navigationBar.frame.size.height
 // 图标的尺寸
@@ -24,7 +25,10 @@
     [self initLayout];
 }
 - (void)initLayout {
-    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"音乐"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(presentRightMenuViewController:)];
     __weak typeof(self)weakSelf = self;
     // 初始化自定义视图
     self.myView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width * 0.2, kNavHeight)];
