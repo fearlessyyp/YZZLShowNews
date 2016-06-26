@@ -116,7 +116,7 @@
                 if (arr.count < 23) {
                     continue;
                 }
-//                NSLog(@"!!!!!!!!!!!!!!%@", arr);
+                //                NSLog(@"!!!!!!!!!!!!!!%@", arr);
                 // 初始化model 并赋值
                 Music *music = [[Music alloc] init];
                 
@@ -148,7 +148,7 @@
                 
                 // 歌曲图片网址
                 music.picUrl = [NSString stringWithFormat:@"http://imgcache.qq.com/music/photo/mid_album_90/%@/%@/%@.jpg",[music.image substringWithRange:NSMakeRange(music.image.length-2, 1)], [music.image substringFromIndex:music.image.length-1], music.image];
-//                NSLog(@"-------------------------%@", music.picUrl);
+                //                NSLog(@"-------------------------%@", music.picUrl);
                 
                 // 歌曲网址
                 music.mp3Url = [NSString stringWithFormat:NEWS_MUSIC_PLAY_URL, music.ID];
@@ -175,24 +175,24 @@
 }
 
 
-#warning 这儿
+
 - (NSString *)editStr:(NSString *)name {
     name = [name substringFromIndex:6];
     name = [name stringByReplacingOccurrencesOfString:@";" withString:@""];
-//    NSLog(@"++++++++++++%@", name);
+    //    NSLog(@"++++++++++++%@", name);
     NSArray *nameArr = [name componentsSeparatedByString:@"&amp#"];
     NSMutableString *resultStr = [NSMutableString string];
     for (NSString *str in nameArr) {
         
         NSString *hexString = [NSString stringWithFormat:@"%@",[[NSString alloc] initWithFormat:@"%1x", str.intValue]];
-//        NSLog(@"=========%@", str);
+        //        NSLog(@"=========%@", str);
         NSString *str1 = [MusicSearchController replaceUnicode:[NSString stringWithFormat:@"\\U%@", hexString]];
         [resultStr appendString:str1];
     }
     return resultStr;
     
 }
-#warning 这儿
+
 #pragma mark - 转换韩文
 + (NSString *)replaceUnicode:(NSString *)unicodeStr {
     
@@ -213,45 +213,48 @@
     NSURLSessionTask *task = [sesson dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         if (error == nil) {
-//            NSLog(@"%@", data);
+            //            NSLog(@"%@", data);
             // M解析 (创建解析文档)
-                    GDataXMLDocument *document = [[GDataXMLDocument alloc] initWithData:data options:0 error:nil];
+            GDataXMLDocument *document = [[GDataXMLDocument alloc] initWithData:data options:0 error:nil];
             
-                    // 4. 获取根节点
+            if ([document.rootElement.name isEqualToString:@"lyric"]) {
+                // 4. 获取根节点
+                NSString *str2 = document.rootElement.stringValue;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    music.lyricxxxx = str2;
+                    NSLog(@"===============%@---------,%@",str2, music.lyric);
+                });
+            }
             
-                    NSString *str2 = document.rootElement.stringValue;
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        music.lyricxxxx = str2;
-                        NSLog(@"===============%@---------,%@",str2, music.lyric);
-                    });
-
-       
+            
+            
+            
         }
         
         
-//        // 3. 设置DO//        return str2;
-//        // 5. 遍历获取相对应的子节点
-//        for (GDataXMLElement *studentElement in rootElement.children) {
-//            Student *stu = [[Student alloc] init];
-//            
-//            // 遍历子节点的子节点
-//            for (GDataXMLElement *stuElement in studentElement.children) {
-//                //            NSLog(@"stuElement = %@", stuElement);
-//                
-//                // 根据标签给student对象赋值
-//                //stuElement.name 相当于 标签的名字
-//                //stuElement.stringValue 相当于 标签的值
-//                // KVC
-//                [stu setValue:stuElement.stringValue forKey:stuElement.name];
-//            }
-//            [self.dataArray addObject:stu];
-//        }
-//        
-//        // 打印校验
-//        for (Student *stu in self.dataArray) {
-//            NSLog(@"name = %@, gender = %@, age = %ld, hobby = %@",stu.name, stu.gender, stu.age, stu.hobby);
-//        }
-
+        //        // 3. 设置DO//        return str2;
+        //        // 5. 遍历获取相对应的子节点
+        //        for (GDataXMLElement *studentElement in rootElement.children) {
+        //            Student *stu = [[Student alloc] init];
+        //
+        //            // 遍历子节点的子节点
+        //            for (GDataXMLElement *stuElement in studentElement.children) {
+        //                //            NSLog(@"stuElement = %@", stuElement);
+        //
+        //                // 根据标签给student对象赋值
+        //                //stuElement.name 相当于 标签的名字
+        //                //stuElement.stringValue 相当于 标签的值
+        //                // KVC
+        //                [stu setValue:stuElement.stringValue forKey:stuElement.name];
+        //            }
+        //            [self.dataArray addObject:stu];
+        //        }
+        //
+        //        // 打印校验
+        //        for (Student *stu in self.dataArray) {
+        //            NSLog(@"name = %@, gender = %@, age = %ld, hobby = %@",stu.name, stu.gender, stu.age, stu.hobby);
+        //        }
+        
         
     }];
     [task resume];
