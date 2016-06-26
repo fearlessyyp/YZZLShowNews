@@ -14,6 +14,7 @@
 #import "MusicListCell.h"
 #import "PlayViewController.h"
 #import "PlayerManager.h"
+#import "GDataXMLNode.h"
 @interface MusicSearchController ()<UITableViewDelegate, UITableViewDataSource>
 /// 搜索栏
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -49,7 +50,7 @@
     [self.listResultTableView registerNib:[UINib nibWithNibName:@"MusicListCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
     
-
+    
     
 }
 
@@ -87,6 +88,7 @@
                 break;
             default:
                 break;
+                
         }
     }];
     
@@ -114,44 +116,48 @@
                 if (arr.count < 23) {
                     continue;
                 }
-                NSLog(@"!!!!!!!!!!!!!!%@", arr);
+//                NSLog(@"!!!!!!!!!!!!!!%@", arr);
                 // 初始化model 并赋值
                 Music *music = [[Music alloc] init];
                 
-//                const char *arr1 = [arr[1] UTF8String];
+                //                const char *arr1 = [arr[1] UTF8String];
                 NSString *name = arr[1];
-                if (name.length > 7) {
+                if ([name containsString:@"&amp;#"]) {
                     music.musicName = [self editStr:name];
                 } else {
                     music.musicName = arr[1];
                 }
-
+                
                 music.lrc = arr[0];
                 NSString *singer = arr[3];
-                if (singer.length > 7) {
+                if ([singer containsString:@"&amp;#"]) {
                     music.singerName = [self editStr:singer];
                 } else {
                     music.singerName = arr[3];
                 }
                 NSString *special = arr[5];
-                if (special.length > 7) {
+                if ([special containsString:@"&amp;#"]) {
                     music.specialName = [self editStr:special];
                 } else {
                     music.specialName = arr[5];
                 }
-//                music.duration = [array[7] stringByAppendingString:@"000"];
+                music.duration = [arr[7] stringByAppendingString:@"000"];
+                
                 music.ID = arr[20];
                 music.image = arr[22];
-
+                
                 // 歌曲图片网址
                 music.picUrl = [NSString stringWithFormat:@"http://imgcache.qq.com/music/photo/mid_album_90/%@/%@/%@.jpg",[music.image substringWithRange:NSMakeRange(music.image.length-2, 1)], [music.image substringFromIndex:music.image.length-1], music.image];
+//                NSLog(@"-------------------------%@", music.picUrl);
                 
                 // 歌曲网址
                 music.mp3Url = [NSString stringWithFormat:NEWS_MUSIC_PLAY_URL, music.ID];
                 // 歌词网址
                 music.lyric = [NSString stringWithFormat:@"http://music.qq.com/miniportal/static/lyric/%@/%@.xml", [music.lrc substringFromIndex:music.lrc.length - 2], music.lrc];
                 
-//                [self requestLrc:music.lrc];
+                NSString *str3 = [NSString stringWithContentsOfURL:[NSURL URLWithString:music.lyric] encoding:NSUTF8StringEncoding error:nil];
+                
+                [self requestLrc:music];
                 
                 [weakSelf.allArr addObject:music];
             }
@@ -173,13 +179,13 @@
 - (NSString *)editStr:(NSString *)name {
     name = [name substringFromIndex:6];
     name = [name stringByReplacingOccurrencesOfString:@";" withString:@""];
-    NSLog(@"++++++++++++%@", name);
+//    NSLog(@"++++++++++++%@", name);
     NSArray *nameArr = [name componentsSeparatedByString:@"&amp#"];
     NSMutableString *resultStr = [NSMutableString string];
     for (NSString *str in nameArr) {
         
         NSString *hexString = [NSString stringWithFormat:@"%@",[[NSString alloc] initWithFormat:@"%1x", str.intValue]];
-        NSLog(@"=========%@", str);
+//        NSLog(@"=========%@", str);
         NSString *str1 = [MusicSearchController replaceUnicode:[NSString stringWithFormat:@"\\U%@", hexString]];
         [resultStr appendString:str1];
     }
@@ -200,22 +206,57 @@
 }
 
 
-//- (NSString *)requestLrc:(NSString *)str {
-//    __weak typeof(self) weakSelf = self;
-//    [self.session GET:str parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-//        NSLog(@"下载进度");
-//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+- (NSString *)requestLrc:(Music *)music {
+    
+    NSURLSession *sesson = [NSURLSession sharedSession];
+    NSURL *url = [NSURL URLWithString:music.lyric];
+    NSURLSessionTask *task = [sesson dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error == nil) {
+//            NSLog(@"%@", data);
+            // M解析 (创建解析文档)
+                    GDataXMLDocument *document = [[GDataXMLDocument alloc] initWithData:data options:0 error:nil];
+            
+                    // 4. 获取根节点
+            
+                    NSString *str2 = document.rootElement.stringValue;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        music.lyricxxxx = str2;
+                        NSLog(@"===============%@---------,%@",str2, music.lyric);
+                    });
+
+       
+        }
+        
+        
+//        // 3. 设置DO//        return str2;
+//        // 5. 遍历获取相对应的子节点
+//        for (GDataXMLElement *studentElement in rootElement.children) {
+//            Student *stu = [[Student alloc] init];
+//            
+//            // 遍历子节点的子节点
+//            for (GDataXMLElement *stuElement in studentElement.children) {
+//                //            NSLog(@"stuElement = %@", stuElement);
+//                
+//                // 根据标签给student对象赋值
+//                //stuElement.name 相当于 标签的名字
+//                //stuElement.stringValue 相当于 标签的值
+//                // KVC
+//                [stu setValue:stuElement.stringValue forKey:stuElement.name];
+//            }
+//            [self.dataArray addObject:stu];
+//        }
 //        
-//        NSLog(@"%@", responseObject);
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [weakSelf.listResultTableView reloadData];
-//        });
-//        
-//        // 解析数据代码写在这里
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        NSLog(@"请求失败, error = %@", error);
-//    }];
-//}
+//        // 打印校验
+//        for (Student *stu in self.dataArray) {
+//            NSLog(@"name = %@, gender = %@, age = %ld, hobby = %@",stu.name, stu.gender, stu.age, stu.hobby);
+//        }
+
+        
+    }];
+    [task resume];
+    return nil;
+}
 
 
 
@@ -234,7 +275,7 @@
 
 // 返回cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-        MusicListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    MusicListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     Music *music = self.allArr[indexPath.row];
     [cell bindModel:music];
     
