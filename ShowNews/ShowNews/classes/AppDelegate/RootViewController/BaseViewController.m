@@ -24,6 +24,7 @@
     [self initLayout];
 }
 - (void)initLayout {
+    
     __weak typeof(self)weakSelf = self;
     // 初始化自定义视图
     self.myView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width * 0.2, kNavHeight)];

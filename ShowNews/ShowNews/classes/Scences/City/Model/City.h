@@ -16,13 +16,16 @@
 // Id
 @property (nonatomic, strong) NSString *Id;
 
-// 纬度
-@property (nonatomic, strong) NSString *lat;
+//// 纬度
+//@property (nonatomic, strong) NSString *lat;
+//
+//// 经度
+//@property (nonatomic, strong) NSString *lon;
+//
+//// 所在省
+//@property (nonatomic, strong) NSString *prov;
 
-// 经度
-@property (nonatomic, strong) NSString *lon;
-
-// 所在省
-@property (nonatomic, strong) NSString *prov;
+// 拼音首字母
+@property (nonatomic, strong) NSString *pinyin;
 
 @end

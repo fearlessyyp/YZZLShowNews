@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3FC2CE9D4EB4A8CDA9AB3DBA /* libPods-ShowNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AD0E98A66EEF8312CF716E /* libPods-ShowNews.a */; };
+		D6224A3E1D1E6A560048ED57 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = D6224A3D1D1E6A560048ED57 /* Foundation+Log.m */; };
+		D6224A471D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A411D1E6F6E0048ED57 /* README.md */; };
+		D6224A481D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A431D1E6F6E0048ED57 /* README.md */; };
+		D6224A491D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A441D1E6F6E0048ED57 /* README.md */; };
+		D6224A4A1D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A461D1E6F6E0048ED57 /* README.md */; };
+		D6224A501D1E9E8C0048ED57 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = D6224A4F1D1E9E8C0048ED57 /* City.m */; };
+		D6224A541D1E9EDA0048ED57 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6224A521D1E9EDA0048ED57 /* CityViewController.m */; };
+		D6224A551D1E9EDA0048ED57 /* CityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6224A531D1E9EDA0048ED57 /* CityViewController.xib */; };
 		D64FA1131D1D1C92007DE414 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1121D1D1C92007DE414 /* main.m */; };
 		D64FA1191D1D1C92007DE414 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1181D1D1C92007DE414 /* ViewController.m */; };
 		D64FA11C1D1D1C92007DE414 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D64FA11A1D1D1C92007DE414 /* Main.storyboard */; };
@@ -41,6 +49,16 @@
 		D64FA1B31D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1AE1D1D2B9F007DE414 /* README.md */; };
 		D64FA1B41D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1B01D1D2B9F007DE414 /* README.md */; };
 		D64FA1B51D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1B21D1D2B9F007DE414 /* README.md */; };
+		D66AA2941D1EC4BD00045D9E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA28F1D1EC4BD00045D9E /* background.png */; };
+		D66AA2951D1EC4BD00045D9E /* collect.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2901D1EC4BD00045D9E /* collect.png */; };
+		D66AA2961D1EC4BD00045D9E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2911D1EC4BD00045D9E /* icon.png */; };
+		D66AA2971D1EC4BD00045D9E /* lyric.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2921D1EC4BD00045D9E /* lyric.png */; };
+		D66AA2981D1EC4BD00045D9E /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2931D1EC4BD00045D9E /* thumb.png */; };
+		D66AA29B1D1EC7FA00045D9E /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA29A1D1EC7FA00045D9E /* NewsViewController.m */; };
+		D66AA29F1D1ECCD900045D9E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA29D1D1ECCD900045D9E /* UserViewController.m */; };
+		D66AA2A01D1ECCD900045D9E /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66AA29E1D1ECCD900045D9E /* UserViewController.xib */; };
+		D66AA2A41D1ECCF100045D9E /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA2A21D1ECCF100045D9E /* MapViewController.m */; };
+		D66AA2A51D1ECCF100045D9E /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2A31D1ECCF100045D9E /* MapViewController.xib */; };
 		D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA653F1D1E253200ECA213 /* WeatherHandle.m */; };
 		D6BA65461D1E2C7B00ECA213 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65451D1E2C7B00ECA213 /* Weather.m */; };
 		D6BA654C1D1E30C900ECA213 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA654B1D1E30C900ECA213 /* BaseViewController.m */; };
@@ -48,13 +66,21 @@
 		D6BA65551D1E5B3400ECA213 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65541D1E5B3400ECA213 /* City.m */; };
 		D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */; };
 		D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC411D1E5E0200B18F0E /* Music.m */; };
+		D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */; };
+		D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC411D1E5E0200B18F0E /* Music.m */; };
+		D6E2AC461D1E681900B18F0E /* MusicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC441D1E681900B18F0E /* MusicListCell.m */; };
+		D6E2AC471D1E681900B18F0E /* MusicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E2AC451D1E681900B18F0E /* MusicListCell.xib */; };
+		D6E2AC4B1D1E873600B18F0E /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC491D1E873600B18F0E /* PlayViewController.m */; };
+		D6E2AC4C1D1E873600B18F0E /* PlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E2AC4A1D1E873600B18F0E /* PlayViewController.xib */; };
+		D6E2AC511D1E876700B18F0E /* PlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC4E1D1E876700B18F0E /* PlayerManager.m */; };
+		D6E2AC521D1E876700B18F0E /* PlayerConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC501D1E876700B18F0E /* PlayerConsole.m */; };
+		D6E2AC551D1E878B00B18F0E /* MusicTimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC541D1E878B00B18F0E /* MusicTimeFormatter.m */; };
 		D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */; };
 		D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5E9D1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib */; };
 		D6EA5EA31D1D2DF4006B6C33 /* NewsArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5EA11D1D2DF4006B6C33 /* NewsArticleCell.m */; };
 		D6EA5EA41D1D2DF4006B6C33 /* NewsArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5EA21D1D2DF4006B6C33 /* NewsArticleCell.xib */; };
 		D6EA5EA81D1D2E11006B6C33 /* NewsSpecialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5EA61D1D2E11006B6C33 /* NewsSpecialCell.m */; };
 		D6EA5EA91D1D2E11006B6C33 /* NewsSpecialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5EA71D1D2E11006B6C33 /* NewsSpecialCell.xib */; };
-		D6EA5EAC1D1D494E006B6C33 /* NewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5EAB1D1D494E006B6C33 /* NewsController.m */; };
 		D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED41D1D576D006B6C33 /* UILabel+Font.m */; };
 		D6EA5ED91D1D6BF1006B6C33 /* MusicSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */; };
 		D6EA5EDA1D1D6BF1006B6C33 /* MusicSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */; };
@@ -73,6 +99,16 @@
 /* Begin PBXFileReference section */
 		79CF943A678FF3DE14FD163E /* Pods-ShowNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowNews/Pods-ShowNews.debug.xcconfig"; sourceTree = "<group>"; };
 		96AD0E98A66EEF8312CF716E /* libPods-ShowNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShowNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6224A3D1D1E6A560048ED57 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		D6224A411D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D6224A431D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D6224A441D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D6224A461D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D6224A4E1D1E9E8C0048ED57 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		D6224A4F1D1E9E8C0048ED57 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		D6224A511D1E9EDA0048ED57 /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
+		D6224A521D1E9EDA0048ED57 /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
+		D6224A531D1E9EDA0048ED57 /* CityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityViewController.xib; sourceTree = "<group>"; };
 		D64FA10E1D1D1C92007DE414 /* ShowNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D64FA1121D1D1C92007DE414 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D64FA1171D1D1C92007DE414 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -111,6 +147,19 @@
 		D64FA1AE1D1D2B9F007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D64FA1B01D1D2B9F007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D64FA1B21D1D2B9F007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D66AA28F1D1EC4BD00045D9E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		D66AA2901D1EC4BD00045D9E /* collect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collect.png; sourceTree = "<group>"; };
+		D66AA2911D1EC4BD00045D9E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		D66AA2921D1EC4BD00045D9E /* lyric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lyric.png; sourceTree = "<group>"; };
+		D66AA2931D1EC4BD00045D9E /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
+		D66AA2991D1EC7FA00045D9E /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		D66AA29A1D1EC7FA00045D9E /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		D66AA29C1D1ECCD900045D9E /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		D66AA29D1D1ECCD900045D9E /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		D66AA29E1D1ECCD900045D9E /* UserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
+		D66AA2A11D1ECCF100045D9E /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		D66AA2A21D1ECCF100045D9E /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		D66AA2A31D1ECCF100045D9E /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		D6BA653E1D1E253200ECA213 /* WeatherHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherHandle.h; sourceTree = "<group>"; };
 		D6BA653F1D1E253200ECA213 /* WeatherHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherHandle.m; sourceTree = "<group>"; };
 		D6BA65411D1E259400ECA213 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -128,6 +177,18 @@
 		D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPinYinFromChinese.m; sourceTree = "<group>"; };
 		D6E2AC401D1E5E0200B18F0E /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
 		D6E2AC411D1E5E0200B18F0E /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
+		D6E2AC431D1E681900B18F0E /* MusicListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicListCell.h; sourceTree = "<group>"; };
+		D6E2AC441D1E681900B18F0E /* MusicListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicListCell.m; sourceTree = "<group>"; };
+		D6E2AC451D1E681900B18F0E /* MusicListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicListCell.xib; sourceTree = "<group>"; };
+		D6E2AC481D1E873600B18F0E /* PlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
+		D6E2AC491D1E873600B18F0E /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
+		D6E2AC4A1D1E873600B18F0E /* PlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayViewController.xib; sourceTree = "<group>"; };
+		D6E2AC4D1D1E876700B18F0E /* PlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerManager.h; sourceTree = "<group>"; };
+		D6E2AC4E1D1E876700B18F0E /* PlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerManager.m; sourceTree = "<group>"; };
+		D6E2AC4F1D1E876700B18F0E /* PlayerConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerConsole.h; sourceTree = "<group>"; };
+		D6E2AC501D1E876700B18F0E /* PlayerConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerConsole.m; sourceTree = "<group>"; };
+		D6E2AC531D1E878B00B18F0E /* MusicTimeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTimeFormatter.h; sourceTree = "<group>"; };
+		D6E2AC541D1E878B00B18F0E /* MusicTimeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicTimeFormatter.m; sourceTree = "<group>"; };
 		D6EA5E9B1D1D2DCF006B6C33 /* NewsPhotoSetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPhotoSetCell.h; sourceTree = "<group>"; };
 		D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPhotoSetCell.m; sourceTree = "<group>"; };
 		D6EA5E9D1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsPhotoSetCell.xib; sourceTree = "<group>"; };
@@ -137,8 +198,6 @@
 		D6EA5EA51D1D2E11006B6C33 /* NewsSpecialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsSpecialCell.h; sourceTree = "<group>"; };
 		D6EA5EA61D1D2E11006B6C33 /* NewsSpecialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsSpecialCell.m; sourceTree = "<group>"; };
 		D6EA5EA71D1D2E11006B6C33 /* NewsSpecialCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsSpecialCell.xib; sourceTree = "<group>"; };
-		D6EA5EAA1D1D494E006B6C33 /* NewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsController.h; sourceTree = "<group>"; };
-		D6EA5EAB1D1D494E006B6C33 /* NewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsController.m; sourceTree = "<group>"; };
 		D6EA5ED31D1D576D006B6C33 /* UILabel+Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Font.h"; sourceTree = "<group>"; };
 		D6EA5ED41D1D576D006B6C33 /* UILabel+Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Font.m"; sourceTree = "<group>"; };
 		D6EA5ED61D1D6BF1006B6C33 /* MusicSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicSearchController.h; sourceTree = "<group>"; };
@@ -184,6 +243,46 @@
 				D99B500FD685B92161D43C8B /* Pods-ShowNews.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D6224A3F1D1E6F6E0048ED57 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				D6224A401D1E6F6E0048ED57 /* Controller */,
+				D6224A421D1E6F6E0048ED57 /* Model */,
+				D6224A441D1E6F6E0048ED57 /* README.md */,
+				D6224A451D1E6F6E0048ED57 /* View */,
+			);
+			path = City;
+			sourceTree = "<group>";
+		};
+		D6224A401D1E6F6E0048ED57 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D6224A411D1E6F6E0048ED57 /* README.md */,
+				D6224A511D1E9EDA0048ED57 /* CityViewController.h */,
+				D6224A521D1E9EDA0048ED57 /* CityViewController.m */,
+				D6224A531D1E9EDA0048ED57 /* CityViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D6224A421D1E6F6E0048ED57 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D6224A4E1D1E9E8C0048ED57 /* City.h */,
+				D6224A4F1D1E9E8C0048ED57 /* City.m */,
+				D6224A431D1E6F6E0048ED57 /* README.md */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D6224A451D1E6F6E0048ED57 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6224A461D1E6F6E0048ED57 /* README.md */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D64FA1051D1D1C92007DE414 = {
@@ -258,8 +357,6 @@
 				D64FA1591D1D1D95007DE414 /* README.md */,
 				D6BA654A1D1E30C900ECA213 /* BaseViewController.h */,
 				D6BA654B1D1E30C900ECA213 /* BaseViewController.m */,
-				D6BA65501D1E44CE00ECA213 /* testViewController.h */,
-				D6BA65511D1E44CE00ECA213 /* testViewController.m */,
 			);
 			path = RootViewController;
 			sourceTree = "<group>";
@@ -292,10 +389,13 @@
 			isa = PBXGroup;
 			children = (
 				D64FA15F1D1D1D95007DE414 /* README.md */,
+				D6224A3D1D1E6A560048ED57 /* Foundation+Log.m */,
 				D6BA65561D1E5E0B00ECA213 /* GetPinYinFromChinese.h */,
 				D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */,
 				D6BA653E1D1E253200ECA213 /* WeatherHandle.h */,
 				D6BA653F1D1E253200ECA213 /* WeatherHandle.m */,
+				D6E2AC531D1E878B00B18F0E /* MusicTimeFormatter.h */,
+				D6E2AC541D1E878B00B18F0E /* MusicTimeFormatter.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -318,8 +418,6 @@
 				D64FA1631D1D1D95007DE414 /* README.md */,
 				D6BA65441D1E2C7B00ECA213 /* Weather.h */,
 				D6BA65451D1E2C7B00ECA213 /* Weather.m */,
-				D6BA65531D1E5B3400ECA213 /* City.h */,
-				D6BA65541D1E5B3400ECA213 /* City.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -327,6 +425,7 @@
 		D64FA1641D1D1D95007DE414 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D66AA28E1D1EC4BD00045D9E /* Image */,
 				D64FA1651D1D1D95007DE414 /* README.md */,
 			);
 			path = Resources;
@@ -335,6 +434,7 @@
 		D64FA1661D1D1D95007DE414 /* Scences */ = {
 			isa = PBXGroup;
 			children = (
+				D6224A3F1D1E6F6E0048ED57 /* City */,
 				D64FA1671D1D1D95007DE414 /* Map */,
 				D64FA1691D1D1D95007DE414 /* Music */,
 				D64FA16B1D1D1D95007DE414 /* News */,
@@ -411,6 +511,9 @@
 			isa = PBXGroup;
 			children = (
 				D64FA1811D1D2B41007DE414 /* README.md */,
+				D66AA2A11D1ECCF100045D9E /* MapViewController.h */,
+				D66AA2A21D1ECCF100045D9E /* MapViewController.m */,
+				D66AA2A31D1ECCF100045D9E /* MapViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -438,6 +541,9 @@
 				D6EA5ED61D1D6BF1006B6C33 /* MusicSearchController.h */,
 				D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */,
 				D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */,
+				D6E2AC481D1E873600B18F0E /* PlayViewController.h */,
+				D6E2AC491D1E873600B18F0E /* PlayViewController.m */,
+				D6E2AC4A1D1E873600B18F0E /* PlayViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -445,6 +551,10 @@
 		D64FA18B1D1D2B63007DE414 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D6E2AC4D1D1E876700B18F0E /* PlayerManager.h */,
+				D6E2AC4E1D1E876700B18F0E /* PlayerManager.m */,
+				D6E2AC4F1D1E876700B18F0E /* PlayerConsole.h */,
+				D6E2AC501D1E876700B18F0E /* PlayerConsole.m */,
 				D64FA18C1D1D2B63007DE414 /* README.md */,
 				D6E2AC401D1E5E0200B18F0E /* Music.h */,
 				D6E2AC411D1E5E0200B18F0E /* Music.m */,
@@ -456,6 +566,9 @@
 			isa = PBXGroup;
 			children = (
 				D64FA18E1D1D2B63007DE414 /* README.md */,
+				D6E2AC431D1E681900B18F0E /* MusicListCell.h */,
+				D6E2AC441D1E681900B18F0E /* MusicListCell.m */,
+				D6E2AC451D1E681900B18F0E /* MusicListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -464,8 +577,8 @@
 			isa = PBXGroup;
 			children = (
 				D64FA19C1D1D2B8D007DE414 /* README.md */,
-				D6EA5EAA1D1D494E006B6C33 /* NewsController.h */,
-				D6EA5EAB1D1D494E006B6C33 /* NewsController.m */,
+				D66AA2991D1EC7FA00045D9E /* NewsViewController.h */,
+				D66AA29A1D1EC7FA00045D9E /* NewsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -499,6 +612,9 @@
 			isa = PBXGroup;
 			children = (
 				D64FA1A51D1D2B97007DE414 /* README.md */,
+				D66AA29C1D1ECCD900045D9E /* UserViewController.h */,
+				D66AA29D1D1ECCD900045D9E /* UserViewController.m */,
+				D66AA29E1D1ECCD900045D9E /* UserViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -553,6 +669,18 @@
 				F570BD101D1D5D000031CDB3 /* VideoCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D66AA28E1D1EC4BD00045D9E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				D66AA28F1D1EC4BD00045D9E /* background.png */,
+				D66AA2901D1EC4BD00045D9E /* collect.png */,
+				D66AA2911D1EC4BD00045D9E /* icon.png */,
+				D66AA2921D1EC4BD00045D9E /* lyric.png */,
+				D66AA2931D1EC4BD00045D9E /* thumb.png */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 		EBC2337212AA4DE4AE825C25 /* Frameworks */ = {
@@ -624,15 +752,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */,
+				D66AA2A01D1ECCD900045D9E /* UserViewController.xib in Resources */,
 				F53D26271D1E2C20002E0644 /* VideoPlayerViewController.xib in Resources */,
+				D66AA2941D1EC4BD00045D9E /* background.png in Resources */,
 				D64FA1211D1D1C92007DE414 /* LaunchScreen.storyboard in Resources */,
 				F570BD121D1D5D000031CDB3 /* VideoCell.xib in Resources */,
+				D66AA2A51D1ECCF100045D9E /* MapViewController.xib in Resources */,
+				D66AA2981D1EC4BD00045D9E /* thumb.png in Resources */,
 				D6EA5EA91D1D2E11006B6C33 /* NewsSpecialCell.xib in Resources */,
 				D6EA5EDA1D1D6BF1006B6C33 /* MusicSearchController.xib in Resources */,
 				D6EA5EA41D1D2DF4006B6C33 /* NewsArticleCell.xib in Resources */,
 				F53D262C1D1E6CFD002E0644 /* pika.gif in Resources */,
+				D66AA2951D1EC4BD00045D9E /* collect.png in Resources */,
+				D6E2AC4C1D1E873600B18F0E /* PlayViewController.xib in Resources */,
 				D64FA11E1D1D1C92007DE414 /* Assets.xcassets in Resources */,
+				D66AA2961D1EC4BD00045D9E /* icon.png in Resources */,
 				D64FA11C1D1D1C92007DE414 /* Main.storyboard in Resources */,
+				D6224A551D1E9EDA0048ED57 /* CityViewController.xib in Resources */,
+				D6E2AC471D1E681900B18F0E /* MusicListCell.xib in Resources */,
+				D66AA2971D1EC4BD00045D9E /* lyric.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,6 +834,8 @@
 				D64FA1191D1D1C92007DE414 /* ViewController.m in Sources */,
 				D64FA1901D1D2B63007DE414 /* README.md in Sources */,
 				D6BA65461D1E2C7B00ECA213 /* Weather.m in Sources */,
+				D66AA2A41D1ECCF100045D9E /* MapViewController.m in Sources */,
+				D6224A501D1E9E8C0048ED57 /* City.m in Sources */,
 				F570BD151D1D6C9A0031CDB3 /* VideoModel.m in Sources */,
 				F570BD0D1D1D5CD30031CDB3 /* VideoTableViewController.m in Sources */,
 				D64FA1911D1D2B63007DE414 /* README.md in Sources */,
@@ -703,12 +843,18 @@
 				D64FA17A1D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1131D1D1C92007DE414 /* main.m in Sources */,
 				D64FA1A31D1D2B8D007DE414 /* README.md in Sources */,
+				D6224A4A1D1E6F6E0048ED57 /* README.md in Sources */,
+				D6224A471D1E6F6E0048ED57 /* README.md in Sources */,
 				D64FA17D1D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1771D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1B31D1D2B9F007DE414 /* README.md in Sources */,
+				D6224A3E1D1E6A560048ED57 /* Foundation+Log.m in Sources */,
+				D6E2AC511D1E876700B18F0E /* PlayerManager.m in Sources */,
 				D64FA1A21D1D2B8D007DE414 /* README.md in Sources */,
+				D66AA29F1D1ECCD900045D9E /* UserViewController.m in Sources */,
 				D64FA1B51D1D2B9F007DE414 /* README.md in Sources */,
 				D6EA5EA31D1D2DF4006B6C33 /* NewsArticleCell.m in Sources */,
+				D66AA29B1D1EC7FA00045D9E /* NewsViewController.m in Sources */,
 				D64FA1881D1D2B41007DE414 /* README.md in Sources */,
 				D64FA1B41D1D2B9F007DE414 /* README.md in Sources */,
 				F53D262B1D1E6CFD002E0644 /* GiFHUD.m in Sources */,
@@ -717,18 +863,20 @@
 				D64FA1861D1D2B41007DE414 /* README.md in Sources */,
 				F53D26261D1E2C20002E0644 /* VideoPlayerViewController.m in Sources */,
 				D64FA1AA1D1D2B97007DE414 /* README.md in Sources */,
-				D6BA65521D1E44CE00ECA213 /* testViewController.m in Sources */,
 				D64FA1741D1D1D95007DE414 /* README.md in Sources */,
 				D6EA5EA81D1D2E11006B6C33 /* NewsSpecialCell.m in Sources */,
 				F53D262F1D1EB06D002E0644 /* PlayerView.m in Sources */,
+				D6224A491D1E6F6E0048ED57 /* README.md in Sources */,
 				D64FA1AC1D1D2B97007DE414 /* README.md in Sources */,
 				F570BD111D1D5D000031CDB3 /* VideoCell.m in Sources */,
 				D64FA17C1D1D1D95007DE414 /* README.md in Sources */,
+				D6E2AC521D1E876700B18F0E /* PlayerConsole.m in Sources */,
 				D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */,
 				D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */,
+				D6E2AC461D1E681900B18F0E /* MusicListCell.m in Sources */,
+				D6E2AC4B1D1E873600B18F0E /* PlayViewController.m in Sources */,
 				D64FA1751D1D1D95007DE414 /* UIScrollView+Touches.m in Sources */,
 				D6EA5ED91D1D6BF1006B6C33 /* MusicSearchController.m in Sources */,
-				D6EA5EAC1D1D494E006B6C33 /* NewsController.m in Sources */,
 				D64FA1791D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1871D1D2B41007DE414 /* README.md in Sources */,
 				D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */,
@@ -736,9 +884,12 @@
 				D64FA17E1D1D1D95007DE414 /* README.md in Sources */,
 				D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */,
 				D64FA1781D1D1D95007DE414 /* README.md in Sources */,
+				D6224A481D1E6F6E0048ED57 /* README.md in Sources */,
 				D64FA17F1D1D1D95007DE414 /* README.md in Sources */,
 				D64FA17B1D1D1D95007DE414 /* README.md in Sources */,
 				F5D8CC9D1D1E2620006077C7 /* NSString+TimeFormatter.m in Sources */,
+				D6224A541D1E9EDA0048ED57 /* CityViewController.m in Sources */,
+				D6E2AC551D1E878B00B18F0E /* MusicTimeFormatter.m in Sources */,
 				D64FA1A11D1D2B8D007DE414 /* README.md in Sources */,
 				D64FA1731D1D1D95007DE414 /* AppDelegate.m in Sources */,
 			);
@@ -851,11 +1002,13 @@
 			baseConfigurationReference = 79CF943A678FF3DE14FD163E /* Pods-ShowNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Yang (F2N9DLANA4)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ShowNews/classes/Marco/PrefixHeader.pch";
 				INFOPLIST_FILE = ShowNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YZZL.ShowNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b72ed5ba-2c80-4fc4-ad1b-b5d374b7c63c";
 			};
 			name = Debug;
 		};
@@ -864,11 +1017,13 @@
 			baseConfigurationReference = D99B500FD685B92161D43C8B /* Pods-ShowNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Yang (F2N9DLANA4)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ShowNews/classes/Marco/PrefixHeader.pch";
 				INFOPLIST_FILE = ShowNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YZZL.ShowNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b72ed5ba-2c80-4fc4-ad1b-b5d374b7c63c";
 			};
 			name = Release;
 		};

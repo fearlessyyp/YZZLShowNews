@@ -1,22 +1,22 @@
 //
-//  testViewController.m
+//  CityViewController.m
 //  ShowNews
 //
 //  Created by YYP on 16/6/25.
 //  Copyright © 2016年 YZZL. All rights reserved.
 //
 
-#import "testViewController.h"
+#import "CityViewController.h"
 
-@interface testViewController ()
+@interface CityViewController ()
 
 @end
 
-@implementation testViewController
+@implementation CityViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {

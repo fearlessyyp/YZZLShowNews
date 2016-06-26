@@ -1,13 +1,13 @@
 //
-//  NewsController.h
+//  CityViewController.h
 //  ShowNews
 //
-//  Created by ZZQ on 16/6/24.
+//  Created by YYP on 16/6/25.
 //  Copyright © 2016年 YZZL. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface NewsController : UITableViewController
+@interface CityViewController : UIViewController
 
 @end
