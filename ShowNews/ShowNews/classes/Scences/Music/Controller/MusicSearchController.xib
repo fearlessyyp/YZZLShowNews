@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MusicSearchController">
@@ -17,24 +18,19 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rjF-nR-Fcf">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="rjF-nR-Fcf">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入歌曲或歌手名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CmR-vk-uc5">
-                    <rect key="frame" x="108" y="16" width="250" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hs9-H8-Rqn">
-                    <rect key="frame" x="108" y="54" width="298" height="566"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hs9-H8-Rqn">
+                    <rect key="frame" x="83" y="61" width="323" height="577"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="K26-VO-G2o"/>
                         <outlet property="delegate" destination="-1" id="Djw-vJ-hCk"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="esf-LN-0Rd">
-                    <rect key="frame" x="108" y="641" width="298" height="87"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esf-LN-0Rd">
+                    <rect key="frame" x="83" y="641" width="323" height="87"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J9g-LK-jPF">
                             <rect key="frame" x="0.0" y="20" width="75" height="67"/>
@@ -77,18 +73,52 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="87" id="rHd-Pb-HQa"/>
+                    </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hja-or-6dB">
-                    <rect key="frame" x="60" y="16" width="49" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hja-or-6dB">
+                    <rect key="frame" x="366" y="28" width="40" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="NUF-X3-rhH"/>
+                        <constraint firstAttribute="width" constant="40" id="awX-Cj-eOE"/>
+                    </constraints>
                     <state key="normal" title="搜索"/>
                     <connections>
                         <action selector="searchButtonAction:" destination="-1" eventType="touchUpInside" id="BNi-wf-1YV"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入歌曲或歌手名" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CmR-vk-uc5">
+                    <rect key="frame" x="83" y="28" width="278" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="rjF-nR-Fcf" secondAttribute="trailing" id="3pV-Ot-xM3"/>
+                <constraint firstItem="hs9-H8-Rqn" firstAttribute="leading" secondItem="CmR-vk-uc5" secondAttribute="leading" id="69o-OM-jSG"/>
+                <constraint firstItem="hja-or-6dB" firstAttribute="leading" secondItem="CmR-vk-uc5" secondAttribute="trailing" constant="5" id="BlR-xm-a3x"/>
+                <constraint firstItem="CmR-vk-uc5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="20" id="JxX-rj-el5"/>
+                <constraint firstItem="esf-LN-0Rd" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" id="KFD-nv-qFR"/>
+                <constraint firstItem="esf-LN-0Rd" firstAttribute="top" secondItem="hs9-H8-Rqn" secondAttribute="bottom" constant="3" id="Ly2-rr-0md"/>
+                <constraint firstItem="CmR-vk-uc5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="75" id="OH9-r4-83d"/>
+                <constraint firstAttribute="trailing" secondItem="hs9-H8-Rqn" secondAttribute="trailing" constant="8" id="TFh-LX-8P6"/>
+                <constraint firstItem="esf-LN-0Rd" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="UjL-2r-QyU"/>
+                <constraint firstItem="esf-LN-0Rd" firstAttribute="leading" secondItem="CmR-vk-uc5" secondAttribute="leading" id="XFs-sc-FhF"/>
+                <constraint firstItem="hs9-H8-Rqn" firstAttribute="top" secondItem="hja-or-6dB" secondAttribute="bottom" constant="3" id="XRj-Lb-KYX"/>
+                <constraint firstAttribute="trailingMargin" secondItem="hja-or-6dB" secondAttribute="trailing" id="hbL-qI-bKI"/>
+                <constraint firstItem="hja-or-6dB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="20" id="iKl-0D-Xou"/>
+                <constraint firstAttribute="bottom" secondItem="rjF-nR-Fcf" secondAttribute="bottom" id="mVs-Ad-GNm"/>
+                <constraint firstItem="rjF-nR-Fcf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="no0-5K-dBF"/>
+                <constraint firstItem="rjF-nR-Fcf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rDe-zH-vtG"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
             <point key="canvasLocation" x="380" y="158"/>
         </view>
     </objects>
+    <resources>
+        <image name="background.png" width="375" height="516"/>
+    </resources>
 </document>

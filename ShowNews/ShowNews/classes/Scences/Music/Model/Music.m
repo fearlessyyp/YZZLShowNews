@@ -21,6 +21,20 @@
     return self;
 }
 
+//- (NSString *)lyricxxxx {
+//    if (_lyricxxxx != nil) {
+//        [self loadLyricWithStr:_lyricxxxx];
+//    }
+//    
+//    return _lyricxxxx;
+//    
+//}
+
+//- (void)setLyricxxxx:(NSString *)lyricxxxx {
+//    [self loadLyricWithStr:_lyricxxxx];
+//    _lyricxxxx = lyricxxxx;
+//}
+
 //以"\n"拆解字符串:"[00:00.000]ABCD","[00:00.000]BCDEF"
 - (void)loadLyricWithStr:(NSString *)str {
     NSArray *bigArray = [str componentsSeparatedByString:@"\n"];

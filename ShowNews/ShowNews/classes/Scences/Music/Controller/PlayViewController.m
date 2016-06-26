@@ -66,15 +66,15 @@ static PlayViewController *playVC = nil;
     [self.musicPic.layer setMasksToBounds:YES];
     // 专辑图片
     // 将改变约束的生命周期提前
-    [self.musicPic.layer setCornerRadius:(([UIScreen mainScreen].bounds.size.width) - 40) / 2];
+    [self.musicPic.layer setCornerRadius:(([UIScreen mainScreen].bounds.size.width) - 100) / 2];
     self.scrollerView.showsHorizontalScrollIndicator = NO;
     
     // 当音乐被切换时调用的代理方法  外部需要拿到数据模型 进行改变
     __weak typeof(self)weakSelf = self;
     self.playManager.blocl = ^void (Music *musci) {
-         // 控制台
-        [weakSelf.playerConsole prepareMusicInfo:musci];
-        [weakSelf.musicPic sd_setImageWithURL:[NSURL URLWithString:musci.picUrl]];
+        
+        
+        NSLog(@"++++++++++++++%@", musci.picUrl);
         weakSelf.navigationItem.title = musci.musicName;
        
         
@@ -82,6 +82,9 @@ static PlayViewController *playVC = nil;
         dispatch_async(dispatch_get_main_queue(), ^{
             // 将时间歌词添加到当前VC的数组中
             weakSelf.lyricArr = [[NSArray alloc]initWithArray:musci.timeForLyric];
+            [weakSelf.musicPic sd_setImageWithURL:[NSURL URLWithString:musci.picUrl]];
+            // 控制台
+            [weakSelf.playerConsole prepareMusicInfo:musci];
            [weakSelf.musicLyric reloadData];
         });
         
