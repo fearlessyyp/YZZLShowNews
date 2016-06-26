@@ -58,6 +58,9 @@
 		D66AA2A01D1ECCD900045D9E /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66AA29E1D1ECCD900045D9E /* UserViewController.xib */; };
 		D66AA2A41D1ECCF100045D9E /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA2A21D1ECCF100045D9E /* MapViewController.m */; };
 		D66AA2A51D1ECCF100045D9E /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2A31D1ECCF100045D9E /* MapViewController.xib */; };
+		D66E3E751D1FBB4400DB84BF /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E741D1FBB4400DB84BF /* SegmentView.m */; };
+		D66E3E7D1D1FD6F500DB84BF /* MyScorllView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E7C1D1FD6F500DB84BF /* MyScorllView.m */; };
+		D66E3E831D1FEE5700DB84BF /* BigScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E821D1FEE5700DB84BF /* BigScrollView.m */; };
 		D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA653F1D1E253200ECA213 /* WeatherHandle.m */; };
 		D6BA65461D1E2C7B00ECA213 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65451D1E2C7B00ECA213 /* Weather.m */; };
 		D6BA654C1D1E30C900ECA213 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA654B1D1E30C900ECA213 /* BaseViewController.m */; };
@@ -154,6 +157,12 @@
 		D66AA2A11D1ECCF100045D9E /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		D66AA2A21D1ECCF100045D9E /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		D66AA2A31D1ECCF100045D9E /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		D66E3E731D1FBB4400DB84BF /* SegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
+		D66E3E741D1FBB4400DB84BF /* SegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
+		D66E3E7B1D1FD6F500DB84BF /* MyScorllView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScorllView.h; sourceTree = "<group>"; };
+		D66E3E7C1D1FD6F500DB84BF /* MyScorllView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScorllView.m; sourceTree = "<group>"; };
+		D66E3E811D1FEE5700DB84BF /* BigScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigScrollView.h; sourceTree = "<group>"; };
+		D66E3E821D1FEE5700DB84BF /* BigScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigScrollView.m; sourceTree = "<group>"; };
 		D6BA653E1D1E253200ECA213 /* WeatherHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherHandle.h; sourceTree = "<group>"; };
 		D6BA653F1D1E253200ECA213 /* WeatherHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherHandle.m; sourceTree = "<group>"; };
 		D6BA65411D1E259400ECA213 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -586,6 +595,8 @@
 		D64FA19F1D1D2B8D007DE414 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D66E3E731D1FBB4400DB84BF /* SegmentView.h */,
+				D66E3E741D1FBB4400DB84BF /* SegmentView.m */,
 				D64FA1A01D1D2B8D007DE414 /* README.md */,
 				D6EA5E9B1D1D2DCF006B6C33 /* NewsPhotoSetCell.h */,
 				D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */,
@@ -596,6 +607,10 @@
 				D6EA5EA51D1D2E11006B6C33 /* NewsSpecialCell.h */,
 				D6EA5EA61D1D2E11006B6C33 /* NewsSpecialCell.m */,
 				D6EA5EA71D1D2E11006B6C33 /* NewsSpecialCell.xib */,
+				D66E3E7B1D1FD6F500DB84BF /* MyScorllView.h */,
+				D66E3E7C1D1FD6F500DB84BF /* MyScorllView.m */,
+				D66E3E811D1FEE5700DB84BF /* BigScrollView.h */,
+				D66E3E821D1FEE5700DB84BF /* BigScrollView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -851,6 +866,7 @@
 				D64FA1B41D1D2B9F007DE414 /* README.md in Sources */,
 				F53D262B1D1E6CFD002E0644 /* GiFHUD.m in Sources */,
 				D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */,
+				D66E3E831D1FEE5700DB84BF /* BigScrollView.m in Sources */,
 				D64FA1861D1D2B41007DE414 /* README.md in Sources */,
 				F53D26261D1E2C20002E0644 /* VideoPlayerViewController.m in Sources */,
 				D64FA1AA1D1D2B97007DE414 /* README.md in Sources */,
@@ -864,6 +880,7 @@
 				D6E2AC521D1E876700B18F0E /* PlayerConsole.m in Sources */,
 				D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */,
 				D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */,
+				D66E3E751D1FBB4400DB84BF /* SegmentView.m in Sources */,
 				D6E2AC461D1E681900B18F0E /* MusicListCell.m in Sources */,
 				D6E2AC4B1D1E873600B18F0E /* PlayViewController.m in Sources */,
 				D64FA1751D1D1D95007DE414 /* UIScrollView+Touches.m in Sources */,
@@ -877,6 +894,7 @@
 				D64FA1781D1D1D95007DE414 /* README.md in Sources */,
 				D6224A481D1E6F6E0048ED57 /* README.md in Sources */,
 				D64FA17F1D1D1D95007DE414 /* README.md in Sources */,
+				D66E3E7D1D1FD6F500DB84BF /* MyScorllView.m in Sources */,
 				D64FA17B1D1D1D95007DE414 /* README.md in Sources */,
 				F5D8CC9D1D1E2620006077C7 /* NSString+TimeFormatter.m in Sources */,
 				D6224A541D1E9EDA0048ED57 /* CityViewController.m in Sources */,

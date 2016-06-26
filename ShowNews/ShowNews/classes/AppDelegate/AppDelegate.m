@@ -28,18 +28,13 @@
     [self.window makeKeyAndVisible];
     self.rootTVC = [[UITabBarController alloc] init];
     [self createChildViewControllers];
-    
+//    self.rootTVC.tabBar.translucent = NO;
     MusicSearchController *musicVC = [[MusicSearchController alloc] init];
     RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:self.rootTVC
                                                                     leftMenuViewController:nil
                                                                    rightMenuViewController:musicVC];
     sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
     sideMenuViewController.delegate = self;
-    sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
-    sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
-    sideMenuViewController.contentViewShadowOpacity = 0.6;
-    sideMenuViewController.contentViewShadowRadius = 12;
-    sideMenuViewController.contentViewShadowEnabled = YES;
     // 抽屉效果不变小
     sideMenuViewController.scaleContentView = NO;
     // 设置不能侧滑效果
@@ -71,6 +66,7 @@
     UIImage *image = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     viewController.tabBarItem.selectedImage = image;
     UINavigationController *mainNC = [[UINavigationController alloc] initWithRootViewController:viewController];
+    mainNC.navigationBar.translucent = NO;
 //    // 添加子控制器
     [self.rootTVC addChildViewController:mainNC];
 }

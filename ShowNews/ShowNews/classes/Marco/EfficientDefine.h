@@ -26,4 +26,15 @@
 #define NSLog(FORMAT, ...) nil
 #endif
 
+// Navigationbar + 状态栏高度
+#define kNavigationAndStatusHeight (self.navigationController.navigationBar.frame.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height)
+
+// 屏幕高度
+#define kScreenSizeHeight [UIScreen mainScreen].bounds.size.height
+// 屏幕宽度
+#define kScreenSizeWidth [UIScreen mainScreen].bounds.size.width
+
+// tabbar和navigationbar的图片
+
+
 #endif /* EfficientDefine_h */
