@@ -102,7 +102,7 @@
     NSString *str = [NSString stringWithFormat:NEWS_MUSIC_SEARCH_URL231,self.searchTextField.text ];
     NSString *urlStr = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
-    __weak typeof(self) weakSelf = self;
+  
     [self.session GET:urlStr parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"下载进度");
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -155,18 +155,14 @@
                 // 歌词网址
                 music.lyric = [NSString stringWithFormat:@"http://music.qq.com/miniportal/static/lyric/%@/%@.xml", [music.lrc substringFromIndex:music.lrc.length - 2], music.lrc];
                 
-                NSString *str3 = [NSString stringWithContentsOfURL:[NSURL URLWithString:music.lyric] encoding:NSUTF8StringEncoding error:nil];
                 
                 [self requestLrc:music];
                 
-                [weakSelf.allArr addObject:music];
+                
+                
             }
             
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [PlayerManager sharePlayer].playList = weakSelf.allArr;
-            [weakSelf.listResultTableView reloadData];
-        });
         
         // 解析数据代码写在这里
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -207,7 +203,7 @@
 
 
 - (NSString *)requestLrc:(Music *)music {
-    
+      __weak typeof(self) weakSelf = self;
     NSURLSession *sesson = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:music.lyric];
     NSURLSessionTask *task = [sesson dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -217,14 +213,17 @@
             // M解析 (创建解析文档)
             GDataXMLDocument *document = [[GDataXMLDocument alloc] initWithData:data options:0 error:nil];
             
-            if ([document.rootElement.name isEqualToString:@"lyric"]) {
+
                 // 4. 获取根节点
                 NSString *str2 = document.rootElement.stringValue;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     music.lyricxxxx = str2;
+                    [weakSelf.allArr addObject:music];
+                    [PlayerManager sharePlayer].playList = weakSelf.allArr;
+                    [weakSelf.listResultTableView reloadData];
                     NSLog(@"===============%@---------,%@",str2, music.lyric);
                 });
-            }
+
             
             
             

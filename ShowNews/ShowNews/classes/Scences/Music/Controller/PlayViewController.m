@@ -28,6 +28,7 @@
 
 @property (weak, nonatomic) IBOutlet PlayerConsole *playerConsole;
 
+@property (nonatomic, strong) NSMutableArray *timeForLyric;
 
 @end
 
@@ -44,12 +45,35 @@ static PlayViewController *playVC = nil;
     return playVC;
 }
 
+//- (NSMutableArray *)timeForLyric {
+//    if (!_timeForLyric) {
+//        
+//    }
+//    return _timeForLyric;
+//}
+
+
+
 - (void)viewWillAppear:(BOOL)animated {
     [self.playManager prepareMusic:self.musicIndex];
     [self.musicLyric registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ce"];
 }
 
-
+- (void)loadLyricWithStr:(NSString *)str {
+    NSArray *bigArray = [str componentsSeparatedByString:@"\n"];
+    for (NSString *temStr in bigArray) {
+        if (temStr.length > 14) {
+            //在使用"]"拆解字符串后的结果("[00:00.000]","ABCD")
+            NSArray *lyricAndTimeArr = [temStr componentsSeparatedByString:@"]"];
+            //将时间拆解成想要的格式:"00:00"，以作为字典的key
+            NSString *timeKey = [lyricAndTimeArr[0] substringWithRange:NSMakeRange(1, 5)];
+            //以"00:00"，作为字典的key。"ABCD"(数组的最后一位)作为字典的value
+            NSDictionary *lyricDic = @{timeKey: [lyricAndTimeArr lastObject]};
+            // 时间歌词的数组添加到时间歌词字典
+            [self.timeForLyric addObject:lyricDic];
+        }
+    }
+}
 // 更新约束
 - (void)updateViewConstraints {
     [super updateViewConstraints];
@@ -81,7 +105,9 @@ static PlayViewController *playVC = nil;
         //刷新TableView
         dispatch_async(dispatch_get_main_queue(), ^{
             // 将时间歌词添加到当前VC的数组中
-            weakSelf.lyricArr = [[NSArray alloc]initWithArray:musci.timeForLyric];
+            _timeForLyric = [NSMutableArray array];
+            [weakSelf loadLyricWithStr:musci.lyricxxxx];
+            weakSelf.lyricArr = [[NSArray alloc]initWithArray:weakSelf.timeForLyric];
             [weakSelf.musicPic sd_setImageWithURL:[NSURL URLWithString:musci.picUrl]];
             // 控制台
             [weakSelf.playerConsole prepareMusicInfo:musci];
@@ -100,8 +126,8 @@ static PlayViewController *playVC = nil;
             // [[dic allKeys]lastObject]找到字典中的字符串Key
             if ([str isEqualToString:[[dic allKeys]lastObject]])
             {
-                UITableViewCell *cell = [weakSelf.musicLyric cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-                cell.textLabel.font = [UIFont systemFontOfSize:18];
+//                UITableViewCell *cell = [weakSelf.musicLyric cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+//                cell.textLabel.font = [UIFont systemFontOfSize:18];
             
                 [weakSelf.musicLyric selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 
