@@ -27,7 +27,7 @@
 #endif
 
 // Navigationbar + 状态栏高度
-#define kNavigationAndStatusHeight (self.navigationController.navigationBar.frame.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height)
+#define kNavigationAndStatusHeight 64 - 49
 
 // 屏幕高度
 #define kScreenSizeHeight [UIScreen mainScreen].bounds.size.height

@@ -25,8 +25,8 @@
 
 #pragma mark - 设置大背景scorllView
 - (void)bindBigScorllView {
-    
-    self.bigScrollView = [[UIScrollView alloc] initWithFrame:self.frame];
+    NSLog(@"~~~~~~~~~~~~~~~~~~~%@", NSStringFromCGRect(self.bounds));
+    self.bigScrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
     self.bigScrollView.contentOffset = CGPointMake(0, 0);
     self.bigScrollView.delegate = self;
     self.bigScrollView.contentSize = CGSizeMake(5 * kScreenSizeWidth, 0);
@@ -35,6 +35,7 @@
         self.myView = [[UIView alloc] initWithFrame:CGRectMake(i * kScreenSizeWidth, 0, kScreenSizeWidth, self.bigScrollView.frame.size.height)];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
         label.text = [NSString stringWithFormat:@"%d", i];
+        self.myView.backgroundColor = [UIColor redColor];
         [self.myView addSubview:label];
         
         self.myView.tag = 100 + i;

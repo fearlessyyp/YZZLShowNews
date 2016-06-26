@@ -110,7 +110,6 @@
 - (void)configSubLabel{
     //移除所有子视图
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    
     for (int i = 0;  i < self.titleArray.count; i++) {
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(i * ItemWidth, 0, ItemWidth, ItemHeight)];
         titleLabel.text = [self.titleArray objectAtIndex:i];

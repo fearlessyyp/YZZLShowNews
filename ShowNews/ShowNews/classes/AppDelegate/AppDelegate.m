@@ -28,7 +28,7 @@
     [self.window makeKeyAndVisible];
     self.rootTVC = [[UITabBarController alloc] init];
     [self createChildViewControllers];
-//    self.rootTVC.tabBar.translucent = NO;
+//    self.rootTVC.tabBar.backgroundImage = [UIImage imageNamed:@"bg_nav"];
     MusicSearchController *musicVC = [[MusicSearchController alloc] init];
     RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:self.rootTVC
                                                                     leftMenuViewController:nil
@@ -62,6 +62,7 @@
                       normalImage:(NSString *)normalImage
                     selectedImage:(NSString *)selectedImage{
     viewController.title = title;
+    viewController.view.backgroundColor = [UIColor whiteColor];
     viewController.tabBarItem.image = [UIImage imageNamed:normalImage];
     UIImage *image = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     viewController.tabBarItem.selectedImage = image;

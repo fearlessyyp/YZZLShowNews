@@ -61,6 +61,8 @@
 		D66E3E751D1FBB4400DB84BF /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E741D1FBB4400DB84BF /* SegmentView.m */; };
 		D66E3E7D1D1FD6F500DB84BF /* MyScorllView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E7C1D1FD6F500DB84BF /* MyScorllView.m */; };
 		D66E3E831D1FEE5700DB84BF /* BigScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E821D1FEE5700DB84BF /* BigScrollView.m */; };
+		D66E3E8A1D2001A600DB84BF /* bg_nav.png in Resources */ = {isa = PBXBuildFile; fileRef = D66E3E881D2001A600DB84BF /* bg_nav.png */; };
+		D66E3E8B1D2001A600DB84BF /* bg_nav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D66E3E891D2001A600DB84BF /* bg_nav@2x.png */; };
 		D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA653F1D1E253200ECA213 /* WeatherHandle.m */; };
 		D6BA65461D1E2C7B00ECA213 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65451D1E2C7B00ECA213 /* Weather.m */; };
 		D6BA654C1D1E30C900ECA213 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA654B1D1E30C900ECA213 /* BaseViewController.m */; };
@@ -164,6 +166,8 @@
 		D66E3E7C1D1FD6F500DB84BF /* MyScorllView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScorllView.m; sourceTree = "<group>"; };
 		D66E3E811D1FEE5700DB84BF /* BigScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigScrollView.h; sourceTree = "<group>"; };
 		D66E3E821D1FEE5700DB84BF /* BigScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigScrollView.m; sourceTree = "<group>"; };
+		D66E3E881D2001A600DB84BF /* bg_nav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_nav.png; sourceTree = "<group>"; };
+		D66E3E891D2001A600DB84BF /* bg_nav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_nav@2x.png"; sourceTree = "<group>"; };
 		D6BA653E1D1E253200ECA213 /* WeatherHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherHandle.h; sourceTree = "<group>"; };
 		D6BA653F1D1E253200ECA213 /* WeatherHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherHandle.m; sourceTree = "<group>"; };
 		D6BA65411D1E259400ECA213 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -686,6 +690,8 @@
 		D66AA28E1D1EC4BD00045D9E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D66E3E881D2001A600DB84BF /* bg_nav.png */,
+				D66E3E891D2001A600DB84BF /* bg_nav@2x.png */,
 				D66AA28F1D1EC4BD00045D9E /* background.png */,
 				D66AA2901D1EC4BD00045D9E /* collect.png */,
 				D66AA2911D1EC4BD00045D9E /* icon.png */,
@@ -766,6 +772,7 @@
 				D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */,
 				D66AA2A01D1ECCD900045D9E /* UserViewController.xib in Resources */,
 				F53D26271D1E2C20002E0644 /* VideoPlayerViewController.xib in Resources */,
+				D66E3E8A1D2001A600DB84BF /* bg_nav.png in Resources */,
 				D66AA2941D1EC4BD00045D9E /* background.png in Resources */,
 				D64FA1211D1D1C92007DE414 /* LaunchScreen.storyboard in Resources */,
 				F570BD121D1D5D000031CDB3 /* VideoCell.xib in Resources */,
@@ -783,6 +790,7 @@
 				D6224A551D1E9EDA0048ED57 /* CityViewController.xib in Resources */,
 				D6E2AC471D1E681900B18F0E /* MusicListCell.xib in Resources */,
 				D66AA2971D1EC4BD00045D9E /* lyric.png in Resources */,
+				D66E3E8B1D2001A600DB84BF /* bg_nav@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
