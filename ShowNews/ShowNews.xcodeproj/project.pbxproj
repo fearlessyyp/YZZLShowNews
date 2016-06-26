@@ -13,7 +13,6 @@
 		D6224A481D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A431D1E6F6E0048ED57 /* README.md */; };
 		D6224A491D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A441D1E6F6E0048ED57 /* README.md */; };
 		D6224A4A1D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A461D1E6F6E0048ED57 /* README.md */; };
-		D6224A501D1E9E8C0048ED57 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = D6224A4F1D1E9E8C0048ED57 /* City.m */; };
 		D6224A541D1E9EDA0048ED57 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6224A521D1E9EDA0048ED57 /* CityViewController.m */; };
 		D6224A551D1E9EDA0048ED57 /* CityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6224A531D1E9EDA0048ED57 /* CityViewController.xib */; };
 		D64FA1131D1D1C92007DE414 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1121D1D1C92007DE414 /* main.m */; };
@@ -62,10 +61,6 @@
 		D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA653F1D1E253200ECA213 /* WeatherHandle.m */; };
 		D6BA65461D1E2C7B00ECA213 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65451D1E2C7B00ECA213 /* Weather.m */; };
 		D6BA654C1D1E30C900ECA213 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA654B1D1E30C900ECA213 /* BaseViewController.m */; };
-		D6BA65521D1E44CE00ECA213 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65511D1E44CE00ECA213 /* testViewController.m */; };
-		D6BA65551D1E5B3400ECA213 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65541D1E5B3400ECA213 /* City.m */; };
-		D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */; };
-		D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC411D1E5E0200B18F0E /* Music.m */; };
 		D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */; };
 		D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC411D1E5E0200B18F0E /* Music.m */; };
 		D6E2AC461D1E681900B18F0E /* MusicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC441D1E681900B18F0E /* MusicListCell.m */; };
@@ -89,6 +84,7 @@
 		F53D262B1D1E6CFD002E0644 /* GiFHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F53D26291D1E6CFD002E0644 /* GiFHUD.m */; };
 		F53D262C1D1E6CFD002E0644 /* pika.gif in Resources */ = {isa = PBXBuildFile; fileRef = F53D262A1D1E6CFD002E0644 /* pika.gif */; };
 		F53D262F1D1EB06D002E0644 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F53D262E1D1EB06D002E0644 /* PlayerView.m */; };
+		F557EF851D1FAE9B00C3C241 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = F557EF841D1FAE9B00C3C241 /* City.m */; };
 		F570BD0D1D1D5CD30031CDB3 /* VideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F570BD0C1D1D5CD30031CDB3 /* VideoTableViewController.m */; };
 		F570BD111D1D5D000031CDB3 /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F570BD0F1D1D5D000031CDB3 /* VideoCell.m */; };
 		F570BD121D1D5D000031CDB3 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F570BD101D1D5D000031CDB3 /* VideoCell.xib */; };
@@ -104,8 +100,6 @@
 		D6224A431D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D6224A441D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D6224A461D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D6224A4E1D1E9E8C0048ED57 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
-		D6224A4F1D1E9E8C0048ED57 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		D6224A511D1E9EDA0048ED57 /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
 		D6224A521D1E9EDA0048ED57 /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
 		D6224A531D1E9EDA0048ED57 /* CityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityViewController.xib; sourceTree = "<group>"; };
@@ -169,10 +163,6 @@
 		D6BA65451D1E2C7B00ECA213 /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 		D6BA654A1D1E30C900ECA213 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		D6BA654B1D1E30C900ECA213 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		D6BA65501D1E44CE00ECA213 /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
-		D6BA65511D1E44CE00ECA213 /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
-		D6BA65531D1E5B3400ECA213 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
-		D6BA65541D1E5B3400ECA213 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		D6BA65561D1E5E0B00ECA213 /* GetPinYinFromChinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPinYinFromChinese.h; sourceTree = "<group>"; };
 		D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPinYinFromChinese.m; sourceTree = "<group>"; };
 		D6E2AC401D1E5E0200B18F0E /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
@@ -212,6 +202,8 @@
 		F53D262A1D1E6CFD002E0644 /* pika.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pika.gif; sourceTree = "<group>"; };
 		F53D262D1D1EB06D002E0644 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
 		F53D262E1D1EB06D002E0644 /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
+		F557EF831D1FAE9B00C3C241 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		F557EF841D1FAE9B00C3C241 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		F570BD0B1D1D5CD30031CDB3 /* VideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTableViewController.h; sourceTree = "<group>"; };
 		F570BD0C1D1D5CD30031CDB3 /* VideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewController.m; sourceTree = "<group>"; };
 		F570BD0E1D1D5D000031CDB3 /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
@@ -270,9 +262,9 @@
 		D6224A421D1E6F6E0048ED57 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D6224A4E1D1E9E8C0048ED57 /* City.h */,
-				D6224A4F1D1E9E8C0048ED57 /* City.m */,
 				D6224A431D1E6F6E0048ED57 /* README.md */,
+				F557EF831D1FAE9B00C3C241 /* City.h */,
+				F557EF841D1FAE9B00C3C241 /* City.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -835,7 +827,6 @@
 				D64FA1901D1D2B63007DE414 /* README.md in Sources */,
 				D6BA65461D1E2C7B00ECA213 /* Weather.m in Sources */,
 				D66AA2A41D1ECCF100045D9E /* MapViewController.m in Sources */,
-				D6224A501D1E9E8C0048ED57 /* City.m in Sources */,
 				F570BD151D1D6C9A0031CDB3 /* VideoModel.m in Sources */,
 				F570BD0D1D1D5CD30031CDB3 /* VideoTableViewController.m in Sources */,
 				D64FA1911D1D2B63007DE414 /* README.md in Sources */,
@@ -856,9 +847,9 @@
 				D6EA5EA31D1D2DF4006B6C33 /* NewsArticleCell.m in Sources */,
 				D66AA29B1D1EC7FA00045D9E /* NewsViewController.m in Sources */,
 				D64FA1881D1D2B41007DE414 /* README.md in Sources */,
+				F557EF851D1FAE9B00C3C241 /* City.m in Sources */,
 				D64FA1B41D1D2B9F007DE414 /* README.md in Sources */,
 				F53D262B1D1E6CFD002E0644 /* GiFHUD.m in Sources */,
-				D6BA65551D1E5B3400ECA213 /* City.m in Sources */,
 				D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */,
 				D64FA1861D1D2B41007DE414 /* README.md in Sources */,
 				F53D26261D1E2C20002E0644 /* VideoPlayerViewController.m in Sources */,
