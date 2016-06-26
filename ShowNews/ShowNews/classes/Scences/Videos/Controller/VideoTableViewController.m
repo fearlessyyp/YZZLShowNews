@@ -13,6 +13,7 @@
 #import "NewsUrl.h"
 #import "VideoModel.h"
 #import "VideoPlayerViewController.h"
+#import "GiFHUD.h"
 @interface VideoTableViewController ()<UITableViewDataSource,UITableViewDelegate>
 // / 存储数据的数组
 @property (nonatomic, strong) NSMutableArray *allDataArray;
@@ -45,6 +46,17 @@
     
 }
 
+#pragma mark - 添加loading信息
+- (void)p_setupProgressHud
+{
+    [GiFHUD setGifWithImageName:@"pika.gif"];
+    [GiFHUD show];
+    
+}
+
+
+
+
 // 懒加载数组
 - (NSMutableArray *)allDataArray
 {
@@ -64,7 +76,8 @@
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         // 请求数据
         NSLog(@"请求成功");
-        
+        //设置loading
+        [self p_setupProgressHud];
         // 处理数据...
         NSArray *reusltArr = responseObject[@"V9LG4B3A0"];
        
@@ -74,6 +87,8 @@
             [weakSelf.allDataArray addObject:videoModel];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
+            //隐藏gif动图
+            [GiFHUD dismiss];
             [self.tableView reloadData];
         });
         NSLog(@"=============%@", weakSelf.allDataArray);
@@ -82,6 +97,22 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败%@", error);
     }];
+}
+
+//页面消失时
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+    //隐藏gif动图
+    [GiFHUD dismiss];
+}
+
+//页面已经出现
+- (void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:YES];
+    [GiFHUD dismiss];
+    
 }
 
 
