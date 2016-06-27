@@ -52,10 +52,16 @@ static PlayViewController *playVC = nil;
 //    return _timeForLyric;
 //}
 
-
+//- (instancetype)init {
+//    if (self = [super init]) {
+//        
+//    }
+//    return self;
+//}
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.playManager prepareMusic:self.musicIndex];
+    
     [self.musicLyric registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ce"];
 }
 
@@ -88,6 +94,15 @@ static PlayViewController *playVC = nil;
     // Do any additional setup after loading the view from its nib.
     self.playManager = [PlayerManager sharePlayer];
     [self.musicPic.layer setMasksToBounds:YES];
+    
+    if ([PlayerManager sharePlayer].isStart == YES) {
+        [self.playerConsole.playButtons setImage:[UIImage imageNamed:@"audionews_pause_button@2x"] forState:UIControlStateNormal];
+        
+    }else {
+        [self.playerConsole.playButtons setImage:[UIImage imageNamed:@"audionews_play_button@2x"] forState:UIControlStateNormal];
+        
+    }
+    
     // 专辑图片
     // 将改变约束的生命周期提前
     [self.musicPic.layer setCornerRadius:(([UIScreen mainScreen].bounds.size.width) - 100) / 2];
@@ -95,7 +110,7 @@ static PlayViewController *playVC = nil;
     
     // 当音乐被切换时调用的代理方法  外部需要拿到数据模型 进行改变
     __weak typeof(self)weakSelf = self;
-    self.playManager.blocl = ^void (Music *musci) {
+    self.playManager.blocl1 = ^void (Music *musci) {
         
         
         NSLog(@"++++++++++++++%@", musci.picUrl);
@@ -117,7 +132,7 @@ static PlayViewController *playVC = nil;
     };
     
     //  当歌曲正在播放时被一直调用的方法
-    self.playManager.time = ^void (NSString *str){
+    self.playManager.time1 = ^void (NSString *str){
         [weakSelf.playerConsole playMusicWithFormatString:str];
         
         for (int i = 0; i < weakSelf.lyricArr.count; i++) {
@@ -140,7 +155,31 @@ static PlayViewController *playVC = nil;
     self.musicLyric.delegate = self;
     self.musicLyric.dataSource = self;
     
+    // 监听根据系统音量改变slder音量想
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(volumeChanged) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
+    
+    
 }
+// 系统音量发生变化
+- (void)volumeChanged{
+    [self.playerConsole changeVoluem:[MPMusicPlayerController applicationMusicPlayer].volume];
+}
+
+//// 获取系统音量
+-(float) getVolumeLevel
+{
+    MPVolumeView *volumeView = [[MPVolumeView alloc] init];
+    UISlider *volumeViewSlider= nil;
+    for (UIView *view in [volumeView subviews]){
+        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
+            volumeViewSlider = (UISlider*)view;
+            break;
+        }
+    }
+    return volumeViewSlider.value;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -176,7 +215,19 @@ static PlayViewController *playVC = nil;
     return cell;
 }
 
+// 返回按钮
+- (IBAction)backButtonClick:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
+
+- (void)dealloc
+
+{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
+    
+}
 /*
 #pragma mark - Navigation
 

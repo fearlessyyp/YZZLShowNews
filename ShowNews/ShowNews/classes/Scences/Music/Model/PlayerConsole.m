@@ -26,7 +26,7 @@
 
 @property (nonatomic,weak) IBOutlet UIButton *nextButtons;  // 下一首button
 
-@property (nonatomic,weak) IBOutlet UIButton *playButtons;  // 播放&暂停按钮
+
 
 @end
 
@@ -61,13 +61,22 @@
 
 //   播放按钮
 - (IBAction)PlayButtonClicked:(UIButton *)sender{
-    if ([sender.titleLabel.text isEqualToString:@"播放"]) {
-        [[PlayerManager sharePlayer] musicPlay];
-        [sender setTitle:@"暂停" forState:UIControlStateNormal];
-    }else {
+//    if ([sender.titleLabel.text isEqualToString:@"播放"]) {
+//        [[PlayerManager sharePlayer] musicPlay];
+//        [sender setTitle:@"暂停" forState:UIControlStateNormal];
+//    }else {
+//        [[PlayerManager sharePlayer] pause];
+//        sender.titleLabel.text = @"播放";
+//        [sender setTitle:@"播放" forState:UIControlStateNormal];
+//    }
+    if ([PlayerManager sharePlayer].isStart == YES) {
+        [sender setImage:[UIImage imageNamed:@"audionews_play_button@2x"] forState:UIControlStateNormal];
         [[PlayerManager sharePlayer] pause];
-        sender.titleLabel.text = @"播放";
-        [sender setTitle:@"播放" forState:UIControlStateNormal];
+        [PlayerManager sharePlayer].isStart = NO;
+    }else {
+        [sender setImage:[UIImage imageNamed:@"audionews_pause_button@2x"] forState:UIControlStateNormal];
+        [[PlayerManager sharePlayer] musicPlay];
+        [PlayerManager sharePlayer].isStart = YES;
     }
 }
 
@@ -79,8 +88,13 @@
 // 音量
 - (IBAction)VolumnSliderValueChanged:(UISlider *)sender{
     MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
-    [[PlayerManager sharePlayer] musicVolumn:sender.value];
     musicPlayer.volume = sender.value;
+    [[PlayerManager sharePlayer] musicVolumn:musicPlayer.volume];
+    
+}
+
+- (void)changeVoluem:(CGFloat)value {
+    self.volumeSlide.value = value;
 }
 
 // 上一首按钮的触发时间

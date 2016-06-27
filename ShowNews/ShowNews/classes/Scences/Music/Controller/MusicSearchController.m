@@ -23,8 +23,11 @@
 /// 搜索结果列表
 @property (weak, nonatomic) IBOutlet UITableView *listResultTableView;
 
-
+/// 播放控制器
 @property (weak, nonatomic) IBOutlet UIView *bofangView;
+
+
+//@property (nonatomic, strong) PlayViewController *playVC;
 
 
 /// 用于网络请求的session对象
@@ -72,15 +75,15 @@
 @implementation MusicSearchController
 
 - (void)viewDidAppear:(BOOL)animated {
-    NSLog(@"llllllllllllllllll%f", self.bofangView.frame.size.width);
+//    NSLog(@"llllllllllllllllll%f", self.bofangView.frame.size.width);
     self.speaceButton.constant = self.speaceButton1.constant = self.speaceButton2.constant = (self.bofangView.frame.size.width - 67 - 120 - 4) / 3;
-    NSLog(@"iiiiiiii%f",self.speaceButton.constant);
+//    NSLog(@"iiiiiiii%f",self.speaceButton.constant);
 }
 
 - (void)updateViewConstraints {
     [super updateViewConstraints];
     self.leftTransform.constant = [UIScreen mainScreen].bounds.size.width *0.12 + 8;
-    NSLog(@"llllllllllllllllll%f", self.bofangView.frame.size.width);
+//    NSLog(@"llllllllllllllllll%f", self.bofangView.frame.size.width);
 //    self.speaceButton.constant = self.speaceButton1.constant = self.speaceButton2.constant =
 }
 
@@ -96,6 +99,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.volume.value = [MPMusicPlayerController applicationMusicPlayer].volume;
     
     [self.navigationController setNavigationBarHidden:YES];
     // 单例 初始化session对象
@@ -367,13 +372,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    PlayViewController *playVC = [PlayViewController sharePlayView];
-//    
+    [PlayViewController sharePlayView];
+//
 //    playVC.musicIndex = indexPath.row;
 //    
 //    [self.navigationController pushViewController:playVC animated:YES];
+    
     [[PlayerManager sharePlayer] prepareMusic:indexPath.row];
-//    [[PlayerManager sharePlayer] musicPlay];
+    [[PlayerManager sharePlayer] musicPlay];
     Music *music = self.allArr[indexPath.row];
     [self bindSmallMusicController:music];
 }
@@ -403,22 +409,46 @@
 
 
 - (IBAction)PlayButtonClick:(UIButton *)sender {
-    if ([sender.titleLabel.text isEqualToString:@"播放"]) {
-        [[PlayerManager sharePlayer] musicPlay];
-        [sender setTitle:@"暂停" forState:UIControlStateNormal];
-    }else {
+    
+    if ([PlayerManager sharePlayer].isStart == YES) {
+        [sender setImage:[UIImage imageNamed:@"audionews_play_button@2x"] forState:UIControlStateNormal];
         [[PlayerManager sharePlayer] pause];
-        sender.titleLabel.text = @"播放";
-        [sender setTitle:@"播放" forState:UIControlStateNormal];
+        [PlayerManager sharePlayer].isStart = NO;
+    }else {
+        [sender setImage:[UIImage imageNamed:@"audionews_pause_button@2x"] forState:UIControlStateNormal];
+        [[PlayerManager sharePlayer] musicPlay];
+        [PlayerManager sharePlayer].isStart = YES;
     }
+    
+//    if ([sender.titleLabel.text isEqualToString:@"播放"]) {
+//        [[PlayerManager sharePlayer] musicPlay];
+//        [sender setTitle:@"暂停" forState:UIControlStateNormal];
+//    }else {
+//        [[PlayerManager sharePlayer] pause];
+//        sender.titleLabel.text = @"播放";
+//        [sender setTitle:@"播放" forState:UIControlStateNormal];
+//    }
+}
+
+- (IBAction)imageClick:(UITapGestureRecognizer *)sender {
+    PlayViewController *playVC = [PlayViewController sharePlayView];
+    
+    
+    playVC.musicIndex = [PlayerManager sharePlayer].currentIndex;
+    
+    [self.navigationController pushViewController:playVC animated:YES];
+    
+    
 }
 
 
+
+// 音量改变
 - (IBAction)VolumnSliderValueChange:(UISlider *)sender {
     MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
     
     musicPlayer.volume = sender.value;
-    [[PlayerManager sharePlayer] musicVolumn:sender.value];
+    [[PlayerManager sharePlayer] musicVolumn:musicPlayer.volume];
 }
 
 
