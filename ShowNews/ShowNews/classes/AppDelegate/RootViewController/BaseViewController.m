@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import <Masonry.h>
+#import <RESideMenu.h>
 // 导航栏高度
 #define kNavHeight self.navigationController.navigationBar.frame.size.height
 // 图标的尺寸
@@ -17,18 +18,26 @@
 @end
 
 @implementation BaseViewController
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self initLayout];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.title = @"个人中心";
-    [self initLayout];
+    
 }
 - (void)initLayout {
-    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_nav"] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setTintColor:[UIColor redColor]];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"音乐"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(presentRightMenuViewController:)];
     __weak typeof(self)weakSelf = self;
     // 初始化自定义视图
     self.myView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width * 0.2, kNavHeight)];
-    self.myView.backgroundColor = [UIColor redColor];
     // 自定义视图左按钮
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.myView];
     // 初始化显示天气图标

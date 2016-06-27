@@ -58,10 +58,16 @@
 		D66AA2A01D1ECCD900045D9E /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66AA29E1D1ECCD900045D9E /* UserViewController.xib */; };
 		D66AA2A41D1ECCF100045D9E /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA2A21D1ECCF100045D9E /* MapViewController.m */; };
 		D66AA2A51D1ECCF100045D9E /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2A31D1ECCF100045D9E /* MapViewController.xib */; };
+		D66E3E751D1FBB4400DB84BF /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E741D1FBB4400DB84BF /* SegmentView.m */; };
+		D66E3E7D1D1FD6F500DB84BF /* MyScorllView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E7C1D1FD6F500DB84BF /* MyScorllView.m */; };
+		D66E3E831D1FEE5700DB84BF /* BigScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E821D1FEE5700DB84BF /* BigScrollView.m */; };
+		D66E3E8A1D2001A600DB84BF /* bg_nav.png in Resources */ = {isa = PBXBuildFile; fileRef = D66E3E881D2001A600DB84BF /* bg_nav.png */; };
+		D66E3E8B1D2001A600DB84BF /* bg_nav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D66E3E891D2001A600DB84BF /* bg_nav@2x.png */; };
 		D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA653F1D1E253200ECA213 /* WeatherHandle.m */; };
 		D6BA65461D1E2C7B00ECA213 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65451D1E2C7B00ECA213 /* Weather.m */; };
 		D6BA654C1D1E30C900ECA213 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA654B1D1E30C900ECA213 /* BaseViewController.m */; };
 		D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */; };
+		D6E261871D1FEAA500F8570C /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E261861D1FEAA500F8570C /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC411D1E5E0200B18F0E /* Music.m */; };
 		D6E2AC461D1E681900B18F0E /* MusicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC441D1E681900B18F0E /* MusicListCell.m */; };
 		D6E2AC471D1E681900B18F0E /* MusicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E2AC451D1E681900B18F0E /* MusicListCell.xib */; };
@@ -156,6 +162,14 @@
 		D66AA2A11D1ECCF100045D9E /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		D66AA2A21D1ECCF100045D9E /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		D66AA2A31D1ECCF100045D9E /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		D66E3E731D1FBB4400DB84BF /* SegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
+		D66E3E741D1FBB4400DB84BF /* SegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
+		D66E3E7B1D1FD6F500DB84BF /* MyScorllView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScorllView.h; sourceTree = "<group>"; };
+		D66E3E7C1D1FD6F500DB84BF /* MyScorllView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScorllView.m; sourceTree = "<group>"; };
+		D66E3E811D1FEE5700DB84BF /* BigScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigScrollView.h; sourceTree = "<group>"; };
+		D66E3E821D1FEE5700DB84BF /* BigScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigScrollView.m; sourceTree = "<group>"; };
+		D66E3E881D2001A600DB84BF /* bg_nav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_nav.png; sourceTree = "<group>"; };
+		D66E3E891D2001A600DB84BF /* bg_nav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_nav@2x.png"; sourceTree = "<group>"; };
 		D6BA653E1D1E253200ECA213 /* WeatherHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherHandle.h; sourceTree = "<group>"; };
 		D6BA653F1D1E253200ECA213 /* WeatherHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherHandle.m; sourceTree = "<group>"; };
 		D6BA65411D1E259400ECA213 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -167,6 +181,8 @@
 		D6BA654B1D1E30C900ECA213 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		D6BA65561D1E5E0B00ECA213 /* GetPinYinFromChinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPinYinFromChinese.h; sourceTree = "<group>"; };
 		D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPinYinFromChinese.m; sourceTree = "<group>"; };
+		D6E261851D1FEAA500F8570C /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		D6E261861D1FEAA500F8570C /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		D6E2AC401D1E5E0200B18F0E /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
 		D6E2AC411D1E5E0200B18F0E /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
 		D6E2AC431D1E681900B18F0E /* MusicListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicListCell.h; sourceTree = "<group>"; };
@@ -385,6 +401,8 @@
 		D64FA15E1D1D1D95007DE414 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				D6E261851D1FEAA500F8570C /* GDataXMLNode.h */,
+				D6E261861D1FEAA500F8570C /* GDataXMLNode.m */,
 				D64FA15F1D1D1D95007DE414 /* README.md */,
 				D6224A3D1D1E6A560048ED57 /* Foundation+Log.m */,
 				D6BA65561D1E5E0B00ECA213 /* GetPinYinFromChinese.h */,
@@ -591,6 +609,8 @@
 		D64FA19F1D1D2B8D007DE414 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D66E3E731D1FBB4400DB84BF /* SegmentView.h */,
+				D66E3E741D1FBB4400DB84BF /* SegmentView.m */,
 				D64FA1A01D1D2B8D007DE414 /* README.md */,
 				D6EA5E9B1D1D2DCF006B6C33 /* NewsPhotoSetCell.h */,
 				D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */,
@@ -601,6 +621,10 @@
 				D6EA5EA51D1D2E11006B6C33 /* NewsSpecialCell.h */,
 				D6EA5EA61D1D2E11006B6C33 /* NewsSpecialCell.m */,
 				D6EA5EA71D1D2E11006B6C33 /* NewsSpecialCell.xib */,
+				D66E3E7B1D1FD6F500DB84BF /* MyScorllView.h */,
+				D66E3E7C1D1FD6F500DB84BF /* MyScorllView.m */,
+				D66E3E811D1FEE5700DB84BF /* BigScrollView.h */,
+				D66E3E821D1FEE5700DB84BF /* BigScrollView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -674,6 +698,8 @@
 		D66AA28E1D1EC4BD00045D9E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D66E3E881D2001A600DB84BF /* bg_nav.png */,
+				D66E3E891D2001A600DB84BF /* bg_nav@2x.png */,
 				D66AA28F1D1EC4BD00045D9E /* background.png */,
 				D66AA2901D1EC4BD00045D9E /* collect.png */,
 				D66AA2911D1EC4BD00045D9E /* icon.png */,
@@ -754,6 +780,7 @@
 				D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */,
 				D66AA2A01D1ECCD900045D9E /* UserViewController.xib in Resources */,
 				F53D26271D1E2C20002E0644 /* VideoPlayerViewController.xib in Resources */,
+				D66E3E8A1D2001A600DB84BF /* bg_nav.png in Resources */,
 				D66AA2941D1EC4BD00045D9E /* background.png in Resources */,
 				D64FA1211D1D1C92007DE414 /* LaunchScreen.storyboard in Resources */,
 				F570BD121D1D5D000031CDB3 /* VideoCell.xib in Resources */,
@@ -772,6 +799,7 @@
 				D6224A551D1E9EDA0048ED57 /* CityViewController.xib in Resources */,
 				D6E2AC471D1E681900B18F0E /* MusicListCell.xib in Resources */,
 				D66AA2971D1EC4BD00045D9E /* lyric.png in Resources */,
+				D66E3E8B1D2001A600DB84BF /* bg_nav@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -861,6 +889,7 @@
 				F557EF8D1D1FFBAE00C3C241 /* VideoView.m in Sources */,
 				F53D262B1D1E6CFD002E0644 /* GiFHUD.m in Sources */,
 				D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */,
+				D66E3E831D1FEE5700DB84BF /* BigScrollView.m in Sources */,
 				D64FA1861D1D2B41007DE414 /* README.md in Sources */,
 				F53D26261D1E2C20002E0644 /* VideoPlayerViewController.m in Sources */,
 				D64FA1AA1D1D2B97007DE414 /* README.md in Sources */,
@@ -874,6 +903,7 @@
 				D6E2AC521D1E876700B18F0E /* PlayerConsole.m in Sources */,
 				D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */,
 				D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */,
+				D66E3E751D1FBB4400DB84BF /* SegmentView.m in Sources */,
 				D6E2AC461D1E681900B18F0E /* MusicListCell.m in Sources */,
 				D6E2AC4B1D1E873600B18F0E /* PlayViewController.m in Sources */,
 				D64FA1751D1D1D95007DE414 /* UIScrollView+Touches.m in Sources */,
@@ -881,12 +911,14 @@
 				D64FA1791D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1871D1D2B41007DE414 /* README.md in Sources */,
 				D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */,
+				D6E261871D1FEAA500F8570C /* GDataXMLNode.m in Sources */,
 				D64FA18F1D1D2B63007DE414 /* README.md in Sources */,
 				D64FA17E1D1D1D95007DE414 /* README.md in Sources */,
 				D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */,
 				D64FA1781D1D1D95007DE414 /* README.md in Sources */,
 				D6224A481D1E6F6E0048ED57 /* README.md in Sources */,
 				D64FA17F1D1D1D95007DE414 /* README.md in Sources */,
+				D66E3E7D1D1FD6F500DB84BF /* MyScorllView.m in Sources */,
 				D64FA17B1D1D1D95007DE414 /* README.md in Sources */,
 				F5D8CC9D1D1E2620006077C7 /* NSString+TimeFormatter.m in Sources */,
 				D6224A541D1E9EDA0048ED57 /* CityViewController.m in Sources */,
@@ -1005,8 +1037,69 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Yang (F2N9DLANA4)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ShowNews/classes/Marco/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/BaiduMapKit\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/RESideMenu\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = ShowNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"RESideMenu\"",
+					"-l\"SDWebImage\"",
+					"-l\"sqlite3.0\"",
+					"-l\"stdc++.6.0.9\"",
+					"-framework",
+					"\"BaiduMapAPI_Base\"",
+					"-framework",
+					"\"BaiduMapAPI_Cloud\"",
+					"-framework",
+					"\"BaiduMapAPI_Location\"",
+					"-framework",
+					"\"BaiduMapAPI_Map\"",
+					"-framework",
+					"\"BaiduMapAPI_Radar\"",
+					"-framework",
+					"\"BaiduMapAPI_Search\"",
+					"-framework",
+					"\"BaiduMapAPI_Utils\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-lxml2",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.YZZL.ShowNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b72ed5ba-2c80-4fc4-ad1b-b5d374b7c63c";
@@ -1020,8 +1113,69 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Yang (F2N9DLANA4)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ShowNews/classes/Marco/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/BaiduMapKit\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/RESideMenu\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = ShowNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"RESideMenu\"",
+					"-l\"SDWebImage\"",
+					"-l\"sqlite3.0\"",
+					"-l\"stdc++.6.0.9\"",
+					"-framework",
+					"\"BaiduMapAPI_Base\"",
+					"-framework",
+					"\"BaiduMapAPI_Cloud\"",
+					"-framework",
+					"\"BaiduMapAPI_Location\"",
+					"-framework",
+					"\"BaiduMapAPI_Map\"",
+					"-framework",
+					"\"BaiduMapAPI_Radar\"",
+					"-framework",
+					"\"BaiduMapAPI_Search\"",
+					"-framework",
+					"\"BaiduMapAPI_Utils\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-lxml2",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.YZZL.ShowNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b72ed5ba-2c80-4fc4-ad1b-b5d374b7c63c";
