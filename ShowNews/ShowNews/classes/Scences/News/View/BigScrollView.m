@@ -8,7 +8,7 @@
 
 #import "BigScrollView.h"
 
-@interface BigScrollView ()<UIScrollViewDelegate>
+@interface BigScrollView ()
 
 @end
 
@@ -25,17 +25,17 @@
 
 #pragma mark - 设置大背景scorllView
 - (void)bindBigScorllView {
-    NSLog(@"~~~~~~~~~~~~~~~~~~~%@", NSStringFromCGRect(self.bounds));
     self.bigScrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+    // 关闭水平滚动条
+    self.bigScrollView.showsHorizontalScrollIndicator = NO;
     self.bigScrollView.contentOffset = CGPointMake(0, 0);
-    self.bigScrollView.delegate = self;
     self.bigScrollView.contentSize = CGSizeMake(5 * kScreenSizeWidth, 0);
+    // 按页滚动
     self.bigScrollView.pagingEnabled = YES;
     for (int i = 0; i < 5; i++) {
         self.myView = [[UIView alloc] initWithFrame:CGRectMake(i * kScreenSizeWidth, 0, kScreenSizeWidth, self.bigScrollView.frame.size.height)];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
         label.text = [NSString stringWithFormat:@"%d", i];
-        self.myView.backgroundColor = [UIColor redColor];
         [self.myView addSubview:label];
         
         self.myView.tag = 100 + i;

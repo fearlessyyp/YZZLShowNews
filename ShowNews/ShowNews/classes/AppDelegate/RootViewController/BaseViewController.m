@@ -9,6 +9,8 @@
 #import "BaseViewController.h"
 #import <Masonry.h>
 #import <RESideMenu.h>
+#import "UIImage+ImageByColor.h"
+
 // 导航栏高度
 #define kNavHeight self.navigationController.navigationBar.frame.size.height
 // 图标的尺寸
@@ -25,21 +27,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.title = @"个人中心";
     
 }
 - (void)initLayout {
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_nav"] forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setTintColor:[UIColor redColor]];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"音乐"
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(presentRightMenuViewController:)];
+   
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"redPacket_btn_1@2x"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:NEWS_MAIN_COLOR] forBarMetrics:UIBarMetricsDefault];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"musicBarButton"] style:UIBarButtonItemStylePlain target:self action:@selector(presentRightMenuViewController:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"音乐"
+//                                                                              style:UIBarButtonItemStylePlain
+//                                                                             target:self
+//                                                                             action:@selector(presentRightMenuViewController:)];
     __weak typeof(self)weakSelf = self;
     // 初始化自定义视图
     self.myView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width * 0.2, kNavHeight)];
     // 自定义视图左按钮
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.myView];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.myView];
     // 初始化显示天气图标
     self.iconImage = [UIImageView new];
     self.iconImage.backgroundColor = [UIColor yellowColor];
