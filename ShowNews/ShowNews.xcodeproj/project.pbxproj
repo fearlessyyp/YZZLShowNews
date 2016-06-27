@@ -110,6 +110,7 @@
 		F5D2E3791D212C3800D297A3 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D2E3771D212C3800D297A3 /* VideoCell.xib */; };
 		F5D2E37C1D212C4B00D297A3 /* RequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D2E37B1D212C4B00D297A3 /* RequestHelper.m */; };
 		F5D2E37E1D212DC000D297A3 /* WMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5D2E37D1D212DC000D297A3 /* WMPlayer.bundle */; };
+		F5D2E3801D212F4600D297A3 /* Unknown.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D2E37F1D212F4600D297A3 /* Unknown.png */; };
 		F5D8CC9D1D1E2620006077C7 /* NSString+TimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D8CC9C1D1E2620006077C7 /* NSString+TimeFormatter.m */; };
 /* End PBXBuildFile section */
 
@@ -261,6 +262,7 @@
 		F5D2E37A1D212C4B00D297A3 /* RequestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHelper.h; sourceTree = "<group>"; };
 		F5D2E37B1D212C4B00D297A3 /* RequestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestHelper.m; sourceTree = "<group>"; };
 		F5D2E37D1D212DC000D297A3 /* WMPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WMPlayer.bundle; sourceTree = "<group>"; };
+		F5D2E37F1D212F4600D297A3 /* Unknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unknown.png; sourceTree = "<group>"; };
 		F5D8CC9B1D1E2620006077C7 /* NSString+TimeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeFormatter.h"; sourceTree = "<group>"; };
 		F5D8CC9C1D1E2620006077C7 /* NSString+TimeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TimeFormatter.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -772,6 +774,7 @@
 				F5D2E3651D20BE9D00D297A3 /* action_love_selected@2x.png */,
 				F5D2E3661D20BE9D00D297A3 /* action_love@2x.png */,
 				F5D2E3691D20BEBD00D297A3 /* tabbar_icon_media_normal@2x.png */,
+				F5D2E37F1D212F4600D297A3 /* Unknown.png */,
 			);
 			name = VideoImage;
 			path = Image/VideoImage;
@@ -863,6 +866,7 @@
 				D64FA11E1D1D1C92007DE414 /* Assets.xcassets in Resources */,
 				F5D2E36A1D20BEBD00D297A3 /* tabbar_icon_media_normal@2x.png in Resources */,
 				D66AA2961D1EC4BD00045D9E /* icon.png in Resources */,
+				F5D2E3801D212F4600D297A3 /* Unknown.png in Resources */,
 				D64FA11C1D1D1C92007DE414 /* Main.storyboard in Resources */,
 				F5D2E3671D20BE9D00D297A3 /* action_love_selected@2x.png in Resources */,
 				D6224A551D1E9EDA0048ED57 /* CityViewController.xib in Resources */,

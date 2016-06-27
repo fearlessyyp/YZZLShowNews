@@ -67,7 +67,7 @@
                             <constraint firstAttribute="width" constant="40" id="EF5-Ah-nDF"/>
                             <constraint firstAttribute="height" constant="40" id="cxe-Oe-37c"/>
                         </constraints>
-                        <state key="normal" title="Button" image="tabbar_icon_media_normal.png"/>
+                        <state key="normal" title="Button" image="Unknown.png"/>
                     </button>
                 </subviews>
                 <constraints>
@@ -98,10 +98,10 @@
                 <outlet property="topicImgImageView" destination="KD5-3Q-6Kn" id="aU4-N4-0TT"/>
                 <outlet property="topicNameLable" destination="7c2-d1-DCw" id="WDK-qI-6NS"/>
             </connections>
-            <point key="canvasLocation" x="164" y="294"/>
+            <point key="canvasLocation" x="161" y="296"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="tabbar_icon_media_normal.png" width="19" height="19"/>
+        <image name="Unknown.png" width="200" height="200"/>
     </resources>
 </document>
