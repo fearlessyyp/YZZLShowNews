@@ -151,8 +151,6 @@
     }];
 }
 
-
-
 //页面消失时
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -200,6 +198,8 @@
     VideoPlayerViewController *VideoVC = [[VideoPlayerViewController alloc] init];
     
     VideoVC.model = self.allDataArray[indexPath.row];
+    // 隐藏tabBar
+    VideoVC.hidesBottomBarWhenPushed = YES;
     
     [self.navigationController pushViewController:VideoVC animated:YES];
 }
