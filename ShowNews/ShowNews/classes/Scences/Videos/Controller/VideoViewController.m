@@ -12,6 +12,7 @@
 #import "WXPlayerView.h"
 #import "RequestHelper.h"
 #import "NewsUrl.h"
+#import <MJRefresh.h>
 //屏幕的宽度
 #define WindownWidth [[UIScreen mainScreen] bounds].size.width
 //屏幕的高度
@@ -152,9 +153,6 @@
         
     }
         VideoModel *model = self.newMarray[sender.indexPath.row];
-      //  self.currentModel = model;
-//        NSString *requestUrl = [model.ID stringByReplacingOccurrencesOfString:@"==" withString:@""];
-//        NSString *str = [NSString stringWithFormat:@"http://api.dotaly.com/lol/api/v1/getvideourl?iap=0&ident=408A6C12-3E61-42EE-A6DB-FB776FBB834E&jb=0&type=flv&vid=%@%%3D%%3D", requestUrl];
 
                 self.playView = [[WXPlayerView alloc]initWithFrame:self.currentCell.backImageView.frame];
                 [self.playView setURLString:model.mp4_url];
@@ -237,10 +235,7 @@
     }
 }
 
-
-
 #pragma mark - 通知方法
-
 - (void)videoDidFinished: (NSNotification *)notice{
     VideoCell *cell = [self.privateTableView cellForRowAtIndexPath:self.currentIndexPath];
     [cell.playBtn.superview bringSubviewToFront:_currentCell.playBtn];

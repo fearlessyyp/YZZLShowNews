@@ -190,7 +190,6 @@ static WXPlayerView *view = nil;
     [self.progressSlider addGestureRecognizer:self.tap];
     [self.bottomView addSubview:self.progressSlider];
     
-    
     //autoLayout slider
     [self.progressSlider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.bottomView).with.offset(45);
