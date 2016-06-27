@@ -22,14 +22,48 @@
 /// 搜索结果列表
 @property (weak, nonatomic) IBOutlet UITableView *listResultTableView;
 
+
+@property (weak, nonatomic) IBOutlet UIView *bofangView;
+
+
 /// 用于网络请求的session对象
 @property (nonatomic, strong) AFHTTPSessionManager *session;
 
+
+
 /// 大数组
 @property (nonatomic, strong) NSMutableArray *allArr;
+/// 距左的约束
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftTransform;
+/// button 的间距
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *speaceButton1;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *speaceButton2;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *speaceButton;
+
+
+
+
 @end
 
 @implementation MusicSearchController
+
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"llllllllllllllllll%f", self.bofangView.frame.size.width);
+    self.speaceButton.constant = self.speaceButton1.constant = self.speaceButton2.constant = (self.bofangView.frame.size.width - 67 - 120 - 4) / 3;
+    NSLog(@"iiiiiiii%f",self.speaceButton.constant);
+}
+
+- (void)updateViewConstraints {
+    [super updateViewConstraints];
+    self.leftTransform.constant = [UIScreen mainScreen].bounds.size.width *0.12 + 8;
+    NSLog(@"llllllllllllllllll%f", self.bofangView.frame.size.width);
+//    self.speaceButton.constant = self.speaceButton1.constant = self.speaceButton2.constant =
+}
+
+
 
 // 懒加载
 - (NSMutableArray *)allArr {

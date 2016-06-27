@@ -40,8 +40,8 @@
     // 设置不能侧滑效果
     sideMenuViewController.panGestureEnabled = NO;
     // 设置平移偏移量
-    sideMenuViewController.contentViewInLandscapeOffsetCenterX = [UIScreen mainScreen].bounds.size.width * 0.35;
-    sideMenuViewController.contentViewInPortraitOffsetCenterX  = [UIScreen mainScreen].bounds.size.width * 0.35;
+    sideMenuViewController.contentViewInLandscapeOffsetCenterX = [UIScreen mainScreen].bounds.size.width * 0.33;
+    sideMenuViewController.contentViewInPortraitOffsetCenterX  = [UIScreen mainScreen].bounds.size.width * 0.33;
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:sideMenuViewController];
     // Override point for customization after application launch.
     return YES;

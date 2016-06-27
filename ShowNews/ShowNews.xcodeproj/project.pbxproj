@@ -48,6 +48,7 @@
 		D64FA1B31D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1AE1D1D2B9F007DE414 /* README.md */; };
 		D64FA1B41D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1B01D1D2B9F007DE414 /* README.md */; };
 		D64FA1B51D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1B21D1D2B9F007DE414 /* README.md */; };
+		D65E699F1D21081D004286E5 /* SmallPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E699E1D21081D004286E5 /* SmallPlayer.m */; };
 		D66AA2941D1EC4BD00045D9E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA28F1D1EC4BD00045D9E /* background.png */; };
 		D66AA2951D1EC4BD00045D9E /* collect.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2901D1EC4BD00045D9E /* collect.png */; };
 		D66AA2961D1EC4BD00045D9E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2911D1EC4BD00045D9E /* icon.png */; };
@@ -149,6 +150,8 @@
 		D64FA1AE1D1D2B9F007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D64FA1B01D1D2B9F007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D64FA1B21D1D2B9F007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D65E699D1D21081D004286E5 /* SmallPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallPlayer.h; sourceTree = "<group>"; };
+		D65E699E1D21081D004286E5 /* SmallPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallPlayer.m; sourceTree = "<group>"; };
 		D66AA28F1D1EC4BD00045D9E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		D66AA2901D1EC4BD00045D9E /* collect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collect.png; sourceTree = "<group>"; };
 		D66AA2911D1EC4BD00045D9E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -570,6 +573,8 @@
 				D6E2AC4E1D1E876700B18F0E /* PlayerManager.m */,
 				D6E2AC4F1D1E876700B18F0E /* PlayerConsole.h */,
 				D6E2AC501D1E876700B18F0E /* PlayerConsole.m */,
+				D65E699D1D21081D004286E5 /* SmallPlayer.h */,
+				D65E699E1D21081D004286E5 /* SmallPlayer.m */,
 				D64FA18C1D1D2B63007DE414 /* README.md */,
 				D6E2AC401D1E5E0200B18F0E /* Music.h */,
 				D6E2AC411D1E5E0200B18F0E /* Music.m */,
@@ -868,6 +873,7 @@
 				F570BD0D1D1D5CD30031CDB3 /* VideoTableViewController.m in Sources */,
 				D64FA1911D1D2B63007DE414 /* README.md in Sources */,
 				D64FA1AB1D1D2B97007DE414 /* README.md in Sources */,
+				D65E699F1D21081D004286E5 /* SmallPlayer.m in Sources */,
 				D64FA17A1D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1131D1D1C92007DE414 /* main.m in Sources */,
 				D64FA1A31D1D2B8D007DE414 /* README.md in Sources */,
@@ -1050,6 +1056,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = ShowNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1126,6 +1133,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = ShowNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
