@@ -35,7 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"新闻";
+    self.navigationItem.title = @"全世界 朝我看";
     // 设置自定义segmentView
     [self bindSegmentView];
 
@@ -47,7 +47,7 @@
 #pragma mark - 设置自定义segmentView
 - (void)bindSegmentView {
     self.segmentView = [[SegmentView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 30)];
-    self.segmentView.backgroundColor = [UIColor yellowColor];
+    self.segmentView.backgroundColor = [UIColor clearColor];
     self.segmentView.titleArray = @[@"头条",@"娱乐",@"时尚",@"体育",@"科技"];
     [self.segmentView.scrollLine setBackgroundColor:[UIColor clearColor]];
     self.segmentView.titleSelectedColor = [UIColor redColor];

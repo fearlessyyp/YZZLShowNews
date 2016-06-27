@@ -55,7 +55,7 @@
 
     NSURL *videoUrl = [NSURL URLWithString:self.model.mp4_url];
     self.playerItem = [AVPlayerItem playerItemWithURL:videoUrl];
-    [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];// 监听status属性
+    [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];// 监听status属性 loadedTimeRange属性代表已经缓冲的进度
     [self.playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];// 监听loadedTimeRanges属性
     // 初始化player对象
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
@@ -88,6 +88,7 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     AVPlayerItem *playerItem = (AVPlayerItem *)object;
     if ([keyPath isEqualToString:@"status"]) {
+        //AVPlayerStatusReadyToPlay时代表视频已经可以播放了
         if ([playerItem status] == AVPlayerStatusReadyToPlay) {
             [GiFHUD dismiss];
 
@@ -137,10 +138,12 @@
 - (IBAction)stateButtonTouched:(id)sender {
     if (!_played) {
         [self.playerView.player play];
-        [self.stateButton setTitle:@"Stop" forState:UIControlStateNormal];
+        [self.stateButton setImage:[UIImage imageNamed:@"audionews_pause_button@2x"] forState:UIControlStateNormal];
+        
     } else {
         [self.playerView.player pause];
-        [self.stateButton setTitle:@"Play" forState:UIControlStateNormal];
+        [self.stateButton setImage:[UIImage imageNamed:@"audionews_play_button@2x"] forState:UIControlStateNormal];
+        
     }
     _played = !_played;
 }
@@ -179,11 +182,9 @@
 // // 添加视频播放结束通知
 - (void)moviePlayDidEnd:(NSNotification *)notification {
     NSLog(@"Play end");
-    
     __weak typeof(self) weakSelf = self;
     [self.playerView.player seekToTime:kCMTimeZero completionHandler:^(BOOL finished) {
         [weakSelf.videoSlider setValue:0.0 animated:YES];
-        [weakSelf.stateButton setTitle:@"Play" forState:UIControlStateNormal];
     }];
 }
 
@@ -214,7 +215,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
     [self.playerView.player removeTimeObserver:self.playbackTimeObserver];
 }
-
 
 // 返回上一视图界面
 - (void)backBarButtonItemAction:(UIBarButtonItem *)sender

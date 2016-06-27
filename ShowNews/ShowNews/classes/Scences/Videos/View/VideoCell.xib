@@ -36,23 +36,23 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM5-4Y-TRk">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM5-4Y-TRk">
                         <rect key="frame" x="314" y="144" width="30" height="30"/>
-                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="4wh-jt-fzj"/>
                             <constraint firstAttribute="height" constant="30" id="lb8-dJ-dTD"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
+                        <state key="normal" image="action_love.png"/>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahB-Ew-j9h">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahB-Ew-j9h">
                         <rect key="frame" x="364" y="144" width="30" height="30"/>
-                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="WXz-mw-kOG"/>
                             <constraint firstAttribute="height" constant="30" id="ryW-bn-RBY"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
+                        <state key="normal" image="action_love.png"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啊啊啊啊啊" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVv-Ja-1nb">
                         <rect key="frame" x="15" y="0.0" width="379" height="39"/>
@@ -78,9 +78,8 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gO1-GW-IGE">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar_icon_media_normal.png" translatesAutoresizingMaskIntoConstraints="NO" id="gO1-GW-IGE">
                         <rect key="frame" x="192" y="55" width="30" height="30"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Jjs-f6-PFM"/>
                             <constraint firstAttribute="width" constant="30" id="Rqv-Rc-NP9"/>
@@ -129,4 +128,8 @@
             <point key="canvasLocation" x="-140" y="153"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="action_love.png" width="20" height="17"/>
+        <image name="tabbar_icon_media_normal.png" width="19" height="19"/>
+    </resources>
 </document>
