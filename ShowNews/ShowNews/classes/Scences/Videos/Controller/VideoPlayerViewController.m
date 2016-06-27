@@ -35,13 +35,9 @@
 @property (weak, nonatomic) IBOutlet UISlider *videoSlider;
 // 缓存进度条
 @property (weak, nonatomic) IBOutlet UIProgressView *videoProgress;
-
-- (IBAction)stateButtonTouched:(id)sender;
-- (IBAction)videoSlierChangeValue:(id)sender;
-- (IBAction)videoSlierChangeValueEnd:(id)sender;
-
+// 播放或暂停button
 @property (weak, nonatomic) IBOutlet UIButton *stateButton;
-
+// 时间Lable
 @property (weak, nonatomic) IBOutlet UILabel *timeLable;
 
 @end
@@ -51,10 +47,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"视频详情";
     self.navigationController.navigationBar.translucent = NO;
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backBarButtonItemAction:)];
     
     self.navigationItem.leftBarButtonItem = backButtonItem;
+
     NSURL *videoUrl = [NSURL URLWithString:self.model.mp4_url];
     self.playerItem = [AVPlayerItem playerItemWithURL:videoUrl];
     [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];// 监听status属性
@@ -71,6 +69,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
 }
 
 // 监听播放的视频
@@ -90,6 +89,8 @@
     AVPlayerItem *playerItem = (AVPlayerItem *)object;
     if ([keyPath isEqualToString:@"status"]) {
         if ([playerItem status] == AVPlayerStatusReadyToPlay) {
+            [GiFHUD dismiss];
+
             NSLog(@"AVPlayerStatusReadyToPlay");
             self.stateButton.enabled = YES;
             CMTime duration = self.playerItem.duration;// 获取视频总长度
@@ -102,6 +103,7 @@
             NSLog(@"AVPlayerStatusFailed");
         }
     } else if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
+ 
         NSTimeInterval timeInterval = [self availableDuration];// 计算缓冲进度
         NSLog(@"Time Interval:%f",timeInterval);
         CMTime duration = _playerItem.duration;
@@ -217,6 +219,8 @@
 // 返回上一视图界面
 - (void)backBarButtonItemAction:(UIBarButtonItem *)sender
 {
+    [self.playerView.player pause];
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 

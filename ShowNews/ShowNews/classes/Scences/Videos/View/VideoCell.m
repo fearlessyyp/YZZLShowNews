@@ -29,7 +29,6 @@
     [self.backImageView sd_setImageWithURL:[NSURL URLWithString:model.cover]];
     [self.topicImgImageView sd_setImageWithURL:[NSURL URLWithString:model.topicImg]];
     self.timeLable.text = [NSString getStringWithTime:model.length];
-    
 }
 
 @end

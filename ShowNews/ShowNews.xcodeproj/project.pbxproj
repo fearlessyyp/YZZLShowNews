@@ -85,6 +85,8 @@
 		F53D262C1D1E6CFD002E0644 /* pika.gif in Resources */ = {isa = PBXBuildFile; fileRef = F53D262A1D1E6CFD002E0644 /* pika.gif */; };
 		F53D262F1D1EB06D002E0644 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F53D262E1D1EB06D002E0644 /* PlayerView.m */; };
 		F557EF851D1FAE9B00C3C241 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = F557EF841D1FAE9B00C3C241 /* City.m */; };
+		F557EF8A1D1FFB2B00C3C241 /* 111.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F557EF891D1FFB2B00C3C241 /* 111.jpg */; };
+		F557EF8D1D1FFBAE00C3C241 /* VideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F557EF8C1D1FFBAE00C3C241 /* VideoView.m */; };
 		F570BD0D1D1D5CD30031CDB3 /* VideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F570BD0C1D1D5CD30031CDB3 /* VideoTableViewController.m */; };
 		F570BD111D1D5D000031CDB3 /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F570BD0F1D1D5D000031CDB3 /* VideoCell.m */; };
 		F570BD121D1D5D000031CDB3 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F570BD101D1D5D000031CDB3 /* VideoCell.xib */; };
@@ -204,6 +206,9 @@
 		F53D262E1D1EB06D002E0644 /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
 		F557EF831D1FAE9B00C3C241 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
 		F557EF841D1FAE9B00C3C241 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		F557EF891D1FFB2B00C3C241 /* 111.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 111.jpg; sourceTree = "<group>"; };
+		F557EF8B1D1FFBAE00C3C241 /* VideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoView.h; sourceTree = "<group>"; };
+		F557EF8C1D1FFBAE00C3C241 /* VideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoView.m; sourceTree = "<group>"; };
 		F570BD0B1D1D5CD30031CDB3 /* VideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTableViewController.h; sourceTree = "<group>"; };
 		F570BD0C1D1D5CD30031CDB3 /* VideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewController.m; sourceTree = "<group>"; };
 		F570BD0E1D1D5D000031CDB3 /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
@@ -638,6 +643,7 @@
 				F53D26251D1E2C20002E0644 /* VideoPlayerViewController.xib */,
 				F53D262D1D1EB06D002E0644 /* PlayerView.h */,
 				F53D262E1D1EB06D002E0644 /* PlayerView.m */,
+				F557EF891D1FFB2B00C3C241 /* 111.jpg */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -655,6 +661,8 @@
 		D64FA1B11D1D2B9F007DE414 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F557EF8B1D1FFBAE00C3C241 /* VideoView.h */,
+				F557EF8C1D1FFBAE00C3C241 /* VideoView.m */,
 				D64FA1B21D1D2B9F007DE414 /* README.md */,
 				F570BD0E1D1D5D000031CDB3 /* VideoCell.h */,
 				F570BD0F1D1D5D000031CDB3 /* VideoCell.m */,
@@ -758,6 +766,7 @@
 				D66AA2951D1EC4BD00045D9E /* collect.png in Resources */,
 				D6E2AC4C1D1E873600B18F0E /* PlayViewController.xib in Resources */,
 				D64FA11E1D1D1C92007DE414 /* Assets.xcassets in Resources */,
+				F557EF8A1D1FFB2B00C3C241 /* 111.jpg in Resources */,
 				D66AA2961D1EC4BD00045D9E /* icon.png in Resources */,
 				D64FA11C1D1D1C92007DE414 /* Main.storyboard in Resources */,
 				D6224A551D1E9EDA0048ED57 /* CityViewController.xib in Resources */,
@@ -849,6 +858,7 @@
 				D64FA1881D1D2B41007DE414 /* README.md in Sources */,
 				F557EF851D1FAE9B00C3C241 /* City.m in Sources */,
 				D64FA1B41D1D2B9F007DE414 /* README.md in Sources */,
+				F557EF8D1D1FFBAE00C3C241 /* VideoView.m in Sources */,
 				F53D262B1D1E6CFD002E0644 /* GiFHUD.m in Sources */,
 				D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */,
 				D64FA1861D1D2B41007DE414 /* README.md in Sources */,

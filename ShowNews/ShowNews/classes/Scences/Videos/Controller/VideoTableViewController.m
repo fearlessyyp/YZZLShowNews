@@ -14,7 +14,14 @@
 #import "VideoModel.h"
 #import "VideoPlayerViewController.h"
 #import "GiFHUD.h"
+#import <MBProgressHUD.h>
+#import "VideoView.h"
 @interface VideoTableViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
+    // 进行网络监测判断的bool值
+    BOOL isOpen;
+
+}
 // / 存储数据的数组
 @property (nonatomic, strong) NSMutableArray *allDataArray;
 
@@ -36,26 +43,62 @@
     self.session = [AFHTTPSessionManager manager];
     // 解析数据
     [self readData];
+    
+    // 显示菊花
+    [self showHUD];
+
+    
     // 设置请求返回支持的文件类型
     //self.session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"application/x-json",@"text/html", nil];
     
          // 转圈圈的菊花默认是关闭的，需要手动打开，在网络慢的情况下请求数据时，手机左上角就会出现转圈圈的菊花
-   // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
 }
 
-#pragma mark - 添加loading信息
-- (void)p_setupProgressHud
-{
-    [GiFHUD setGifWithImageName:@"pika.gif"];
-    [GiFHUD show];
+- (void)showHUD {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    if (!isOpen) {
+        [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+        isOpen = YES;
+    } else {
+        [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
+        isOpen = NO;
+    }
     
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown:
+                NSLog(@"当前网络处于未知状态");
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+                NSLog(@"当前网络处于未连接状态");
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                NSLog(@"当前网络处于手机流量网络");
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                NSLog(@"WiFi状态");
+            default:
+                break;
+        }
+    }];
+
+    hud.labelText = @"请重新加载。。。";
 }
 
+-(void)hideHUD {
+    // 隐藏菊花
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+}
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
 
+    self.tabBarController.navigationItem.title = @"视频";
+}
 
 // 懒加载数组
 - (NSMutableArray *)allDataArray
@@ -76,8 +119,7 @@
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         // 请求数据
         NSLog(@"请求成功");
-        //设置loading
-        [self p_setupProgressHud];
+        [self hideHUD];
         // 处理数据...
         NSArray *reusltArr = responseObject[@"V9LG4B3A0"];
        
@@ -87,8 +129,7 @@
             [weakSelf.allDataArray addObject:videoModel];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            //隐藏gif动图
-            [GiFHUD dismiss];
+          
             [self.tableView reloadData];
         });
         NSLog(@"=============%@", weakSelf.allDataArray);
@@ -96,24 +137,28 @@
         NSLog(@"请求成功%@", responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败%@", error);
+        [self hideHUD];
+        VideoView *videoView = [[VideoView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        videoView.request = ^void()
+        {
+            [weakSelf readData];
+            [[weakSelf.view subviews].lastObject removeFromSuperview];
+            [self showHUD];
+        };
+        [self.view addSubview:videoView];
+
+        
     }];
 }
+
+
 
 //页面消失时
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:YES];
-    //隐藏gif动图
-    [GiFHUD dismiss];
 }
 
-//页面已经出现
-- (void)viewDidAppear:(BOOL)animated{
-    
-    [super viewDidAppear:YES];
-    [GiFHUD dismiss];
-    
-}
 
 
 - (void)didReceiveMemoryWarning {

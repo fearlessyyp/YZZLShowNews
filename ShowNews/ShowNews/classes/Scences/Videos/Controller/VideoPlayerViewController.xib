@@ -23,7 +23,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8D-uD-ARt" customClass="PlayerView">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                     <subviews>
-                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gq0-mg-v5t">
+                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gq0-mg-v5t">
                             <rect key="frame" x="95" y="284" width="214" height="2"/>
                         </progressView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vrk-z8-Plh">
@@ -47,11 +47,12 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1qr-HW-dBw">
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1qr-HW-dBw">
                             <rect key="frame" x="93" y="270" width="218" height="31"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="oHi-8N-PoA"/>
                             </constraints>
+                            <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="videoSlierChangeValue:" destination="-1" eventType="valueChanged" id="MX1-XE-roJ"/>
                                 <action selector="videoSlierChangeValueEnd:" destination="-1" eventType="valueChanged" id="oD1-hz-7Lq"/>
