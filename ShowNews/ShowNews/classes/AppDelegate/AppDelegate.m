@@ -12,7 +12,7 @@
 #import "MusicSearchController.h"
 #import "NewsViewController.h"
 #import "UserViewController.h"
-#import "VideoTableViewController.h"
+#import "VideoViewController.h"
 #import <RESideMenu.h>
 
 @interface AppDelegate ()<RESideMenuDelegate>
@@ -69,7 +69,7 @@
 #pragma mark - 创建四个根视图控制器
 - (void)createChildViewControllers {
     [self addOneChildViewController:[[NewsViewController alloc] init] title:@"新闻" normalImage:@"tabbar_icon_news_normal@2x" selectedImage:@"tabbar_icon_news_highlight@2x"];
-    [self addOneChildViewController:[[VideoTableViewController alloc] init] title:@"视频" normalImage:@"tabbar_icon_media_normal@2x" selectedImage:@"tabbar_icon_media_highlight@2x"];
+    [self addOneChildViewController:[[VideoViewController alloc] init] title:@"视频" normalImage:@"tabbar_icon_media_normal@2x" selectedImage:@"tabbar_icon_media_highlight@2x"];
     [self addOneChildViewController:[[MapViewController alloc] init] title:@"地图" normalImage:@"tabbar_icon_map_normal@2x" selectedImage:@"tabbar_icon_map_highlight@2x"];
     [self addOneChildViewController:[[UserViewController alloc] init] title:@"我" normalImage:@"tabbar_icon_me_normal@2x" selectedImage:@"tabbar_icon_me_highlight@2x"];
 }

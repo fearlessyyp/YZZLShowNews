@@ -1,14 +1,22 @@
 //
-//  VideoCell.h
-//  ShowNews
+//  NewTableViewCell.h
+//  WXAVPlayer
 //
-//  Created by LK on 16/6/24.
-//  Copyright © 2016年 YZZL. All rights reserved.
+//  Created by lanou3g on 16/6/17.
+//  Copyright © 2016年 wxerters. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
-@class VideoModel;
+#import "VideoModel.h"
+#import "UIButton+CellButton.h"
+@class VideoCell;
+
 @interface VideoCell : UITableViewCell
+@property (nonatomic, strong)VideoModel *model;
+
+@property (weak, nonatomic) IBOutlet UIButton *playBtn;
+
 // / 视频图片
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
 // / 标题lable
@@ -20,7 +28,6 @@
 // / 视频发布者
 @property (weak, nonatomic) IBOutlet UILabel *topicNameLable;
 
-- (void)bindModel:(VideoModel *)model;
-
-
+- (void)addMovie: (UIView *)view;
++ (instancetype)cellWithTableView: (UITableView *)tableView;
 @end

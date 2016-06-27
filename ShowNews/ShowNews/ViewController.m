@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "VideoTableViewController.h"
+#import "VideoViewController.h"
 #import "MusicSearchController.h"
 #import "WeatherHandle.h"
 
