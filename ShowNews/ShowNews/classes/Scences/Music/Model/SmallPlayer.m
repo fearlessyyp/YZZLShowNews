@@ -8,6 +8,17 @@
 
 #import "SmallPlayer.h"
 
+@interface SmallPlayer ()
+
+
+
+
+
+
+
+
+@end
+
 @implementation SmallPlayer
 
 /*
@@ -17,5 +28,13 @@
     // Drawing code
 }
 */
+
+
+
+
+
+
+
+
 
 @end

@@ -11,6 +11,7 @@
 #import "Music.h"
 #import "MusicTimeFormatter.h"
 
+
 @interface PlayerConsole ()
 // 时间条
 @property (nonatomic, weak) IBOutlet UISlider *timeSlide;
@@ -77,7 +78,9 @@
 
 // 音量
 - (IBAction)VolumnSliderValueChanged:(UISlider *)sender{
+    MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
     [[PlayerManager sharePlayer] musicVolumn:sender.value];
+    musicPlayer.volume = sender.value;
 }
 
 // 上一首按钮的触发时间

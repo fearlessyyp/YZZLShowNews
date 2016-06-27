@@ -49,8 +49,6 @@
 		D64FA1B41D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1B01D1D2B9F007DE414 /* README.md */; };
 		D64FA1B51D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1B21D1D2B9F007DE414 /* README.md */; };
 		D65E699F1D21081D004286E5 /* SmallPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E699E1D21081D004286E5 /* SmallPlayer.m */; };
-		D66AA2941D1EC4BD00045D9E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA28F1D1EC4BD00045D9E /* background.png */; };
-		D66AA2951D1EC4BD00045D9E /* collect.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2901D1EC4BD00045D9E /* collect.png */; };
 		D66AA2961D1EC4BD00045D9E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2911D1EC4BD00045D9E /* icon.png */; };
 		D66AA29B1D1EC7FA00045D9E /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA29A1D1EC7FA00045D9E /* NewsViewController.m */; };
 		D66AA29F1D1ECCD900045D9E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA29D1D1ECCD900045D9E /* UserViewController.m */; };
@@ -168,8 +166,6 @@
 		D64FA1B21D1D2B9F007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D65E699D1D21081D004286E5 /* SmallPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallPlayer.h; sourceTree = "<group>"; };
 		D65E699E1D21081D004286E5 /* SmallPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallPlayer.m; sourceTree = "<group>"; };
-		D66AA28F1D1EC4BD00045D9E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
-		D66AA2901D1EC4BD00045D9E /* collect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collect.png; sourceTree = "<group>"; };
 		D66AA2911D1EC4BD00045D9E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		D66AA2991D1EC7FA00045D9E /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		D66AA29A1D1EC7FA00045D9E /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
@@ -1135,7 +1131,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = ShowNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1212,7 +1208,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = ShowNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

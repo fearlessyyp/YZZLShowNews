@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <MediaPlayer/MediaPlayer.h> 
 @interface MusicSearchController : UIViewController
 
 @end

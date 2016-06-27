@@ -15,6 +15,7 @@
 #import "PlayViewController.h"
 #import "PlayerManager.h"
 #import "GDataXMLNode.h"
+#import <UIImageView+WebCache.h>
 @interface MusicSearchController ()<UITableViewDelegate, UITableViewDataSource>
 /// 搜索栏
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -29,8 +30,6 @@
 /// 用于网络请求的session对象
 @property (nonatomic, strong) AFHTTPSessionManager *session;
 
-
-
 /// 大数组
 @property (nonatomic, strong) NSMutableArray *allArr;
 /// 距左的约束
@@ -43,8 +42,30 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *speaceButton;
 
+/// 图片
+@property (weak, nonatomic) IBOutlet UIImageView *photoImage;
+
+/// 歌曲名
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+/// 歌手名
+@property (weak, nonatomic) IBOutlet UILabel *singerLabel;
+/// 上一首
+@property (weak, nonatomic) IBOutlet UIButton *lastButton;
+
+/// 下一首
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+/// 播放
+@property (weak, nonatomic) IBOutlet UIButton *palyButton;
+
+/// 收藏
+@property (weak, nonatomic) IBOutlet UIButton *collect;
+
+/// 音量
+@property (weak, nonatomic) IBOutlet UISlider *volume;
 
 
+@property (nonatomic, strong) PlayerManager *playManager;
 
 @end
 
@@ -83,7 +104,34 @@
     // 注册cell
     [self.listResultTableView registerNib:[UINib nibWithNibName:@"MusicListCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
+#pragma mark ------  block
+    // 当音乐被切换时调用的代理方法  外部需要拿到数据模型 进行改变
     
+    self.playManager = [PlayerManager sharePlayer];
+    
+    __weak typeof(self)weakSelf = self;
+    self.playManager.blocl = ^void (Music *musci) {
+        
+        
+        NSLog(@"++++++++++++++%@", musci.picUrl);
+        weakSelf.titleLabel.text = musci.musicName;
+        weakSelf.singerLabel.text = musci.singerName;
+        
+        
+        //刷新TableView
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 将时间歌词添加到当前VC的数组中
+//            _timeForLyric = [NSMutableArray array];
+//            [weakSelf loadLyricWithStr:musci.lyricxxxx];
+//            weakSelf.lyricArr = [[NSArray alloc]initWithArray:weakSelf.timeForLyric];
+            [weakSelf.photoImage sd_setImageWithURL:[NSURL URLWithString:musci.picUrl]];
+            // 控制台
+//            [weakSelf prepareMusicInfo:musci];
+//            [weakSelf.musicLyric reloadData];
+        });
+        
+    };
+
     
     
 }
@@ -319,11 +367,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    PlayViewController *playVC = [PlayViewController sharePlayView];
-    
-    playVC.musicIndex = indexPath.row;
-    
-    [self.navigationController pushViewController:playVC animated:YES];
+//    PlayViewController *playVC = [PlayViewController sharePlayView];
+//    
+//    playVC.musicIndex = indexPath.row;
+//    
+//    [self.navigationController pushViewController:playVC animated:YES];
+    [[PlayerManager sharePlayer] prepareMusic:indexPath.row];
+//    [[PlayerManager sharePlayer] musicPlay];
+    Music *music = self.allArr[indexPath.row];
+    [self bindSmallMusicController:music];
 }
 
 
@@ -338,6 +390,50 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark --- 播放器
+
+- (void)bindSmallMusicController:(Music *)music {
+    self.titleLabel.text = music.musicName;
+    self.singerLabel.text = music.singerName;
+    [self.photoImage sd_setImageWithURL:[NSURL URLWithString:music.image]];
+    NSLog(@"z%@",music.picUrl);
+}
+
+
+
+- (IBAction)PlayButtonClick:(UIButton *)sender {
+    if ([sender.titleLabel.text isEqualToString:@"播放"]) {
+        [[PlayerManager sharePlayer] musicPlay];
+        [sender setTitle:@"暂停" forState:UIControlStateNormal];
+    }else {
+        [[PlayerManager sharePlayer] pause];
+        sender.titleLabel.text = @"播放";
+        [sender setTitle:@"播放" forState:UIControlStateNormal];
+    }
+}
+
+
+- (IBAction)VolumnSliderValueChange:(UISlider *)sender {
+    MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
+    
+    musicPlayer.volume = sender.value;
+    [[PlayerManager sharePlayer] musicVolumn:sender.value];
+}
+
+
+
+
+
+- (IBAction)UpButtonClick:(id)sender {
+    [[PlayerManager sharePlayer] upMusic];
+}
+
+
+- (IBAction)nextButtonClick:(id)sender {
+    [[PlayerManager sharePlayer] nextMusic];
+}
+
 
 /*
  #pragma mark - Navigation

@@ -111,8 +111,10 @@ static PlayerManager *playerManager = nil;
         // 替换当前的playerItem
         [self.player replaceCurrentItemWithPlayerItem:playerItem];
         
+        if (self.blocl) {
+            self.blocl(music);
+        }
         
-        self.blocl(music);
         // 安全判断
 //        if ([self.delegate respondsToSelector:@selector(didMusicCutwithMusicInfo:)]) {
 //            [self.delegate didMusicCutWithMusicInfo:musicInfo];
@@ -135,14 +137,18 @@ static PlayerManager *playerManager = nil;
     [self.player pause];
 }
 
-// 播放下一首歌曲
+// 播放上一首歌曲
 - (void)upMusic{
-    [self prepareMusic:self.currentIndex - 1 < 0 ? self.playList.count - 1 : self.currentIndex - 1];
+    if (self.playList.count > 0) {
+        [self prepareMusic:self.currentIndex - 1 < 0 ? self.playList.count - 1 : self.currentIndex - 1];
+    }
 }
 
 // 播放下一首歌曲
 - (void)nextMusic{
-    [self prepareMusic:self.currentIndex + 1 >= self.playList.count ? 0 : self.currentIndex + 1];
+    if (self.playList.count > 0) {
+        [self prepareMusic:self.currentIndex + 1 >= self.playList.count ? 0 : self.currentIndex + 1];
+    }
 }
 
 // 计时器实现方法
@@ -152,8 +158,10 @@ static PlayerManager *playerManager = nil;
     // 获取当前播放的字典类型时间
     CGFloat currentTime = CMTimeGetSeconds(self.player.currentTime);
     // 歌曲播放时向外部调用改变状态的方法 并将格式化后的时间作为参数传出
+    if (self.time) {
+        self.time([MusicTimeFormatter getStringFormatBySeconds:currentTime]);
+    }
     
-    self.time([MusicTimeFormatter getStringFormatBySeconds:currentTime]);
 }
 
 // 音乐时间跳转方法 参数为跳转到的秒数
