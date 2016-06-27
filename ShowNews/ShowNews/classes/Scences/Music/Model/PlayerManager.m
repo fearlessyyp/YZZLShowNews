@@ -15,7 +15,7 @@
 @interface PlayerManager ()
 @property (nonatomic,strong) AVPlayer *player; // 播放器属性
 @property (nonatomic,strong) NSTimer *timer;  // 定时器
-@property (nonatomic,assign) NSInteger currentIndex;  // 当前的音乐下标
+
 @end
 
 
@@ -98,6 +98,10 @@ static PlayerManager *playerManager = nil;
 
 // 预播放音乐 整个程序中调用次数最多的方法 很多地方需要调用这个方法 判断第二次点击的音乐是不是当前正在播放的音乐 然后内部直接调用单例中得到模型的方法 预播放需要实例化一个AVPlayerItem 也就是所谓的CD 实例化的时候使用模型中的MP3url的方法 然后调用AVPlayer中替换当前音乐的方法  也就是说外部的音乐状态改变是从这里边实现的  代理方法的安全判断与执行也从预播放中执行
 - (void)prepareMusic:(NSUInteger)index {
+    Music *music2 = self.playList[index];
+    if (self.blocl1) {
+        self.blocl1(music2);
+    }
     
     if (self.currentIndex != index) {
         self.currentIndex = index;
@@ -108,12 +112,17 @@ static PlayerManager *playerManager = nil;
         AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:music.mp3Url]];
         NSLog(@"%@", music.mp3Url);
         
+        
         // 替换当前的playerItem
         [self.player replaceCurrentItemWithPlayerItem:playerItem];
         
         if (self.blocl) {
             self.blocl(music);
         }
+//        [self musicPlay];
+//        if (self.blocl1) {
+//            self.blocl1(music);
+//        }
         
         // 安全判断
 //        if ([self.delegate respondsToSelector:@selector(didMusicCutwithMusicInfo:)]) {
@@ -126,8 +135,11 @@ static PlayerManager *playerManager = nil;
 // 内部实例化一个计时器 调用监听的频率为0.1s一次
 - (void)musicPlay{
     // 实例化一个计时器并且调用timeAction的频率为0.1
+    [self.timer invalidate];
+    self.timer = nil;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
     [self.player play];
+    self.isStart = YES;
 }
 
 // 音乐暂停
@@ -135,6 +147,7 @@ static PlayerManager *playerManager = nil;
     [self.timer invalidate];
     self.timer = nil;
     [self.player pause];
+    self.isStart = NO;
 }
 
 // 播放上一首歌曲
@@ -161,7 +174,9 @@ static PlayerManager *playerManager = nil;
     if (self.time) {
         self.time([MusicTimeFormatter getStringFormatBySeconds:currentTime]);
     }
-    
+    if (self.time1) {
+        self.time1([MusicTimeFormatter getStringFormatBySeconds:currentTime]);
+    }
 }
 
 // 音乐时间跳转方法 参数为跳转到的秒数

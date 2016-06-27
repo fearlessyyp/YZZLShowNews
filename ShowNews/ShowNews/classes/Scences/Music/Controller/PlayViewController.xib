@@ -68,6 +68,13 @@
                                             </constraints>
                                             <state key="normal" image="lyric.png"/>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afO-nO-Ofh">
+                                            <rect key="frame" x="58" y="18" width="30" height="30"/>
+                                            <state key="normal" title="返回"/>
+                                            <connections>
+                                                <action selector="backButtonClick:" destination="-1" eventType="touchUpInside" id="3Se-Xv-GS8"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -122,6 +129,10 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dz2-j6-UiP">
                             <rect key="frame" x="70" y="90" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Etn-VD-eIa"/>
+                                <constraint firstAttribute="width" constant="30" id="O59-dh-01l"/>
+                            </constraints>
                             <state key="normal" title="&lt;&lt;&lt;"/>
                             <connections>
                                 <action selector="UpButtonClicked:" destination="OCN-cA-CEi" eventType="touchUpInside" id="Qd5-DS-KFo"/>
@@ -153,9 +164,13 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="da7-AB-2qH">
-                            <rect key="frame" x="193" y="90" width="30" height="30"/>
-                            <state key="normal" title="播放"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="da7-AB-2qH">
+                            <rect key="frame" x="192" y="90" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="io9-sQ-szc"/>
+                                <constraint firstAttribute="height" constant="30" id="war-0H-fLA"/>
+                            </constraints>
+                            <state key="normal" image="audionews_play_button.png"/>
                             <connections>
                                 <action selector="PlayButtonClicked:" destination="OCN-cA-CEi" eventType="touchUpInside" id="Wi1-Ga-cEk"/>
                             </connections>
@@ -168,12 +183,21 @@
                         </slider>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="32b-Ak-X0S">
                             <rect key="frame" x="68" y="50" width="278" height="31"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                    <integer key="value" value="0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="VolumnSliderValueChanged:" destination="OCN-cA-CEi" eventType="valueChanged" id="vCE-sp-j5C"/>
                             </connections>
                         </slider>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daS-0e-bo9">
                             <rect key="frame" x="314" y="90" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="Gpa-0f-AGc"/>
+                                <constraint firstAttribute="height" constant="30" id="vBH-ah-7AJ"/>
+                            </constraints>
                             <state key="normal" title="&gt;&gt;&gt;"/>
                             <connections>
                                 <action selector="NextButtonClicked:" destination="OCN-cA-CEi" eventType="touchUpInside" id="yZ1-57-iO7"/>
@@ -250,6 +274,7 @@
         </view>
     </objects>
     <resources>
+        <image name="audionews_play_button.png" width="50" height="50"/>
         <image name="background.png" width="375" height="516"/>
         <image name="lyric.png" width="40" height="40"/>
     </resources>

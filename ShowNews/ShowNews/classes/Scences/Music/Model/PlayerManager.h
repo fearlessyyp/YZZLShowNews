@@ -27,6 +27,13 @@
 /// block传值当歌曲正在播放时被一直调用的代理方法
 @property (nonatomic, copy) void(^time)(NSString *);
 
+
+/// block传值///  当音乐被切换改变model传给Controller
+@property (nonatomic, copy) void(^blocl1)(Music *);
+
+/// block传值当歌曲正在播放时被一直调用的代理方法
+@property (nonatomic, copy) void(^time1)(NSString *);
+
 + (PlayerManager *)sharePlayer;
 
 // 所有model信息
@@ -34,6 +41,8 @@
 
 ///  刷新UI
 @property (nonatomic, copy) void(^block)();
+
+@property (nonatomic,assign) NSInteger currentIndex;  // 当前的音乐下标
 
 ///
 //@property (nonatomic, copy) void(^time)();
@@ -62,5 +71,7 @@
 // 播放下一首歌曲
 - (void)nextMusic;
 
+// 记录播放暂停
+@property (nonatomic, assign) BOOL isStart;
 
 @end
