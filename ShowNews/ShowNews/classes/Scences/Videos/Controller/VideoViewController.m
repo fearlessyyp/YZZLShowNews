@@ -67,6 +67,7 @@
     // Do any additional setup after loading the view.
 }
 
+// 解析数据
 - (void)handel{
  
     __weak typeof(self) weakself = self;
@@ -82,6 +83,7 @@
     }];
 }
 
+// 设置分区个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.newMarray.count;
 }
@@ -161,6 +163,12 @@
                 [self.playView play];
                 self.isOnCell = YES;
     
+}
+
+// 视图消失的时候关闭视频
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self.playView pause];
 }
 
 
