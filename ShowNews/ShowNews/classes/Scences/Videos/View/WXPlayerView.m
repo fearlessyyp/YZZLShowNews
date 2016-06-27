@@ -116,7 +116,7 @@ static WXPlayerView *view = nil;
     [self.bottomView addSubview:self.playOrPauseBtn];
     //autoLayout _playOrPauseBtn
     [self.playOrPauseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.bottomView).with.offset(0);
+        make.left.equalTo(self.bottomView).with.offset(10);
         make.height.mas_equalTo(40);
         make.bottom.equalTo(self.bottomView).with.offset(0);
         make.width.mas_equalTo(40);
@@ -132,8 +132,6 @@ static WXPlayerView *view = nil;
     self.lightSlider.value = [UIScreen mainScreen].brightness;
     //        [self.lightSlider addTarget:self action:@selector(updateLightValue:) forControlEvents:UIControlEventValueChanged];
     [self addSubview:self.lightSlider];
-    
-    
     
     MPVolumeView *volumeView = [[MPVolumeView alloc]init];
     [self addSubview:volumeView];
@@ -153,8 +151,6 @@ static WXPlayerView *view = nil;
     systemSlider.autoresizingMask = UIViewAutoresizingNone;
     [self addSubview:systemSlider];
     //        systemSlider.hidden = YES;
-    
-    
     
     self.volumeSlider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     self.volumeSlider.tag = 1000;
@@ -180,7 +176,7 @@ static WXPlayerView *view = nil;
     self.progressSlider = [[UISlider alloc]init];
     self.progressSlider.minimumValue = 0.0;
     [self.progressSlider setThumbImage:[UIImage imageNamed:WMVideoSrcName(@"dot")] ?: [UIImage imageNamed:WMVideoFrameworkSrcName(@"dot")]  forState:UIControlStateNormal];
-    self.progressSlider.minimumTrackTintColor = [UIColor greenColor];
+    self.progressSlider.minimumTrackTintColor = NEWS_MAIN_COLOR;
     self.progressSlider.maximumTrackTintColor = [UIColor clearColor];
     self.progressSlider.value = 0.0;//指定初始值
     //进度条的拖拽事件
