@@ -24,5 +24,13 @@
 /// 科技
 @property (nonatomic, strong) UIView *technologyView;
 
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UITableView *headlineTableView;
+
+@property (nonatomic, strong) UITableView *entertainmentTableView;
+
+@property (nonatomic, strong) UITableView *fashionTableView;
+
+@property (nonatomic, strong) UITableView *sportTableView;
+
+@property (nonatomic, strong) UITableView *technologyTableView;
 @end
