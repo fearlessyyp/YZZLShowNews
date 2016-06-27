@@ -50,6 +50,7 @@
     [self bindSegmentView];
     // 设置大背景ScorllView
     [self bindBigScorllView];
+    // 解析数据
     
     
 }

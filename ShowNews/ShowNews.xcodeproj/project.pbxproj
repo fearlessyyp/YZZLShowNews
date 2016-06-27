@@ -72,6 +72,8 @@
 		D686D43D1D20FB26002B75C2 /* tabbar_icon_map_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D686D43C1D20FB26002B75C2 /* tabbar_icon_map_normal@2x.png */; };
 		D686D43F1D20FB97002B75C2 /* tabbar_icon_map_highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D686D43E1D20FB97002B75C2 /* tabbar_icon_map_highlight@2x.png */; };
 		D686D4411D20FC9A002B75C2 /* redPacket_btn_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D686D4401D20FC9A002B75C2 /* redPacket_btn_1@2x.png */; };
+		D686D4441D216144002B75C2 /* NewsDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D686D4431D216144002B75C2 /* NewsDataManager.m */; };
+		D686D4471D21616C002B75C2 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = D686D4461D21616C002B75C2 /* News.m */; };
 		D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA653F1D1E253200ECA213 /* WeatherHandle.m */; };
 		D6BA65461D1E2C7B00ECA213 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65451D1E2C7B00ECA213 /* Weather.m */; };
 		D6BA654C1D1E30C900ECA213 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA654B1D1E30C900ECA213 /* BaseViewController.m */; };
@@ -195,6 +197,10 @@
 		D686D43C1D20FB26002B75C2 /* tabbar_icon_map_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_icon_map_normal@2x.png"; sourceTree = "<group>"; };
 		D686D43E1D20FB97002B75C2 /* tabbar_icon_map_highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_icon_map_highlight@2x.png"; sourceTree = "<group>"; };
 		D686D4401D20FC9A002B75C2 /* redPacket_btn_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redPacket_btn_1@2x.png"; sourceTree = "<group>"; };
+		D686D4421D216144002B75C2 /* NewsDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDataManager.h; sourceTree = "<group>"; };
+		D686D4431D216144002B75C2 /* NewsDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDataManager.m; sourceTree = "<group>"; };
+		D686D4451D21616C002B75C2 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
+		D686D4461D21616C002B75C2 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		D6BA653E1D1E253200ECA213 /* WeatherHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherHandle.h; sourceTree = "<group>"; };
 		D6BA653F1D1E253200ECA213 /* WeatherHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherHandle.m; sourceTree = "<group>"; };
 		D6BA65411D1E259400ECA213 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -447,6 +453,8 @@
 				D6BA653F1D1E253200ECA213 /* WeatherHandle.m */,
 				D6E2AC531D1E878B00B18F0E /* MusicTimeFormatter.h */,
 				D6E2AC541D1E878B00B18F0E /* MusicTimeFormatter.m */,
+				D686D4421D216144002B75C2 /* NewsDataManager.h */,
+				D686D4431D216144002B75C2 /* NewsDataManager.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -641,6 +649,8 @@
 			isa = PBXGroup;
 			children = (
 				D64FA19E1D1D2B8D007DE414 /* README.md */,
+				D686D4451D21616C002B75C2 /* News.h */,
+				D686D4461D21616C002B75C2 /* News.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -941,6 +951,7 @@
 				D64FA1901D1D2B63007DE414 /* README.md in Sources */,
 				D6BA65461D1E2C7B00ECA213 /* Weather.m in Sources */,
 				D66AA2A41D1ECCF100045D9E /* MapViewController.m in Sources */,
+				D686D4441D216144002B75C2 /* NewsDataManager.m in Sources */,
 				F570BD151D1D6C9A0031CDB3 /* VideoModel.m in Sources */,
 				D64FA1911D1D2B63007DE414 /* README.md in Sources */,
 				D64FA1AB1D1D2B97007DE414 /* README.md in Sources */,
@@ -983,6 +994,7 @@
 				D6E2AC461D1E681900B18F0E /* MusicListCell.m in Sources */,
 				D6E2AC4B1D1E873600B18F0E /* PlayViewController.m in Sources */,
 				D64FA1751D1D1D95007DE414 /* UIScrollView+Touches.m in Sources */,
+				D686D4471D21616C002B75C2 /* News.m in Sources */,
 				D6EA5ED91D1D6BF1006B6C33 /* MusicSearchController.m in Sources */,
 				D64FA1791D1D1D95007DE414 /* README.md in Sources */,
 				D64FA1871D1D2B41007DE414 /* README.md in Sources */,
