@@ -60,16 +60,8 @@
                                                 <constraint firstAttribute="width" secondItem="0mq-Rk-PYB" secondAttribute="height" id="EVc-BG-r6q"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8s-o5-743">
-                                            <rect key="frame" x="275" y="18" width="40" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="TXP-XP-Weg"/>
-                                                <constraint firstAttribute="height" constant="30" id="nuT-8T-Jwm"/>
-                                            </constraints>
-                                            <state key="normal" image="lyric.png"/>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afO-nO-Ofh">
-                                            <rect key="frame" x="58" y="18" width="30" height="30"/>
+                                            <rect key="frame" x="63" y="31" width="30" height="30"/>
                                             <state key="normal" title="返回"/>
                                             <connections>
                                                 <action selector="backButtonClick:" destination="-1" eventType="touchUpInside" id="3Se-Xv-GS8"/>
@@ -82,8 +74,6 @@
                                         <constraint firstItem="0mq-Rk-PYB" firstAttribute="leading" secondItem="jWC-8x-Jqg" secondAttribute="leading" constant="50" id="Fpp-wY-eoL"/>
                                         <constraint firstAttribute="bottom" secondItem="0mq-Rk-PYB" secondAttribute="bottom" constant="50" id="JqF-1V-vSk"/>
                                         <constraint firstAttribute="trailing" secondItem="0mq-Rk-PYB" secondAttribute="trailing" constant="50" id="MS9-mw-MJ7"/>
-                                        <constraint firstItem="W8s-o5-743" firstAttribute="top" secondItem="jWC-8x-Jqg" secondAttribute="top" constant="18" id="Prb-Ga-AEP"/>
-                                        <constraint firstItem="W8s-o5-743" firstAttribute="leading" secondItem="jWC-8x-Jqg" secondAttribute="leading" constant="275" id="UFf-fP-GDf"/>
                                         <constraint firstItem="0mq-Rk-PYB" firstAttribute="top" secondItem="jWC-8x-Jqg" secondAttribute="top" constant="50" id="d0Y-xs-u5E"/>
                                         <constraint firstItem="0mq-Rk-PYB" firstAttribute="centerX" secondItem="jWC-8x-Jqg" secondAttribute="centerX" id="gxa-tL-oRe"/>
                                         <constraint firstAttribute="width" constant="414" id="rre-ri-wUd"/>
@@ -138,7 +128,7 @@
                                 <action selector="UpButtonClicked:" destination="OCN-cA-CEi" eventType="touchUpInside" id="Qd5-DS-KFo"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQc-Qe-UCk">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQc-Qe-UCk">
                             <rect key="frame" x="354" y="10" width="55" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="55" id="TP4-Ys-c07"/>
@@ -154,7 +144,7 @@
                                 </mask>
                             </variation>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyi-HR-NjY">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyi-HR-NjY">
                             <rect key="frame" x="5" y="10" width="55" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="179-mQ-H5q"/>
@@ -276,6 +266,5 @@
     <resources>
         <image name="audionews_play_button.png" width="50" height="50"/>
         <image name="background.png" width="375" height="516"/>
-        <image name="lyric.png" width="40" height="40"/>
     </resources>
 </document>
