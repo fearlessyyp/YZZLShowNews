@@ -12,7 +12,8 @@
 // /视频列表的URL
 #define NEWS_VIDEO_LIST_URL @"http://c.m.163.com/nc/video/list/V9LG4B3A0/n/0-10.html"
 
-
+// / 视频下拉刷新
+#define NES_VIDEO_DOWN_URL(page) [NSString stringWithFormat:@"http://c.m.163.com/nc/video/list/V9LG4B3A0/n/%ld-10.html", page] 
 
 // 音乐搜索的URL
 #define NEWS_MUSIC_SEARCH_URL231 @"http://s.music.qq.com/fcgi-bin/music_search_new_platform?t=0&n=20&aggr=1&cr=1&loginUin=0&format=json&inCharset=GB2312&outCharset=utf-8&notice=0&platform=jqminiframe.json&needNewCode=0&p=1&catZhida=0&remoteplace=sizer.newclient.next_song&w=%@"

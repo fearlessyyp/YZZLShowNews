@@ -14,6 +14,7 @@
 #import "UserViewController.h"
 #import "VideoViewController.h"
 #import <RESideMenu.h>
+#import "UIImage+ImageByColor.h"
 
 @interface AppDelegate ()<RESideMenuDelegate>
 @property (nonatomic, strong) UITabBarController *rootTVC;
@@ -44,10 +45,12 @@
     sideMenuViewController.contentViewInLandscapeOffsetCenterX = [UIScreen mainScreen].bounds.size.width * 0.33;
     sideMenuViewController.contentViewInPortraitOffsetCenterX  = [UIScreen mainScreen].bounds.size.width * 0.33;
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:sideMenuViewController];
-    
+
     [UINavigationBar appearance].barStyle = UIBarStyleBlack;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+ 
+
     return YES;
 }
 

@@ -12,6 +12,7 @@
 #import "WXPlayerView.h"
 static void *PlayViewCMTimeValue = &PlayViewCMTimeValue;
 static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContext;
+#import <MBProgressHUD.h>
 @interface WXPlayerView ()<UIGestureRecognizerDelegate>
 @property (nonatomic,assign)CGPoint firstPoint;
 @property (nonatomic,assign)CGPoint secondPoint;
@@ -310,11 +311,7 @@ static WXPlayerView *view = nil;
     }];
     
     [self bringSubviewToFront:self.bottomView];
-    
-    
-    
-    
-    
+
     _closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _closeBtn.showsTouchWhenHighlighted = YES;
     [_closeBtn addTarget:self action:@selector(colseTheVideo:) forControlEvents:UIControlEventTouchUpInside];
@@ -589,19 +586,27 @@ static WXPlayerView *view = nil;
     if (context == PlayViewStatusObservationContext)
     {
         AVPlayerStatus status = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
+        MBProgressHUD *HUD = [[MBProgressHUD alloc] init];
+        
+        [self addSubview:HUD];
+        
+
         switch (status)
         {
                 /* Indicates that the status of the player is not yet known because
                  it has not tried to load new media resources for playback */
             case AVPlayerStatusUnknown:
             {
-                
+                [HUD show:YES];
+                if (!AVPlayerStatusUnknown) {
+                    [HUD hide:YES];
+                }
             }
                 break;
                 
             case AVPlayerStatusReadyToPlay:
             {
-                
+                [HUD hide:YES];
                 /* Once the AVPlayerItem becomes ready to play, i.e.
                  [playerItem status] == AVPlayerItemStatusReadyToPlay,
                  its duration can be fetched from the item. */
@@ -636,6 +641,8 @@ static WXPlayerView *view = nil;
                 
             case AVPlayerStatusFailed:
             {
+               
+                [HUD show:YES];
                 
             }
                 break;
