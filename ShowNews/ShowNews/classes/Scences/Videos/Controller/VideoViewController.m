@@ -18,11 +18,12 @@
 #import <Masonry.h>
 #import <AFNetworking.h>
 #import <MBProgressHUD.h>
+#import <UMSocial.h>
 //屏幕的宽度
 #define WindownWidth [[UIScreen mainScreen] bounds].size.width
 //屏幕的高度
 #define WindowHeight [[UIScreen mainScreen] bounds].size.height
-@interface VideoViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface VideoViewController ()<UITableViewDelegate, UITableViewDataSource,UMSocialUIDelegate>
 @property (nonatomic, strong)UITableView *privateTableView;
 @property (nonatomic, strong)NSMutableArray *newMarray;
 @property (nonatomic, strong)NSString *string;
@@ -162,6 +163,28 @@
     [cell.playBtn addTarget:self action:@selector(startPlayVideo:) forControlEvents:UIControlEventTouchUpInside];
     cell.playBtn.tag = indexPath.row;
     cell.playBtn.indexPath = indexPath;
+    
+    // 友盟分享的block实现
+    cell.Block = ^void(VideoModel *model)
+    {
+        model = self.newMarray[indexPath.row];
+        
+        [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:model.cover];
+
+        //分享内嵌文字
+        NSString *shareText = [NSString stringWithFormat:@"%@[视频地址:%@]", model.title, model.mp4_url];
+        
+        //分享内嵌图片
+        //UIImage *shareImage = ;
+        
+        //分享样式数组
+        NSArray *shareArr = [NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToQQ,UMShareToWechatSession,UMShareToWechatTimeline, nil];
+        
+        [UMSocialSnsService presentSnsIconSheetView:self appKey:UmengAppkey shareText:shareText shareImage:[UIImage imageNamed:@"2.jpg"] shareToSnsNames:shareArr delegate:self];
+
+    };
+    
+    
     return cell;
 }
 
