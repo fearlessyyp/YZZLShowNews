@@ -30,6 +30,9 @@
 
 @property (nonatomic, strong) NSMutableArray *timeForLyric;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+
 @end
 
 @implementation PlayViewController
@@ -114,7 +117,7 @@ static PlayViewController *playVC = nil;
         
         
         NSLog(@"++++++++++++++%@", musci.picUrl);
-        weakSelf.navigationItem.title = musci.musicName;
+        weakSelf.titleLabel.text = musci.musicName;
        
         
         //刷新TableView

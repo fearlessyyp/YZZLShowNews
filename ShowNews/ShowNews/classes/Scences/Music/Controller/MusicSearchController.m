@@ -76,7 +76,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     //    NSLog(@"llllllllllllllllll%f", self.bofangView.frame.size.width);
-    self.speaceButton.constant = self.speaceButton1.constant = self.speaceButton2.constant = (self.bofangView.frame.size.width - 67 - 120 - 4) / 3;
+    self.speaceButton.constant = self.speaceButton1.constant = self.speaceButton2.constant = (self.bofangView.frame.size.width - 67 - 130 - 4) / 3;
     //    NSLog(@"iiiiiiii%f",self.speaceButton.constant);
 }
 
@@ -99,9 +99,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-    
-    self.volume.value = [MPMusicPlayerController applicationMusicPlayer].volume;
+    // 观察isStart的状态
+   [[PlayerManager sharePlayer] addObserver:self forKeyPath:@"isStart" options:NSKeyValueObservingOptionNew context:nil];
     
     [self.navigationController setNavigationBarHidden:YES];
     // 单例 初始化session对象
@@ -369,17 +368,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [PlayViewController sharePlayView];
-    //
-    //    playVC.musicIndex = indexPath.row;
-    //
-    //    [self.navigationController pushViewController:playVC animated:YES];
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+     [PlayViewController sharePlayView];
     [[PlayerManager sharePlayer] prepareMusic:indexPath.row];
-//    [[PlayerManager sharePlayer] musicPlay];
     Music *music = self.allArr[indexPath.row];
     [self bindSmallMusicController:music];
-    [self.palyButton setImage:[UIImage imageNamed:@"audionews_pause_button@2x"] forState:UIControlStateNormal];
 }
 
 
@@ -441,19 +434,6 @@
 }
 
 
-
-// 音量改变
-- (IBAction)VolumnSliderValueChange:(UISlider *)sender {
-    MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
-    
-    musicPlayer.volume = sender.value;
-    [[PlayerManager sharePlayer] musicVolumn:musicPlayer.volume];
-}
-
-
-
-
-
 - (IBAction)UpButtonClick:(id)sender {
     [[PlayerManager sharePlayer] upMusic];
 }
@@ -463,6 +443,24 @@
     [[PlayerManager sharePlayer] nextMusic];
 }
 
+// KVO 属性变化时
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+     BOOL isStrat = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
+    if (isStrat) {
+            [self.palyButton setImage:[UIImage imageNamed:@"audionews_pause_button@2x"] forState:UIControlStateNormal];
+            [[PlayViewController sharePlayView].playButton setImage:[UIImage imageNamed:@"audionews_pause_button@2x"] forState:UIControlStateNormal];
+        }else {
+            [self.palyButton setImage:[UIImage imageNamed:@"audionews_play_button@2x"] forState:UIControlStateNormal];
+            [[PlayViewController sharePlayView].playButton setImage:[UIImage imageNamed:@"audionews_play_button@2x"] forState:UIControlStateNormal];
+    }
+    
+    
+}
+
+- (void)dealloc {
+    [[PlayerManager sharePlayer] removeObserver:self forKeyPath:@"isStart" context:nil];
+    
+}
 
 /*
  #pragma mark - Navigation
