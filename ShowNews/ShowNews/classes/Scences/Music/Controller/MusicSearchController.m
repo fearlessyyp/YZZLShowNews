@@ -26,10 +26,6 @@
 /// 播放控制器
 @property (weak, nonatomic) IBOutlet UIView *bofangView;
 
-
-//@property (nonatomic, strong) PlayViewController *playVC;
-
-
 /// 用于网络请求的session对象
 @property (nonatomic, strong) AFHTTPSessionManager *session;
 
@@ -64,10 +60,6 @@
 /// 收藏
 @property (weak, nonatomic) IBOutlet UIButton *collect;
 
-/// 音量
-@property (weak, nonatomic) IBOutlet UISlider *volume;
-
-
 @property (nonatomic, strong) PlayerManager *playManager;
 
 @end
@@ -75,16 +67,13 @@
 @implementation MusicSearchController
 
 - (void)viewDidAppear:(BOOL)animated {
-    //    NSLog(@"llllllllllllllllll%f", self.bofangView.frame.size.width);
+    // button间的约束宽度
     self.speaceButton.constant = self.speaceButton1.constant = self.speaceButton2.constant = (self.bofangView.frame.size.width - 67 - 130 - 4) / 3;
-    //    NSLog(@"iiiiiiii%f",self.speaceButton.constant);
 }
 
 - (void)updateViewConstraints {
     [super updateViewConstraints];
     self.leftTransform.constant = [UIScreen mainScreen].bounds.size.width *0.12 + 8;
-    //    NSLog(@"llllllllllllllllll%f", self.bofangView.frame.size.width);
-    //    self.speaceButton.constant = self.speaceButton1.constant = self.speaceButton2.constant =
 }
 
 
@@ -100,7 +89,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 观察isStart的状态
-   [[PlayerManager sharePlayer] addObserver:self forKeyPath:@"isStart" options:NSKeyValueObservingOptionNew context:nil];
+    [[PlayerManager sharePlayer] addObserver:self forKeyPath:@"isStart" options:NSKeyValueObservingOptionNew context:nil];
     
     [self.navigationController setNavigationBarHidden:YES];
     // 单例 初始化session对象
@@ -108,8 +97,16 @@
     
     // 注册cell
     [self.listResultTableView registerNib:[UINib nibWithNibName:@"MusicListCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    // 当音乐被切换时调用的代理方法  外部需要拿到数据模型 进行改变
+    [self blockChangeMP3];
     
+    
+    
+    
+}
 #pragma mark ------  block
+
+- (void)blockChangeMP3{
     // 当音乐被切换时调用的代理方法  外部需要拿到数据模型 进行改变
     
     self.playManager = [PlayerManager sharePlayer];
@@ -125,20 +122,10 @@
         
         //刷新TableView
         dispatch_async(dispatch_get_main_queue(), ^{
-            // 将时间歌词添加到当前VC的数组中
-            //            _timeForLyric = [NSMutableArray array];
-            //            [weakSelf loadLyricWithStr:musci.lyricxxxx];
-            //            weakSelf.lyricArr = [[NSArray alloc]initWithArray:weakSelf.timeForLyric];
             [weakSelf.photoImage sd_setImageWithURL:[NSURL URLWithString:musci.picUrl]];
-            // 控制台
-            //            [weakSelf prepareMusicInfo:musci];
-            //            [weakSelf.musicLyric reloadData];
         });
         
     };
-    
-    
-    
 }
 
 - (IBAction)searchButtonAction:(UIButton *)sender {
@@ -150,8 +137,6 @@
 
 // 请求数据
 - (void)requestData{
-    
-    
     //     判断当前是wifi状态、3g、4g还是网络不可用状态
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         /**
@@ -288,7 +273,7 @@
     return [returnStr stringByReplacingOccurrencesOfString:@"\\r\\n"withString:@"\n"];
 }
 
-
+// 请求歌词 并把MODEL 添加到大数组
 - (NSString *)requestLrc:(Music *)music {
     __weak typeof(self) weakSelf = self;
     NSURLSession *sesson = [NSURLSession sharedSession];
@@ -308,53 +293,24 @@
                 [weakSelf.allArr addObject:music];
                 [PlayerManager sharePlayer].playList = weakSelf.allArr;
                 [weakSelf.listResultTableView reloadData];
-                //                    NSLog(@"===============%@---------,%@",str2, music.lyric);
+
             });
             
         }
-        
-        
-        //        // 3. 设置DO//        return str2;
-        //        // 5. 遍历获取相对应的子节点
-        //        for (GDataXMLElement *studentElement in rootElement.children) {
-        //            Student *stu = [[Student alloc] init];
-        //
-        //            // 遍历子节点的子节点
-        //            for (GDataXMLElement *stuElement in studentElement.children) {
-        //                //            NSLog(@"stuElement = %@", stuElement);
-        //
-        //                // 根据标签给student对象赋值
-        //                //stuElement.name 相当于 标签的名字
-        //                //stuElement.stringValue 相当于 标签的值
-        //                // KVC
-        //                [stu setValue:stuElement.stringValue forKey:stuElement.name];
-        //            }
-        //            [self.dataArray addObject:stu];
-        //        }
-        //
-        //        // 打印校验
-        //        for (Student *stu in self.dataArray) {
-        //            NSLog(@"name = %@, gender = %@, age = %ld, hobby = %@",stu.name, stu.gender, stu.age, stu.hobby);
-        //        }
-        
-        
+   
     }];
     [task resume];
     return nil;
 }
 
 
-
-
 #pragma mark - Table view data source
 //  设置分区个数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 1;
 }
 // 设置每个分区的行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return self.allArr.count;
 }
 
@@ -397,8 +353,7 @@
     NSLog(@"z%@",music.picUrl);
 }
 
-
-
+// 点击播放按钮
 - (IBAction)PlayButtonClick:(UIButton *)sender {
     
     if ([PlayerManager sharePlayer].isStart == YES) {
@@ -410,35 +365,24 @@
         [[PlayerManager sharePlayer] musicPlay];
         [PlayerManager sharePlayer].isStart = YES;
     }
-    
-    
-    //    if ([sender.titleLabel.text isEqualToString:@"播放"]) {
-    //        [[PlayerManager sharePlayer] musicPlay];
-    //        [sender setTitle:@"暂停" forState:UIControlStateNormal];
-    //    }else {
-    //        [[PlayerManager sharePlayer] pause];
-    //        sender.titleLabel.text = @"播放";
-    //        [sender setTitle:@"播放" forState:UIControlStateNormal];
-    //    }
 }
 
+// 点击CELL 跳转
 - (IBAction)imageClick:(UITapGestureRecognizer *)sender {
     PlayViewController *playVC = [PlayViewController sharePlayView];
     
-    
     playVC.musicIndex = [PlayerManager sharePlayer].currentIndex;
-    
     [self.navigationController pushViewController:playVC animated:YES];
     
     
 }
 
-
+// 上一首
 - (IBAction)UpButtonClick:(id)sender {
     [[PlayerManager sharePlayer] upMusic];
 }
 
-
+// 下一首
 - (IBAction)nextButtonClick:(id)sender {
     [[PlayerManager sharePlayer] nextMusic];
 }

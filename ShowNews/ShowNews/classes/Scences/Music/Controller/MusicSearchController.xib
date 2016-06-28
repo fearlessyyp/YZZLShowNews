@@ -44,9 +44,6 @@
                                 <constraint firstAttribute="height" constant="67" id="YmL-xm-5Sq"/>
                                 <constraint firstAttribute="width" constant="67" id="cnk-wQ-V49"/>
                             </constraints>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="DJq-lH-zeB" appends="YES" id="qbr-XX-J3q"/>
-                            </connections>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEK-v3-12A">
                             <rect key="frame" x="71" y="42" width="30" height="30"/>
@@ -59,7 +56,7 @@
                                 <action selector="UpButtonClick:" destination="-1" eventType="touchUpInside" id="Vit-f1-Gp7"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌手" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYu-xb-aCM">
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌手" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYu-xb-aCM">
                             <rect key="frame" x="71" y="26" width="28" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="YVu-i6-6LS"/>
@@ -101,7 +98,7 @@
                                 <action selector="nextButtonClick:" destination="-1" eventType="touchUpInside" id="Dlb-mO-fT2"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌曲" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vf6-4m-rbs">
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌曲" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vf6-4m-rbs">
                             <rect key="frame" x="71" y="2" width="28" height="23"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="23" id="SBl-t3-Ejk"/>
@@ -123,6 +120,7 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="JEK-v3-12A" secondAttribute="bottom" id="1GA-LQ-GPF"/>
                         <constraint firstItem="GBx-01-btd" firstAttribute="leading" secondItem="7ks-Li-IpR" secondAttribute="trailing" constant="44" id="KTs-Nj-Xhr"/>
@@ -140,6 +138,9 @@
                         <constraint firstItem="hYu-xb-aCM" firstAttribute="leading" secondItem="vf6-4m-rbs" secondAttribute="leading" id="rbx-D2-JJF"/>
                         <constraint firstItem="GBx-01-btd" firstAttribute="bottom" secondItem="JEK-v3-12A" secondAttribute="bottom" id="w7B-71-LT9"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="DJq-lH-zeB" appends="YES" id="zRu-vr-ZVx"/>
+                    </connections>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hja-or-6dB">
                     <rect key="frame" x="366" y="42" width="40" height="30"/>

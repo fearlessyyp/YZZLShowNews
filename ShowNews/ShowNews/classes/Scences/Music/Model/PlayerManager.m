@@ -53,14 +53,13 @@ static PlayerManager *playerManager = nil;
     if (!_playerItem) {
         _playerItem = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString:@""]];
         [_playerItem addObserver:self
-                                   forKeyPath:@"status"
-                                      options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
-                                      context:nil];
+                      forKeyPath:@"status"
+                         options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                         context:nil];
     }
     return _playerItem;
 }
 
-#warning 111
 // 初始化 内部对音乐播放状态添加观察者 当音乐播放完成时 调用指定的方法
 - (instancetype)init
 {
@@ -81,29 +80,7 @@ static PlayerManager *playerManager = nil;
 
 #pragma mark 获取播放列表
 - (void)getPlayList{
-    //
     
-    
-    //    NSURL *url = [NSURL URLWithString:kPlaylistURL];
-    //    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    //    NSURLSession *session = [NSURLSession sharedSession];
-    //    NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-    //        if (error) {
-    //            NSLog(@"错误");
-    //        }
-    //        NSArray *array = [NSPropertyListSerialization propertyListWithData:data options:0 format:NULL error:nil];
-    //        NSLog(@"%@",array);
-    //
-    //        for (NSDictionary *dict in array) {
-    //            MusicInfo *musicInfo = [[MusicInfo alloc] init];
-    //            [musicInfo setValuesForKeysWithDictionary:dict];
-    //            [self.playList addObject:musicInfo];
-    //        }
-    //        dispatch_async(dispatch_get_main_queue(), ^{
-    //            self.block();
-    //        });
-    //    }];
-    //    [task resume];
 }
 
 // 通过外部点击的行数确定是在音乐列表中的哪一条数据 然后将歌曲的模型返回
@@ -130,41 +107,28 @@ static PlayerManager *playerManager = nil;
         // 获取当前音乐信息
         _music = self.playList[index];
         if (self.playerItem) {
-                        [self.playerItem removeObserver:self forKeyPath:@"status"];
-//                    [self.player.currentItem removeObserver:self forKeyPath:@"status"];
-                    }
-
-        // 实例化一个PlayerItem作为Player的"CD"
+            [self.playerItem removeObserver:self forKeyPath:@"status"];
+            //                    [self.player.currentItem removeObserver:self forKeyPath:@"status"];
+        }
         
+        // 实例化一个PlayerItem作为Player的"CD"
         _playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:_music.mp3Url]];
-                  [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
+        [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
         //        [self.player replaceCurrentItemWithPlayerItem:_playerItem];
         NSLog(@"MP3url%@", _music.mp3Url);
         // 此赋值只判断是否跟点击之前是同一首歌
         _currentUrl = _music.mp3Url;
-     
+        
         self.player = nil;
-           // 替换当前的playerItem
-                self.player = [[AVPlayer alloc] initWithPlayerItem:_playerItem];
+        // 替换当前的playerItem
+        self.player = [[AVPlayer alloc] initWithPlayerItem:_playerItem];
         if (self.blocl) {
             self.blocl(_music);
         }
-                [self musicPlay];
+        [self musicPlay];
         //        if (self.blocl1) {
         //            self.blocl1(music);
         //        }
-        
-        // 安全判断
-        //        if ([self.delegate respondsToSelector:@selector(didMusicCutwithMusicInfo:)]) {
-        //            [self.delegate didMusicCutWithMusicInfo:musicInfo];
-        //        }
-        //
-        
-        //        [_playerItem addObserver:self
-        //                           forKeyPath:@"status"
-        //                              options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
-        //                              context:PlayViewStatusObservationContext];
-        
     }
 }
 
@@ -242,10 +206,6 @@ int i = 0;
             
         case AVPlayerStatusReadyToPlay:
         {
-            //                [HUD hide:YES];
-            /* Once the AVPlayerItem becomes ready to play, i.e.
-             [playerItem status] == AVPlayerItemStatusReadyToPlay,
-             its duration can be fetched from the item. */
             NSLog(@"============准备播放");
         }
             break;
@@ -265,20 +225,13 @@ int i = 0;
             if (i > [UIScreen mainScreen].bounds.size.height / 2 - 30) {
                 i = - [UIScreen mainScreen].bounds.size.height / 2;
             }
-//            _HUD.dimBackground = YES;
+            //            _HUD.dimBackground = YES;
             [_HUD hide:YES];
             _HUD.userInteractionEnabled = NO;
-         
-//
-            
             [self pause];
-            
             if (self.currentIndex != self.playList.count -1) {
-//                sleep(2);
                 [self nextMusic];
-                
                 [self musicPlay];
-                
             }
             
         }
