@@ -33,6 +33,17 @@
     
 }
 
+- (IBAction)shareButtonAction:(id)sender {
+    
+    
+    
+    
+    
+}
+
+
+
+
 
 - (void)addMovie: (UIView *)view{
     [self.backImageView addSubview:view];
