@@ -28,6 +28,8 @@
 // / 视频发布者
 @property (weak, nonatomic) IBOutlet UILabel *topicNameLable;
 
+@property (nonatomic, copy) void (^Block)(VideoModel *);
+
 - (void)addMovie: (UIView *)view;
 + (instancetype)cellWithTableView: (UITableView *)tableView;
 @end

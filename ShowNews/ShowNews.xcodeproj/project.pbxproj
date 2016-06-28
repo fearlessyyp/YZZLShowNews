@@ -96,6 +96,16 @@
 		D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED41D1D576D006B6C33 /* UILabel+Font.m */; };
 		D6EA5ED91D1D6BF1006B6C33 /* MusicSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */; };
 		D6EA5EDA1D1D6BF1006B6C33 /* MusicSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */; };
+		F53783191D227866000B6A2C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53783181D227866000B6A2C /* Security.framework */; };
+		F537831B1D227873000B6A2C /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F537831A1D227873000B6A2C /* libiconv.tbd */; };
+		F537831D1D227882000B6A2C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F537831C1D227882000B6A2C /* SystemConfiguration.framework */; };
+		F537831F1D227891000B6A2C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F537831E1D227891000B6A2C /* CoreGraphics.framework */; };
+		F53783211D22789D000B6A2C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F53783201D22789D000B6A2C /* libsqlite3.tbd */; };
+		F53783231D2278A7000B6A2C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53783221D2278A7000B6A2C /* CoreTelephony.framework */; };
+		F53783251D2278B3000B6A2C /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F53783241D2278B3000B6A2C /* libstdc++.tbd */; };
+		F53783271D2278BF000B6A2C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F53783261D2278BF000B6A2C /* libz.tbd */; };
+		F53783291D227927000B6A2C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53783281D227927000B6A2C /* ImageIO.framework */; };
+		F537832B1D229A6B000B6A2C /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F537832A1D229A6B000B6A2C /* 2.jpg */; };
 		F53D262B1D1E6CFD002E0644 /* GiFHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F53D26291D1E6CFD002E0644 /* GiFHUD.m */; };
 		F53D262C1D1E6CFD002E0644 /* pika.gif in Resources */ = {isa = PBXBuildFile; fileRef = F53D262A1D1E6CFD002E0644 /* pika.gif */; };
 		F557EF851D1FAE9B00C3C241 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = F557EF841D1FAE9B00C3C241 /* City.m */; };
@@ -243,6 +253,16 @@
 		D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicSearchController.m; sourceTree = "<group>"; };
 		D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicSearchController.xib; sourceTree = "<group>"; };
 		D99B500FD685B92161D43C8B /* Pods-ShowNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowNews/Pods-ShowNews.release.xcconfig"; sourceTree = "<group>"; };
+		F53783181D227866000B6A2C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F537831A1D227873000B6A2C /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		F537831C1D227882000B6A2C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F537831E1D227891000B6A2C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F53783201D22789D000B6A2C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		F53783221D2278A7000B6A2C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		F53783241D2278B3000B6A2C /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		F53783261D2278BF000B6A2C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		F53783281D227927000B6A2C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		F537832A1D229A6B000B6A2C /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		F53D26281D1E6CFD002E0644 /* GiFHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiFHUD.h; sourceTree = "<group>"; };
 		F53D26291D1E6CFD002E0644 /* GiFHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiFHUD.m; sourceTree = "<group>"; };
 		F53D262A1D1E6CFD002E0644 /* pika.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pika.gif; sourceTree = "<group>"; };
@@ -278,6 +298,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F53783291D227927000B6A2C /* ImageIO.framework in Frameworks */,
+				F53783271D2278BF000B6A2C /* libz.tbd in Frameworks */,
+				F53783251D2278B3000B6A2C /* libstdc++.tbd in Frameworks */,
+				F53783231D2278A7000B6A2C /* CoreTelephony.framework in Frameworks */,
+				F53783211D22789D000B6A2C /* libsqlite3.tbd in Frameworks */,
+				F537831F1D227891000B6A2C /* CoreGraphics.framework in Frameworks */,
+				F537831D1D227882000B6A2C /* SystemConfiguration.framework in Frameworks */,
+				F537831B1D227873000B6A2C /* libiconv.tbd in Frameworks */,
+				F53783191D227866000B6A2C /* Security.framework in Frameworks */,
 				3FC2CE9D4EB4A8CDA9AB3DBA /* libPods-ShowNews.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -771,6 +800,15 @@
 		EBC2337212AA4DE4AE825C25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F53783281D227927000B6A2C /* ImageIO.framework */,
+				F53783261D2278BF000B6A2C /* libz.tbd */,
+				F53783241D2278B3000B6A2C /* libstdc++.tbd */,
+				F53783221D2278A7000B6A2C /* CoreTelephony.framework */,
+				F53783201D22789D000B6A2C /* libsqlite3.tbd */,
+				F537831E1D227891000B6A2C /* CoreGraphics.framework */,
+				F537831C1D227882000B6A2C /* SystemConfiguration.framework */,
+				F537831A1D227873000B6A2C /* libiconv.tbd */,
+				F53783181D227866000B6A2C /* Security.framework */,
 				96AD0E98A66EEF8312CF716E /* libPods-ShowNews.a */,
 			);
 			name = Frameworks;
@@ -785,6 +823,7 @@
 				F5D2E3661D20BE9D00D297A3 /* action_love@2x.png */,
 				F5D2E3691D20BEBD00D297A3 /* tabbar_icon_media_normal@2x.png */,
 				F5D2E37F1D212F4600D297A3 /* Unknown.png */,
+				F537832A1D229A6B000B6A2C /* 2.jpg */,
 			);
 			name = VideoImage;
 			path = Image/VideoImage;
@@ -860,6 +899,7 @@
 				D64FA1211D1D1C92007DE414 /* LaunchScreen.storyboard in Resources */,
 				F5D2E3681D20BE9D00D297A3 /* action_love@2x.png in Resources */,
 				F5D2E3791D212C3800D297A3 /* VideoCell.xib in Resources */,
+				F537832B1D229A6B000B6A2C /* 2.jpg in Resources */,
 				D686D4261D20CBBD002B75C2 /* tabbar_icon_media_normal@2x.png in Resources */,
 				D686D4291D20CBBD002B75C2 /* thumb.png in Resources */,
 				D66AA2A51D1ECCF100045D9E /* MapViewController.xib in Resources */,
@@ -1125,6 +1165,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Yang (F2N9DLANA4)";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ShowNews/classes/Marco/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1202,6 +1243,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Yang (F2N9DLANA4)";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ShowNews/classes/Marco/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
