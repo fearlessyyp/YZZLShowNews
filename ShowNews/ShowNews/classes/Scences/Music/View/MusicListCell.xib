@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="龙卷风" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYt-qL-pBJ">
-                        <rect key="frame" x="0.0" y="5" width="48" height="17"/>
+                        <rect key="frame" x="0.0" y="3" width="48" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="gTU-ki-g28"/>
                         </constraints>
@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0l-fN-0qY">
-                        <rect key="frame" x="0.0" y="36" width="33" height="14"/>
+                        <rect key="frame" x="0.0" y="38" width="33" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="Qzv-Wx-esQ"/>
                         </constraints>
@@ -42,20 +42,21 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4MJ-O3-u0s">
-                        <rect key="frame" x="261" y="8" width="46" height="43"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4MJ-O3-u0s">
+                        <rect key="frame" x="261" y="8" width="46" height="39"/>
                         <state key="normal" title="Button"/>
                     </button>
                 </subviews>
+                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="IYt-qL-pBJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="41p-YZ-jwc"/>
                     <constraint firstItem="4MJ-O3-u0s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="4dd-U0-mkS"/>
-                    <constraint firstItem="J0l-fN-0qY" firstAttribute="top" secondItem="pcn-1K-dkp" secondAttribute="bottom" id="7EY-yl-hFU"/>
-                    <constraint firstItem="pcn-1K-dkp" firstAttribute="top" secondItem="IYt-qL-pBJ" secondAttribute="bottom" id="CFo-aX-Xam"/>
+                    <constraint firstItem="J0l-fN-0qY" firstAttribute="top" secondItem="pcn-1K-dkp" secondAttribute="bottom" constant="2" id="7EY-yl-hFU"/>
+                    <constraint firstItem="pcn-1K-dkp" firstAttribute="top" secondItem="IYt-qL-pBJ" secondAttribute="bottom" constant="2" id="CFo-aX-Xam"/>
                     <constraint firstItem="4MJ-O3-u0s" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="FJB-c2-U7l"/>
                     <constraint firstAttribute="bottomMargin" secondItem="4MJ-O3-u0s" secondAttribute="bottom" id="Gss-4x-5nT"/>
                     <constraint firstItem="J0l-fN-0qY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="qBA-D1-sFm"/>
-                    <constraint firstItem="IYt-qL-pBJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="wW4-NC-9xQ"/>
+                    <constraint firstItem="IYt-qL-pBJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-5" id="wW4-NC-9xQ"/>
                     <constraint firstItem="pcn-1K-dkp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="zZ4-we-mAm"/>
                 </constraints>
             </tableViewCellContentView>

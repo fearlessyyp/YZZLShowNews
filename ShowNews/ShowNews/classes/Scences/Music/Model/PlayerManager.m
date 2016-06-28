@@ -11,12 +11,14 @@
 #import "Music.h"
 #import <AVFoundation/AVFoundation.h>
 #import "MusicTimeFormatter.h"
+#import <MBProgressHUD.h>
 
 @interface PlayerManager ()
 @property (nonatomic,strong) AVPlayer *player; // 播放器属性
 @property (nonatomic,strong) NSTimer *timer;  // 定时器
-
+@property (nonatomic, strong) Music *music;
 @property (nonatomic, strong) AVPlayerItem *playerItem;
+@property (nonatomic, strong)MBProgressHUD *HUD; // 小菊花
 @end
 
 
@@ -114,19 +116,19 @@ static PlayerManager *playerManager = nil;
     if ((self.playList.count <= 0)) {
         return;
     }
-    Music *music2 = self.playList[index];
+    _music = self.playList[index];
     if (self.blocl1) {
-        self.blocl1(music2);
+        self.blocl1(_music);
     }
     //    if (self.blocl) {
     //        self.blocl(music2);
     //    }
     
     
-    if (self.currentIndex != index || music2.mp3Url != _currentUrl) {
+    if (self.currentIndex != index || _music.mp3Url != _currentUrl) {
         self.currentIndex = index;
         // 获取当前音乐信息
-        Music *music = self.playList[index];
+        _music = self.playList[index];
         if (self.playerItem) {
                         [self.playerItem removeObserver:self forKeyPath:@"status"];
 //                    [self.player.currentItem removeObserver:self forKeyPath:@"status"];
@@ -134,18 +136,18 @@ static PlayerManager *playerManager = nil;
 
         // 实例化一个PlayerItem作为Player的"CD"
         
-        _playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:music.mp3Url]];
+        _playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:_music.mp3Url]];
                   [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
         //        [self.player replaceCurrentItemWithPlayerItem:_playerItem];
-        NSLog(@"MP3url%@", music.mp3Url);
+        NSLog(@"MP3url%@", _music.mp3Url);
         // 此赋值只判断是否跟点击之前是同一首歌
-        _currentUrl = music.mp3Url;
+        _currentUrl = _music.mp3Url;
      
         self.player = nil;
            // 替换当前的playerItem
                 self.player = [[AVPlayer alloc] initWithPlayerItem:_playerItem];
         if (self.blocl) {
-            self.blocl(music);
+            self.blocl(_music);
         }
                 [self musicPlay];
         //        if (self.blocl1) {
@@ -223,25 +225,16 @@ static PlayerManager *playerManager = nil;
 - (void)musicVolumn:(float)value{
     self.player.volume = value;
 }
-
+int i = 0;
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    /* AVPlayerItem "status" property value observer. */
-    
     AVPlayerStatus status = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
-    //        MBProgressHUD *HUD = [[MBProgressHUD alloc] init];
-    
-    //        [self addSubview:HUD];
-    
-    
     switch (status)
     {
             /* Indicates that the status of the player is not yet known because
              it has not tried to load new media resources for playback */
         case AVPlayerStatusUnknown:
         {
-            //                [HUD show:YES];
             if (!AVPlayerStatusUnknown) {
-                //                    [HUD hide:YES];
                 NSLog(@"--------------未知的");
             }
         }
@@ -253,35 +246,76 @@ static PlayerManager *playerManager = nil;
             /* Once the AVPlayerItem becomes ready to play, i.e.
              [playerItem status] == AVPlayerItemStatusReadyToPlay,
              its duration can be fetched from the item. */
-            
             NSLog(@"============准备播放");
-//            [self.player replaceCurrentItemWithPlayerItem:_playerItem];
-            
-            
         }
             break;
             
         case AVPlayerStatusFailed:
         {
-            
-            //                [HUD show:YES];
             NSLog(@"++++++++++ 失败了");
-            //                self.player = [[AVPlayer alloc] initWithPlayerItem:_playerItem];
+            _HUD = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
+            _HUD.mode = MBProgressHUDModeText;
+            _HUD.labelColor = [UIColor greenColor];
+            NSString *str = [NSString stringWithFormat:@"<%@>因版权问题无法播放",_music.musicName];
+            _HUD.labelText = str;
+            _HUD.minShowTime = 2;
+            _HUD.opacity = 0.1;
+            _HUD.color = [UIColor clearColor];
+            _HUD.yOffset = i += 30;
+            if (i > [UIScreen mainScreen].bounds.size.height / 2 - 30) {
+                i = - [UIScreen mainScreen].bounds.size.height / 2;
+            }
+//            _HUD.dimBackground = YES;
+            [_HUD hide:YES];
+            _HUD.userInteractionEnabled = NO;
+         
+//
+            
+            [self pause];
+            
+            if (self.currentIndex != self.playList.count -1) {
+//                sleep(2);
+                [self nextMusic];
+                
+                [self musicPlay];
+                
+            }
+            
         }
             break;
-            
     }
-    
-    //    else if (context == PlayViewCMTimeValue){
-    //        NSArray *arr = change[@"new"];
-    //        CMTimeRange range = [arr.lastObject CMTimeRangeValue];
-    //        //当前缓冲的时间
-    //        float time = CMTimeGetSeconds(range.start) +CMTimeGetSeconds(range.duration);
-    //        float progressValue = time / CMTimeGetSeconds(self.currentItem.duration);
-    //        self.bufferProgressView.progress = progressValue;
-    //    }
 }
 
 
+
+//获取当前屏幕显示的viewcontroller
+- (UIViewController *)getCurrentVC
+{
+    UIViewController *result = nil;
+    
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    if (window.windowLevel != UIWindowLevelNormal)
+    {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(UIWindow * tmpWin in windows)
+        {
+            if (tmpWin.windowLevel == UIWindowLevelNormal)
+            {
+                window = tmpWin;
+                break;
+            }
+        }
+    }
+    
+    UIView *frontView = [[window subviews] objectAtIndex:0];
+    id nextResponder = [frontView nextResponder];
+    
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+        result = nextResponder;
+    else
+        result = window.rootViewController;
+    
+    return result;
+}
 
 @end

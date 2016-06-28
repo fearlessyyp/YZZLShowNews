@@ -78,6 +78,7 @@
 		D6BA65461D1E2C7B00ECA213 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65451D1E2C7B00ECA213 /* Weather.m */; };
 		D6BA654C1D1E30C900ECA213 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA654B1D1E30C900ECA213 /* BaseViewController.m */; };
 		D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */; };
+		D6D1BF941D22C1C60023F6FC /* p1156430977.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6D1BF931D22C1C60023F6FC /* p1156430977.jpg */; };
 		D6E261871D1FEAA500F8570C /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E261861D1FEAA500F8570C /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC411D1E5E0200B18F0E /* Music.m */; };
 		D6E2AC461D1E681900B18F0E /* MusicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC441D1E681900B18F0E /* MusicListCell.m */; };
@@ -222,6 +223,7 @@
 		D6BA654B1D1E30C900ECA213 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		D6BA65561D1E5E0B00ECA213 /* GetPinYinFromChinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPinYinFromChinese.h; sourceTree = "<group>"; };
 		D6BA65571D1E5E0B00ECA213 /* GetPinYinFromChinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPinYinFromChinese.m; sourceTree = "<group>"; };
+		D6D1BF931D22C1C60023F6FC /* p1156430977.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p1156430977.jpg; sourceTree = "<group>"; };
 		D6E261851D1FEAA500F8570C /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		D6E261861D1FEAA500F8570C /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		D6E2AC401D1E5E0200B18F0E /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
@@ -775,6 +777,7 @@
 				D686D4161D20CBBD002B75C2 /* collect.png */,
 				D686D4171D20CBBD002B75C2 /* lyric.png */,
 				D686D4321D20D35C002B75C2 /* musicBarButton.png */,
+				D6D1BF931D22C1C60023F6FC /* p1156430977.jpg */,
 				D686D4181D20CBBD002B75C2 /* tabbar */,
 				D686D41F1D20CBBD002B75C2 /* thumb.png */,
 				D66AA2911D1EC4BD00045D9E /* icon.png */,
@@ -912,6 +915,7 @@
 				D686D4411D20FC9A002B75C2 /* redPacket_btn_1@2x.png in Resources */,
 				F53D262C1D1E6CFD002E0644 /* pika.gif in Resources */,
 				D6E2AC4C1D1E873600B18F0E /* PlayViewController.xib in Resources */,
+				D6D1BF941D22C1C60023F6FC /* p1156430977.jpg in Resources */,
 				F5D2E3641D20BE9500D297A3 /* audionews_play_button@2x.png in Resources */,
 				D64FA11E1D1D1C92007DE414 /* Assets.xcassets in Resources */,
 				F5D2E36A1D20BEBD00D297A3 /* tabbar_icon_media_normal@2x.png in Resources */,

@@ -14,4 +14,8 @@
 
 + (PlayViewController *)sharePlayView;
 
+
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
+
+
 @end
