@@ -75,16 +75,16 @@
 @implementation MusicSearchController
 
 - (void)viewDidAppear:(BOOL)animated {
-//    NSLog(@"llllllllllllllllll%f", self.bofangView.frame.size.width);
+    //    NSLog(@"llllllllllllllllll%f", self.bofangView.frame.size.width);
     self.speaceButton.constant = self.speaceButton1.constant = self.speaceButton2.constant = (self.bofangView.frame.size.width - 67 - 120 - 4) / 3;
-//    NSLog(@"iiiiiiii%f",self.speaceButton.constant);
+    //    NSLog(@"iiiiiiii%f",self.speaceButton.constant);
 }
 
 - (void)updateViewConstraints {
     [super updateViewConstraints];
     self.leftTransform.constant = [UIScreen mainScreen].bounds.size.width *0.12 + 8;
-//    NSLog(@"llllllllllllllllll%f", self.bofangView.frame.size.width);
-//    self.speaceButton.constant = self.speaceButton1.constant = self.speaceButton2.constant =
+    //    NSLog(@"llllllllllllllllll%f", self.bofangView.frame.size.width);
+    //    self.speaceButton.constant = self.speaceButton1.constant = self.speaceButton2.constant =
 }
 
 
@@ -126,17 +126,17 @@
         //刷新TableView
         dispatch_async(dispatch_get_main_queue(), ^{
             // 将时间歌词添加到当前VC的数组中
-//            _timeForLyric = [NSMutableArray array];
-//            [weakSelf loadLyricWithStr:musci.lyricxxxx];
-//            weakSelf.lyricArr = [[NSArray alloc]initWithArray:weakSelf.timeForLyric];
+            //            _timeForLyric = [NSMutableArray array];
+            //            [weakSelf loadLyricWithStr:musci.lyricxxxx];
+            //            weakSelf.lyricArr = [[NSArray alloc]initWithArray:weakSelf.timeForLyric];
             [weakSelf.photoImage sd_setImageWithURL:[NSURL URLWithString:musci.picUrl]];
             // 控制台
-//            [weakSelf prepareMusicInfo:musci];
-//            [weakSelf.musicLyric reloadData];
+            //            [weakSelf prepareMusicInfo:musci];
+            //            [weakSelf.musicLyric reloadData];
         });
         
     };
-
+    
     
     
 }
@@ -189,7 +189,7 @@
     NSString *str = [NSString stringWithFormat:NEWS_MUSIC_SEARCH_URL231,self.searchTextField.text ];
     NSString *urlStr = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
-  
+    
     [self.session GET:urlStr parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"下载进度");
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -290,7 +290,7 @@
 
 
 - (NSString *)requestLrc:(Music *)music {
-      __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     NSURLSession *sesson = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:music.lyric];
     NSURLSessionTask *task = [sesson dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -300,20 +300,16 @@
             // M解析 (创建解析文档)
             GDataXMLDocument *document = [[GDataXMLDocument alloc] initWithData:data options:0 error:nil];
             
-
-                // 4. 获取根节点
-                NSString *str2 = document.rootElement.stringValue;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    music.lyricxxxx = str2;
-                    [weakSelf.allArr addObject:music];
-                    [PlayerManager sharePlayer].playList = weakSelf.allArr;
-                    [weakSelf.listResultTableView reloadData];
-                    NSLog(@"===============%@---------,%@",str2, music.lyric);
-                });
-
             
-            
-            
+            // 4. 获取根节点
+            NSString *str2 = document.rootElement.stringValue;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                music.lyricxxxx = str2;
+                [weakSelf.allArr addObject:music];
+                [PlayerManager sharePlayer].playList = weakSelf.allArr;
+                [weakSelf.listResultTableView reloadData];
+                //                    NSLog(@"===============%@---------,%@",str2, music.lyric);
+            });
             
         }
         
@@ -373,13 +369,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [PlayViewController sharePlayView];
-//
-//    playVC.musicIndex = indexPath.row;
-//    
-//    [self.navigationController pushViewController:playVC animated:YES];
+    //
+    //    playVC.musicIndex = indexPath.row;
+    //
+    //    [self.navigationController pushViewController:playVC animated:YES];
     
     [[PlayerManager sharePlayer] prepareMusic:indexPath.row];
-    [[PlayerManager sharePlayer] musicPlay];
+//    [[PlayerManager sharePlayer] musicPlay];
     Music *music = self.allArr[indexPath.row];
     [self bindSmallMusicController:music];
 }
@@ -420,14 +416,14 @@
         [PlayerManager sharePlayer].isStart = YES;
     }
     
-//    if ([sender.titleLabel.text isEqualToString:@"播放"]) {
-//        [[PlayerManager sharePlayer] musicPlay];
-//        [sender setTitle:@"暂停" forState:UIControlStateNormal];
-//    }else {
-//        [[PlayerManager sharePlayer] pause];
-//        sender.titleLabel.text = @"播放";
-//        [sender setTitle:@"播放" forState:UIControlStateNormal];
-//    }
+    //    if ([sender.titleLabel.text isEqualToString:@"播放"]) {
+    //        [[PlayerManager sharePlayer] musicPlay];
+    //        [sender setTitle:@"暂停" forState:UIControlStateNormal];
+    //    }else {
+    //        [[PlayerManager sharePlayer] pause];
+    //        sender.titleLabel.text = @"播放";
+    //        [sender setTitle:@"播放" forState:UIControlStateNormal];
+    //    }
 }
 
 - (IBAction)imageClick:(UITapGestureRecognizer *)sender {

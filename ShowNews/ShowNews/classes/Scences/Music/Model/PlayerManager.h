@@ -43,7 +43,8 @@
 @property (nonatomic, copy) void(^block)();
 
 @property (nonatomic,assign) NSInteger currentIndex;  // 当前的音乐下标
-
+/// 当前URl
+@property (nonatomic, copy) NSString *currentUrl;
 ///
 //@property (nonatomic, copy) void(^time)();
 
