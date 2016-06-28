@@ -162,38 +162,10 @@
     [cell.playBtn addTarget:self action:@selector(startPlayVideo:) forControlEvents:UIControlEventTouchUpInside];
     cell.playBtn.tag = indexPath.row;
     cell.playBtn.indexPath = indexPath;
-    
-//    if (_playView&&_playView.superview) {
-//        if (indexPath.row==_currentIndexPath.row) {
-//            [cell.playBtn.superview sendSubviewToBack:cell.playBtn];
-//        }else{
-//            [cell.playBtn.superview bringSubviewToFront:cell.playBtn];
-//        }
-//        NSArray *indexpaths = [tableView indexPathsForVisibleRows];
-//        if (![indexpaths containsObject:_currentIndexPath]&&_currentIndexPath!=nil) {//复用  
-//            
-//            if ([[UIApplication sharedApplication].keyWindow.subviews containsObject:_playView]) {
-//                _playView.hidden = NO;
-//            }else{
-//                _playView.hidden = YES;
-//                [cell.playBtn.superview bringSubviewToFront:cell.playBtn];
-//            }
-//        }else{
-//            if ([cell.thumbImage.subviews containsObject:_playView]) {
-//                [_playView play];
-//                _playView.hidden = NO;
-//            }
-//            
-//        }
-//    }
-//    
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-
-}
 
 -(void)startPlayVideo:(UIButton *)sender{
     if (self.currentCell) {

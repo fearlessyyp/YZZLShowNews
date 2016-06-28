@@ -15,7 +15,6 @@
 #import "VideoViewController.h"
 #import <RESideMenu.h>
 #import "UIImage+ImageByColor.h"
-
 @interface AppDelegate ()<RESideMenuDelegate>
 @property (nonatomic, strong) UITabBarController *rootTVC;
 @end
@@ -50,7 +49,6 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
  
-
     return YES;
 }
 
