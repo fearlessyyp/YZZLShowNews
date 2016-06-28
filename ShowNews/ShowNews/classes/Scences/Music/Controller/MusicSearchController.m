@@ -99,6 +99,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
     
     self.volume.value = [MPMusicPlayerController applicationMusicPlayer].volume;
     
@@ -378,6 +379,7 @@
 //    [[PlayerManager sharePlayer] musicPlay];
     Music *music = self.allArr[indexPath.row];
     [self bindSmallMusicController:music];
+    [self.palyButton setImage:[UIImage imageNamed:@"audionews_pause_button@2x"] forState:UIControlStateNormal];
 }
 
 
@@ -415,6 +417,7 @@
         [[PlayerManager sharePlayer] musicPlay];
         [PlayerManager sharePlayer].isStart = YES;
     }
+    
     
     //    if ([sender.titleLabel.text isEqualToString:@"播放"]) {
     //        [[PlayerManager sharePlayer] musicPlay];
