@@ -57,13 +57,14 @@
 }
 
 
-
+// 结束更新
 - (void)endRefresh
 {
     [self.privateTableView.mj_header endRefreshing];
     [self.privateTableView.mj_footer endRefreshing];
 }
 
+// 更新数据
 - (void)updateData
 {
     
@@ -80,6 +81,7 @@
             [weakSelf.newMarray addObject:model];
         }
         [self endRefresh];
+        // 主线程刷新UI
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.privateTableView reloadData];
         });
@@ -94,8 +96,6 @@
     
 }
 
-
-
 - (void)initLayouts
 {
     self.isOnCell = NO;
@@ -104,11 +104,13 @@
     self.privateTableView = [[UITableView alloc] initWithFrame: CGRectMake(0, 0, kScreenSizeWidth, kScreenSizeHeight - kNavigationAndStatusHeight + 44) style:(UITableViewStylePlain)];
     self.privateTableView.delegate = self;
     self.privateTableView.dataSource = self;
+    // 下拉刷新
     _privateTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newMarray removeAllObjects];
         self.page = 0;
         [self updateData];
     }];
+    // 上拉刷新
     _privateTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         self.page += 10;
         [self updateData];
@@ -155,6 +157,7 @@
     return self.newMarray.count;
 }
 
+// 返回cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     VideoCell *cell = [VideoCell cellWithTableView:tableView];
 
@@ -187,7 +190,6 @@
     
     return cell;
 }
-
 
 
 -(void)startPlayVideo:(UIButton *)sender{
@@ -231,7 +233,7 @@
     [self.playView pause];
 }
 
-
+// 设置cell的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 280;
 }

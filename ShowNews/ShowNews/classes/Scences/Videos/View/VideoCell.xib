@@ -68,6 +68,8 @@
                             <constraint firstAttribute="width" constant="30" id="oPG-CO-azE"/>
                         </constraints>
                         <state key="normal" image="action_love.png"/>
+                        <state key="selected" image="action_love_selected.png"/>
+                        <state key="highlighted" image="action_love_selected.png"/>
                         <connections>
                             <action selector="shareButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1SV-Em-TLg"/>
                         </connections>
@@ -101,11 +103,12 @@
                 <outlet property="topicImgImageView" destination="KD5-3Q-6Kn" id="aU4-N4-0TT"/>
                 <outlet property="topicNameLable" destination="7c2-d1-DCw" id="WDK-qI-6NS"/>
             </connections>
-            <point key="canvasLocation" x="114" y="294"/>
+            <point key="canvasLocation" x="376" y="336"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="Unknown.png" width="200" height="200"/>
         <image name="action_love.png" width="20" height="17"/>
+        <image name="action_love_selected.png" width="20" height="17"/>
     </resources>
 </document>

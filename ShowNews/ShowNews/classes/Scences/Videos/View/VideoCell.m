@@ -12,6 +12,7 @@
 @interface VideoCell ()
 
 @property (nonatomic, assign)BOOL isPlaying;
+
 @end
 
 @implementation VideoCell
@@ -34,17 +35,14 @@
     
 }
 
-// 分享的button
+// 分享友盟的button
 - (IBAction)shareButtonAction:(id)sender {
-    
+
+    // 回调block
     if (self.Block) {
         self.Block(self.model);
     }
 }
-
-
-
-
 
 - (void)addMovie: (UIView *)view{
     [self.backImageView addSubview:view];

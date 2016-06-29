@@ -68,6 +68,38 @@ static PlayViewController *playVC = nil;
     [self.musicLyric registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ce"];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+    // 关联系统播放台
+    NSLog(@"viewDidAppear!!!");
+    [super viewDidAppear:animated];
+    //Once the view has loaded then we can register to begin recieving controls and we can become the first responder
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
+    [self becomeFirstResponder];
+}
+
+// 关联系统播放台
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    NSLog(@"viewWillDisappear!!!");
+    
+    [super viewWillDisappear:animated];
+    
+    //End recieving events
+    
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    
+    [self resignFirstResponder];
+    
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+
 - (void)loadLyricWithStr:(NSString *)str {
     NSArray *bigArray = [str componentsSeparatedByString:@"\n"];
     for (NSString *temStr in bigArray) {

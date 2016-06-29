@@ -31,6 +31,8 @@
 /// block传值///  当音乐被切换改变model传给Controller
 @property (nonatomic, copy) void(^blocl1)(Music *);
 
+/// block传值///  当音乐被切换改变model传给Controller
+@property (nonatomic, copy) void(^bloclAPP)(Music *);
 /// block传值当歌曲正在播放时被一直调用的代理方法
 @property (nonatomic, copy) void(^time1)(NSString *);
 

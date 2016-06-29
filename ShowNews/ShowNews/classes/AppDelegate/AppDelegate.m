@@ -19,6 +19,9 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialSinaSSOHandler.h"
 #import <UMSocial.h>
+#import "PlayerManager.h"
+#import "Music.h"
+#import <UIImageView+WebCache.h>
 @interface AppDelegate ()<RESideMenuDelegate>
 @property (nonatomic, strong) UITabBarController *rootTVC;
 @end
@@ -101,7 +104,6 @@
     [tabbarItem setTitleTextAttributes:selectedAttr forState:UIControlStateSelected];
 }
 
-
 #pragma mark - 创建四个根视图控制器
 - (void)createChildViewControllers {
     [self addOneChildViewController:[[NewsViewController alloc] init] title:@"新闻" normalImage:@"tabbar_icon_news_normal@2x" selectedImage:@"tabbar_icon_news_highlight@2x"];
@@ -135,6 +137,7 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [application beginReceivingRemoteControlEvents];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -148,5 +151,94 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+-(void)remoteControlReceivedWithEvent:(UIEvent *)event{
+//    [self configNowPlayingInfoCenter];
+    //if it is a remote control event handle it correctly
+    if (event.type == UIEventTypeRemoteControl) {
+        
+        switch (event.subtype) {
+                
+//            case UIEventSubtypeRemoteControlTogglePlayPause:
+//                [[PlayerManager sharePlayer] pause];
+//                break;
+                
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                [[PlayerManager sharePlayer] upMusic];
+                break;
+                
+            case UIEventSubtypeRemoteControlNextTrack:
+                [[PlayerManager sharePlayer] nextMusic];
+                
+                break;
+                
+            case UIEventSubtypeRemoteControlPlay:
+                [[PlayerManager sharePlayer] musicPlay];
+                break;
+                
+            case UIEventSubtypeRemoteControlPause:
+                [[PlayerManager sharePlayer] pause];
+                break;
+                
+            default:
+                break;
+        }
+        
+    }
+    
+}
+
+
+//Make sure we can recieve remote control events
+
+- (BOOL)canBecomeFirstResponder {
+    
+    return YES;
+    
+}
+
+
+//锁屏封面
+
+//一般在每次切换歌曲或者更新信息的时候要调用这个方法
+- (void)configNowPlayingInfoCenter {
+    
+    
+    if (NSClassFromString(@"MPNowPlayingInfoCenter")) {
+        
+        [PlayerManager sharePlayer].bloclAPP = ^(Music *music) {
+            NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+            
+            [dict setObject:music.musicName forKey:MPMediaItemPropertyTitle];
+            
+            [dict setObject:music.singerName forKey:MPMediaItemPropertyArtist];
+            
+            [dict setObject:music.specialName forKey:MPMediaItemPropertyAlbumTitle];
+            
+            NSLog(@"hahahahahahahhahaha==== %@", music.musicName);
+            //            dispatch_async(dispatch_get_main_queue(), ^{
+            //                UIImageView *musicImage = [[UIImageView alloc] init];
+            //                [musicImage sd_setImageWithURL:[NSURL URLWithString:music.picUrl]];
+            //
+            //                MPMediaItemArtwork * mArt = [[MPMediaItemArtwork alloc] initWithImage:musicImage.image];
+            //
+            //                [dict setObject:mArt forKey:MPMediaItemPropertyArtwork];
+            //            });
+            
+            
+            [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = nil;
+            
+            [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dict];
+            
+            
+        };
+        
+        
+        
+    }
+    
+}
+
+
 
 @end
