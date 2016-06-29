@@ -21,7 +21,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ck3-p0-7rp">
                                 <rect key="frame" x="8" y="8" width="103" height="82"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ck3-p0-7rp" secondAttribute="height" multiplier="100:80" id="TLE-E6-sSG"/>
                                 </constraints>

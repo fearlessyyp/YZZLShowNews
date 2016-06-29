@@ -17,7 +17,16 @@
 #import "NewsArticleCell.h"
 #import "NewsFirstViewCell.h"
 #import <SMPageControl.h>
+#import "NewsDetailViewController.h"
+#import "NewsPhotoSetDetailViewController.h"
+#import "NewsSpecialListViewController.h"
 
+typedef NS_ENUM(NSUInteger, NewsType) {
+    NewsTypePhotoSet,
+    NewsTypeSpecial,
+    NewsTypeArticle,
+    NewsTypeUnknow,
+};
 
 @interface NewsViewController ()<SegmentViewDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 /// 自定义SegmentView
@@ -52,6 +61,8 @@
 @property (nonatomic, strong) SMPageControl *headLinePageControl;
 /// 头条轮播图数量
 @property (nonatomic, strong) NSArray *headLineScrollArr;
+/// 头条标题
+@property (nonatomic, strong) UILabel *headlineTitleLabel;
 /// 娱乐第一个cell 的scorllView
 @property (nonatomic, strong) UIScrollView *entertainmentScrollView;
 /// 娱乐第一个cell 的pageControl
@@ -189,33 +200,36 @@
     } else {
         if (flag == 0) {
             // 设置头条轮播图
-            [self setScrollView:self.headlineScrollView pageControll:self.headLinePageControl dataArray:self.headLineScrollArr];
+            [self setScrollView:self.headlineScrollView pageControll:self.headLinePageControl dataArray:self.headLineScrollArr titleLabel:self.headlineTitleLabel];
         } else if (flag == 1) {
             // 设置娱乐轮播图
-            [self setScrollView:self.entertainmentScrollView pageControll:self.entertainmentPageControl dataArray:self.entertainmentScrollArr];
+//            [self setScrollView:self.entertainmentScrollView pageControll:self.entertainmentPageControl dataArray:self.entertainmentScrollArr];
         } else if (flag == 2) {
             // 设置时尚轮播图
-            [self setScrollView:self.fashionScrollView pageControll:self.fashionPageControl dataArray:self.fashionScrollArr];
+//            [self setScrollView:self.fashionScrollView pageControll:self.fashionPageControl dataArray:self.fashionScrollArr];
         } else if (flag == 3) {
             // 设置体育轮播图
-            [self setScrollView:self.sportScrollView pageControll:self.sportPageControl dataArray:self.sportScrollArr];
+//            [self setScrollView:self.sportScrollView pageControll:self.sportPageControl dataArray:self.sportScrollArr];
         } else if (flag == 4) {
             // 设置科技轮播图
-            [self setScrollView:self.technologyScrollView pageControll:self.technologyPageControl dataArray:self.technologyScrollArr];
+//            [self setScrollView:self.technologyScrollView pageControll:self.technologyPageControl dataArray:self.technologyScrollArr];
         }
     }
 }
 
 #pragma mark - 设置轮播图与pageControl的关系
-- (void)setScrollView:(UIScrollView *)scorllView pageControll:(SMPageControl *)pageControl dataArray:(NSArray *)dataArray {
+- (void)setScrollView:(UIScrollView *)scorllView pageControll:(SMPageControl *)pageControl dataArray:(NSArray *)dataArray titleLabel:(UILabel *)titleLabel{
     int temp = scorllView.contentOffset.x / kScreenSizeWidth;
     if (temp == 0) {
         pageControl.currentPage = dataArray.count - 1;
+        titleLabel.text = [dataArray[dataArray.count - 1] title];
         scorllView.contentOffset = CGPointMake(dataArray.count * kScreenSizeWidth, 0);
-    } else if (temp > 0 && temp < self.headLineScrollArr.count + 1) {
+    } else if (temp > 0 && temp < dataArray.count + 1) {
         pageControl.currentPage = temp - 1;
+        titleLabel.text = [dataArray[temp - 1] title];
     } else {
         pageControl.currentPage = 0;
+        titleLabel.text = [dataArray[0] title];
         scorllView.contentOffset = CGPointMake(kScreenSizeWidth, 0);
     }
 }
@@ -250,16 +264,23 @@
                     News *model = [[News alloc] init];
                     [model setValuesForKeysWithDictionary:resultDict];
                     model.skipID = resultDict[@"url"];
-                    [imageArr addObject:model];
+                    if ([self newsTypeWithNews:model] != NewsTypeUnknow) {
+                        [imageArr addObject:model];
+                    }
                 }
                 cell.imageArr = imageArr;
-                
                 [cell addAllViews];
+                cell.titleLabel.text = news.title;
+                self.headlineTitleLabel = cell.titleLabel;
                 // 设置轮播图属性
                 self.headLineScrollArr = imageArr;
                 self.headlineScrollView = cell.scrollView;
                 self.headlineScrollView.delegate = self;
                 self.headLinePageControl = cell.pageControl;
+                // 取消选中效果
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                // 添加轻拍手势
+                [self addTapGestureToScrollView:self.headlineScrollView dataArray:self.headLineScrollArr];
                 return cell;
             }else {
                 if (news.skipType == nil) {
@@ -285,20 +306,24 @@
                 NewsFirstViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsFirstViewCell" forIndexPath:indexPath];
                 NSMutableArray *imageArr = [NSMutableArray array];
                 [imageArr addObject:news];
-                for (NSDictionary *resultDict in news.ads) {
-                    News *model = [[News alloc] init];
-                    [model setValuesForKeysWithDictionary:resultDict];
-                    model.skipID = resultDict[@"url"];
-                    [imageArr addObject:model];
-                }
+//                for (NSDictionary *resultDict in news.ads) {
+//                    News *model = [[News alloc] init];
+//                    [model setValuesForKeysWithDictionary:resultDict];
+//                    model.skipID = resultDict[@"url"];
+//                    [imageArr addObject:model];
+//                }
                 cell.imageArr = imageArr;
-                
                 [cell addAllViews];
+                cell.titleLabel.text = news.title;
                 // 设置轮播图属性
                 self.entertainmentScrollArr = imageArr;
                 self.entertainmentScrollView = cell.scrollView;
-                self.entertainmentScrollView.delegate = self;
-                self.entertainmentPageControl = cell.pageControl;
+//                self.entertainmentScrollView.delegate = self;
+//                self.entertainmentPageControl = cell.pageControl;
+                // 取消选中效果
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                // 添加轻拍手势
+                [self addTapGestureToScrollView:self.entertainmentScrollView dataArray:self.entertainmentScrollArr];
                 return cell;
             }else {
                 if (news.skipType == nil) {
@@ -317,29 +342,31 @@
                 }
             }
         }
-    }
-#warning ??????????????????????
-    else if (tableView == self.bigScrollView.fashionTableView) {
+    } else if (tableView == self.bigScrollView.fashionTableView) {
         news = self.allFashionArr[indexPath.row];
         if (self.allFashionArr.count > 0) {
             if (indexPath.row == 0) {
                 NewsFirstViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsFirstViewCell" forIndexPath:indexPath];
                 NSMutableArray *imageArr = [NSMutableArray array];
                 [imageArr addObject:news];
-                for (NSDictionary *resultDict in news.ads) {
-                    News *model = [[News alloc] init];
-                    [model setValuesForKeysWithDictionary:resultDict];
-                    model.skipID = resultDict[@"url"];
-                    [imageArr addObject:model];
-                }
+//                for (NSDictionary *resultDict in news.ads) {
+//                    News *model = [[News alloc] init];
+//                    [model setValuesForKeysWithDictionary:resultDict];
+//                    model.skipID = resultDict[@"url"];
+//                    [imageArr addObject:model];
+//                }
                 cell.imageArr = imageArr;
-                
                 [cell addAllViews];
+                cell.titleLabel.text = news.title;
                 // 设置轮播图属性
                 self.fashionScrollArr = imageArr;
                 self.fashionScrollView = cell.scrollView;
-                self.fashionScrollView.delegate = self;
-                self.fashionPageControl = cell.pageControl;
+//                self.fashionScrollView.delegate = self;
+//                self.fashionPageControl = cell.pageControl;
+                // 取消选中效果
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                // 添加轻拍手势
+                [self addTapGestureToScrollView:self.fashionScrollView dataArray:self.fashionScrollArr];
                 return cell;
             }else {
                 if (news.skipType == nil) {
@@ -358,30 +385,33 @@
                 }
             }
         }
-    }
-    else if (tableView == self.bigScrollView.sportTableView) {
+    } else if (tableView == self.bigScrollView.sportTableView) {
         news = self.allSportArr[indexPath.row];
         if (self.allSportArr.count > 0) {
             if (indexPath.row == 0) {
                 NewsFirstViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsFirstViewCell" forIndexPath:indexPath];
                 NSMutableArray *imageArr = [NSMutableArray array];
                 [imageArr addObject:news];
-                for (NSDictionary *resultDict in news.ads) {
-                    News *model = [[News alloc] init];
-                    [model setValuesForKeysWithDictionary:resultDict];
-                    model.skipID = resultDict[@"url"];
-                    [imageArr addObject:model];
-                }
+//                for (NSDictionary *resultDict in news.ads) {
+//                    News *model = [[News alloc] init];
+//                    [model setValuesForKeysWithDictionary:resultDict];
+//                    model.skipID = resultDict[@"url"];
+//                    [imageArr addObject:model];
+//                }
                 cell.imageArr = imageArr;
-                
                 [cell addAllViews];
+                cell.titleLabel.text = news.title;
                 // 设置轮播图属性
                 self.sportScrollArr = imageArr;
                 self.sportScrollView = cell.scrollView;
-                self.sportScrollView.delegate = self;
-                self.sportPageControl = cell.pageControl;
+//                self.sportScrollView.delegate = self;
+//                self.sportPageControl = cell.pageControl;
+                // 取消选中效果
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                // 添加轻拍手势
+                [self addTapGestureToScrollView:self.sportScrollView dataArray:self.sportScrollArr];
                 return cell;
-            }else {
+            } else {
                 if (news.skipType == nil) {
                     NewsArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsArticleCell" forIndexPath:indexPath];
                     [cell bindData:news];
@@ -391,37 +421,40 @@
                     cell.typeLabel.text = @"专题";
                     [cell bindData:news];
                     return cell;
-                }else {
+                } else {
                     NewsPhotoSetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsPhotoSetCell" forIndexPath:indexPath];
                     [cell bindData:news];
                     return cell;
                 }
             }
         }
-    }
-    else if (tableView == self.bigScrollView.technologyTableView) {
+    } else if (tableView == self.bigScrollView.technologyTableView) {
         news = self.allTechnologyArr[indexPath.row];
         if (self.allTechnologyArr.count > 0) {
             if (indexPath.row == 0) {
                 NewsFirstViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsFirstViewCell" forIndexPath:indexPath];
                 NSMutableArray *imageArr = [NSMutableArray array];
                 [imageArr addObject:news];
-                for (NSDictionary *resultDict in news.ads) {
-                    News *model = [[News alloc] init];
-                    [model setValuesForKeysWithDictionary:resultDict];
-                    model.skipID = resultDict[@"url"];
-                    [imageArr addObject:model];
-                }
+//                for (NSDictionary *resultDict in news.ads) {
+//                    News *model = [[News alloc] init];
+//                    [model setValuesForKeysWithDictionary:resultDict];
+//                    model.skipID = resultDict[@"url"];
+//                    [imageArr addObject:model];
+//                }
                 cell.imageArr = imageArr;
-                
                 [cell addAllViews];
+                 cell.titleLabel.text = news.title;
                 // 设置轮播图属性
                 self.technologyScrollArr = imageArr;
                 self.technologyScrollView = cell.scrollView;
-                self.technologyScrollView.delegate = self;
-                self.technologyPageControl = cell.pageControl;
+//                self.technologyScrollView.delegate = self;
+//                self.technologyPageControl = cell.pageControl;
+                // 取消选中效果
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                // 添加轻拍手势
+                [self addTapGestureToScrollView:self.technologyScrollView dataArray:self.technologyScrollArr];
                 return cell;
-            }else {
+            } else {
                 if (news.skipType == nil) {
                     NewsArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsArticleCell" forIndexPath:indexPath];
                     [cell bindData:news];
@@ -431,7 +464,7 @@
                     cell.typeLabel.text = @"专题";
                     [cell bindData:news];
                     return cell;
-                }else {
+                } else {
                     NewsPhotoSetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsPhotoSetCell" forIndexPath:indexPath];
                     [cell bindData:news];
                     return cell;
@@ -451,6 +484,15 @@
     return 100;
 }
 
+#pragma mark - 点击cell
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    [tableView cellForRowAtIndexPath:indexPath].selectionStyle = UITableViewCellSelectionStyleNone;
+    if (indexPath.row == 0) {
+        return;
+    }
+
+}
+
 #pragma mark - 请求数据
 - (void)requestData {
     [self.allHeadlineArr removeAllObjects];
@@ -461,18 +503,17 @@
     [self requestWithUrl:NEWS_HEADLINE_URL(self.headlinePage) dataArray:self.allHeadlineArr key:@"T1348647909107" tableView:self.bigScrollView.headlineTableView];
     [self requestWithUrl:NEWS_ENTERTAINMENT_URL(self.entertainmentPage) dataArray:self.allEntertainmentArr key:@"T1348648517839" tableView:self.bigScrollView.entertainmentTableView];
     [self requestWithUrl:NEWS_FASHION_URL(self.fashionPage) dataArray:self.allFashionArr key:@"T1348650593803" tableView:self.bigScrollView.fashionTableView];
-    [self requestWithUrl:NEWS_SPORT_URL(self.sportPage) dataArray:self.allSportArr key:@"T1348650593803" tableView:self.bigScrollView.sportTableView];
+    [self requestWithUrl:NEWS_SPORT_URL(self.sportPage) dataArray:self.allSportArr key:@"T1348649079062" tableView:self.bigScrollView.sportTableView];
     [self requestWithUrl:NEWS_TECHNOLOGY_URL(self.technologyPage) dataArray:self.allTechnologyArr key:@"T1348649580692" tableView:self.bigScrollView.technologyTableView];
 }
 
 - (void)requestWithUrl:(NSString *)url dataArray:(NSMutableArray *)dataArray key:(NSString *)key tableView:(UITableView *)tableView{
     [self.session GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"数据请求成功");
         NSArray *resultArr = responseObject[key];
         for (NSDictionary *resultDict in resultArr) {
             News *news = [[News alloc] init];
             [news setValuesForKeysWithDictionary:resultDict];
-            if (!([news.skipType isEqualToString:@"live"] && [news.skipType isEqualToString:@"video"])) {
+            if ([self newsTypeWithNews:news] != NewsTypeUnknow) {
                 [dataArray addObject:news];
             }
         }
@@ -480,8 +521,112 @@
             [tableView reloadData];
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+#warning 提醒
         NSLog(@"数据请求失败");
     }];
+}
+
+#pragma mark - 给轮播大图添加轻拍手势
+- (void)addTapGestureToScrollView:(UIScrollView *)scrollView dataArray:(NSArray *)dataArray {
+    if (scrollView == self.headlineScrollView) {
+        for (int i = 0; i < dataArray.count + 2; i++) {
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headlineTapGestureAction:)];
+            [[scrollView viewWithTag:300 + i] addGestureRecognizer:tap];
+        }
+    } else {
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureAction:)];
+        [[scrollView viewWithTag:301] addGestureRecognizer:tap];
+    }
+}
+
+#pragma mark - 轮播大图轻拍手势实现
+// 头条
+- (void)headlineTapGestureAction:(UITapGestureRecognizer *)tap {
+    int temp = self.headlineScrollView.contentOffset.x / kScreenSizeWidth;
+    News *news = [[News alloc] init];
+    if (temp == 0) {
+       news = self.headLineScrollArr[self.headLineScrollArr.count - 1];
+    } else if (temp > 0 && temp < self.headLineScrollArr.count + 1) {
+        news = self.headLineScrollArr[temp - 1];
+    } else {
+        news = self.headLineScrollArr[0];
+    }
+    [self skipToDetailOrListWithNews:news];
+}
+
+- (void)tapGestureAction:(UITapGestureRecognizer *)tap {
+    int flag = (int)self.bigScrollView.bigScrollView.contentOffset.x / kScreenSizeWidth;
+    News *news = [[News alloc] init];
+    switch (flag) {
+        case 1:
+            news = self.entertainmentScrollArr[0];
+
+            break;
+        case 2:
+            news = self.fashionScrollArr[0];
+
+            break;
+        case 3:
+            news = self.sportScrollArr[0];
+
+            break;
+        case 4:
+            news = self.technologyScrollArr[0];
+
+        default:
+            break;
+    }
+    [self skipToDetailOrListWithNews:news];
+}
+
+#pragma mark - 返回新闻类型
+- (NewsType)newsTypeWithNews:(News *)news {
+    if (news.skipType == nil) {
+        return NewsTypeArticle;
+    } else if ([news.skipType isEqualToString:@"special"]) {
+        return NewsTypeSpecial;
+    } else if ([news.skipType isEqualToString:@"photoset"]) {
+        return NewsTypePhotoSet;
+    }
+    return NewsTypeUnknow;
+}
+
+#pragma mark - 跳转详情页面
+- (void)skipToDetailOrListWithNews:(News *)news {
+    switch ([self newsTypeWithNews:news]) {
+        case NewsTypeArticle:{
+            NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] init];
+            newsDetailVC.news = news;
+            [self.navigationController pushViewController:newsDetailVC animated:YES];
+            break;
+        }
+        case NewsTypePhotoSet:{
+            NewsPhotoSetDetailViewController *newsPhotoVC = [[NewsPhotoSetDetailViewController alloc] init];
+            newsPhotoVC.news = news;
+            [self.navigationController pushViewController:newsPhotoVC animated:YES];
+            break;
+        }
+        case NewsTypeSpecial:{
+            NewsSpecialListViewController *newsSpecialVC = [[NewsSpecialListViewController alloc] init];
+            newsSpecialVC.news = news;
+            [self.navigationController pushViewController:newsSpecialVC animated:YES];
+            break;
+        }
+        case NewsTypeUnknow:
+#warning 提醒
+            NSLog(@"unknow");
+            break;
+        default:
+            break;
+    }
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.bigScrollView.headlineTableView reloadData];
+    [self.bigScrollView.entertainmentTableView reloadData];
+    [self.bigScrollView.fashionTableView reloadData];
+    [self.bigScrollView.sportTableView reloadData];
+    [self.bigScrollView.technologyTableView reloadData];
 }
 
 @end
