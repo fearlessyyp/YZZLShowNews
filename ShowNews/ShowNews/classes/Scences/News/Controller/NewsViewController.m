@@ -264,6 +264,7 @@ typedef NS_ENUM(NSUInteger, NewsType) {
                     News *model = [[News alloc] init];
                     [model setValuesForKeysWithDictionary:resultDict];
                     model.skipID = resultDict[@"url"];
+                    model.skipType = resultDict[@"tag"];
                     if ([self newsTypeWithNews:model] != NewsTypeUnknow) {
                         [imageArr addObject:model];
                     }
@@ -490,7 +491,32 @@ typedef NS_ENUM(NSUInteger, NewsType) {
     if (indexPath.row == 0) {
         return;
     }
-
+    
+    int flag = (int)self.bigScrollView.bigScrollView.contentOffset.x / kScreenSizeWidth;
+    News *news = [[News alloc] init];
+    switch (flag) {
+        case 0:
+            news = self.allHeadlineArr[indexPath.row];
+            break;
+        case 1:
+            news = self.allEntertainmentArr[indexPath.row];
+            
+            break;
+        case 2:
+            news = self.allFashionArr[indexPath.row];
+            
+            break;
+        case 3:
+            news = self.allSportArr[indexPath.row];
+            
+            break;
+        case 4:
+            news = self.allTechnologyArr[indexPath.row];
+            
+        default:
+            break;
+    }
+    [self skipToDetailOrListWithNews:news];
 }
 
 #pragma mark - 请求数据
