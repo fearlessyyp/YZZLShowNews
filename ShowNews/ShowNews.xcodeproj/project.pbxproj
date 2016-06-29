@@ -51,6 +51,10 @@
 		D64FA1AC1D1D2B97007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1A91D1D2B97007DE414 /* README.md */; };
 		D64FA1B31D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1AE1D1D2B9F007DE414 /* README.md */; };
 		D64FA1B41D1D2B9F007DE414 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D64FA1B01D1D2B9F007DE414 /* README.md */; };
+		D65A07A11D23ED8600DF3593 /* UIScrollView+ScalableCover.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A07A01D23ED8600DF3593 /* UIScrollView+ScalableCover.m */; };
+		D65A07A51D23EF6300DF3593 /* collectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65A07A21D23EF6300DF3593 /* collectCell.xib */; };
+		D65A07A61D23EF6300DF3593 /* collectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A07A31D23EF6300DF3593 /* collectCell.m */; };
+		D65A07A91D241D5600DF3593 /* UITableView+Touches.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A07A81D241D5600DF3593 /* UITableView+Touches.m */; };
 		D65E699F1D21081D004286E5 /* SmallPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E699E1D21081D004286E5 /* SmallPlayer.m */; };
 		D66AA2961D1EC4BD00045D9E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2911D1EC4BD00045D9E /* icon.png */; };
 		D66AA29B1D1EC7FA00045D9E /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA29A1D1EC7FA00045D9E /* NewsViewController.m */; };
@@ -185,6 +189,13 @@
 		D64FA1A91D1D2B97007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D64FA1AE1D1D2B9F007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D64FA1B01D1D2B9F007DE414 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D65A079F1D23ED8600DF3593 /* UIScrollView+ScalableCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ScalableCover.h"; sourceTree = "<group>"; };
+		D65A07A01D23ED8600DF3593 /* UIScrollView+ScalableCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+ScalableCover.m"; sourceTree = "<group>"; };
+		D65A07A21D23EF6300DF3593 /* collectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = collectCell.xib; sourceTree = "<group>"; };
+		D65A07A31D23EF6300DF3593 /* collectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectCell.m; sourceTree = "<group>"; };
+		D65A07A41D23EF6300DF3593 /* collectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectCell.h; sourceTree = "<group>"; };
+		D65A07A71D241D5600DF3593 /* UITableView+Touches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Touches.h"; sourceTree = "<group>"; };
+		D65A07A81D241D5600DF3593 /* UITableView+Touches.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Touches.m"; sourceTree = "<group>"; };
 		D65E699D1D21081D004286E5 /* SmallPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallPlayer.h; sourceTree = "<group>"; };
 		D65E699E1D21081D004286E5 /* SmallPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallPlayer.m; sourceTree = "<group>"; };
 		D66AA2911D1EC4BD00045D9E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -471,7 +482,11 @@
 				F5D8CC9C1D1E2620006077C7 /* NSString+TimeFormatter.m */,
 				F53D26281D1E6CFD002E0644 /* GiFHUD.h */,
 				F53D26291D1E6CFD002E0644 /* GiFHUD.m */,
+				D65A079F1D23ED8600DF3593 /* UIScrollView+ScalableCover.h */,
+				D65A07A01D23ED8600DF3593 /* UIScrollView+ScalableCover.m */,
 				F53D262A1D1E6CFD002E0644 /* pika.gif */,
+				D65A07A71D241D5600DF3593 /* UITableView+Touches.h */,
+				D65A07A81D241D5600DF3593 /* UITableView+Touches.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -743,6 +758,9 @@
 		D64FA1A81D1D2B97007DE414 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D65A07A21D23EF6300DF3593 /* collectCell.xib */,
+				D65A07A31D23EF6300DF3593 /* collectCell.m */,
+				D65A07A41D23EF6300DF3593 /* collectCell.h */,
 				D64FA1A91D1D2B97007DE414 /* README.md */,
 			);
 			path = View;
@@ -934,6 +952,7 @@
 				F5D2E3801D212F4600D297A3 /* Unknown.png in Resources */,
 				D64FA11C1D1D1C92007DE414 /* Main.storyboard in Resources */,
 				F5D2E3671D20BE9D00D297A3 /* action_love_selected@2x.png in Resources */,
+				D65A07A51D23EF6300DF3593 /* collectCell.xib in Resources */,
 				D6224A551D1E9EDA0048ED57 /* CityViewController.xib in Resources */,
 				D686D4271D20CBBD002B75C2 /* tabbar_icon_news_highlight@2x.png in Resources */,
 				D686D43D1D20FB26002B75C2 /* tabbar_icon_map_normal@2x.png in Resources */,
@@ -1001,6 +1020,7 @@
 			files = (
 				D64FA1761D1D1D95007DE414 /* README.md in Sources */,
 				D6BA654C1D1E30C900ECA213 /* BaseViewController.m in Sources */,
+				D65A07A11D23ED8600DF3593 /* UIScrollView+ScalableCover.m in Sources */,
 				F5D2E3741D212C2F00D297A3 /* VideoViewController.m in Sources */,
 				D64FA1191D1D1C92007DE414 /* ViewController.m in Sources */,
 				D64FA1901D1D2B63007DE414 /* README.md in Sources */,
@@ -1061,9 +1081,11 @@
 				D64FA17E1D1D1D95007DE414 /* README.md in Sources */,
 				F5D2E3711D212C1700D297A3 /* UIButton+CellButton.m in Sources */,
 				D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */,
+				D65A07A91D241D5600DF3593 /* UITableView+Touches.m in Sources */,
 				D64FA1781D1D1D95007DE414 /* README.md in Sources */,
 				D6224A481D1E6F6E0048ED57 /* README.md in Sources */,
 				D64FA17F1D1D1D95007DE414 /* README.md in Sources */,
+				D65A07A61D23EF6300DF3593 /* collectCell.m in Sources */,
 				D66E3E7D1D1FD6F500DB84BF /* MyScorllView.m in Sources */,
 				D64FA17B1D1D1D95007DE414 /* README.md in Sources */,
 				F5D8CC9D1D1E2620006077C7 /* NSString+TimeFormatter.m in Sources */,

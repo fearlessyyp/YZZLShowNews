@@ -47,7 +47,7 @@
                         <state key="normal" title="Button"/>
                     </button>
                 </subviews>
-                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="IYt-qL-pBJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="41p-YZ-jwc"/>
                     <constraint firstItem="4MJ-O3-u0s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="4dd-U0-mkS"/>

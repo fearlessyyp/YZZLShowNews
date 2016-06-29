@@ -627,6 +627,9 @@ typedef NS_ENUM(NSUInteger, NewsType) {
     [self.bigScrollView.fashionTableView reloadData];
     [self.bigScrollView.sportTableView reloadData];
     [self.bigScrollView.technologyTableView reloadData];
+    
 }
+
+
 
 @end
