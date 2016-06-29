@@ -24,13 +24,12 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="ysY-EZ-ng1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LrI-F2-BZ3">
                                 <rect key="frame" x="8" y="33" width="150" height="347"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="LrI-F2-BZ3" secondAttribute="height" multiplier="1:1" id="dsb-R2-tNh"/>
                                 </constraints>
@@ -42,7 +41,6 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XfY-sr-Miu">
                                 <rect key="frame" x="338" y="33" width="150" height="347"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="XfY-sr-Miu" secondAttribute="height" multiplier="1:1" id="Rtm-cg-3f6"/>
                                 </constraints>
@@ -54,7 +52,6 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lpM-Ie-qLo">
                                 <rect key="frame" x="173" y="33" width="150" height="347"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lpM-Ie-qLo" secondAttribute="height" multiplier="1:1" id="ifk-1s-Jhq"/>
                                 </constraints>
@@ -99,7 +96,13 @@
                     <constraint firstAttribute="trailing" secondItem="lgQ-Q2-WZF" secondAttribute="trailing" id="p7A-7P-E4Z"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="334" y="304.5"/>
+            <connections>
+                <outlet property="centerImageView" destination="lpM-Ie-qLo" id="DHt-Xg-uuA"/>
+                <outlet property="leftImageView" destination="LrI-F2-BZ3" id="Ujf-2z-TLw"/>
+                <outlet property="rightImageVIew" destination="XfY-sr-Miu" id="hNC-80-KEw"/>
+                <outlet property="titleLabel" destination="GFH-jc-ZP0" id="3Yg-QU-zEg"/>
+            </connections>
+            <point key="canvasLocation" x="536" y="269.5"/>
         </tableViewCell>
     </objects>
 </document>
