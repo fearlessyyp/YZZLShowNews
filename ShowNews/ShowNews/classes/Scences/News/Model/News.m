@@ -15,4 +15,8 @@
 
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"title = %@ array = %@", self.title, self.ads];
+}
+
 @end

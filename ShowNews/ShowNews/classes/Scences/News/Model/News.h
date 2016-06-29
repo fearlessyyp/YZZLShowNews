@@ -23,7 +23,6 @@
 @property (nonatomic, copy) NSArray *imgextra;
 /// 新闻来源
 @property (nonatomic, copy) NSString *source;
-
-
-
+/// 其他新闻(轮播)
+@property (nonatomic, strong) NSArray *ads;	
 @end

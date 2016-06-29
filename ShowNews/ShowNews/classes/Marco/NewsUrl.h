@@ -28,4 +28,16 @@
 #define WEATHER_NOW_CITY(cityId) [NSString stringWithFormat:@"https://api.heweather.com/x3/weather?cityid=%@&key=741e9450a52942b8aecf694beeda6b7e", cityID]
 
 
+#pragma mark - 新闻
+// 头条
+#define NEWS_HEADLINE_URL(page) [NSString stringWithFormat:@"http://c.m.163.com/nc/article/headline/T1348647909107/%ld-20.html", page]
+// 娱乐
+#define NEWS_ENTERTAINMENT_URL(page) [NSString stringWithFormat:@"http://c.m.163.com/nc/article/list/T1348648517839/%ld-20.html", page]
+// 时尚
+#define NEWS_FASHION_URL(page) [NSString stringWithFormat:@"http://c.3g.163.com/nc/article/list/T1348650593803/%ld-20.html", page]
+// 体育
+#define NEWS_SPORT_URL(page) [NSString stringWithFormat:@"http://c.m.163.com/nc/article/list/T1348649079062/%ld-20.html", page]
+// 科技
+#define NEWS_TECHNOLOGY_URL(page) [NSString stringWithFormat:@"http://c.m.163.com/nc/article/list/T1348649580692/%ld-20.html", page]
+
 #endif /* NewsUrl_h */
