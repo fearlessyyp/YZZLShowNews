@@ -47,8 +47,8 @@
     // 设置平移偏移量
     sideMenuViewController.contentViewInLandscapeOffsetCenterX = [UIScreen mainScreen].bounds.size.width * 0.33;
     sideMenuViewController.contentViewInPortraitOffsetCenterX  = [UIScreen mainScreen].bounds.size.width * 0.33;
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:sideMenuViewController];
-
+//    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:sideMenuViewController];
+    self.window.rootViewController = sideMenuViewController;
     [UINavigationBar appearance].barStyle = UIBarStyleBlack;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
