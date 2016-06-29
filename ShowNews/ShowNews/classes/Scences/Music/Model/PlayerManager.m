@@ -11,11 +11,14 @@
 #import "Music.h"
 #import <AVFoundation/AVFoundation.h>
 #import "MusicTimeFormatter.h"
+#import <MBProgressHUD.h>
 
 @interface PlayerManager ()
 @property (nonatomic,strong) AVPlayer *player; // 播放器属性
 @property (nonatomic,strong) NSTimer *timer;  // 定时器
-
+@property (nonatomic, strong) Music *music;
+@property (nonatomic, strong) AVPlayerItem *playerItem;
+@property (nonatomic, strong)MBProgressHUD *HUD; // 小菊花
 @end
 
 
@@ -45,7 +48,18 @@ static PlayerManager *playerManager = nil;
     }
     return _player;
 }
-#warning 111
+
+- (AVPlayerItem *)playerItem {
+    if (!_playerItem) {
+        _playerItem = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString:@""]];
+        [_playerItem addObserver:self
+                      forKeyPath:@"status"
+                         options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                         context:nil];
+    }
+    return _playerItem;
+}
+
 // 初始化 内部对音乐播放状态添加观察者 当音乐播放完成时 调用指定的方法
 - (instancetype)init
 {
@@ -66,29 +80,7 @@ static PlayerManager *playerManager = nil;
 
 #pragma mark 获取播放列表
 - (void)getPlayList{
-//
     
-    
-//    NSURL *url = [NSURL URLWithString:kPlaylistURL];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    NSURLSession *session = [NSURLSession sharedSession];
-//    NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//        if (error) {
-//            NSLog(@"错误");
-//        }
-//        NSArray *array = [NSPropertyListSerialization propertyListWithData:data options:0 format:NULL error:nil];
-//        NSLog(@"%@",array);
-//        
-//        for (NSDictionary *dict in array) {
-//            MusicInfo *musicInfo = [[MusicInfo alloc] init];
-//            [musicInfo setValuesForKeysWithDictionary:dict];
-//            [self.playList addObject:musicInfo];
-//        }
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            self.block();
-//        });
-//    }];
-//    [task resume];
 }
 
 // 通过外部点击的行数确定是在音乐列表中的哪一条数据 然后将歌曲的模型返回
@@ -98,36 +90,45 @@ static PlayerManager *playerManager = nil;
 
 // 预播放音乐 整个程序中调用次数最多的方法 很多地方需要调用这个方法 判断第二次点击的音乐是不是当前正在播放的音乐 然后内部直接调用单例中得到模型的方法 预播放需要实例化一个AVPlayerItem 也就是所谓的CD 实例化的时候使用模型中的MP3url的方法 然后调用AVPlayer中替换当前音乐的方法  也就是说外部的音乐状态改变是从这里边实现的  代理方法的安全判断与执行也从预播放中执行
 - (void)prepareMusic:(NSUInteger)index {
-    Music *music2 = self.playList[index];
-    if (self.blocl1) {
-        self.blocl1(music2);
+    if ((self.playList.count <= 0)) {
+        return;
     }
+    _music = self.playList[index];
+    if (self.blocl1) {
+        self.blocl1(_music);
+    }
+    //    if (self.blocl) {
+    //        self.blocl(music2);
+    //    }
     
-    if (self.currentIndex != index) {
+    
+    if (self.currentIndex != index || _music.mp3Url != _currentUrl) {
         self.currentIndex = index;
         // 获取当前音乐信息
-        Music *music = self.playList[index];
+        _music = self.playList[index];
+        if (self.playerItem) {
+            [self.playerItem removeObserver:self forKeyPath:@"status"];
+            //                    [self.player.currentItem removeObserver:self forKeyPath:@"status"];
+        }
         
         // 实例化一个PlayerItem作为Player的"CD"
-        AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:music.mp3Url]];
-        NSLog(@"%@", music.mp3Url);
+        _playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:_music.mp3Url]];
+        [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
+        //        [self.player replaceCurrentItemWithPlayerItem:_playerItem];
+        NSLog(@"MP3url%@", _music.mp3Url);
+        // 此赋值只判断是否跟点击之前是同一首歌
+        _currentUrl = _music.mp3Url;
         
-        
+        self.player = nil;
         // 替换当前的playerItem
-        [self.player replaceCurrentItemWithPlayerItem:playerItem];
-        
+        self.player = [[AVPlayer alloc] initWithPlayerItem:_playerItem];
         if (self.blocl) {
-            self.blocl(music);
+            self.blocl(_music);
         }
-//        [self musicPlay];
-//        if (self.blocl1) {
-//            self.blocl1(music);
-//        }
-        
-        // 安全判断
-//        if ([self.delegate respondsToSelector:@selector(didMusicCutwithMusicInfo:)]) {
-//            [self.delegate didMusicCutWithMusicInfo:musicInfo];
-//        }
+        [self musicPlay];
+        //        if (self.blocl1) {
+        //            self.blocl1(music);
+        //        }
     }
 }
 
@@ -188,6 +189,86 @@ static PlayerManager *playerManager = nil;
 - (void)musicVolumn:(float)value{
     self.player.volume = value;
 }
+int i = 0;
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    AVPlayerStatus status = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
+    switch (status)
+    {
+            /* Indicates that the status of the player is not yet known because
+             it has not tried to load new media resources for playback */
+        case AVPlayerStatusUnknown:
+        {
+            if (!AVPlayerStatusUnknown) {
+                NSLog(@"--------------未知的");
+            }
+        }
+            break;
+            
+        case AVPlayerStatusReadyToPlay:
+        {
+            NSLog(@"============准备播放");
+        }
+            break;
+            
+        case AVPlayerStatusFailed:
+        {
+            NSLog(@"++++++++++ 失败了");
+            _HUD = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
+            _HUD.mode = MBProgressHUDModeText;
+            _HUD.labelColor = [UIColor greenColor];
+            NSString *str = [NSString stringWithFormat:@"<%@>因版权问题无法播放",_music.musicName];
+            _HUD.labelText = str;
+            _HUD.minShowTime = 2;
+            _HUD.opacity = 0.1;
+            _HUD.color = [UIColor clearColor];
+            _HUD.yOffset = i += 30;
+            if (i > [UIScreen mainScreen].bounds.size.height / 2 - 30) {
+                i = - [UIScreen mainScreen].bounds.size.height / 2;
+            }
+            //            _HUD.dimBackground = YES;
+            [_HUD hide:YES];
+            _HUD.userInteractionEnabled = NO;
+            [self pause];
+            if (self.currentIndex != self.playList.count -1) {
+                [self nextMusic];
+                [self musicPlay];
+            }
+            
+        }
+            break;
+    }
+}
 
+
+
+//获取当前屏幕显示的viewcontroller
+- (UIViewController *)getCurrentVC
+{
+    UIViewController *result = nil;
+    
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    if (window.windowLevel != UIWindowLevelNormal)
+    {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(UIWindow * tmpWin in windows)
+        {
+            if (tmpWin.windowLevel == UIWindowLevelNormal)
+            {
+                window = tmpWin;
+                break;
+            }
+        }
+    }
+    
+    UIView *frontView = [[window subviews] objectAtIndex:0];
+    id nextResponder = [frontView nextResponder];
+    
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+        result = nextResponder;
+    else
+        result = window.rootViewController;
+    
+    return result;
+}
 
 @end

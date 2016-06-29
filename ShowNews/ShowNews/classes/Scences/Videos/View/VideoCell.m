@@ -8,6 +8,7 @@
 
 #import "VideoCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <UMSocial.h>
 @interface VideoCell ()
 
 @property (nonatomic, assign)BOOL isPlaying;
@@ -32,6 +33,17 @@
         self.topicNameLable.text = model.topicName;
     
 }
+
+// 分享的button
+- (IBAction)shareButtonAction:(id)sender {
+    
+    if (self.Block) {
+        self.Block(self.model);
+    }
+}
+
+
+
 
 
 - (void)addMovie: (UIView *)view{

@@ -25,6 +25,8 @@
 #else
 #define NSLog(FORMAT, ...) nil
 #endif
+// 友盟Appkey
+#define UmengAppkey @"5772429367e58e338a0007e7"
 
 // Navigationbar + 状态栏高度
 #define kNavigationAndStatusHeight 64 - 49

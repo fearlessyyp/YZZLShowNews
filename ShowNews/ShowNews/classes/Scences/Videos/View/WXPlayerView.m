@@ -12,6 +12,7 @@
 #import "WXPlayerView.h"
 static void *PlayViewCMTimeValue = &PlayViewCMTimeValue;
 static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContext;
+#import <MBProgressHUD.h>
 @interface WXPlayerView ()<UIGestureRecognizerDelegate>
 @property (nonatomic,assign)CGPoint firstPoint;
 @property (nonatomic,assign)CGPoint secondPoint;
@@ -130,7 +131,7 @@ static WXPlayerView *view = nil;
     self.lightSlider.maximumValue = 1;
     //        进度条的值等于当前系统亮度的值,范围都是0~1
     self.lightSlider.value = [UIScreen mainScreen].brightness;
-    //        [self.lightSlider addTarget:self action:@selector(updateLightValue:) forControlEvents:UIControlEventValueChanged];
+ 
     [self addSubview:self.lightSlider];
     
     MPVolumeView *volumeView = [[MPVolumeView alloc]init];
@@ -214,87 +215,7 @@ static WXPlayerView *view = nil;
         
     }];
     
-//    //changebutton
-//    self.changeButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-//    self.changeButton.frame = CGRectMake(0, 0, 30, 30);
-//    [self.changeButton setTitle:@"流畅" forState:(UIControlStateNormal)];
-//    self.changeButton.showsTouchWhenHighlighted = YES;
-//    [self.bottomView addSubview:self.changeButton];
-//    self.changeButton.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
-//    self.changeButton.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
-//    self.changeButton.clipsToBounds = YES;
-//    self.changeButton.layer.cornerRadius = 10.0/2;
-//    [self.changeButton addTarget:self action:@selector(ButtonActionWithScreen:) forControlEvents:(UIControlEventTouchUpInside)];
-//    [self.changeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.right.equalTo(self.fullScreenBtn).with.offset(-40);
-//        make.bottom.equalTo(self.bottomView).with.offset(-10);
-//        make.width.mas_equalTo(30);
-//        make.height.mas_equalTo(30);
-//    }];
-    
-//    
-//    //切换清晰度的view
-//    self.changeView = [[UIView alloc] init];
-//    self.changeView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
-//    self.changeView.hidden = YES;
-//    self.changeView.clipsToBounds = YES;
-//    self.changeView.layer.cornerRadius = 10.0/2;
-//    self.changeView.alpha = 0;
-//    [self addSubview:self.changeView];
-//    [self.changeView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.right.equalTo(self.fullScreenBtn).with.offset(-40);
-//        make.width.mas_equalTo(30);
-//        make.height.mas_equalTo(90);
-//        make.bottom.equalTo(self.bottomView).with.offset(-40);
-//    }];
-//    
-//    //流畅button
-//    self.flvButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-//    self.flvButton.showsTouchWhenHighlighted = YES;
-//    [self.changeView addSubview:self.flvButton];
-//    self.flvButton.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
-//    self.flvButton.frame = CGRectMake(0, 0, 30, 30);
-//    [self.flvButton setTitle:@"流畅" forState:(UIControlStateNormal)];
-//    [self.flvButton addTarget:self action:@selector(ButtonActionWithScreen:) forControlEvents:(UIControlEventTouchUpInside)];
-//    self.flvButton.userInteractionEnabled = NO;
-//    self.flvButton.alpha = 0.4;
-//    [self.flvButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.equalTo(self.changeView).with.offset(0);
-//        make.left.equalTo(self.changeView).with.offset(0);
-//        make.width.mas_equalTo(30);
-//        make.height.mas_equalTo(30);
-//    }];
-    
-//    //高清button
-//    self.highDefinitionButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-//    self.highDefinitionButton.showsTouchWhenHighlighted = YES;
-//    [self.changeView addSubview:self.highDefinitionButton];
-//    self.highDefinitionButton.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
-//    self.highDefinitionButton.frame = CGRectMake(0, 0, 30, 30);
-//    [self.highDefinitionButton setTitle:@"高清" forState:(UIControlStateNormal)];
-//    [self.highDefinitionButton addTarget:self action:@selector(ButtonActionWithScreen:) forControlEvents:(UIControlEventTouchUpInside)];
-//    [self.highDefinitionButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.equalTo(self.changeView).with.offset(-30);
-//        make.left.equalTo(self.changeView).with.offset(0);
-//        make.width.mas_equalTo(30);
-//        make.height.mas_equalTo(30);
-//    }];
-//    
-//    //超清button
-//    self.superDefinitionButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-//    self.superDefinitionButton.frame = CGRectMake(0, 0, 30, 30);
-//    self.superDefinitionButton.showsTouchWhenHighlighted = YES;
-//    [self.changeView addSubview:self.superDefinitionButton];
-//    self.superDefinitionButton.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
-//    [self.superDefinitionButton setTitle:@"超清" forState:(UIControlStateNormal)];
-//    [self.superDefinitionButton addTarget:self action:@selector(ButtonActionWithScreen:) forControlEvents:(UIControlEventTouchUpInside)];
-//    [self.superDefinitionButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.equalTo(self.changeView).with.offset(-60);
-//        make.left.equalTo(self.changeView).with.offset(0);
-//        make.width.mas_equalTo(30);
-//        make.height.mas_equalTo(30);
-//    }];
-    //timeLabel
+
     self.timeLabel = [[UILabel alloc]init];
     self.timeLabel.textAlignment = NSTextAlignmentRight;
     self.timeLabel.textColor = [UIColor whiteColor];
@@ -310,11 +231,7 @@ static WXPlayerView *view = nil;
     }];
     
     [self bringSubviewToFront:self.bottomView];
-    
-    
-    
-    
-    
+
     _closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _closeBtn.showsTouchWhenHighlighted = YES;
     [_closeBtn addTarget:self action:@selector(colseTheVideo:) forControlEvents:UIControlEventTouchUpInside];
@@ -393,53 +310,6 @@ static WXPlayerView *view = nil;
     [super layoutSubviews];
     self.playerLayer.frame = self.bounds;
 }
-//#pragma mark - 切换清晰度Button点击事件
-//- (void)ButtonActionWithScreen: (UIButton *)sender{
-//    sender.selected = !sender.selected;
-//    if (sender == self.changeButton) {
-//    if (self.changeView.alpha != 1) {
-//        [UIView animateWithDuration:0.7 animations:^{
-//        self.changeView.hidden = NO;
-//        self.changeView.alpha = 1;
-//        }];
-//    }else{
-//        [UIView animateWithDuration:0.7 animations:^{
-//            self.changeView.hidden = YES;
-//            self.changeView.alpha = 0;
-//        }];
-//    }
-//    }else if (sender == self.flvButton){
-//        self.saveCurrentTime = [self currentTime];
-//        sender.userInteractionEnabled = NO;
-//        sender.alpha = 0.4;
-//        self.highDefinitionButton.userInteractionEnabled = YES;
-//        self.highDefinitionButton.alpha = 1;
-//        self.superDefinitionButton.userInteractionEnabled = YES;
-//        self.superDefinitionButton.alpha = 1;
-//    [[NSNotificationCenter defaultCenter] postNotificationName:WXPlayerChangeFlvButtonClickNotification object:sender];
-//        [self.changeButton setTitle:@"流畅" forState:(UIControlStateNormal)];
-//    }else if (sender == self.highDefinitionButton){
-//        self.saveCurrentTime = [self currentTime];
-//        sender.userInteractionEnabled = NO;
-//        sender.alpha = 0.4;
-//        self.flvButton.userInteractionEnabled = YES;
-//        self.flvButton.alpha = 1;
-//        self.superDefinitionButton.userInteractionEnabled = YES;
-//        self.superDefinitionButton.alpha = 1;
-//        [[NSNotificationCenter defaultCenter] postNotificationName:WXPlayerChangeHighButtonClickNotification object:sender];
-//        [self.changeButton setTitle:@"高清" forState:(UIControlStateNormal)];
-//    }else if (sender == self.superDefinitionButton){
-//        self.saveCurrentTime = [self currentTime];
-//        sender.userInteractionEnabled = NO;
-//        sender.alpha = 0.4;
-//        self.highDefinitionButton.userInteractionEnabled = YES;
-//        self.highDefinitionButton.alpha = 1;
-//        self.flvButton.userInteractionEnabled = YES;
-//        self.flvButton.alpha = 1;
-//        [[NSNotificationCenter defaultCenter] postNotificationName:WXPlayerChangeSuperButtonClickNotification object:sender];
-//        [self.changeButton setTitle:@"超清" forState:(UIControlStateNormal)];
-//    }
-//}
 #pragma mark - fullScreenAction
 -(void)fullScreenAction:(UIButton *)sender{
     sender.selected = !sender.selected;
@@ -589,19 +459,27 @@ static WXPlayerView *view = nil;
     if (context == PlayViewStatusObservationContext)
     {
         AVPlayerStatus status = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
+        MBProgressHUD *HUD = [[MBProgressHUD alloc] init];
+        
+        [self addSubview:HUD];
+        
+
         switch (status)
         {
                 /* Indicates that the status of the player is not yet known because
                  it has not tried to load new media resources for playback */
             case AVPlayerStatusUnknown:
             {
-                
+                [HUD show:YES];
+                if (!AVPlayerStatusUnknown) {
+                    [HUD hide:YES];
+                }
             }
                 break;
                 
             case AVPlayerStatusReadyToPlay:
             {
-                
+                [HUD hide:YES];
                 /* Once the AVPlayerItem becomes ready to play, i.e.
                  [playerItem status] == AVPlayerItemStatusReadyToPlay,
                  its duration can be fetched from the item. */
@@ -636,6 +514,8 @@ static WXPlayerView *view = nil;
                 
             case AVPlayerStatusFailed:
             {
+               
+                [HUD show:YES];
                 
             }
                 break;
