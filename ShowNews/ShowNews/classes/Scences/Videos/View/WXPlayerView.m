@@ -25,9 +25,12 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 @property (nonatomic,retain ) UILabel        *timeLabel;
 /** 亮度的进度条 */
 @property (nonatomic, retain) UISlider       *lightSlider;
+// 缓存的进度条
 @property (nonatomic,retain ) UISlider       *progressSlider;
+// 声音的进度条
 @property (nonatomic,retain ) UISlider       *volumeSlider;
 @property (nonatomic,  retain)UIProgressView *bufferProgressView;
+// 时间
 @property (nonatomic, assign)double saveCurrentTime;
 
 ///*! 资源文件 */
@@ -46,6 +49,7 @@ static WXPlayerView *view = nil;
 @implementation WXPlayerView{
     UISlider *systemSlider;
 }
+// 通过url获得播放视频的item
 -(AVPlayerItem *)getPlayItemWithURLString:(NSString *)urlString{
     if ([urlString rangeOfString:@"http"].location!=NSNotFound) {
         AVPlayerItem *playerItem=[AVPlayerItem playerItemWithURL:[NSURL URLWithString: urlString]];
@@ -99,6 +103,7 @@ static WXPlayerView *view = nil;
     //bottomView
     self.bottomView = [[UIView alloc]init];
     [self addSubview:self.bottomView];
+   
     //autoLayout bottomView
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).with.offset(0);
@@ -341,6 +346,7 @@ static WXPlayerView *view = nil;
     }
 }
 
+// 获取当前的时间
 - (void)setCurrentTime:(double)time{
     [[self player] seekToTime:CMTimeMakeWithSeconds(time, 1)];
 }
@@ -433,6 +439,7 @@ static WXPlayerView *view = nil;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(moviePlayDidEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:_currentItem];
     
 }
+
 - (void)moviePlayDidEnd:(NSNotification *)notification {
     __weak typeof(self) weakSelf = self;
     [weakSelf.player seekToTime:kCMTimeZero completionHandler:^(BOOL finished) {
@@ -636,6 +643,7 @@ static WXPlayerView *view = nil;
     }
     return(kCMTimeInvalid);
 }
+
 - (NSString *)convertTime:(CGFloat)second{
     NSDate *d = [NSDate dateWithTimeIntervalSince1970:second];
     if (second/3600 >= 1) {

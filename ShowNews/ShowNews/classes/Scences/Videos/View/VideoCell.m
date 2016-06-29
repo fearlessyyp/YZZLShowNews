@@ -12,10 +12,6 @@
 @interface VideoCell ()
 
 @property (nonatomic, assign)BOOL isPlaying;
-// 分享按钮
-@property (weak, nonatomic) IBOutlet UIButton *shareButton;
-
-
 
 @end
 
@@ -41,19 +37,12 @@
 
 // 分享友盟的button
 - (IBAction)shareButtonAction:(id)sender {
-    
-    self.shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.shareButton setImage:[UIImage imageNamed:@"action_love_selected@2x"] forState:UIControlStateNormal];
-    
+
     // 回调block
     if (self.Block) {
         self.Block(self.model);
     }
 }
-
-
-
-
 
 - (void)addMovie: (UIView *)view{
     [self.backImageView addSubview:view];

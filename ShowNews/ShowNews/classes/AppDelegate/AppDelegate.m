@@ -101,7 +101,6 @@
     [tabbarItem setTitleTextAttributes:selectedAttr forState:UIControlStateSelected];
 }
 
-
 #pragma mark - 创建四个根视图控制器
 - (void)createChildViewControllers {
     [self addOneChildViewController:[[NewsViewController alloc] init] title:@"新闻" normalImage:@"tabbar_icon_news_normal@2x" selectedImage:@"tabbar_icon_news_highlight@2x"];
