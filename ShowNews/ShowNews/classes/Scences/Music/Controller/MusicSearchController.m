@@ -16,6 +16,7 @@
 #import "PlayerManager.h"
 #import "GDataXMLNode.h"
 #import <UIImageView+WebCache.h>
+#import <AVFoundation/AVFoundation.h>
 @interface MusicSearchController ()<UITableViewDelegate, UITableViewDataSource>
 /// 搜索栏
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -69,7 +70,36 @@
 - (void)viewDidAppear:(BOOL)animated {
     // button间的约束宽度
     self.speaceButton.constant = self.speaceButton1.constant = self.speaceButton2.constant = (self.bofangView.frame.size.width - 67 - 130 - 4) / 3;
+    
+    // 关联系统播放台
+    NSLog(@"viewDidAppear!!!");
+    [super viewDidAppear:animated];
+    //Once the view has loaded then we can register to begin recieving controls and we can become the first responder
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
+    [self becomeFirstResponder];
 }
+
+// 关联系统播放台
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    NSLog(@"viewWillDisappear!!!");
+    
+    [super viewWillDisappear:animated];
+    
+    //End recieving events
+    
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    
+    [self resignFirstResponder];
+    
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
 
 - (void)updateViewConstraints {
     [super updateViewConstraints];
@@ -100,8 +130,11 @@
     // 当音乐被切换时调用的代理方法  外部需要拿到数据模型 进行改变
     [self blockChangeMP3];
     
-    
-    
+    //让app支持接受远程控制事件
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [session setActive:YES error:nil];
     
 }
 #pragma mark ------  block
@@ -319,9 +352,14 @@
     MusicListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     Music *music = self.allArr[indexPath.row];
     [cell bindModel:music];
-    
+//    [self bindDict:music];
     return cell;
 }
+
+//- (void)bindDict:(Music *)music {
+//    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+//
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -330,6 +368,46 @@
     Music *music = self.allArr[indexPath.row];
     [self bindSmallMusicController:music];
 }
+
+- (void)configNowPlayingInfoCenter {
+    
+    
+    if (NSClassFromString(@"MPNowPlayingInfoCenter")) {
+        
+        [PlayerManager sharePlayer].bloclAPP = ^(Music *music) {
+            NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+            
+            [dict setObject:music.musicName forKey:MPMediaItemPropertyTitle];
+            
+            [dict setObject:music.singerName forKey:MPMediaItemPropertyArtist];
+            
+            [dict setObject:music.specialName forKey:MPMediaItemPropertyAlbumTitle];
+            
+            NSLog(@"hahahahahahahhahaha==== %@", music.musicName);
+            //            dispatch_async(dispatch_get_main_queue(), ^{
+            //                UIImageView *musicImage = [[UIImageView alloc] init];
+            //                [musicImage sd_setImageWithURL:[NSURL URLWithString:music.picUrl]];
+            //
+            //                MPMediaItemArtwork * mArt = [[MPMediaItemArtwork alloc] initWithImage:musicImage.image];
+            //
+            //                [dict setObject:mArt forKey:MPMediaItemPropertyArtwork];
+            //            });
+            
+            
+            [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = nil;
+            
+            [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dict];
+            
+            
+        };
+        
+        
+        
+    }
+    
+}
+
+
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -405,6 +483,25 @@
     [[PlayerManager sharePlayer] removeObserver:self forKeyPath:@"isStart" context:nil];
     
 }
+
+
++ (UIBackgroundTaskIdentifier)backgroundPlayerID:(UIBackgroundTaskIdentifier)backTaskId
+{
+    // 1. 设置并激活音频会话类别
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [session setActive:YES error:nil];
+    // 2. 允许应用程序接收远程控制
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    // 3. 设置后台任务ID
+    UIBackgroundTaskIdentifier newTaskId = UIBackgroundTaskInvalid;
+    newTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+    if (newTaskId != UIBackgroundTaskInvalid && backTaskId != UIBackgroundTaskInvalid) {
+        [[UIApplication sharedApplication] endBackgroundTask:backTaskId];
+    }
+    return newTaskId;
+}
+
 
 /*
  #pragma mark - Navigation

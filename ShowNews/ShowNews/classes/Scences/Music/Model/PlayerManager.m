@@ -12,6 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "MusicTimeFormatter.h"
 #import <MBProgressHUD.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface PlayerManager ()
 @property (nonatomic,strong) AVPlayer *player; // 播放器属性
@@ -97,10 +98,11 @@ static PlayerManager *playerManager = nil;
     if (self.blocl1) {
         self.blocl1(_music);
     }
-    //    if (self.blocl) {
-    //        self.blocl(music2);
-    //    }
+    if (self.bloclAPP) {
+        self.bloclAPP(_music);
+    }
     
+    [self configNowPlayingInfoCenter:_music];
     
     if (self.currentIndex != index || _music.mp3Url != _currentUrl) {
         self.currentIndex = index;
@@ -132,10 +134,45 @@ static PlayerManager *playerManager = nil;
     }
 }
 
+
+//设置锁屏状态，显示的歌曲信息
+-(void)configNowPlayingInfoCenter:(Music *)music{
+    if (NSClassFromString(@"MPNowPlayingInfoCenter")) {
+        
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        
+        //歌曲名称
+        [dict setObject:music.musicName forKey:MPMediaItemPropertyTitle];
+        
+        //演唱者
+        [dict setObject:music.singerName forKey:MPMediaItemPropertyArtist];
+        
+        //专辑名
+        [dict setObject:music.specialName forKey:MPMediaItemPropertyAlbumTitle];
+        
+        //专辑缩略图
+//        UIImage *image = [UIImage imageNamed:[info objectForKey:@"image"]];
+//        MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithImage:image];
+//        [dict setObject:artwork forKey:MPMediaItemPropertyArtwork];
+        
+        //音乐剩余时长
+        [dict setObject:[NSNumber numberWithDouble:[music.duration floatValue] / 1000] forKey:MPMediaItemPropertyPlaybackDuration];
+        
+        //音乐当前播放时间 在计时器中修改
+        [dict setObject:[NSNumber numberWithDouble:0.0] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+        
+        //设置锁屏状态下屏幕显示播放音乐信息
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dict];
+    }
+}
+
+
 // 音乐播放
 // 内部实例化一个计时器 调用监听的频率为0.1s一次
 - (void)musicPlay{
     // 实例化一个计时器并且调用timeAction的频率为0.1
+    
+    
     [self.timer invalidate];
     self.timer = nil;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
@@ -270,5 +307,9 @@ int i = 0;
     
     return result;
 }
+
+
+
+
 
 @end
