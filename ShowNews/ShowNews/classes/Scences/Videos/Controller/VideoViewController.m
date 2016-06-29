@@ -56,8 +56,7 @@
  
 }
 
-
-// 结束更新
+// 结束更新 隐藏刷新
 - (void)endRefresh
 {
     [self.privateTableView.mj_header endRefreshing];
@@ -67,7 +66,6 @@
 // 更新数据
 - (void)updateData
 {
-    
     __weak typeof (self)weakSelf = self;
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:NES_VIDEO_DOWN_URL(self.page) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
