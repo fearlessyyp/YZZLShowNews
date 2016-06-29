@@ -68,6 +68,8 @@
                             <constraint firstAttribute="width" constant="30" id="oPG-CO-azE"/>
                         </constraints>
                         <state key="normal" image="action_love.png"/>
+                        <state key="selected" image="action_love_selected.png"/>
+                        <state key="highlighted" image="action_love_selected.png"/>
                         <connections>
                             <action selector="shareButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1SV-Em-TLg"/>
                         </connections>
@@ -97,6 +99,7 @@
             <connections>
                 <outlet property="backImageView" destination="puH-CV-02G" id="Vdh-84-YKv"/>
                 <outlet property="playBtn" destination="EO2-HU-yQF" id="8eI-5P-dhv"/>
+                <outlet property="shareButton" destination="vCP-6A-bnV" id="2SD-yF-w6F"/>
                 <outlet property="titleLable" destination="bFP-Y3-jsD" id="mIo-3b-KD9"/>
                 <outlet property="topicImgImageView" destination="KD5-3Q-6Kn" id="aU4-N4-0TT"/>
                 <outlet property="topicNameLable" destination="7c2-d1-DCw" id="WDK-qI-6NS"/>
@@ -107,5 +110,6 @@
     <resources>
         <image name="Unknown.png" width="200" height="200"/>
         <image name="action_love.png" width="20" height="17"/>
+        <image name="action_love_selected.png" width="20" height="17"/>
     </resources>
 </document>
