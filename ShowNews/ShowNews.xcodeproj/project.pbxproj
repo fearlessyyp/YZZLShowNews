@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3FC2CE9D4EB4A8CDA9AB3DBA /* libPods-ShowNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AD0E98A66EEF8312CF716E /* libPods-ShowNews.a */; };
 		D611904F1D226A92003F5447 /* NewsFirstViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D611904E1D226A92003F5447 /* NewsFirstViewCell.m */; };
+		D613BC001D253CCD000CB718 /* ToolForHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D613BBFF1D253CCD000CB718 /* ToolForHeight.m */; };
 		D6224A3E1D1E6A560048ED57 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = D6224A3D1D1E6A560048ED57 /* Foundation+Log.m */; };
 		D6224A471D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A411D1E6F6E0048ED57 /* README.md */; };
 		D6224A481D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A431D1E6F6E0048ED57 /* README.md */; };
@@ -139,6 +140,8 @@
 		96AD0E98A66EEF8312CF716E /* libPods-ShowNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShowNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D611904D1D226A92003F5447 /* NewsFirstViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFirstViewCell.h; sourceTree = "<group>"; };
 		D611904E1D226A92003F5447 /* NewsFirstViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFirstViewCell.m; sourceTree = "<group>"; };
+		D613BBFE1D253CCD000CB718 /* ToolForHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolForHeight.h; sourceTree = "<group>"; };
+		D613BBFF1D253CCD000CB718 /* ToolForHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolForHeight.m; sourceTree = "<group>"; };
 		D6224A3D1D1E6A560048ED57 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		D6224A411D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D6224A431D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -508,6 +511,8 @@
 				D6E2AC541D1E878B00B18F0E /* MusicTimeFormatter.m */,
 				D686D4421D216144002B75C2 /* NewsDataManager.h */,
 				D686D4431D216144002B75C2 /* NewsDataManager.m */,
+				D613BBFE1D253CCD000CB718 /* ToolForHeight.h */,
+				D613BBFF1D253CCD000CB718 /* ToolForHeight.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1097,6 +1102,7 @@
 				D6321E221D23C6EF002F137F /* NewsPhotoSetDetailViewController.m in Sources */,
 				D6E2AC551D1E878B00B18F0E /* MusicTimeFormatter.m in Sources */,
 				D64FA1A11D1D2B8D007DE414 /* README.md in Sources */,
+				D613BC001D253CCD000CB718 /* ToolForHeight.m in Sources */,
 				D64FA1731D1D1D95007DE414 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
