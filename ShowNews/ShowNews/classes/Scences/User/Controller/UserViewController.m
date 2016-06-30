@@ -7,8 +7,12 @@
 //
 
 #import "UserViewController.h"
+#import "collectCell.h"
 
-@interface UserViewController ()
+@interface UserViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+//
+@property (weak, nonatomic) IBOutlet UITableView *userTableView;
 
 @end
 
@@ -17,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.userTableView registerNib:[UINib nibWithNibName:@"collectCell" bundle:nil] forCellReuseIdentifier:@"collect"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,6 +29,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    collectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"collect" forIndexPath:indexPath];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 90;
+}
 /*
 #pragma mark - Navigation
 
