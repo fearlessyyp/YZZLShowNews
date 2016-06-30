@@ -9,21 +9,18 @@
 
 .time {
     text-align:left;
-    font-size:15px;
+    font-size:13px;
     color:gray;
     margin-top:7px;
     margin-bottom:7px;
-    margin-left:10px;
-    
+/*    margin-left:10px;*/
+
 }
 
 .img-parent {
     text-align:center;
-    font-size:15px;
-    margin-top:7px;
-    margin-bottom:7px;
-    margin-left:10px;
-    margin-right:10px;
+    margin-bottom:10px;
+  
 }
 
 .digest {

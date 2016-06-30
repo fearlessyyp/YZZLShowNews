@@ -54,7 +54,6 @@
 		D65A07A11D23ED8600DF3593 /* UIScrollView+ScalableCover.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A07A01D23ED8600DF3593 /* UIScrollView+ScalableCover.m */; };
 		D65A07A51D23EF6300DF3593 /* collectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65A07A21D23EF6300DF3593 /* collectCell.xib */; };
 		D65A07A61D23EF6300DF3593 /* collectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A07A31D23EF6300DF3593 /* collectCell.m */; };
-		D65A07A91D241D5600DF3593 /* UITableView+Touches.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A07A81D241D5600DF3593 /* UITableView+Touches.m */; };
 		D65E699F1D21081D004286E5 /* SmallPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E699E1D21081D004286E5 /* SmallPlayer.m */; };
 		D66AA2961D1EC4BD00045D9E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2911D1EC4BD00045D9E /* icon.png */; };
 		D66AA29B1D1EC7FA00045D9E /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA29A1D1EC7FA00045D9E /* NewsViewController.m */; };
@@ -196,8 +195,6 @@
 		D65A07A21D23EF6300DF3593 /* collectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = collectCell.xib; sourceTree = "<group>"; };
 		D65A07A31D23EF6300DF3593 /* collectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectCell.m; sourceTree = "<group>"; };
 		D65A07A41D23EF6300DF3593 /* collectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectCell.h; sourceTree = "<group>"; };
-		D65A07A71D241D5600DF3593 /* UITableView+Touches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Touches.h"; sourceTree = "<group>"; };
-		D65A07A81D241D5600DF3593 /* UITableView+Touches.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Touches.m"; sourceTree = "<group>"; };
 		D65E699D1D21081D004286E5 /* SmallPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallPlayer.h; sourceTree = "<group>"; };
 		D65E699E1D21081D004286E5 /* SmallPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallPlayer.m; sourceTree = "<group>"; };
 		D66AA2911D1EC4BD00045D9E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -490,8 +487,6 @@
 				D65A079F1D23ED8600DF3593 /* UIScrollView+ScalableCover.h */,
 				D65A07A01D23ED8600DF3593 /* UIScrollView+ScalableCover.m */,
 				F53D262A1D1E6CFD002E0644 /* pika.gif */,
-				D65A07A71D241D5600DF3593 /* UITableView+Touches.h */,
-				D65A07A81D241D5600DF3593 /* UITableView+Touches.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1091,7 +1086,6 @@
 				D64FA17E1D1D1D95007DE414 /* README.md in Sources */,
 				F5D2E3711D212C1700D297A3 /* UIButton+CellButton.m in Sources */,
 				D6BA65581D1E5E0B00ECA213 /* GetPinYinFromChinese.m in Sources */,
-				D65A07A91D241D5600DF3593 /* UITableView+Touches.m in Sources */,
 				D64FA1781D1D1D95007DE414 /* README.md in Sources */,
 				D6224A481D1E6F6E0048ED57 /* README.md in Sources */,
 				D64FA17F1D1D1D95007DE414 /* README.md in Sources */,
