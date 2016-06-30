@@ -16,7 +16,7 @@
 #define NES_VIDEO_DOWN_URL(page) [NSString stringWithFormat:@"http://c.m.163.com/nc/video/list/V9LG4B3A0/n/%ld-10.html", page] 
 
 // 音乐搜索的URL
-#define NEWS_MUSIC_SEARCH_URL231 @"http://s.music.qq.com/fcgi-bin/music_search_new_platform?t=0&n=20&aggr=1&cr=1&loginUin=0&format=json&inCharset=GB2312&outCharset=utf-8&notice=0&platform=jqminiframe.json&needNewCode=0&p=1&catZhida=0&remoteplace=sizer.newclient.next_song&w=%@"
+#define NEWS_MUSIC_SEARCH_URL231 @"http://s.music.qq.com/fcgi-bin/music_search_new_platform?t=0&n=30&aggr=%ld&cr=1&loginUin=0&format=json&inCharset=GB2312&outCharset=utf-8&notice=0&platform=jqminiframe.json&needNewCode=0&p=1&catZhida=0&remoteplace=sizer.newclient.next_song&w=%@"
 // 音乐播放的URL
 #define NEWS_MUSIC_PLAY_URL @"http://cc.stream.qqmusic.qq.com/C200%@.m4a?vkey=F64F40C201D549FECA435C42C83F0C74AAA41F6EA4788517BB975D4CD90F51C0712D5CAAC0768BBE1CB19434CABFF55F13924A2FF7A70D8C&fromtag=0"
 

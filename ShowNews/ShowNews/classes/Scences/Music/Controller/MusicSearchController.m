@@ -17,6 +17,7 @@
 #import "GDataXMLNode.h"
 #import <UIImageView+WebCache.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MJRefresh.h>
 @interface MusicSearchController ()<UITableViewDelegate, UITableViewDataSource>
 /// 搜索栏
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -63,9 +64,18 @@
 
 @property (nonatomic, strong) PlayerManager *playManager;
 
+@property (nonatomic, assign) NSInteger page;
+
 @end
 
 @implementation MusicSearchController
+
+
+- (IBAction)touchView:(id)sender {
+     [self.view endEditing:YES];  
+}
+
+
 
 - (void)viewDidAppear:(BOOL)animated {
     // button间的约束宽度
@@ -92,6 +102,7 @@
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     
     [self resignFirstResponder];
+
     
 }
 
@@ -136,7 +147,30 @@
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
     [session setActive:YES error:nil];
     
+    // 上拉刷新下拉刷新
+    self.listResultTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.allArr removeAllObjects];
+        self.page = 1;
+        [self requestData];
+    }];
+    
+    self.listResultTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        
+        self.page++;
+        NSLog(@"==========================%ld", self.page);
+        [self requestData];
+        
+    }];
+    
+    
 }
+// 隐藏上拉下拉刷新
+- (void)endRefresh {
+    [self.listResultTableView.mj_header endRefreshing];
+    [self.listResultTableView.mj_footer endRefreshing];
+}
+
+
 #pragma mark ------  block
 
 - (void)blockChangeMP3{
@@ -146,9 +180,7 @@
     
     __weak typeof(self)weakSelf = self;
     self.playManager.blocl = ^void (Music *musci) {
-        
-        
-        NSLog(@"++++++++++++++%@", musci.picUrl);
+
         weakSelf.titleLabel.text = musci.musicName;
         weakSelf.singerLabel.text = musci.singerName;
         
@@ -163,6 +195,7 @@
 
 - (IBAction)searchButtonAction:(UIButton *)sender {
     [self.allArr removeAllObjects];
+    self.page = 1;
     [self requestData];
     
 }
@@ -204,10 +237,11 @@
     // 转圈圈的菊花默认是关闭的，需要手动打开，在网络慢的情况下请求数据时，手机左上角就会出现转圈圈的菊花
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
-    NSString *str = [NSString stringWithFormat:NEWS_MUSIC_SEARCH_URL231,self.searchTextField.text ];
+    NSString *str = [NSString stringWithFormat:NEWS_MUSIC_SEARCH_URL231,(long)self.page,self.searchTextField.text];
     NSString *urlStr = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
-    
+    __weak typeof(self) weakSelf = self;
+
     [self.session GET:urlStr parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"下载进度");
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -221,7 +255,6 @@
                 if (arr.count < 23) {
                     continue;
                 }
-                //                NSLog(@"!!!!!!!!!!!!!!%@", arr);
                 // 初始化model 并赋值
                 Music *music = [[Music alloc] init];
                 
@@ -260,18 +293,25 @@
                 // 歌词网址
                 music.lyric = [NSString stringWithFormat:@"http://music.qq.com/miniportal/static/lyric/%@/%@.xml", [music.lrc substringFromIndex:music.lrc.length - 2], music.lrc];
                 
-                
+                 // 用指针修改music里的lrcXXXXXXX
                 [self requestLrc:music];
-                
-                
+                [weakSelf.allArr addObject:music];
+               
                 
             }
-            
+            // 隐藏下拉上拉刷新
+            [self endRefresh];
+            dispatch_async(dispatch_get_main_queue(), ^{
+            [PlayerManager sharePlayer].playList = weakSelf.allArr;
+            [weakSelf.listResultTableView reloadData];
+            });
         }
         
         // 解析数据代码写在这里
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"请求失败, error = %@", error);
+        // 隐藏下拉上拉刷新
+        [self.listResultTableView.mj_footer endRefreshingWithNoMoreData];
+        [self.listResultTableView.mj_header endRefreshing];
     }];
 }
 
@@ -307,7 +347,7 @@
 }
 
 // 请求歌词 并把MODEL 添加到大数组
-- (NSString *)requestLrc:(Music *)music {
+- (void)requestLrc:(Music *)music {
     __weak typeof(self) weakSelf = self;
     NSURLSession *sesson = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:music.lyric];
@@ -321,19 +361,18 @@
             
             // 4. 获取根节点
             NSString *str2 = document.rootElement.stringValue;
-            dispatch_async(dispatch_get_main_queue(), ^{
+//            dispatch_async(dispatch_get_main_queue(), ^{
                 music.lyricxxxx = str2;
-                [weakSelf.allArr addObject:music];
-                [PlayerManager sharePlayer].playList = weakSelf.allArr;
-                [weakSelf.listResultTableView reloadData];
+//                [weakSelf.allArr addObject:music];
+//                [PlayerManager sharePlayer].playList = weakSelf.allArr;
+//                [weakSelf.listResultTableView reloadData];
 
-            });
+//            });
             
         }
-   
+        NSLog(@"haha");
     }];
     [task resume];
-    return nil;
 }
 
 
@@ -452,6 +491,9 @@
     playVC.musicIndex = [PlayerManager sharePlayer].currentIndex;
     [self.navigationController pushViewController:playVC animated:YES];
     
+//    self.view.layer.borderWidth
+//    self.view.layer.cornerRadius
+
     
 }
 
@@ -512,5 +554,11 @@
  // Pass the selected object to the new view controller.
  }
  */
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
+
 
 @end
