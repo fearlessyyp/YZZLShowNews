@@ -270,30 +270,30 @@ static WXPlayerView *view = nil;
                           options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                           context:PlayViewStatusObservationContext];
     
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appwillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appwillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     [self initTimer];
     
 }
-- (void)appDidEnterBackground:(NSNotification*)note
-{
-    //    [self PlayOrPause:self.playOrPauseBtn];
-    NSLog(@"appDidEnterBackground");
-}
-
-- (void)appWillEnterForeground:(NSNotification*)note
-{
-    //    [self PlayOrPause:self.playOrPauseBtn];
-    NSLog(@"appWillEnterForeground");
-}
-- (void)appwillResignActive:(NSNotification *)note
-{
-    //    [self PlayOrPause:self.playOrPauseBtn];
-    NSLog(@"appwillResignActive");
-}
+//- (void)appDidEnterBackground:(NSNotification*)note
+//{
+//    //    [self PlayOrPause:self.playOrPauseBtn];
+//    NSLog(@"appDidEnterBackground");
+//}
+//
+//- (void)appWillEnterForeground:(NSNotification*)note
+//{
+//    //    [self PlayOrPause:self.playOrPauseBtn];
+//    NSLog(@"appWillEnterForeground");
+//}
+//- (void)appwillResignActive:(NSNotification *)note
+//{
+//    //    [self PlayOrPause:self.playOrPauseBtn];
+//    NSLog(@"appwillResignActive");
+//}
 - (void)appBecomeActive:(NSNotification *)note
 {
     [self.player pause];
