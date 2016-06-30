@@ -24,5 +24,17 @@
 /// 新闻来源
 @property (nonatomic, copy) NSString *source;
 /// 其他新闻(轮播)
-@property (nonatomic, strong) NSArray *ads;	
+@property (nonatomic, strong) NSArray *ads;
+#pragma mark - 新闻详情页数据
+/// 详情页新闻体
+@property (nonatomic, strong) NSString *body;
+/// 详情页面图片标题数组
+@property (nonatomic, strong) NSMutableArray *images;
+/// 新闻发布时间
+@property (nonatomic, strong) NSString *ptime;
+/// 新闻分享连接
+@property (nonatomic, strong) NSString *shareLink;
+/// 摘要
+@property (nonatomic, strong) NSString *digest;
+
 @end
