@@ -398,7 +398,6 @@
     [_playView.durationTimer invalidate];
     _playView.durationTimer = nil;
     
-    
     _playView.playOrPauseBtn = nil;
     _playView.playerLayer = nil;
     _playView = nil;

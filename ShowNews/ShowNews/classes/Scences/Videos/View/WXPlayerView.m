@@ -12,6 +12,7 @@
 #import "WXPlayerView.h"
 static void *PlayViewCMTimeValue = &PlayViewCMTimeValue;
 static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContext;
+
 #import <MBProgressHUD.h>
 @interface WXPlayerView ()<UIGestureRecognizerDelegate>
 @property (nonatomic,assign)CGPoint firstPoint;
@@ -355,6 +356,7 @@ static WXPlayerView *view = nil;
 - (void)PlayOrPause:(UIButton *)sender{
     if (self.durationTimer==nil) {
         self.durationTimer = [NSTimer timerWithTimeInterval:0.2 target:self selector:@selector(finishedPlay:) userInfo:nil repeats:YES];
+        //NSRunLoop是IOS消息机制的处理模式
         [[NSRunLoop currentRunLoop] addTimer:self.durationTimer forMode:NSDefaultRunLoopMode];
     }
     
