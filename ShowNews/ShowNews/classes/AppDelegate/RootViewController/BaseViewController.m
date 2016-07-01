@@ -31,7 +31,7 @@
 }
 - (void)initLayout {
    
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"redPacket_btn_1@2x"] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"redPacket_btn_1@2x"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:NEWS_MAIN_COLOR] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"musicBarButton"] style:UIBarButtonItemStylePlain target:self action:@selector(presentRightMenuViewController:)];
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"音乐"

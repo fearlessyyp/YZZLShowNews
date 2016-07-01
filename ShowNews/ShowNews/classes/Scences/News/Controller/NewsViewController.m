@@ -663,7 +663,7 @@ typedef NS_ENUM(NSUInteger, NewsType) {
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
+//    [self.navigationController setNavigationBarHidden:NO];
     [self.bigScrollView.headlineTableView reloadData];
     [self.bigScrollView.entertainmentTableView reloadData];
     [self.bigScrollView.fashionTableView reloadData];
