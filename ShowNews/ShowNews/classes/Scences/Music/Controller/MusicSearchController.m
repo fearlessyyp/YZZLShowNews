@@ -15,7 +15,7 @@
 #import "PlayViewController.h"
 #import "PlayerManager.h"
 #import "GDataXMLNode.h"
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 #import <AVFoundation/AVFoundation.h>
 #import <MJRefresh.h>
 @interface MusicSearchController ()<UITableViewDelegate, UITableViewDataSource>

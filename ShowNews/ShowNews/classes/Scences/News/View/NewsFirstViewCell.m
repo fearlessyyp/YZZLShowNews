@@ -7,7 +7,7 @@
 //
 
 #import "NewsFirstViewCell.h"
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 #import "News.h"
 #define kCount self.imageArr.count
 #define kHeight self.frame.size.height

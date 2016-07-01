@@ -7,7 +7,7 @@
 //
 
 #import "NewsPhotoSetCell.h"
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 
 @interface NewsPhotoSetCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

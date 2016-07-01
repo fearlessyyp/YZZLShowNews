@@ -10,7 +10,7 @@
 
 #import "UIScrollView+ScalableCover.h"
 #import <objc/runtime.h>
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 static NSString * const kContentOffset = @"contentOffset";
 static NSString * const kScalableCover = @"scalableCover";
 static NSString * const kButton = @"button";
