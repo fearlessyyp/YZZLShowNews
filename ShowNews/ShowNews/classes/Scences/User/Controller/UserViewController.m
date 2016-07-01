@@ -76,14 +76,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+
     switch (indexPath.row) {
-        case 0:{
+        case 0: {
             collectCell *cell1 = [tableView dequeueReusableCellWithIdentifier:@"collect" forIndexPath:indexPath];
-            cell1.backgroundColor = [UIColor yellowColor];
             return cell1;
-        }
             break;
+        }
         case 1:{
            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
             cell.nameLabel.text = @"字号设置";
@@ -112,7 +111,6 @@
             SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
             cell.nameLabel.text = @"版本号 : 1.0.0";
             return cell;
-        
             break;
         }
         default:
