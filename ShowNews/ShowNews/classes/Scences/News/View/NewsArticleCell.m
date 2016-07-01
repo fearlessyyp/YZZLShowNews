@@ -7,7 +7,7 @@
 //
 
 #import "NewsArticleCell.h"
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 
 @interface NewsArticleCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *leftImageView;
