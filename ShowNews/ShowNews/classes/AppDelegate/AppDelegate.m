@@ -31,6 +31,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    // 设置百度地图sdk
+    [self setBaiduMap];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     [self settabbarItemTextAttributes];
@@ -87,6 +89,15 @@
         //调用其他SDK，例如支付宝SDK等
     }
     return result;
+}
+
+- (void)setBaiduMap {
+    _mapManager = [[BMKMapManager alloc]init];
+    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+    BOOL ret = [_mapManager start:@"7Zq4UCFL3K01ezb5wTldFdUoFGnMcl3A"  generalDelegate:nil];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
 }
 
 
