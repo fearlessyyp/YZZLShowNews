@@ -37,4 +37,13 @@
 /// 摘要
 @property (nonatomic, strong) NSString *digest;
 
+#pragma mark - 图片新闻详情页数据
+/// 图片数组
+@property (nonatomic, strong) NSMutableArray *photos;
+/// 图片组title
+@property (nonatomic, strong) NSString *setname;
+/// 图片张数
+@property (nonatomic, strong) NSString *imgsum;
+/// 分享链接
+@property (nonatomic, strong) NSString *url;
 @end

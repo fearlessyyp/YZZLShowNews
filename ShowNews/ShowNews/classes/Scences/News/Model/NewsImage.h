@@ -16,5 +16,15 @@
 @property (nonatomic, copy) NSString *ref;
 /** 图片标题 */
 @property (nonatomic, copy) NSString *alt;
+
+#pragma mark - 图片组图片数据
+/** 图片地址 */
+@property (nonatomic, copy) NSString *imgurl;
+/** 图片标题 */
+@property (nonatomic, copy) NSString *imgtitle;
+/** 图片详情 */
+@property (nonatomic, copy) NSString *note;
+
+
 + (instancetype)detailImgWithDict:(NSDictionary *)dict;
 @end

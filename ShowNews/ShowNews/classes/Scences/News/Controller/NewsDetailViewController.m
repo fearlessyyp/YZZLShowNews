@@ -22,7 +22,6 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"新闻详情";
-    self.hidesBottomBarWhenPushed = YES;
     // 请求数据
     [self requestData];
     
@@ -35,8 +34,6 @@
     self.session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"application/x-json",@"text/html", @"application/x-javascript", nil];
     __weak typeof(self)weakSelf = self;
     [self.session GET:NEWS_ARTICLE_DETAIL_URL(self.news.postid) parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"请求成功");
-        NSLog(@"responseObject %@", responseObject);
         NSDictionary *resultDict = responseObject[weakSelf.news.postid];
         [weakSelf.news setValuesForKeysWithDictionary:resultDict];
         self.news.images = [NSMutableArray array];
@@ -47,13 +44,14 @@
         // 在webView中显示
         [weakSelf showInWebView];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+#warning 提醒用户
         NSLog(@"请求失败 error %@", error);
     }];
 }
 
 #pragma mark - 在webView中展示
 - (void)showInWebView {
-    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenSizeWidth, kScreenSizeHeight - kNavigationAndStatusHeight)];
+    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenSizeWidth, kScreenSizeHeight - kNavigationAndStatusHeight + 44)];
     [self.view addSubview:_webView];
     self.webView.backgroundColor = [UIColor clearColor];
     

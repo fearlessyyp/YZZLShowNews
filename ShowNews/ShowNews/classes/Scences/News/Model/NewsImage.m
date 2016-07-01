@@ -20,4 +20,9 @@
     return imgModel;
 }
 
+#pragma mark - 防崩
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    
+}
+
 @end
