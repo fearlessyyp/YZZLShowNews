@@ -10,9 +10,11 @@
 
 #import "UIScrollView+ScalableCover.h"
 #import <objc/runtime.h>
-
+#import <UIImageView+WebCache.h>
 static NSString * const kContentOffset = @"contentOffset";
 static NSString * const kScalableCover = @"scalableCover";
+static NSString * const kButton = @"button";
+static NSString * const kBigImage = @"bigImage";
 
 @implementation UIScrollView (ScalableCover)
 
@@ -30,19 +32,65 @@ static NSString * const kScalableCover = @"scalableCover";
     return objc_getAssociatedObject(self, &kScalableCover);
 }
 
-- (void)addScalableCoverWithImage:(UIImage *)image
+- (void)setButton:(UIButton *)button {
+//    [self willChangeValueForKey:kButton];
+    objc_setAssociatedObject(self, &kButton,
+                             button,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//    [self didChangeValueForKey:kButton];
+}
+
+- (UIButton *)button
+{
+    return objc_getAssociatedObject(self, &kButton);
+}
+
+- (void)setBigImage:(UIImageView *)bigImage {
+//    [self willChangeValueForKey:kBigImage];
+    objc_setAssociatedObject(self, &kBigImage, bigImage,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//    [self didChangeValueForKey:kBigImage];
+}
+
+- (UIImageView *)bigImage {
+    return objc_getAssociatedObject(self, &kBigImage);
+}
+
+
+- (UIButton *)addScalableCoverWithImage:(UIImage *)image URLStr:(NSString *)url
 {
     ScalableCover *cover = [[ScalableCover alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, MaxHeight)];
     
     cover.backgroundColor = [UIColor clearColor];
     cover.image = image;
     cover.scrollView = self;
+//
+    UIImageView *bigImage = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenSizeWidth / 2 - 50, 60, 100, 100)];
+    [bigImage sd_setImageWithURL:[NSURL URLWithString:url]];
+    bigImage.layer.cornerRadius = 50;
+    bigImage.layer.masksToBounds = YES;
+    self.bigImage = bigImage;
+    [cover addSubview:self.bigImage];
+    
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 165, kScreenSizeWidth, 30);
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    self.button = button;
+    [self addSubview:self.button];
     
     [self addSubview:cover];
     [self sendSubviewToBack:cover];
+//    cover.userInteractionEnabled = NO;
+//    self.bigImage.userInteractionEnabled = NO;
+//    self.button.userInteractionEnabled = YES;
+    
     
     self.scalableCover = cover;
+    return button;
 }
+
 
 - (void)removeScalableCover
 {
@@ -107,13 +155,17 @@ static NSString * const kScalableCover = @"scalableCover";
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
     if (self.scrollView.contentOffset.y < 0) {
         CGFloat offset = -self.scrollView.contentOffset.y;
         
-        self.frame = CGRectMake(-offset, -offset, _scrollView.bounds.size.width + offset * 2, MaxHeight + offset);
+        self.frame = CGRectMake(-0, -offset, _scrollView.bounds.size.width + offset * 2, MaxHeight + offset);
+        _scrollView.button.center = CGPointMake(kScreenSizeWidth / 2 , 180);
+        _scrollView.bigImage.center = CGPointMake(kScreenSizeWidth / 2, 110 + offset);
     } else {
+ 
+        CGFloat offset = -self.scrollView.contentOffset.y;
         self.frame = CGRectMake(0, 0, _scrollView.bounds.size.width, MaxHeight);
+
     }
 }
 
@@ -122,5 +174,17 @@ static NSString * const kScalableCover = @"scalableCover";
     [self setNeedsLayout];
 }
 
+//去掉 UItableview headerview 黏性(sticky)
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    if (scrollView == self.userTableView)
+//    {
+//        CGFloat sectionHeaderHeight = 60; //sectionHeaderHeight
+//        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+//            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+//        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+//            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+//        }
+//    }
+//}
 
 @end

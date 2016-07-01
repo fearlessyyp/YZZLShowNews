@@ -16,6 +16,7 @@ static const CGFloat MaxHeight = 200;
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
+
 @end
 
 
@@ -25,7 +26,12 @@ static const CGFloat MaxHeight = 200;
 
 @property (nonatomic, weak) ScalableCover *scalableCover;
 
-- (void)addScalableCoverWithImage:(UIImage *)image;
+@property (nonatomic, strong) UIButton *button;
+
+@property (nonatomic, strong) UIImageView *bigImage;
+
+
+- (UIButton *)addScalableCoverWithImage:(UIImage *)image URLStr:(NSString *)url;
 - (void)removeScalableCover;
 
 @end

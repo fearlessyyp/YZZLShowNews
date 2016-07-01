@@ -97,6 +97,8 @@
 		D6E2AC551D1E878B00B18F0E /* MusicTimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC541D1E878B00B18F0E /* MusicTimeFormatter.m */; };
 		D6E4996C1D240E3200892D54 /* NewsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4996B1D240E3200892D54 /* NewsImage.m */; };
 		D6E4996E1D240ED300892D54 /* Details.css in Resources */ = {isa = PBXBuildFile; fileRef = D6E4996D1D240ED300892D54 /* Details.css */; };
+		D6E96A9D1D256CC300AF7AF3 /* SetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E96A9B1D256CC300AF7AF3 /* SetCell.m */; };
+		D6E96A9E1D256CC300AF7AF3 /* SetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E96A9C1D256CC300AF7AF3 /* SetCell.xib */; };
 		D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */; };
 		D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5E9D1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib */; };
 		D6EA5EA31D1D2DF4006B6C33 /* NewsArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5EA11D1D2DF4006B6C33 /* NewsArticleCell.m */; };
@@ -263,6 +265,9 @@
 		D6E4996A1D240E3200892D54 /* NewsImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsImage.h; sourceTree = "<group>"; };
 		D6E4996B1D240E3200892D54 /* NewsImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsImage.m; sourceTree = "<group>"; };
 		D6E4996D1D240ED300892D54 /* Details.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Details.css; sourceTree = "<group>"; };
+		D6E96A9A1D256CC300AF7AF3 /* SetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCell.h; sourceTree = "<group>"; };
+		D6E96A9B1D256CC300AF7AF3 /* SetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCell.m; sourceTree = "<group>"; };
+		D6E96A9C1D256CC300AF7AF3 /* SetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetCell.xib; sourceTree = "<group>"; };
 		D6EA5E9B1D1D2DCF006B6C33 /* NewsPhotoSetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPhotoSetCell.h; sourceTree = "<group>"; };
 		D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPhotoSetCell.m; sourceTree = "<group>"; };
 		D6EA5E9D1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsPhotoSetCell.xib; sourceTree = "<group>"; };
@@ -764,6 +769,9 @@
 				D65A07A21D23EF6300DF3593 /* collectCell.xib */,
 				D65A07A31D23EF6300DF3593 /* collectCell.m */,
 				D65A07A41D23EF6300DF3593 /* collectCell.h */,
+				D6E96A9A1D256CC300AF7AF3 /* SetCell.h */,
+				D6E96A9B1D256CC300AF7AF3 /* SetCell.m */,
+				D6E96A9C1D256CC300AF7AF3 /* SetCell.xib */,
 				D64FA1A91D1D2B97007DE414 /* README.md */,
 			);
 			path = View;
@@ -933,6 +941,7 @@
 				D686D4241D20CBBD002B75C2 /* tabbar_icon_me_normal@2x.png in Resources */,
 				D686D4221D20CBBD002B75C2 /* lyric.png in Resources */,
 				D64FA1211D1D1C92007DE414 /* LaunchScreen.storyboard in Resources */,
+				D6E96A9E1D256CC300AF7AF3 /* SetCell.xib in Resources */,
 				F5D2E3681D20BE9D00D297A3 /* action_love@2x.png in Resources */,
 				F5D2E3791D212C3800D297A3 /* VideoCell.xib in Resources */,
 				F537832B1D229A6B000B6A2C /* 2.jpg in Resources */,
@@ -1057,6 +1066,7 @@
 				F557EF851D1FAE9B00C3C241 /* City.m in Sources */,
 				D64FA1B41D1D2B9F007DE414 /* README.md in Sources */,
 				F53D262B1D1E6CFD002E0644 /* GiFHUD.m in Sources */,
+				D6E96A9D1D256CC300AF7AF3 /* SetCell.m in Sources */,
 				D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */,
 				D66E3E831D1FEE5700DB84BF /* BigScrollView.m in Sources */,
 				D64FA1861D1D2B41007DE414 /* README.md in Sources */,
