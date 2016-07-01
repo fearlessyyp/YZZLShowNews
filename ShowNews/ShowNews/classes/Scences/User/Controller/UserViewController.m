@@ -76,38 +76,43 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-     SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
-    collectCell *cell1 = [tableView dequeueReusableCellWithIdentifier:@"collect" forIndexPath:indexPath];
+
     switch (indexPath.row) {
         case 0: {
+            collectCell *cell1 = [tableView dequeueReusableCellWithIdentifier:@"collect" forIndexPath:indexPath];
             return cell1;
             break;
         }
         case 1:{
+           SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
             cell.nameLabel.text = @"字号设置";
             return cell;
             break;
         }
-        case 2:{
+        case 2: {
+            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
             cell.nameLabel.text = @"清除缓存";
             return cell;
             break;
         }
-        case 3:{
+        case 3: {
+            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
             cell.nameLabel.text = @"夜间模式";
             return cell;
             break;
         }
-        case 4:{
+        case 4: {
+            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
             cell.nameLabel.text = @"仅WIFI播放视频";
             return cell;
             break;
         }
-        case 5:{
+        case 5: {
+            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
             cell.nameLabel.text = @"版本号 : 1.0.0";
             return cell;
-        }
             break;
+        }
         default:
             break;
     }

@@ -13,6 +13,7 @@
 #import <UIImageView+WebCache.h>
 #import "ToolForHeight.h"
 #import <Masonry.h>
+#import "UIImage+ImageByColor.h"
 
 #define kSetNameFont 14
 #define kNoteFont 12
@@ -49,7 +50,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
-    [self.navigationController setNavigationBarHidden:YES];
+//    [self.navigationController setNavigationBarHidden:YES];
     // 解析数据
     [self requestData];
    
@@ -78,7 +79,7 @@
             // 设置文字滚动视图
             [weakSelf layoutTextScrollView];
             // 设置返回按钮
-            [weakSelf layoutBackButton];
+//            [weakSelf layoutBackButton];
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"请求失败");
@@ -105,6 +106,7 @@
 #pragma mark - 设置图片滚动视图
 - (void)layoutImageScrollView {
     self.imageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenSizeWidth, kScreenSizeHeight)];
+//    self.imageScrollView.backgroundColor = [UIColor whiteColor];
     self.imageScrollView.pagingEnabled = YES;
     self.imageScrollView.delegate = self;
     self.imageScrollView.contentSize = CGSizeMake(self.news.photos.count * kScreenSizeWidth, 0);
@@ -114,10 +116,9 @@
         CGFloat height = [ToolForHeight imageHeightWithImage:image];
 
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * kScreenSizeWidth, 0, kScreenSizeWidth, height)];
-        self.imageView.backgroundColor = [UIColor whiteColor];
+//        self.imageView.backgroundColor = [UIColor whiteColor];
         [self.imageView sd_setImageWithURL:[NSURL URLWithString:[self.news.photos[i] imgurl]]];
-        self.imageView.center = CGPointMake(i * kScreenSizeWidth + kScreenSizeWidth / 2, kScreenSizeHeight / 2);
-//        self.imageView.backgroundColor = [UIColor redColor];
+        self.imageView.center = CGPointMake(i * kScreenSizeWidth + kScreenSizeWidth / 2, self.imageScrollView.frame.size.height / 2 - 64);
         [self.imageScrollView addSubview:self.imageView];
     }
 }
@@ -171,7 +172,10 @@
     return result;
 }
 
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:NEWS_COLOR(0, 0, 0, 1)] forBarMetrics:UIBarMetricsDefault];
+}
 
 
 @end
