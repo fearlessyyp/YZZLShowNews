@@ -22,14 +22,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="104" height="89"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E27-Jo-URv">
-                                        <rect key="frame" x="32" y="10" width="40" height="40"/>
+                                        <rect key="frame" x="29" y="10" width="45" height="45"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="E27-Jo-URv" secondAttribute="height" multiplier="1:1" id="RLT-lc-DVO"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZC-Lo-eG1">
-                                        <rect key="frame" x="0.0" y="58" width="104" height="21"/>
+                                        <rect key="frame" x="0.0" y="63" width="104" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="YUt-Ss-hSn"/>
                                         </constraints>
@@ -40,7 +40,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="xZC-Lo-eG1" secondAttribute="bottom" constant="10" id="Bj0-fY-Gna"/>
+                                    <constraint firstAttribute="bottom" secondItem="xZC-Lo-eG1" secondAttribute="bottom" constant="5" id="Bj0-fY-Gna"/>
                                     <constraint firstItem="E27-Jo-URv" firstAttribute="top" secondItem="Wez-Bi-dwZ" secondAttribute="top" constant="10" id="Mv3-QT-78y"/>
                                     <constraint firstItem="xZC-Lo-eG1" firstAttribute="top" secondItem="E27-Jo-URv" secondAttribute="bottom" constant="8" id="Xdn-oX-NXX"/>
                                     <constraint firstAttribute="trailing" secondItem="xZC-Lo-eG1" secondAttribute="trailing" id="cXq-2h-5vY"/>
@@ -52,11 +52,11 @@
                                 <rect key="frame" x="104" y="0.0" width="103" height="89"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mTn-px-yh2">
-                                        <rect key="frame" x="31" y="10" width="40" height="40"/>
+                                        <rect key="frame" x="29" y="10" width="45" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3U-Kb-czN">
-                                        <rect key="frame" x="0.0" y="58" width="103" height="21"/>
+                                        <rect key="frame" x="0.0" y="63" width="103" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -73,13 +73,13 @@
                                 <rect key="frame" x="207" y="0.0" width="104" height="89"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zy-xj-m8W">
-                                        <rect key="frame" x="0.0" y="58" width="104" height="21"/>
+                                        <rect key="frame" x="0.0" y="63" width="104" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6VT-2e-Els">
-                                        <rect key="frame" x="32" y="10" width="40" height="40"/>
+                                        <rect key="frame" x="29" y="10" width="45" height="45"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                 </subviews>
@@ -94,13 +94,13 @@
                                 <rect key="frame" x="311" y="0.0" width="103" height="89"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgP-br-RbQ">
-                                        <rect key="frame" x="0.0" y="58" width="103" height="21"/>
+                                        <rect key="frame" x="0.0" y="63" width="103" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MSj-eB-BiX">
-                                        <rect key="frame" x="31" y="10" width="40" height="40"/>
+                                        <rect key="frame" x="29" y="10" width="45" height="45"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                 </subviews>
@@ -141,7 +141,7 @@
                     <constraint firstAttribute="bottom" secondItem="O3h-tN-goH" secondAttribute="bottom" id="ylz-DI-9ET"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="451" y="248"/>
+            <point key="canvasLocation" x="195" y="236"/>
         </tableViewCell>
     </objects>
 </document>

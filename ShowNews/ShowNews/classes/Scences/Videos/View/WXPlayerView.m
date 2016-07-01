@@ -12,6 +12,7 @@
 #import "WXPlayerView.h"
 static void *PlayViewCMTimeValue = &PlayViewCMTimeValue;
 static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContext;
+
 #import <MBProgressHUD.h>
 @interface WXPlayerView ()<UIGestureRecognizerDelegate>
 @property (nonatomic,assign)CGPoint firstPoint;
@@ -270,30 +271,30 @@ static WXPlayerView *view = nil;
                           options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                           context:PlayViewStatusObservationContext];
     
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appwillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appwillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     [self initTimer];
     
 }
-- (void)appDidEnterBackground:(NSNotification*)note
-{
-    //    [self PlayOrPause:self.playOrPauseBtn];
-    NSLog(@"appDidEnterBackground");
-}
-
-- (void)appWillEnterForeground:(NSNotification*)note
-{
-    //    [self PlayOrPause:self.playOrPauseBtn];
-    NSLog(@"appWillEnterForeground");
-}
-- (void)appwillResignActive:(NSNotification *)note
-{
-    //    [self PlayOrPause:self.playOrPauseBtn];
-    NSLog(@"appwillResignActive");
-}
+//- (void)appDidEnterBackground:(NSNotification*)note
+//{
+//    //    [self PlayOrPause:self.playOrPauseBtn];
+//    NSLog(@"appDidEnterBackground");
+//}
+//
+//- (void)appWillEnterForeground:(NSNotification*)note
+//{
+//    //    [self PlayOrPause:self.playOrPauseBtn];
+//    NSLog(@"appWillEnterForeground");
+//}
+//- (void)appwillResignActive:(NSNotification *)note
+//{
+//    //    [self PlayOrPause:self.playOrPauseBtn];
+//    NSLog(@"appwillResignActive");
+//}
 - (void)appBecomeActive:(NSNotification *)note
 {
     [self.player pause];
@@ -355,6 +356,7 @@ static WXPlayerView *view = nil;
 - (void)PlayOrPause:(UIButton *)sender{
     if (self.durationTimer==nil) {
         self.durationTimer = [NSTimer timerWithTimeInterval:0.2 target:self selector:@selector(finishedPlay:) userInfo:nil repeats:YES];
+        //NSRunLoop是IOS消息机制的处理模式
         [[NSRunLoop currentRunLoop] addTimer:self.durationTimer forMode:NSDefaultRunLoopMode];
     }
     
