@@ -65,6 +65,8 @@
 		D66E3E751D1FBB4400DB84BF /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E741D1FBB4400DB84BF /* SegmentView.m */; };
 		D66E3E7D1D1FD6F500DB84BF /* MyScorllView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E7C1D1FD6F500DB84BF /* MyScorllView.m */; };
 		D66E3E831D1FEE5700DB84BF /* BigScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E821D1FEE5700DB84BF /* BigScrollView.m */; };
+		D66E6EA81D261F5600534723 /* NewsCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E6EA61D261F5600534723 /* NewsCollectViewController.m */; };
+		D66E6EA91D261F5600534723 /* NewsCollectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66E6EA71D261F5600534723 /* NewsCollectViewController.xib */; };
 		D686D3FC1D20B7FE002B75C2 /* UIImage+ImageByColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D686D3FB1D20B7FE002B75C2 /* UIImage+ImageByColor.m */; };
 		D686D4201D20CBBD002B75C2 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D686D4151D20CBBD002B75C2 /* background.png */; };
 		D686D4211D20CBBD002B75C2 /* collect.png in Resources */ = {isa = PBXBuildFile; fileRef = D686D4161D20CBBD002B75C2 /* collect.png */; };
@@ -217,6 +219,9 @@
 		D66E3E7C1D1FD6F500DB84BF /* MyScorllView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScorllView.m; sourceTree = "<group>"; };
 		D66E3E811D1FEE5700DB84BF /* BigScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigScrollView.h; sourceTree = "<group>"; };
 		D66E3E821D1FEE5700DB84BF /* BigScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigScrollView.m; sourceTree = "<group>"; };
+		D66E6EA51D261F5600534723 /* NewsCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCollectViewController.h; sourceTree = "<group>"; };
+		D66E6EA61D261F5600534723 /* NewsCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCollectViewController.m; sourceTree = "<group>"; };
+		D66E6EA71D261F5600534723 /* NewsCollectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCollectViewController.xib; sourceTree = "<group>"; };
 		D686D3FA1D20B7FE002B75C2 /* UIImage+ImageByColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageByColor.h"; sourceTree = "<group>"; };
 		D686D3FB1D20B7FE002B75C2 /* UIImage+ImageByColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageByColor.m"; sourceTree = "<group>"; };
 		D686D4151D20CBBD002B75C2 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -756,6 +761,9 @@
 				D66AA29C1D1ECCD900045D9E /* UserViewController.h */,
 				D66AA29D1D1ECCD900045D9E /* UserViewController.m */,
 				D66AA29E1D1ECCD900045D9E /* UserViewController.xib */,
+				D66E6EA51D261F5600534723 /* NewsCollectViewController.h */,
+				D66E6EA61D261F5600534723 /* NewsCollectViewController.m */,
+				D66E6EA71D261F5600534723 /* NewsCollectViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -974,6 +982,7 @@
 				D65A07A51D23EF6300DF3593 /* collectCell.xib in Resources */,
 				D6224A551D1E9EDA0048ED57 /* CityViewController.xib in Resources */,
 				D686D4271D20CBBD002B75C2 /* tabbar_icon_news_highlight@2x.png in Resources */,
+				D66E6EA91D261F5600534723 /* NewsCollectViewController.xib in Resources */,
 				D686D43D1D20FB26002B75C2 /* tabbar_icon_map_normal@2x.png in Resources */,
 				D686D4211D20CBBD002B75C2 /* collect.png in Resources */,
 				D6E2AC471D1E681900B18F0E /* MusicListCell.xib in Resources */,
@@ -1048,6 +1057,7 @@
 				D686D4441D216144002B75C2 /* NewsDataManager.m in Sources */,
 				F570BD151D1D6C9A0031CDB3 /* VideoModel.m in Sources */,
 				D64FA1911D1D2B63007DE414 /* README.md in Sources */,
+				D66E6EA81D261F5600534723 /* NewsCollectViewController.m in Sources */,
 				D64FA1AB1D1D2B97007DE414 /* README.md in Sources */,
 				D65E699F1D21081D004286E5 /* SmallPlayer.m in Sources */,
 				D64FA17A1D1D1D95007DE414 /* README.md in Sources */,

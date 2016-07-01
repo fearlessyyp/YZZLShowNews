@@ -12,6 +12,7 @@
 #import "UIImage+ImageByColor.h"
 #import "NewsUrl.h"
 #import "SetCell.h"
+#import "NewsCollectViewController.h"
 
 @interface UserViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -27,7 +28,8 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.translucent = NO;
     
-    [self.userTableView registerNib:[UINib nibWithNibName:@"collectCell" bundle:nil] forCellReuseIdentifier:@"collect"];
+    
+//    [self.userTableView registerNib:[arr firstObject] forCellReuseIdentifier:@"collect"];
     [self.userTableView registerNib:[UINib nibWithNibName:@"SetCell" bundle:nil] forCellReuseIdentifier:@"Set"];
     // 头视图
     [self headForTableView];
@@ -76,10 +78,46 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    
+    
+    
     switch (indexPath.row) {
         case 0: {
-            collectCell *cell1 = [tableView dequeueReusableCellWithIdentifier:@"collect" forIndexPath:indexPath];
+            static NSString *collectCellID = @"collectCellID";
+            collectCell *cell1 = [tableView dequeueReusableCellWithIdentifier:collectCellID];
+            if (!cell1) {
+                // 在xib  Cell 里添加了点击事件
+                // 返回的nib文件里(响应)的对象
+                NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"collectCell" owner:nil options:nil];
+                // 队列顺序
+                cell1 = [arr firstObject];
+                
+                cell1.block = ^(NSInteger num){
+                    NewsCollectViewController * newsCollectVC = [[NewsCollectViewController alloc] init];
+                    switch (num) {
+                        case 1:
+                            
+                            break;
+                        case 2:
+                            
+                            break;
+                        case 3:
+                            
+                            break;
+                        case 4:
+                            
+                            break;
+                            
+                        default:
+                            break;
+                    }
+                    
+                    [self.navigationController pushViewController:newsCollectVC animated:YES];
+                };
+                
+            }
+//            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(newsViewClick)];
+//            [cell1.newsView addGestureRecognizer:tap];
             return cell1;
             break;
         }
@@ -110,6 +148,12 @@
         case 5: {
             SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
             cell.nameLabel.text = @"版本号 : 1.0.0";
+            return cell;
+            break;
+        }
+        case 6: {
+            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
+            cell.nameLabel.text = @"免责声明";
             return cell;
             break;
         }
@@ -167,6 +211,17 @@
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:view];
     }
 }
+
+
+- (IBAction)newsCollectAction:(UITapGestureRecognizer *)sender {
+    NSLog(@"haha");
+}
+
+- (void)newsViewClick {
+    NewsCollectViewController * newsCollectVC = [[NewsCollectViewController alloc] init];
+    [self presentViewController:newsCollectVC animated:YES completion:nil];
+}
+
 
 /*
 #pragma mark - Navigation
