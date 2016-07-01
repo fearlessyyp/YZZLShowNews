@@ -7,7 +7,7 @@
 //
 
 #import "VideoCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 #import <UMSocial.h>
 @interface VideoCell ()
 

@@ -10,7 +10,7 @@
 #import <AFNetworking.h>
 #import "NewsUrl.h"
 #import "NewsImage.h"
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 #import "ToolForHeight.h"
 #import <Masonry.h>
 #import "UIImage+ImageByColor.h"
@@ -43,20 +43,35 @@
 // 详情
 @property (nonatomic, strong) UILabel *noteLabel;
 
+// 存储图片信息
+@property (nonatomic, strong) NSMutableArray *imageArr;
+
 @end
 
 @implementation NewsPhotoSetDetailViewController
+
+#
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
 //    [self.navigationController setNavigationBarHidden:YES];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getImageHeight:) name:@"imageHeight" object:nil];
+    
     // 解析数据
     [self requestData];
-   
-
     
 }
+
+- (void)getImageHeight:(NSNotification *)notification {
+    UIImage *image = [notification userInfo][@"image"];
+    NSLog(@"!!!!!!!!!!%@", image);
+    
+}
+
+
 
 #pragma mark - 解析数据
 - (void)requestData {
@@ -74,10 +89,14 @@
                 [weakSelf.news.photos addObject:newsImage];
             }
             NSLog(@"请求成功");
+            
+           
             // 设置图片滚动视图
             [weakSelf layoutImageScrollView];
+            
             // 设置文字滚动视图
             [weakSelf layoutTextScrollView];
+           
             // 设置返回按钮
 //            [weakSelf layoutBackButton];
             
@@ -112,21 +131,43 @@
     self.imageScrollView.contentSize = CGSizeMake(self.news.photos.count * kScreenSizeWidth, 0);
     [self.view addSubview:self.imageScrollView];
     for (int i = 0; i < self.news.photos.count; i++) {
-        UIImage *image = [self getImageFromURL:[self.news.photos[i] imgurl]];
-        CGFloat height = [ToolForHeight imageHeightWithImage:image];
-
-        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * kScreenSizeWidth, 0, kScreenSizeWidth, height)];
-//        self.imageView.backgroundColor = [UIColor whiteColor];
-        [self.imageView sd_setImageWithURL:[NSURL URLWithString:[self.news.photos[i] imgurl]]];
+//        UIImage *image = [self getImageFromURL:[self.news.photos[i] imgurl]];
+//        CGFloat height = [ToolForHeight imageHeightWithImage:image];
+//        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * kScreenSizeWidth, 0, kScreenSizeWidth, height)];
+//        self.imageView.image = image;
+////        self.imageView.frame = CGRectMake(i * kScreenSizeWidth, 0, kScreenSizeWidth, [ToolForHeight imageHeightWithImage:self.imageView.image]);
+//        self.imageView.center = CGPointMake(i * kScreenSizeWidth + kScreenSizeWidth / 2, self.imageScrollView.frame.size.height / 2 - 64);
+//        [self.imageScrollView addSubview:self.imageView];
+        
+        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * kScreenSizeWidth, 0, kScreenSizeWidth, kScreenSizeHeight)];
+        self.imageView.tag = 400 + i;
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:[self.news.photos[i] imgurl]] placeholderImage:[UIImage imageNamed:@"audionews_play_button"]];
+        
+        self.imageView.frame = CGRectMake(i * kScreenSizeWidth, 0, kScreenSizeWidth, [ToolForHeight imageHeightWithImage:self.imageView.image]);
         self.imageView.center = CGPointMake(i * kScreenSizeWidth + kScreenSizeWidth / 2, self.imageScrollView.frame.size.height / 2 - 64);
         [self.imageScrollView addSubview:self.imageView];
     }
+    
+}
+
+#pragma mark - 从网络上请求图片
+-(UIImage *) getImageFromURL:(NSString *)fileURL {
+    UIImage * result;
+    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
+    result = [UIImage imageWithData:data];
+    NSLog(@"请求图片");
+    return result;
+    
+    //    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    //    [imageView sd_setImageWithURL:[NSURL URLWithString:fileURL]];
+    //    return imageView.image;
 }
 
 #pragma mark - 设置文字滚动视图
 - (void)layoutTextScrollView {
-    self.textScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kScreenSizeHeight - 150, kScreenSizeWidth, 150)];
+    self.textScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kScreenSizeHeight - 200, kScreenSizeWidth, 136)];
     self.textScrollView.delegate = self;
+    
 //    self.textScrollView.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.textScrollView];
     // 配置半透明背景view
@@ -158,19 +199,13 @@
         self.noteLabel.text = [NSString stringWithFormat:@"%@ %@", [self.news.photos[0] imgtitle], [self.news.photos[0] note]];
         self.noteLabel.font = [UIFont systemFontOfSize:kNoteFont];
         [self.backgroundView addSubview:self.noteLabel];
-        self.textScrollView.contentSize = CGSizeMake(kScreenSizeWidth, 40 + noteHeight);
+        self.textScrollView.contentSize = CGSizeMake(kScreenSizeWidth, 40 + self.noteLabel.frame.size.height);
     }
     
 }
 
 
-#pragma mark - 从网络上请求图片
--(UIImage *) getImageFromURL:(NSString *)fileURL {
-    UIImage * result;
-    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
-    result = [UIImage imageWithData:data];
-    return result;
-}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
