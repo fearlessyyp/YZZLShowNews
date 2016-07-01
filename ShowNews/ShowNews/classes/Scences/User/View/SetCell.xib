@@ -17,9 +17,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRG-tz-UA6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="39"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="字号设置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZ9-qq-ULL">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="字号设置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZ9-qq-ULL">
                                 <rect key="frame" x="20" y="0.0" width="324" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -48,6 +48,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="cellButton" destination="HBv-Mh-cWA" id="L5I-3Y-ye9"/>
                 <outlet property="nameLabel" destination="EZ9-qq-ULL" id="Lkr-pY-uVL"/>
             </connections>
             <point key="canvasLocation" x="292" y="292"/>

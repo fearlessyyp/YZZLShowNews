@@ -83,6 +83,7 @@
 		D66E3E831D1FEE5700DB84BF /* BigScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E821D1FEE5700DB84BF /* BigScrollView.m */; };
 		D66E6EA81D261F5600534723 /* NewsCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E6EA61D261F5600534723 /* NewsCollectViewController.m */; };
 		D66E6EA91D261F5600534723 /* NewsCollectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66E6EA71D261F5600534723 /* NewsCollectViewController.xib */; };
+		D66E6EAC1D266D6400534723 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E6EAB1D266D6400534723 /* Simple.m */; };
 		D686D3FC1D20B7FE002B75C2 /* UIImage+ImageByColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D686D3FB1D20B7FE002B75C2 /* UIImage+ImageByColor.m */; };
 		D686D4201D20CBBD002B75C2 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D686D4151D20CBBD002B75C2 /* background.png */; };
 		D686D4211D20CBBD002B75C2 /* collect.png in Resources */ = {isa = PBXBuildFile; fileRef = D686D4161D20CBBD002B75C2 /* collect.png */; };
@@ -271,6 +272,8 @@
 		D66E6EA51D261F5600534723 /* NewsCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCollectViewController.h; sourceTree = "<group>"; };
 		D66E6EA61D261F5600534723 /* NewsCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCollectViewController.m; sourceTree = "<group>"; };
 		D66E6EA71D261F5600534723 /* NewsCollectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCollectViewController.xib; sourceTree = "<group>"; };
+		D66E6EAA1D266D6400534723 /* Simple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simple.h; sourceTree = "<group>"; };
+		D66E6EAB1D266D6400534723 /* Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simple.m; sourceTree = "<group>"; };
 		D686D3FA1D20B7FE002B75C2 /* UIImage+ImageByColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageByColor.h"; sourceTree = "<group>"; };
 		D686D3FB1D20B7FE002B75C2 /* UIImage+ImageByColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageByColor.m"; sourceTree = "<group>"; };
 		D686D4151D20CBBD002B75C2 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -635,6 +638,8 @@
 				D64FA1631D1D1D95007DE414 /* README.md */,
 				D6BA65441D1E2C7B00ECA213 /* Weather.h */,
 				D6BA65451D1E2C7B00ECA213 /* Weather.m */,
+				D66E6EAA1D266D6400534723 /* Simple.h */,
+				D66E6EAB1D266D6400534723 /* Simple.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1181,6 +1186,7 @@
 				F53D262B1D1E6CFD002E0644 /* GiFHUD.m in Sources */,
 				D6E96A9D1D256CC300AF7AF3 /* SetCell.m in Sources */,
 				D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */,
+				D66E6EAC1D266D6400534723 /* Simple.m in Sources */,
 				D64591371D26219E004AA246 /* SDWebImageCompat.m in Sources */,
 				D64591391D26219E004AA246 /* SDWebImageDownloader.m in Sources */,
 				D66E3E831D1FEE5700DB84BF /* BigScrollView.m in Sources */,

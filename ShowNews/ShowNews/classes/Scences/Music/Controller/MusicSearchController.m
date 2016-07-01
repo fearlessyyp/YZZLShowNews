@@ -544,7 +544,13 @@
     return newTaskId;
 }
 
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+//当点击键盘上return按钮的时候调用
+{
+    //代理记录了当前正在工作的UITextField的实例，因此你点击哪个UITextField对象，形参就是哪个UITextField对象
+    [textField resignFirstResponder];//键盘回收代码
+    return YES;
+}
 /*
  #pragma mark - Navigation
  

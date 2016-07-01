@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UILabel+Font.h"
 @interface SetCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *cellImageView;
+
+@property (weak, nonatomic) IBOutlet UIButton *cellButton;
 
 @end
