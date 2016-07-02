@@ -21,14 +21,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wez-Bi-dwZ">
                                 <rect key="frame" x="0.0" y="0.0" width="104" height="89"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E27-Jo-URv">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E27-Jo-URv">
                                         <rect key="frame" x="29" y="10" width="45" height="45"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="E27-Jo-URv" secondAttribute="height" multiplier="1:1" id="RLT-lc-DVO"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZC-Lo-eG1">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZC-Lo-eG1">
                                         <rect key="frame" x="0.0" y="63" width="104" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="YUt-Ss-hSn"/>
@@ -39,6 +39,7 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="xZC-Lo-eG1" secondAttribute="bottom" constant="5" id="Bj0-fY-Gna"/>
                                     <constraint firstItem="E27-Jo-URv" firstAttribute="top" secondItem="Wez-Bi-dwZ" secondAttribute="top" constant="10" id="Mv3-QT-78y"/>
@@ -47,15 +48,18 @@
                                     <constraint firstItem="xZC-Lo-eG1" firstAttribute="leading" secondItem="Wez-Bi-dwZ" secondAttribute="leading" id="gvl-Ca-jwk"/>
                                     <constraint firstItem="E27-Jo-URv" firstAttribute="centerX" secondItem="xZC-Lo-eG1" secondAttribute="centerX" id="i4F-pj-hsL"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="jt2-QR-tHG" appends="YES" id="LaO-4K-XFb"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNB-uz-0qR">
                                 <rect key="frame" x="104" y="0.0" width="103" height="89"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mTn-px-yh2">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mTn-px-yh2">
                                         <rect key="frame" x="29" y="10" width="45" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3U-Kb-czN">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3U-Kb-czN">
                                         <rect key="frame" x="0.0" y="63" width="103" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -63,53 +67,65 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="mTn-px-yh2" firstAttribute="centerX" secondItem="a3U-Kb-czN" secondAttribute="centerX" id="HX8-kW-GnP"/>
                                     <constraint firstItem="a3U-Kb-czN" firstAttribute="leading" secondItem="xNB-uz-0qR" secondAttribute="leading" id="Jo3-tc-xGh"/>
                                     <constraint firstAttribute="trailing" secondItem="a3U-Kb-czN" secondAttribute="trailing" id="gfD-kt-BIZ"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="iYE-o9-wgv" appends="YES" id="7OV-cr-Gx4"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gma-HO-QD3">
                                 <rect key="frame" x="207" y="0.0" width="104" height="89"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zy-xj-m8W">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zy-xj-m8W">
                                         <rect key="frame" x="0.0" y="63" width="104" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6VT-2e-Els">
-                                        <rect key="frame" x="29" y="10" width="45" height="45"/>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6VT-2e-Els">
+                                        <rect key="frame" x="30" y="10" width="45" height="45"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="6VT-2e-Els" firstAttribute="centerX" secondItem="0Zy-xj-m8W" secondAttribute="centerX" id="7T8-HH-frO"/>
                                     <constraint firstAttribute="trailing" secondItem="0Zy-xj-m8W" secondAttribute="trailing" id="8kc-wJ-Dq7"/>
                                     <constraint firstItem="0Zy-xj-m8W" firstAttribute="leading" secondItem="Gma-HO-QD3" secondAttribute="leading" id="yLF-eW-UpQ"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="t6L-TJ-qq0" appends="YES" id="rbI-4c-cCq"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nh8-y4-BM1">
                                 <rect key="frame" x="311" y="0.0" width="103" height="89"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgP-br-RbQ">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgP-br-RbQ">
                                         <rect key="frame" x="0.0" y="63" width="103" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MSj-eB-BiX">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MSj-eB-BiX">
                                         <rect key="frame" x="29" y="10" width="45" height="45"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="MSj-eB-BiX" firstAttribute="centerX" secondItem="jgP-br-RbQ" secondAttribute="centerX" id="JVk-6E-70x"/>
                                     <constraint firstAttribute="trailing" secondItem="jgP-br-RbQ" secondAttribute="trailing" id="XnO-AH-HR7"/>
                                     <constraint firstItem="jgP-br-RbQ" firstAttribute="leading" secondItem="Nh8-y4-BM1" secondAttribute="leading" id="qTI-Fv-YIH"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="kjV-9X-23v" appends="YES" id="G5k-fp-bLt"/>
+                                </connections>
                             </view>
                         </subviews>
                         <constraints>
@@ -141,7 +157,30 @@
                     <constraint firstAttribute="bottom" secondItem="O3h-tN-goH" secondAttribute="bottom" id="ylz-DI-9ET"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="195" y="236"/>
+            <connections>
+                <outlet property="newsView" destination="Wez-Bi-dwZ" id="X4w-hn-QId"/>
+            </connections>
+            <point key="canvasLocation" x="163" y="209"/>
         </tableViewCell>
+        <tapGestureRecognizer id="jt2-QR-tHG">
+            <connections>
+                <action selector="tap:" destination="KGk-i7-Jjw" id="ZDV-Pw-7BW"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="iYE-o9-wgv">
+            <connections>
+                <action selector="videoCollectTap:" destination="KGk-i7-Jjw" id="mwk-xB-6kd"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="t6L-TJ-qq0">
+            <connections>
+                <action selector="musicCollectTap:" destination="KGk-i7-Jjw" id="XrY-GW-PgG"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="kjV-9X-23v">
+            <connections>
+                <action selector="locationCollectTap:" destination="KGk-i7-Jjw" id="RNF-jM-F2v"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

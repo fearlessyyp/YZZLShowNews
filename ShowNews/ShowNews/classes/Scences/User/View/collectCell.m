@@ -20,5 +20,21 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)tap:(id)sender {
+    self.block(1);
+}
+
+- (IBAction)videoCollectTap:(id)sender {
+    self.block(2);
+}
+
+- (IBAction)musicCollectTap:(UITapGestureRecognizer *)sender {
+    self.block(3);
+}
+
+- (IBAction)locationCollectTap:(id)sender {
+    self.block(4);
+}
+
 
 @end
