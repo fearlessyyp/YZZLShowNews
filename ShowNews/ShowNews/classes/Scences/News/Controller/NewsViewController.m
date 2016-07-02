@@ -18,7 +18,7 @@
 #import "NewsFirstViewCell.h"
 #import <SMPageControl.h>
 #import "NewsDetailViewController.h"
-#import "NewsPhotoSetDetailViewController.h"
+#import "NewsPhotoDetailViewController.h"
 #import "NewsSpecialListViewController.h"
 
 typedef NS_ENUM(NSUInteger, NewsType) {
@@ -640,7 +640,7 @@ typedef NS_ENUM(NSUInteger, NewsType) {
             break;
         }
         case NewsTypePhotoSet:{
-            NewsPhotoSetDetailViewController *newsPhotoVC = [[NewsPhotoSetDetailViewController alloc] init];
+            NewsPhotoDetailViewController *newsPhotoVC = [[NewsPhotoDetailViewController alloc] init];
             newsPhotoVC.news = news;
             newsPhotoVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:newsPhotoVC animated:YES];

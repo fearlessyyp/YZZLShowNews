@@ -10,10 +10,18 @@
 #import "NewsUrl.h"
 #import <AFNetworking.h>
 #import "NewsImage.h"
+#import <UMSocial.h>
+#import "DataBaseHandle.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import <MBProgressHUD.h>
 
-@interface NewsDetailViewController ()
+@interface NewsDetailViewController ()<UMSocialUIDelegate>
 @property (nonatomic, strong) AFHTTPSessionManager *session;
 @property (nonatomic, strong) UIWebView *webView;
+/// 是否被收藏
+@property (nonatomic, assign) BOOL isCollect;
+/// 数据库中存储的id
+@property (nonatomic, strong) NSString *objectId;
 @end
 
 @implementation NewsDetailViewController
@@ -119,6 +127,100 @@
         [body replaceOccurrencesOfString:detailImgModel.ref withString:imgHtml options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
     }
     return body;
+}
+
+
+
+#pragma mark - 右按钮
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    UIBarButtonItem *collectItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"newscollect"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(collectItemAction:)];
+    UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"newsshare"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(shareAction:)];
+    self.navigationItem.rightBarButtonItems = @[shareItem, collectItem];
+    // 查询是否被该用户收藏过
+    [self selectFromNewsTable:collectItem];
+}
+
+#pragma mark - 收藏
+- (void)collectItemAction:(UIBarButtonItem *)sender {
+    if (self.isCollect) {
+        // 删除逻辑
+        NSString *cql = @"delete from News where objectId = ?";
+        NSArray *pvalues =  @[self.objectId];
+        [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
+            // 如果 error 为空，说明保存成功
+            if (!error) {
+                // 删除成功
+                sender.image = [[UIImage imageNamed:@"newscollect"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                self.isCollect = NO;
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"取消收藏成功";
+                hud.margin = 10.f;
+                hud.yOffset = 0.f;
+                hud.removeFromSuperViewOnHide = YES;
+                [hud hide:YES afterDelay:1];
+            } else {
+                NSLog(@"~~~~~~error = %@", error);
+            }
+        }];
+        
+    } else {
+        // 存储逻辑
+        AVObject *object = [[DataBaseHandle sharedDataBaseHandle] newsToAVObject:self.news];
+        [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                // 从表中获取数据->objectID
+                [self selectFromNewsTable:sender];
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"收藏成功";
+                hud.margin = 10.f;
+                hud.yOffset = 0.f;
+                hud.removeFromSuperViewOnHide = YES;
+                [hud hide:YES afterDelay:1];
+            } else {
+                NSLog(@"!!!error = %@", error);
+            }
+        }];
+    }
+    
+   
+}
+
+#pragma mark - 分享
+- (void)shareAction:(UIBarButtonItem *)sender {
+    
+    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:self.news.imgsrc];
+    
+    //分享内嵌文字
+    NSString *shareText = [NSString stringWithFormat:@"%@", self.news.title];
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = self.news.shareLink;
+    
+    //分享样式数组
+    NSArray *shareArr = [NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToQQ,UMShareToWechatSession,UMShareToWechatTimeline, nil];
+    
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:UmengAppkey shareText:shareText shareImage:nil shareToSnsNames:shareArr delegate:self];
+    
+}
+
+
+- (void)selectFromNewsTable:(UIBarButtonItem *)collectItem {
+    NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ? and postid = ?", @"News"];
+    NSArray *pvalues =  @[@1, self.news.postid];
+    [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
+        if (!error) {
+            // 操作成功
+            if (result.results.count > 0) {
+                AVObject *obj = result.results[0];
+                self.objectId = obj.objectId;
+                collectItem.image = [[UIImage imageNamed:@"newscollected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                self.isCollect = YES;
+            }
+        } else {
+            NSLog(@"%@", error);
+        }
+    }];
 }
 
 /*

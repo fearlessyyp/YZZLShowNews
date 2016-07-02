@@ -23,6 +23,7 @@
 #import "Music.h"
 #import "UIImageView+WebCache.h"
 #import "Simple.h"
+#import <AVOSCloud/AVOSCloud.h>
 @interface AppDelegate ()<RESideMenuDelegate>
 @property (nonatomic, strong) UITabBarController *rootTVC;
 // 记录当前的系统亮度
@@ -46,8 +47,33 @@
     [self.window makeKeyAndVisible];
     [self settabbarItemTextAttributes];
     self.rootTVC = [[UITabBarController alloc] init];
+    // 创建子控制器
     [self createChildViewControllers];
-//    self.rootTVC.tabBar.backgroundImage = [UIImage imageNamed:@"bg_nav"];
+    // 设置抽屉
+    [self setRESideMenu];
+    // NavigationBar设置
+    [UINavigationBar appearance].barStyle = UIBarStyleBlack;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+     //设置友盟的相关信息
+    [self setup_UMAppKey];
+    
+    // leanCloud设置
+    [self setLeanCloud];
+    return YES;
+}
+
+#pragma mark - 设置leanCloud
+- (void)setLeanCloud {
+    // applicationId 即 App Id，clientKey 是 App Key。
+    [AVOSCloud setApplicationId:@"i4IpGwRm4rQCHeBH12zLBlxt-gzGzoHsz"
+                      clientKey:@"kKMIOipPwcuk5NDM37HQ3YNC"];
+    
+
+}
+
+#pragma mark - 设置抽屉
+- (void)setRESideMenu {
     MusicSearchController *musicVC = [[MusicSearchController alloc] init];
     RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:self.rootTVC
                                                                     leftMenuViewController:nil
@@ -62,13 +88,6 @@
     sideMenuViewController.contentViewInLandscapeOffsetCenterX = [UIScreen mainScreen].bounds.size.width * 0.33;
     sideMenuViewController.contentViewInPortraitOffsetCenterX  = [UIScreen mainScreen].bounds.size.width * 0.33;
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:sideMenuViewController];
-//    self.window.rootViewController = sideMenuViewController;
-    [UINavigationBar appearance].barStyle = UIBarStyleBlack;
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
-    //    //设置友盟的相关信息
-    [self setup_UMAppKey];
-    return YES;
 }
 
 #pragma mark - 设置友盟的相关信息

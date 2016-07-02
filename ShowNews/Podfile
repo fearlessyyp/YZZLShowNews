@@ -8,4 +8,5 @@ pod 'AFNetworking', '~> 3.1.0'
 pod 'Masonry', '~> 1.0.1'
 pod 'SMPageControl', '~> 1.2'
 pod 'UMengSocialCOM', '~> 5.2.1'
+pod 'AVOSCloud', '~> 3.3.5'
 end

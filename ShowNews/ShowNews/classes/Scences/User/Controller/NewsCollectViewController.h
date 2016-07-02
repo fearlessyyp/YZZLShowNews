@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewsCollectViewController : UIViewController
+@interface NewsCollectViewController : BaseViewController
 
 @end
