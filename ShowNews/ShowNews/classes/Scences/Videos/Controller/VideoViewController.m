@@ -182,12 +182,11 @@
         //UIImage *shareImage = ;
         
         //分享样式数组
-        NSArray *shareArr = [NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToQQ,UMShareToWechatSession,UMShareToWechatTimeline, nil];
+        NSArray *shareArr = [NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToRenren,UMShareToDouban,UMShareToEmail,UMShareToSms, nil];
         
         [UMSocialSnsService presentSnsIconSheetView:self appKey:UmengAppkey shareText:shareText shareImage:[UIImage imageNamed:@"2.jpg"] shareToSnsNames:shareArr delegate:self];
 
     };
-    
     
     return cell;
 }
