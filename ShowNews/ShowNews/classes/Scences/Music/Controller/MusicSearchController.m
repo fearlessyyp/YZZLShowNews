@@ -18,8 +18,8 @@
 #import "UIImageView+WebCache.h"
 #import <AVFoundation/AVFoundation.h>
 #import <MJRefresh.h>
-#import <UMSocial.h>
-@interface MusicSearchController ()<UITableViewDelegate, UITableViewDataSource, UMSocialUIDelegate>
+
+@interface MusicSearchController ()<UITableViewDelegate, UITableViewDataSource>
 /// 搜索栏
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 
@@ -76,26 +76,12 @@
      [self.view endEditing:YES];  
 }
 
+#warning 111
+// 收藏按钮
 - (IBAction)shareButton:(UIButton *)sender {
-    [UMSocialData defaultData].extConfig.title = @"分享的title";
-    [UMSocialData defaultData].extConfig.qqData.url = @"http://baidu.com";
-    [UMSocialSnsService presentSnsIconSheetView:self
-                                         appKey:@"5772429367e58e338a0007e7"
-                                      shareText:@"友盟社会化分享让您快速实现分享等社会化功能，http://umeng.com/social"
-                                     shareImage:[UIImage imageNamed:@"icon"]
-                                shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToRenren,UMShareToDouban,UMShareToEmail,UMShareToSms]
-                                       delegate:self];
+    
 }
 
--(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
-{
-    //根据`responseCode`得到发送结果,如果分享成功
-    if(response.responseCode == UMSResponseCodeSuccess)
-    {
-        //得到分享到的平台名
-        NSLog(@"share to sns name is %@",[[response.data allKeys] objectAtIndex:0]);
-    }
-}
 
 - (void)viewDidAppear:(BOOL)animated {
     // button间的约束宽度

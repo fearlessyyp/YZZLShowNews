@@ -117,6 +117,8 @@
 		D6E2AC551D1E878B00B18F0E /* MusicTimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC541D1E878B00B18F0E /* MusicTimeFormatter.m */; };
 		D6E4996C1D240E3200892D54 /* NewsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4996B1D240E3200892D54 /* NewsImage.m */; };
 		D6E4996E1D240ED300892D54 /* Details.css in Resources */ = {isa = PBXBuildFile; fileRef = D6E4996D1D240ED300892D54 /* Details.css */; };
+		D6E954FD1D27BD400063E850 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E954FB1D27BD400063E850 /* LoginViewController.m */; };
+		D6E954FE1D27BD400063E850 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E954FC1D27BD400063E850 /* LoginViewController.xib */; };
 		D6E96A9D1D256CC300AF7AF3 /* SetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E96A9B1D256CC300AF7AF3 /* SetCell.m */; };
 		D6E96A9E1D256CC300AF7AF3 /* SetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E96A9C1D256CC300AF7AF3 /* SetCell.xib */; };
 		D6EA5E9E1D1D2DCF006B6C33 /* NewsPhotoSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5E9C1D1D2DCF006B6C33 /* NewsPhotoSetCell.m */; };
@@ -325,6 +327,9 @@
 		D6E4996A1D240E3200892D54 /* NewsImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsImage.h; sourceTree = "<group>"; };
 		D6E4996B1D240E3200892D54 /* NewsImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsImage.m; sourceTree = "<group>"; };
 		D6E4996D1D240ED300892D54 /* Details.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Details.css; sourceTree = "<group>"; };
+		D6E954FA1D27BD400063E850 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		D6E954FB1D27BD400063E850 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D6E954FC1D27BD400063E850 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		D6E96A9A1D256CC300AF7AF3 /* SetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCell.h; sourceTree = "<group>"; };
 		D6E96A9B1D256CC300AF7AF3 /* SetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCell.m; sourceTree = "<group>"; };
 		D6E96A9C1D256CC300AF7AF3 /* SetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetCell.xib; sourceTree = "<group>"; };
@@ -859,6 +864,9 @@
 				D66E6EA51D261F5600534723 /* NewsCollectViewController.h */,
 				D66E6EA61D261F5600534723 /* NewsCollectViewController.m */,
 				D66E6EA71D261F5600534723 /* NewsCollectViewController.xib */,
+				D6E954FA1D27BD400063E850 /* LoginViewController.h */,
+				D6E954FB1D27BD400063E850 /* LoginViewController.m */,
+				D6E954FC1D27BD400063E850 /* LoginViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1068,6 +1076,7 @@
 				D6E2AC4C1D1E873600B18F0E /* PlayViewController.xib in Resources */,
 				D6D1BF941D22C1C60023F6FC /* p1156430977.jpg in Resources */,
 				F5D2E3641D20BE9500D297A3 /* audionews_play_button@2x.png in Resources */,
+				D6E954FE1D27BD400063E850 /* LoginViewController.xib in Resources */,
 				D64FA11E1D1D1C92007DE414 /* Assets.xcassets in Resources */,
 				F5D2E36A1D20BEBD00D297A3 /* tabbar_icon_media_normal@2x.png in Resources */,
 				D66AA2961D1EC4BD00045D9E /* icon.png in Resources */,
@@ -1219,6 +1228,7 @@
 				D6E2AC421D1E5E0200B18F0E /* Music.m in Sources */,
 				D6E261871D1FEAA500F8570C /* GDataXMLNode.m in Sources */,
 				D645913D1D26219E004AA246 /* UIButton+WebCache.m in Sources */,
+				D6E954FD1D27BD400063E850 /* LoginViewController.m in Sources */,
 				D64FA18F1D1D2B63007DE414 /* README.md in Sources */,
 				D64FA17E1D1D1D95007DE414 /* README.md in Sources */,
 				F5D2E3711D212C1700D297A3 /* UIButton+CellButton.m in Sources */,
