@@ -11,8 +11,9 @@
 #import "PlayerManager.h"
 #import "UIImageView+WebCache.h"
 #import "Music.h"
+#import <UMSocial.h>
 
-@interface PlayViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface PlayViewController ()<UITableViewDataSource, UITableViewDelegate, UMSocialUIDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewWidth;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstWith;
@@ -31,6 +32,9 @@
 @property (nonatomic, strong) NSMutableArray *timeForLyric;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (nonatomic, copy) NSString *musicUrl;
+
 
 
 @end
@@ -151,7 +155,7 @@ static PlayViewController *playVC = nil;
         
         NSLog(@"++++++++++++++%@", musci.picUrl);
         weakSelf.titleLabel.text = musci.musicName;
-       
+        weakSelf.musicUrl = musci.mp3Url;
         
         //刷新TableView
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -250,6 +254,35 @@ static PlayViewController *playVC = nil;
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     return cell;
 }
+
+// 分享按钮
+- (IBAction)shareButtonClick:(UIButton *)sender {
+    [UMSocialData defaultData].extConfig.title = @"朝我看提供的音乐";
+    [UMSocialData defaultData].extConfig.qqData.url = self.musicUrl;
+    NSString *shareStr = [NSString stringWithFormat:@"%@%@", self.titleLabel.text, _musicUrl];
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"5772429367e58e338a0007e7"
+                                      shareText:shareStr
+                                     shareImage:_musicPic.image
+                                shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToRenren,UMShareToDouban,UMShareToEmail,UMShareToSms]
+                                       delegate:self];
+}
+
+
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
+{
+    //根据`responseCode`得到发送结果,如果分享成功
+    if(response.responseCode == UMSResponseCodeSuccess)
+    {
+        //得到分享到的平台名
+        NSLog(@"share to sns name is %@",[[response.data allKeys] objectAtIndex:0]);
+    }
+}
+
+// 收藏按钮
+- (IBAction)collectButtonClick:(UIButton *)sender {
+}
+
 
 // 返回按钮
 - (IBAction)backButtonClick:(UIButton *)sender {

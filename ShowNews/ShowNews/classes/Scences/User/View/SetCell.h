@@ -13,4 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *cellButton;
 
+@property (weak, nonatomic) IBOutlet UISwitch *cellSwitch;
+
 @end
