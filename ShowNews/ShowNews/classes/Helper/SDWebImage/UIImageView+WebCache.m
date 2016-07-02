@@ -60,6 +60,10 @@ static char TAG_ACTIVITY_SHOW;
 
         __weak __typeof(self)wself = self;
         id <SDWebImageOperation> operation = [SDWebImageManager.sharedManager downloadImageWithURL:url options:options progress:progressBlock completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            
+#warning 添加了一个通知中心
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"imageHeight" object:nil userInfo:@{@"image" : image}];
+            
             [wself removeActivityIndicator];
             if (!wself) return;
             dispatch_main_sync_safe(^{

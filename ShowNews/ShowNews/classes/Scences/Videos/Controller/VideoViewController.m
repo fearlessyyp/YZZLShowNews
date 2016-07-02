@@ -135,12 +135,15 @@
  
     __weak typeof(self) weakself = self;
     [[RequestHelper new] requestWithUrl:NEWS_VIDEO_LIST_URL WithSuccessBlock:^(id data) {
-        for (NSDictionary *dict in data[@"V9LG4B3A0"]) {
-            VideoModel *newModel = [[VideoModel alloc] init];
-            [newModel setValuesForKeysWithDictionary:dict];
-            [weakself.newMarray addObject:newModel];
-            [weakself.privateTableView reloadData];
+        if (data != nil) {
+            for (NSDictionary *dict in data[@"V9LG4B3A0"]) {
+                VideoModel *newModel = [[VideoModel alloc] init];
+                [newModel setValuesForKeysWithDictionary:dict];
+                [weakself.newMarray addObject:newModel];
+                [weakself.privateTableView reloadData];
+            }
         }
+       
     } failBlock:^(NSError *err) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;

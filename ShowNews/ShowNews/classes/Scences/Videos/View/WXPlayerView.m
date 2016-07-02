@@ -12,7 +12,7 @@
 #import "WXPlayerView.h"
 static void *PlayViewCMTimeValue = &PlayViewCMTimeValue;
 static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContext;
-
+#import "PlayerManager.h"
 #import <MBProgressHUD.h>
 @interface WXPlayerView ()<UIGestureRecognizerDelegate>
 @property (nonatomic,assign)CGPoint firstPoint;
@@ -271,7 +271,8 @@ static WXPlayerView *view = nil;
                           options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                           context:PlayViewStatusObservationContext];
     
-//    
+//
+    
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appwillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
@@ -365,18 +366,24 @@ static WXPlayerView *view = nil;
             [self setCurrentTime:0.f];
         sender.selected = NO;
         [self.player play];
+#pragma mark  - 音乐停止
+        [[PlayerManager sharePlayer] pause];
+
     } else {
         sender.selected = YES;
         [self.player pause];
+#pragma mark - 音乐播放
+//        [[PlayerManager sharePlayer] musicPlay];
     }
     
     //    CMTime time = [self.player currentTime];
 }
 -(void)play{
     [self PlayOrPause:self.playOrPauseBtn];
-}
+   }
 -(void)pause{
     [self PlayOrPause:self.playOrPauseBtn];
+    
 }
 #pragma mark
 #pragma mark - 单击手势方法
@@ -447,8 +454,11 @@ static WXPlayerView *view = nil;
     [weakSelf.player seekToTime:kCMTimeZero completionHandler:^(BOOL finished) {
         [weakSelf.progressSlider setValue:0.0 animated:YES];
         weakSelf.playOrPauseBtn.selected = NO;
-    }];
+          }];
+    [[PlayerManager sharePlayer] pause];
+
 }
+
 
 
 #pragma mark--开始点击sidle
@@ -459,12 +469,17 @@ static WXPlayerView *view = nil;
 #pragma mark - 播放进度
 - (void)updateProgress:(UISlider *)slider{
     self.isDragingSlider = NO;
+    //跳转进度
     [self.player seekToTime:CMTimeMakeWithSeconds(slider.value, 1)];
     
 }
 
+// KVO观察者
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     /* AVPlayerItem "status" property value observer. */
+    if (change == nil) {
+        return;
+    }
     if (context == PlayViewStatusObservationContext)
     {
         AVPlayerStatus status = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
@@ -523,8 +538,13 @@ static WXPlayerView *view = nil;
                 
             case AVPlayerStatusFailed:
             {
-               
-                [HUD show:YES];
+                UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+                button.frame = CGRectMake(0, 100, 200, 40);
+                [button setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+                [button setTitle:@"加载失败" forState:UIControlStateNormal];
+                [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+                [self addSubview:button];
+                               //[HUD show:YES];
                 
             }
                 break;
@@ -540,6 +560,17 @@ static WXPlayerView *view = nil;
         self.bufferProgressView.progress = progressValue;
     }
 }
+
+- (void)buttonAction:(UIButton *)sender
+{
+    AVPlayerItem *playerItem = [self.player currentItem];
+    //    NSLog(@"%ld",playerItem.status);
+    if (playerItem.status == AVPlayerItemStatusReadyToPlay){
+        [self.player play];
+
+        }
+}
+
 #pragma mark
 #pragma mark finishedPlay
 - (void)finishedPlay:(NSTimer *)timer{
@@ -929,5 +960,7 @@ static WXPlayerView *view = nil;
     // Drawing code
 }
 */
+
+
 
 @end
