@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^Block)(NSInteger);
+
 @interface collectCell : UITableViewCell
+
+
+@property (nonatomic, strong) Block block;
+
+@property (weak, nonatomic) IBOutlet UIView *newsView;
+
+
+
 
 @end

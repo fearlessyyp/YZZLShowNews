@@ -17,26 +17,25 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRG-tz-UA6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="39"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="字号设置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZ9-qq-ULL">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="字号设置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZ9-qq-ULL">
                                 <rect key="frame" x="20" y="0.0" width="324" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Osn-g9-n6I">
-                                <rect key="frame" x="354" y="0.0" width="40" height="39"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBv-Mh-cWA">
+                                <rect key="frame" x="354" y="0.0" width="45" height="39"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EZ9-qq-ULL" firstAttribute="leading" secondItem="KRG-tz-UA6" secondAttribute="leading" constant="20" id="4uM-GD-Pp9"/>
                             <constraint firstAttribute="trailing" secondItem="EZ9-qq-ULL" secondAttribute="trailing" constant="70" id="6IU-rE-Wv8"/>
-                            <constraint firstItem="Osn-g9-n6I" firstAttribute="top" secondItem="KRG-tz-UA6" secondAttribute="top" id="7Kq-W3-pZA"/>
-                            <constraint firstAttribute="trailing" secondItem="Osn-g9-n6I" secondAttribute="trailing" constant="20" id="A1m-uL-iSQ"/>
-                            <constraint firstAttribute="bottom" secondItem="Osn-g9-n6I" secondAttribute="bottom" id="HYV-DI-TWo"/>
+                            <constraint firstAttribute="bottom" secondItem="HBv-Mh-cWA" secondAttribute="bottom" id="T7q-XG-Pwh"/>
+                            <constraint firstItem="HBv-Mh-cWA" firstAttribute="top" secondItem="KRG-tz-UA6" secondAttribute="top" id="UA3-jh-Yem"/>
+                            <constraint firstAttribute="trailing" secondItem="HBv-Mh-cWA" secondAttribute="trailing" constant="15" id="ewo-Or-f6k"/>
                             <constraint firstItem="EZ9-qq-ULL" firstAttribute="top" secondItem="KRG-tz-UA6" secondAttribute="top" id="ksv-vd-f93"/>
-                            <constraint firstItem="Osn-g9-n6I" firstAttribute="leading" secondItem="EZ9-qq-ULL" secondAttribute="trailing" constant="10" id="mfX-aL-hPX"/>
+                            <constraint firstItem="HBv-Mh-cWA" firstAttribute="leading" secondItem="EZ9-qq-ULL" secondAttribute="trailing" constant="10" id="sQV-nA-5wJ"/>
                             <constraint firstAttribute="bottom" secondItem="EZ9-qq-ULL" secondAttribute="bottom" id="zuJ-Vz-TaD"/>
                         </constraints>
                     </view>
@@ -49,7 +48,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="cellImageView" destination="Osn-g9-n6I" id="BGF-iJ-fAa"/>
+                <outlet property="cellButton" destination="HBv-Mh-cWA" id="L5I-3Y-ye9"/>
                 <outlet property="nameLabel" destination="EZ9-qq-ULL" id="Lkr-pY-uVL"/>
             </connections>
             <point key="canvasLocation" x="292" y="292"/>

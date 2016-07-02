@@ -22,14 +22,23 @@
 #import "PlayerManager.h"
 #import "Music.h"
 #import "UIImageView+WebCache.h"
+#import "Simple.h"
 @interface AppDelegate ()<RESideMenuDelegate>
 @property (nonatomic, strong) UITabBarController *rootTVC;
+// 记录当前的系统亮度
+@property (nonatomic, assign) float currentBrightness;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // 记录当前的系统亮度
+    _currentBrightness = [UIScreen mainScreen].brightness;
+    if ([Simple sharedSimple].moon == 1) {
+        [UIScreen mainScreen].brightness = 0.2;
+    }
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     // 设置百度地图sdk
     [self setBaiduMap];
@@ -143,6 +152,7 @@
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [[UIScreen mainScreen] setBrightness:_currentBrightness];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -152,6 +162,9 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    if ([Simple sharedSimple].moon == 1) {
+        [UIScreen mainScreen].brightness = 0.2;
+    }
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
