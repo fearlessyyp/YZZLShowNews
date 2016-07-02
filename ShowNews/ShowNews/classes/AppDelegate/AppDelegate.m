@@ -82,7 +82,7 @@
     // 将在新浪微博注册的应用appkey、redirectURL替换下面参数，并在info.plist的URL Scheme中相应添加wb+appkey，如"wb3921700954"，详情请参考官方文档。
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"2280572209"
                                               secret:@"1047a3dd53f079493337fad696dad8fc"
-                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+                                         RedirectURL:@"http://baidu.com"];
     
     //    //设置分享到QQ空间的应用Id，和分享url 链接
     [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.umeng.com/social"];

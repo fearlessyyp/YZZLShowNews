@@ -83,7 +83,7 @@
                                                     </constraints>
                                                     <state key="normal" image="action_love@2x.png"/>
                                                     <connections>
-                                                        <action selector="collectButtonClick:" destination="-1" eventType="touchUpInside" id="eE5-hm-5kZ"/>
+                                                        <action selector="shareButton:" destination="-1" eventType="touchUpInside" id="ORa-qZ-yoj"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
