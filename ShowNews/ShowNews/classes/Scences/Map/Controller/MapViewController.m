@@ -31,6 +31,7 @@
     }
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [_mapView viewWillDisappear];
     _mapView.delegate = nil; // 不用时，置nil
     _searcher.delegate = nil;      // 不使用时, 至nil

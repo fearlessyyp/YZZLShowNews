@@ -269,7 +269,7 @@ typedef NS_ENUM(NSUInteger, NewsType) {
 
 #pragma mark - 返回cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-     News *news = [[News alloc] init];
+     News *news;
     if (tableView == self.bigScrollView.headlineTableView) {
         news = self.allHeadlineArr[indexPath.row];
         if (self.allHeadlineArr.count > 0) {
@@ -585,7 +585,7 @@ typedef NS_ENUM(NSUInteger, NewsType) {
 // 头条
 - (void)headlineTapGestureAction:(UITapGestureRecognizer *)tap {
     int temp = self.headlineScrollView.contentOffset.x / kScreenSizeWidth;
-    News *news = [[News alloc] init];
+    News *news;
     if (temp == 0) {
        news = self.headLineScrollArr[self.headLineScrollArr.count - 1];
     } else if (temp > 0 && temp < self.headLineScrollArr.count + 1) {

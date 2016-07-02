@@ -14,6 +14,7 @@
 #import "ToolForHeight.h"
 #import <Masonry.h>
 #import "UIImage+ImageByColor.h"
+#import <MBProgressHUD.h>
 
 #define kSetNameFont 14
 #define kNoteFont 12
@@ -44,33 +45,111 @@
 @property (nonatomic, strong) UILabel *noteLabel;
 
 // 存储图片信息
-@property (nonatomic, strong) NSMutableArray *imageArr;
+@property (nonatomic, strong) NSMutableDictionary *imageDict;
+
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
 
 @implementation NewsPhotoSetDetailViewController
 
-#
-
+#pragma mark - 懒加载
+- (NSMutableDictionary *)imageDict {
+    if (!_imageDict) {
+        _imageDict = [NSMutableDictionary dictionary];
+    }
+    return _imageDict;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
 //    [self.navigationController setNavigationBarHidden:YES];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getImageHeight:) name:@"imageHeight" object:nil];
+    // 注册通知中心
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getImageHeight:) name:@"imageHeight" object:nil];
+
     
+    // 设置scrollViews
+    [self setScrollViews];
+
     // 解析数据
     [self requestData];
     
 }
 
-- (void)getImageHeight:(NSNotification *)notification {
-    UIImage *image = [notification userInfo][@"image"];
-    NSLog(@"!!!!!!!!!!%@", image);
+
+#pragma mark - 设置ScrollViews
+- (void)setScrollViews {
+    self.imageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenSizeWidth, kScreenSizeHeight)];
+    //    self.imageScrollView.backgroundColor = [UIColor whiteColor];
+    self.imageScrollView.pagingEnabled = YES;
+    self.imageScrollView.delegate = self;
+    [self.view addSubview:self.imageScrollView];
+    
+    
+    self.textScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kScreenSizeHeight - 200, kScreenSizeWidth, 136)];
+    self.textScrollView.delegate = self;
+    
+    //    self.textScrollView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.textScrollView];
+    // 配置半透明背景view
+    self.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenSizeWidth, kScreenSizeHeight)];
+    self.backgroundView.backgroundColor = NEWS_COLOR(0, 0, 0, 0.4);
+    [self.textScrollView addSubview:self.backgroundView];
+    // 配置小标题label
+    self.setNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, kScreenSizeWidth - 10 - kPageWidth, 20)];
+    //    self.setNameLabel.backgroundColor = [UIColor purpleColor];
+    self.setNameLabel.textColor = [UIColor whiteColor];
+    self.setNameLabel.font = [UIFont systemFontOfSize:kSetNameFont];
+    [self.backgroundView addSubview:self.setNameLabel];
+    // 配置页数label
+    self.imgsumLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.setNameLabel.frame), 0, kPageWidth, 20)];
+    self.imgsumLabel.textColor = [UIColor whiteColor];
+    self.imgsumLabel.font = [UIFont systemFontOfSize:kNoteFont];
+    self.imgsumLabel.textAlignment = NSTextAlignmentRight;
+    [self.backgroundView addSubview:self.imgsumLabel];
+    
+    self.hud = [[MBProgressHUD alloc] initWithView:self.imageScrollView];
+    [self.hud show:YES];
     
 }
 
+
+//- (void)getImageHeight:(NSNotification *)notification {
+//    NSString *strT = [notification userInfo][@"url"];
+//    [self.imageDict setObject:[notification userInfo][@"image"] forKey:[NSString stringWithFormat:@"%@",strT]];
+//    
+//    
+//    if ([self.imageDict allKeys].count == self.news.photos.count) {
+//        for (int i = 0; i < self.news.photos.count; i++) {
+//            UIImageView *imageView = [self.imageScrollView viewWithTag:(400 + i)];
+//            NSString *str = [self.news.photos[i] imgurl];
+//            UIImage *img = [self.imageDict objectForKey:str];
+//            imageView.frame = CGRectMake(i * kScreenSizeWidth, 0, kScreenSizeWidth, [ToolForHeight imageHeightWithImage:img]);
+//            imageView.center = CGPointMake(i * kScreenSizeWidth + kScreenSizeWidth / 2, self.imageScrollView.frame.size.height / 2 - 64);
+//        }
+//        [self.hud hide:YES];
+//    }
+//}
+//
+
+
+#pragma mark - scrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if (scrollView == self.imageScrollView) {
+        int temp = self.imageScrollView.contentOffset.x / kScreenSizeWidth;
+        
+        UIImageView *imageView = [self.imageScrollView viewWithTag:(400 + temp)];
+        
+        
+        self.imgsumLabel.text = [NSString stringWithFormat:@"%d/%@", temp + 1, self.news.imgsum];
+        self.noteLabel.text = [NSString stringWithFormat:@"%@ %@", [self.news.photos[temp] imgtitle], [self.news.photos[temp] note]];
+        CGFloat noteHeight = [ToolForHeight textHeightWithText:[NSString stringWithFormat:@"%@ %@", [self.news.photos[temp] imgtitle], [self.news.photos[temp] note]] font:[UIFont systemFontOfSize:kNoteFont] width:kScreenSizeWidth - 10];
+        self.noteLabel.frame = CGRectMake(5, 20, kScreenSizeWidth - 10, 20 + noteHeight);
+        self.textScrollView.contentSize = CGSizeMake(kScreenSizeWidth, 40 + self.noteLabel.frame.size.height);
+    }
+}
 
 
 #pragma mark - 解析数据
@@ -89,17 +168,11 @@
                 [weakSelf.news.photos addObject:newsImage];
             }
             NSLog(@"请求成功");
-            
-           
             // 设置图片滚动视图
             [weakSelf layoutImageScrollView];
-            
             // 设置文字滚动视图
             [weakSelf layoutTextScrollView];
            
-            // 设置返回按钮
-//            [weakSelf layoutBackButton];
-            
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"请求失败");
         }];
@@ -108,14 +181,6 @@
 
 }
 
-#pragma mark - 设置返回按钮
-- (void)layoutBackButton {
-    self.backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.backButton.frame = CGRectMake(20, 20, 40, 40);
-    [self.backButton setTitle:@"返回" forState:UIControlStateNormal];
-    [self.backButton addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.backButton];
-}
 
 #pragma mark - 返回按钮点击事件
 - (void)backButtonAction:(UIButton *)sender {
@@ -124,68 +189,35 @@
 
 #pragma mark - 设置图片滚动视图
 - (void)layoutImageScrollView {
-    self.imageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenSizeWidth, kScreenSizeHeight)];
-//    self.imageScrollView.backgroundColor = [UIColor whiteColor];
-    self.imageScrollView.pagingEnabled = YES;
-    self.imageScrollView.delegate = self;
     self.imageScrollView.contentSize = CGSizeMake(self.news.photos.count * kScreenSizeWidth, 0);
-    [self.view addSubview:self.imageScrollView];
     for (int i = 0; i < self.news.photos.count; i++) {
-//        UIImage *image = [self getImageFromURL:[self.news.photos[i] imgurl]];
-//        CGFloat height = [ToolForHeight imageHeightWithImage:image];
-//        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * kScreenSizeWidth, 0, kScreenSizeWidth, height)];
-//        self.imageView.image = image;
-////        self.imageView.frame = CGRectMake(i * kScreenSizeWidth, 0, kScreenSizeWidth, [ToolForHeight imageHeightWithImage:self.imageView.image]);
-//        self.imageView.center = CGPointMake(i * kScreenSizeWidth + kScreenSizeWidth / 2, self.imageScrollView.frame.size.height / 2 - 64);
-//        [self.imageScrollView addSubview:self.imageView];
-        
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * kScreenSizeWidth, 0, kScreenSizeWidth, kScreenSizeHeight)];
         self.imageView.tag = 400 + i;
-        [self.imageView sd_setImageWithURL:[NSURL URLWithString:[self.news.photos[i] imgurl]] placeholderImage:[UIImage imageNamed:@"audionews_play_button"]];
-        
-        self.imageView.frame = CGRectMake(i * kScreenSizeWidth, 0, kScreenSizeWidth, [ToolForHeight imageHeightWithImage:self.imageView.image]);
+//        [self.imageView sd_setImageWithURL:[NSURL URLWithString:[self.news.photos[i] imgurl]] placeholderImage:[UIImage imageWithColor:NEWS_COLOR(0, 0, 0, 1)]];
+        NSLog(@"~~~~~~~~~~~~~~~~~~~~%@", [self.news.photos[i] imgurl]);
+        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.imageView.center = CGPointMake(i * kScreenSizeWidth + kScreenSizeWidth / 2, self.imageScrollView.frame.size.height / 2 - 64);
         [self.imageScrollView addSubview:self.imageView];
     }
     
 }
 
-#pragma mark - 从网络上请求图片
--(UIImage *) getImageFromURL:(NSString *)fileURL {
-    UIImage * result;
-    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
-    result = [UIImage imageWithData:data];
-    NSLog(@"请求图片");
-    return result;
-    
-    //    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    //    [imageView sd_setImageWithURL:[NSURL URLWithString:fileURL]];
-    //    return imageView.image;
-}
+//#pragma mark - 从网络上请求图片
+//-(UIImage *) getImageFromURL:(NSString *)fileURL {
+//    UIImage * result;
+//    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
+//    result = [UIImage imageWithData:data];
+//    NSLog(@"请求图片");
+//    return result;
+//    
+//    //    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+//    //    [imageView sd_setImageWithURL:[NSURL URLWithString:fileURL]];
+//    //    return imageView.image;
+//}
 
 #pragma mark - 设置文字滚动视图
 - (void)layoutTextScrollView {
-    self.textScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kScreenSizeHeight - 200, kScreenSizeWidth, 136)];
-    self.textScrollView.delegate = self;
     
-//    self.textScrollView.backgroundColor = [UIColor redColor];
-    [self.view addSubview:self.textScrollView];
-    // 配置半透明背景view
-    self.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenSizeWidth, kScreenSizeHeight)];
-    self.backgroundView.backgroundColor = NEWS_COLOR(0, 0, 0, 0.4);
-    [self.textScrollView addSubview:self.backgroundView];
-    // 配置小标题label
-    self.setNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, kScreenSizeWidth - 10 - kPageWidth, 20)];
-//    self.setNameLabel.backgroundColor = [UIColor purpleColor];
-    self.setNameLabel.textColor = [UIColor whiteColor];
-    self.setNameLabel.font = [UIFont systemFontOfSize:kSetNameFont];
-    [self.backgroundView addSubview:self.setNameLabel];
-    // 配置页数label
-    self.imgsumLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.setNameLabel.frame), 0, kPageWidth, 20)];
-    self.imgsumLabel.textColor = [UIColor whiteColor];
-    self.imgsumLabel.font = [UIFont systemFontOfSize:kNoteFont];
-    self.imgsumLabel.textAlignment = NSTextAlignmentRight;
-    [self.backgroundView addSubview:self.imgsumLabel];
    
     if (self.news.photos.count > 0) {
         self.setNameLabel.text = self.news.setname;
@@ -212,5 +244,9 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:NEWS_COLOR(0, 0, 0, 1)] forBarMetrics:UIBarMetricsDefault];
 }
 
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end

@@ -157,7 +157,7 @@
     self.listResultTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         
         self.page++;
-        NSLog(@"==========================%ld", self.page);
+        NSLog(@"==========================%ld", (long)self.page);
         [self requestData];
         
     }];

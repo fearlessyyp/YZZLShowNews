@@ -68,7 +68,7 @@
 {
     __weak typeof (self)weakSelf = self;
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:NES_VIDEO_DOWN_URL(self.page) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:NES_VIDEO_DOWN_URL((long)self.page) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
          NSLog(@"下载的进度");
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 
@@ -195,7 +195,7 @@
         [self.currentCell.playBtn.superview bringSubviewToFront:self.currentCell.playBtn];
     }
     _currentIndexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
-    NSLog(@"currentIndexPath.row = %ld",_currentIndexPath.row);
+    NSLog(@"currentIndexPath.row = %ld",(long)_currentIndexPath.row);
     if ([UIDevice currentDevice].systemVersion.floatValue>=8||[UIDevice currentDevice].systemVersion.floatValue<7) {
         self.currentCell = (VideoCell *)sender.superview.superview;
     }else{//ios7系统 UITableViewCell上多了一个层级UITableViewCellScrollView
