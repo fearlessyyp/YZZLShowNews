@@ -14,6 +14,8 @@ static void *PlayViewCMTimeValue = &PlayViewCMTimeValue;
 static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContext;
 #import "PlayerManager.h"
 #import <MBProgressHUD.h>
+#import <AFNetworking.h>
+#import <UIKit/UIKit.h>
 @interface WXPlayerView ()<UIGestureRecognizerDelegate>
 @property (nonatomic,assign)CGPoint firstPoint;
 @property (nonatomic,assign)CGPoint secondPoint;
@@ -540,6 +542,7 @@ static WXPlayerView *view = nil;
             {
                 UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
                 button.frame = CGRectMake(0, 100, 200, 40);
+                
                 [button setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
                 [button setTitle:@"加载失败" forState:UIControlStateNormal];
                 [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -563,13 +566,47 @@ static WXPlayerView *view = nil;
 
 - (void)buttonAction:(UIButton *)sender
 {
-    AVPlayerItem *playerItem = [self.player currentItem];
-    //    NSLog(@"%ld",playerItem.status);
-    if (playerItem.status == AVPlayerItemStatusReadyToPlay){
-        [self.player play];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    // 接下来会判断当前是WiFi状态还是3g状态,网络不可用状态
+         [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+                 switch (status) {
+                             case AFNetworkReachabilityStatusUnknown:
+                                NSLog(@"当前网络处于未知状态");
+                               break;
+                           case AFNetworkReachabilityStatusNotReachable:
+                                 NSLog(@"当前网络处于未链接状态");
+                                 break;
+                             case AFNetworkReachabilityStatusReachableViaWWAN:
+                                 NSLog(@"手机流量网络");
+                                 break;
+                     case AFNetworkReachabilityStatusReachableViaWiFi: {
+                         NSLog(@"wifi状态");
+                         
+                         AVPlayerItem *playerItem = [self.player currentItem];
+                         //    NSLog(@"%ld",playerItem.status);
+                         if (playerItem.status == AVPlayerItemStatusFailed){
+                             [self.player play];
 
-        }
+                      
+
+                         }
+                     }
+                                 break;
+                             default:
+                                 break;
+                     }
+             }];
+
 }
+
+
+//AVPlayerItem *playerItem = [self.player currentItem];
+////    NSLog(@"%ld",playerItem.status);
+//if (playerItem.status == AVPlayerItemStatusReadyToPlay){
+//    [self.player play];
+
+//}
+
 
 #pragma mark
 #pragma mark finishedPlay

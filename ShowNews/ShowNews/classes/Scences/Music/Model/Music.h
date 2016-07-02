@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Music : NSObject
-// 歌词
-@property (nonatomic, copy) NSString *lrc;
+
+@property (nonatomic, strong) NSString * lyricxxxx;  // 歌词
 // 歌曲
 @property (nonatomic, copy) NSString *musicName;
 // 歌手
@@ -19,21 +19,29 @@
 @property (nonatomic, copy) NSString *specialName;
 // ID
 @property (nonatomic, copy) NSString *ID;
-// 图片
-@property (nonatomic, copy) NSString *image;
-// 时间
-@property (nonatomic, strong) NSString * duration;     // 歌曲的时长
 
-@property (nonatomic, strong) NSString * duration1;     // 歌曲的时长
-
-@property (nonatomic, strong) NSMutableArray * timeForLyric;  // 时间对应的歌词
 @property (nonatomic, strong) NSString * mp3Url;       // 歌曲的Url
 
 @property (nonatomic, strong) NSString * picUrl;       // 歌曲的图片Url
 
+// 时间
+@property (nonatomic, strong) NSString * duration;     // 歌曲的时长
+
+/////////////////////////
+
+@property (nonatomic, strong) NSString * duration1;     // 歌曲的时长
+
+@property (nonatomic, strong) NSMutableArray * timeForLyric;  // 时间对应的歌词
+
+
+// 图片
+@property (nonatomic, copy) NSString *image;
+
 
 @property (nonatomic, strong) NSString * lyric;  // 歌词
 
-@property (nonatomic, strong) NSString * lyricxxxx;  // 歌词
+
+// 歌词
+@property (nonatomic, copy) NSString *lrc;
 
 @end

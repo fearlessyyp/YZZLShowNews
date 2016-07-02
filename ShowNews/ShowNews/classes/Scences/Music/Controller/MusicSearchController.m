@@ -18,6 +18,7 @@
 #import "UIImageView+WebCache.h"
 #import <AVFoundation/AVFoundation.h>
 #import <MJRefresh.h>
+
 @interface MusicSearchController ()<UITableViewDelegate, UITableViewDataSource>
 /// 搜索栏
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -75,6 +76,11 @@
      [self.view endEditing:YES];  
 }
 
+#warning 111
+// 收藏按钮
+- (IBAction)shareButton:(UIButton *)sender {
+    
+}
 
 
 - (void)viewDidAppear:(BOOL)animated {

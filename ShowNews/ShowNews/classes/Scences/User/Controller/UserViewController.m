@@ -57,7 +57,8 @@
     _currentBrightness = [UIScreen mainScreen].brightness;
     
 //    [self.userTableView registerNib:[arr firstObject] forCellReuseIdentifier:@"collect"];
-    [self.userTableView registerNib:[UINib nibWithNibName:@"SetCell" bundle:nil] forCellReuseIdentifier:@"Set"];
+    [self.userTableView registerNib:[UINib nibWithNibName:@"SetCell" bundle:nil] forCellReuseIdentifier:@"SetImage"];
+    [self.userTableView registerNib:[UINib nibWithNibName:@"SetCell" bundle:nil] forCellReuseIdentifier:@"SetSwitch"];
     // 头视图
     [self headForTableView];
     
@@ -148,42 +149,46 @@
             break;
         }
         case 1:{
-           SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
+           SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SetImage" forIndexPath:indexPath];
             cell.nameLabel.text = @"清除缓存";
+            [cell.cellSwitch removeFromSuperview];
             return cell;
             break;
         }
         case 2: {
-            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
+            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SetImage" forIndexPath:indexPath];
             cell.nameLabel.text = @"字号设置";
+            [cell.cellSwitch removeFromSuperview];
             return cell;
             break;
         }
         case 3: {
 #warning 还得注册个CELL 不能添加SWITCH  会重复添加
-            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
+            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SetSwitch" forIndexPath:indexPath];
             cell.nameLabel.text = @"夜间模式";
-            _cellSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(0, 5, cell.cellButton.frame.size.width, 30)];
-            [_cellSwitch addTarget:self action:@selector(openChange:) forControlEvents:UIControlEventValueChanged];
-            [cell.cellButton addSubview:_cellSwitch];
+            [cell.cellSwitch addTarget:self action:@selector(openChange:) forControlEvents:UIControlEventValueChanged];
+            cell.cellButton = nil;
             return cell;
             break;
         }
         case 4: {
-            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
+            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SetSwitch" forIndexPath:indexPath];
             cell.nameLabel.text = @"仅WIFI播放视频";
+            cell.cellButton = nil;
             return cell;
             break;
         }
         case 5: {
-            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
+            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SetImage" forIndexPath:indexPath];
             cell.nameLabel.text = @"版本号 : 1.0.0";
+            [cell.cellSwitch removeFromSuperview];
             return cell;
             break;
         }
         case 6: {
-            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Set" forIndexPath:indexPath];
+            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SetImage" forIndexPath:indexPath];
             cell.nameLabel.text = @"免责声明";
+            [cell.cellSwitch removeFromSuperview];
             return cell;
             break;
         }

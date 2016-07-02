@@ -212,12 +212,27 @@
                                 <action selector="NextButtonClicked:" destination="OCN-cA-CEi" eventType="touchUpInside" id="yZ1-57-iO7"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AR-30-Y63">
+                            <rect key="frame" x="5" y="90" width="30" height="30"/>
+                            <state key="normal" image="action_love@2x"/>
+                            <connections>
+                                <action selector="collectButtonClick:" destination="-1" eventType="touchUpInside" id="R9S-to-jib"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a53-Ay-dwf">
+                            <rect key="frame" x="379" y="90" width="30" height="30"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="shareButtonClick:" destination="-1" eventType="touchUpInside" id="6J2-N9-jmm"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="32b-Ak-X0S" firstAttribute="trailing" secondItem="OKf-7V-bY4" secondAttribute="trailing" id="37I-Rm-KQj"/>
                         <constraint firstItem="Iyi-HR-NjY" firstAttribute="top" secondItem="OCN-cA-CEi" secondAttribute="top" constant="10" id="3Iw-tz-Wp2"/>
                         <constraint firstItem="32b-Ak-X0S" firstAttribute="leading" secondItem="OKf-7V-bY4" secondAttribute="leading" id="4og-tw-Gk5"/>
+                        <constraint firstItem="a53-Ay-dwf" firstAttribute="top" secondItem="daS-0e-bo9" secondAttribute="top" id="7pj-AK-Lpr"/>
                         <constraint firstItem="zQc-Qe-UCk" firstAttribute="leading" secondItem="OKf-7V-bY4" secondAttribute="trailing" constant="10" id="87m-9G-pu2"/>
                         <constraint firstItem="OKf-7V-bY4" firstAttribute="top" secondItem="OCN-cA-CEi" secondAttribute="top" constant="10" id="CxI-Mv-lR9"/>
                         <constraint firstItem="zQc-Qe-UCk" firstAttribute="top" secondItem="OCN-cA-CEi" secondAttribute="top" constant="10" id="LBL-sq-7d1"/>
@@ -228,14 +243,21 @@
                         <constraint firstItem="Iyi-HR-NjY" firstAttribute="leading" secondItem="OCN-cA-CEi" secondAttribute="leading" constant="5" id="Vwb-Z8-4yY"/>
                         <constraint firstItem="zQc-Qe-UCk" firstAttribute="top" secondItem="OCN-cA-CEi" secondAttribute="top" constant="10" id="YNH-To-c00"/>
                         <constraint firstItem="daS-0e-bo9" firstAttribute="centerY" secondItem="Dz2-j6-UiP" secondAttribute="centerY" id="cQ4-pG-fGz"/>
+                        <constraint firstItem="6AR-30-Y63" firstAttribute="leading" secondItem="Iyi-HR-NjY" secondAttribute="leading" id="dQH-AN-FMr"/>
                         <constraint firstItem="zQc-Qe-UCk" firstAttribute="leading" secondItem="OKf-7V-bY4" secondAttribute="trailing" constant="10" id="glq-MZ-S5I"/>
+                        <constraint firstItem="a53-Ay-dwf" firstAttribute="width" secondItem="daS-0e-bo9" secondAttribute="width" id="hf0-W0-tOm"/>
                         <constraint firstAttribute="bottom" secondItem="zQc-Qe-UCk" secondAttribute="bottom" constant="10" id="kZf-qg-AIR"/>
                         <constraint firstItem="daS-0e-bo9" firstAttribute="trailing" secondItem="32b-Ak-X0S" secondAttribute="trailing" id="kjZ-tc-WJ3"/>
+                        <constraint firstItem="a53-Ay-dwf" firstAttribute="height" secondItem="daS-0e-bo9" secondAttribute="height" id="o2y-xF-FDM"/>
                         <constraint firstItem="OKf-7V-bY4" firstAttribute="leading" secondItem="Iyi-HR-NjY" secondAttribute="trailing" constant="10" id="p5o-zc-DqB"/>
                         <constraint firstItem="zQc-Qe-UCk" firstAttribute="leading" secondItem="OKf-7V-bY4" secondAttribute="trailing" constant="10" id="qc3-3w-RUy"/>
+                        <constraint firstItem="6AR-30-Y63" firstAttribute="top" secondItem="Dz2-j6-UiP" secondAttribute="top" id="rUz-m6-qOg"/>
                         <constraint firstItem="Dz2-j6-UiP" firstAttribute="leading" secondItem="32b-Ak-X0S" secondAttribute="leading" id="stC-he-PG7"/>
+                        <constraint firstItem="6AR-30-Y63" firstAttribute="width" secondItem="Dz2-j6-UiP" secondAttribute="width" id="tbv-K2-1kN"/>
+                        <constraint firstItem="6AR-30-Y63" firstAttribute="height" secondItem="Dz2-j6-UiP" secondAttribute="height" id="up4-nB-esL"/>
                         <constraint firstItem="32b-Ak-X0S" firstAttribute="top" secondItem="OKf-7V-bY4" secondAttribute="bottom" constant="10" id="y5k-BG-05f"/>
                         <constraint firstItem="da7-AB-2qH" firstAttribute="top" secondItem="32b-Ak-X0S" secondAttribute="bottom" constant="10" id="ybG-wQ-Qmd"/>
+                        <constraint firstItem="a53-Ay-dwf" firstAttribute="trailing" secondItem="zQc-Qe-UCk" secondAttribute="trailing" id="z9f-RZ-oL8"/>
                         <constraint firstAttribute="trailing" secondItem="zQc-Qe-UCk" secondAttribute="trailing" constant="10" id="zXf-tP-NdX"/>
                     </constraints>
                     <variation key="default">
@@ -283,6 +305,7 @@
         </view>
     </objects>
     <resources>
+        <image name="action_love@2x" width="801" height="831"/>
         <image name="audionews_play_button.png" width="50" height="50"/>
         <image name="p1156430977.jpg" width="801" height="831"/>
     </resources>
