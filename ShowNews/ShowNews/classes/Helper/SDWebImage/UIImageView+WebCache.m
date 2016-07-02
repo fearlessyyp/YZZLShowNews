@@ -86,6 +86,11 @@ static char TAG_ACTIVITY_SHOW;
                     completedBlock(image, error, cacheType, url);
                 }
             });
+            
+            
+       
+         
+            
         }];
         [self sd_setImageLoadOperation:operation forKey:@"UIImageViewImageLoad"];
     } else {

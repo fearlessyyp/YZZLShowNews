@@ -63,6 +63,7 @@ static PlayViewController *playVC = nil;
 //}
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self.playManager prepareMusic:self.musicIndex];
     
     [self.musicLyric registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ce"];

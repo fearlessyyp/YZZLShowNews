@@ -29,6 +29,7 @@
     // 按比例进行缩放
     // 得到原有图片的宽和高
     CGFloat width = image.size.width;
+    NSLog(@"$$$$$$$$$$$$$$$%lf", image.size.width);
     CGFloat height = image.size.height;
     // 安全判断
     if (width == 0) {

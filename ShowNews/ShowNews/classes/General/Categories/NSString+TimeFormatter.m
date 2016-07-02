@@ -14,7 +14,7 @@
 
 + (NSString *)getStringWithTime:(CGFloat)second
 {
-    return [NSString stringWithFormat:@"%02ld:%02ld",(NSInteger)second / 60, (NSInteger)second % 60];
+    return [NSString stringWithFormat:@"%02d:%02d",(NSInteger)second / 60, (NSInteger)second % 60];
 }
 
 

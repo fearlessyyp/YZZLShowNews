@@ -163,7 +163,7 @@ static NSString * const kBigImage = @"bigImage";
         _scrollView.bigImage.center = CGPointMake(kScreenSizeWidth / 2, 110 + offset);
     } else {
  
-        CGFloat offset = -self.scrollView.contentOffset.y;
+//        CGFloat offset = -self.scrollView.contentOffset.y;
         self.frame = CGRectMake(0, 0, _scrollView.bounds.size.width, MaxHeight);
 
     }

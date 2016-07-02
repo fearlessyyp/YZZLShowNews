@@ -44,8 +44,7 @@ typedef NS_ENUM(NSUInteger, NewsType) {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"列表";
-    // 请求数据
-    [self requestData];
+    
     // 初始化tableView
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenSizeWidth, kScreenSizeHeight - kNavigationAndStatusHeight + 44) style:UITableViewStylePlain];
     self.tableView.delegate = self;
@@ -55,6 +54,10 @@ typedef NS_ENUM(NSUInteger, NewsType) {
     [self.tableView registerNib:[UINib nibWithNibName:@"NewsPhotoSetCell" bundle:nil] forCellReuseIdentifier:@"NewsPhotoSetCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"NewsArticleCell" bundle:nil] forCellReuseIdentifier:@"NewsArticleCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"NewsArticleCell" bundle:nil] forCellReuseIdentifier:@"NewsSpecialCell"];
+    
+    // 请求数据
+    [self requestData];
+    
 }
 
 #pragma mark - 请求数据
@@ -68,7 +71,9 @@ typedef NS_ENUM(NSUInteger, NewsType) {
         for (NSDictionary *dict in resultArr) {
             News *news = [[News alloc] init];
             [news setValuesForKeysWithDictionary:dict];
-            [weakSelf.allNewsArray addObject:news];
+            if ([self newsTypeWithNews:news] != NewsTypeUnknow) {
+                [weakSelf.allNewsArray addObject:news];
+            }
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf.tableView reloadData];
@@ -86,8 +91,8 @@ typedef NS_ENUM(NSUInteger, NewsType) {
 
 #pragma mark - 返回cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    News *news = [[News alloc] init];
-    news = self.allNewsArray[indexPath.row];
+    News *news = self.allNewsArray[indexPath.row];
+//    news = self.allNewsArray[indexPath.row];
     switch ([self newsTypeWithNews:news]) {
         case NewsTypePhotoSet:{
             NewsPhotoSetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsPhotoSetCell" forIndexPath:indexPath];
