@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>百度导航SDK for iOS v2.0.6类参考: BNRoutePlanManagerProtocol.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">百度导航SDK for iOS v2.0.6类参考
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_243a4ba6b4f893d71afbb5a3e90552fa.html">sdk</a></li><li class="navelem"><a class="el" href="dir_4b32f0b8d8b8575ac29719fa14db2e24.html">inc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">BNRoutePlanManagerProtocol.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_b_n_route_plan_manager_protocol_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  BNRoutePlanManagerProtocol.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  baiduNaviSDK</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Created by Baidu on 11/10/13.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Copyright (c) 2013 baidu. All rights reserved.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef baiduNaviSDK_BNRoutePlanManagerProtocol_h</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define baiduNaviSDK_BNRoutePlanManagerProtocol_h</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#import &quot;<a class="code" href="_b_n_route_plan_model_8h.html">BNRoutePlanModel.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">@protocol </span><a class="code" href="protocol_b_n_navi_route_plan_delegate-p.html">BNNaviRoutePlanDelegate</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="protocol_b_n_route_plan_manager_protocol-p.html">   20</a></span>&#160;<span class="keyword">@protocol </span><a class="code" href="protocol_b_n_route_plan_manager_protocol-p.html">BNRoutePlanManagerProtocol</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">@required</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;-(void)startNaviRoutePlan:(<a class="code" href="_b_n_common_def_8h.html#a45119beb52b5edefe40243574ae9509c">BNRoutePlanMode</a>)eMode</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                naviNodes:(NSArray*)naviNodes</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                     time:(<a class="code" href="interface_b_navi_calc_route_time.html">BNaviCalcRouteTime</a>*)naviTime</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                 delegete:(<span class="keywordtype">id</span>&lt;<a class="code" href="protocol_b_n_navi_route_plan_delegate-p.html">BNNaviRoutePlanDelegate</a>&gt;)delegate</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                 userInfo:(NSDictionary*)userInfo;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;-(NSInteger)<a class="code" href="protocol_b_n_route_plan_manager_protocol-p.html#aca17210a6969e2c7a34a8435e630d2b9">getCurNodeCount</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;-(<a class="code" href="interface_b_n_route_plan_node.html">BNRoutePlanNode</a>*)getNaviNodeAtIndex:(NSInteger)index;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;-(void)setNaviNodes:(NSArray*)naviNodes;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;-(int)<a class="code" href="protocol_b_n_route_plan_manager_protocol-p.html#a9702cc1fdfdff7abb0b94048d0d9d332">getCurRoutePlanMode</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;-(void)resetEndPointWithNode:(<a class="code" href="interface_b_n_route_plan_node.html">BNRoutePlanNode</a> *)node;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;-(<a class="code" href="interface_b_n_route_detail_info.html">BNRouteDetailInfo</a>*)getCurrentRouteDetailInfo:(<span class="keywordtype">int</span>)stRouteIdx;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="protocol_b_n_navi_route_plan_delegate-p.html">   97</a></span>&#160;<span class="keyword">@protocol </span><a class="code" href="protocol_b_n_navi_route_plan_delegate-p.html">BNNaviRoutePlanDelegate</a> &lt;NSObject&gt;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">@optional</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;- (void)routePlanDidFinished:(NSDictionary*)userInfo;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;- (void)routePlanDidFailedWithError:(NSError *)error andUserInfo:(NSDictionary*)userInfo;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;-(void)routePlanDidUserCanceled:(NSDictionary*)userInfo;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="protocol_b_n_route_plan_manager_protocol-p_html"><div class="ttname"><a href="protocol_b_n_route_plan_manager_protocol-p.html">BNRoutePlanManagerProtocol-p</a></div><div class="ttdoc">路径规划协议 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_manager_protocol_8h_source.html#l00020">BNRoutePlanManagerProtocol.h:20</a></div></div>
+<div class="ttc" id="protocol_b_n_route_plan_manager_protocol-p_html_a9702cc1fdfdff7abb0b94048d0d9d332"><div class="ttname"><a href="protocol_b_n_route_plan_manager_protocol-p.html#a9702cc1fdfdff7abb0b94048d0d9d332">-[BNRoutePlanManagerProtocol-p getCurRoutePlanMode]</a></div><div class="ttdeci">int getCurRoutePlanMode()</div><div class="ttdoc">获取当前的路线规划方式 </div></div>
+<div class="ttc" id="interface_b_n_route_plan_node_html"><div class="ttname"><a href="interface_b_n_route_plan_node.html">BNRoutePlanNode</a></div><div class="ttdoc">路径规划节点对象 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_model_8h_source.html#l00047">BNRoutePlanModel.h:47</a></div></div>
+<div class="ttc" id="protocol_b_n_route_plan_manager_protocol-p_html_aca17210a6969e2c7a34a8435e630d2b9"><div class="ttname"><a href="protocol_b_n_route_plan_manager_protocol-p.html#aca17210a6969e2c7a34a8435e630d2b9">-[BNRoutePlanManagerProtocol-p getCurNodeCount]</a></div><div class="ttdeci">NSInteger getCurNodeCount()</div><div class="ttdoc">获得当前节点总数 </div></div>
+<div class="ttc" id="_b_n_common_def_8h_html_a45119beb52b5edefe40243574ae9509c"><div class="ttname"><a href="_b_n_common_def_8h.html#a45119beb52b5edefe40243574ae9509c">BNRoutePlanMode</a></div><div class="ttdeci">BNRoutePlanMode</div><div class="ttdoc">路线计算类型 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_common_def_8h_source.html#l00030">BNCommonDef.h:30</a></div></div>
+<div class="ttc" id="interface_b_n_route_detail_info_html"><div class="ttname"><a href="interface_b_n_route_detail_info.html">BNRouteDetailInfo</a></div><div class="ttdoc">路线详情信息 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_model_8h_source.html#l00125">BNRoutePlanModel.h:125</a></div></div>
+<div class="ttc" id="_b_n_route_plan_model_8h_html"><div class="ttname"><a href="_b_n_route_plan_model_8h.html">BNRoutePlanModel.h</a></div></div>
+<div class="ttc" id="interface_b_navi_calc_route_time_html"><div class="ttname"><a href="interface_b_navi_calc_route_time.html">BNaviCalcRouteTime</a></div><div class="ttdoc">分时段规划，路线的时间对象 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_model_8h_source.html#l00066">BNRoutePlanModel.h:66</a></div></div>
+<div class="ttc" id="protocol_b_n_navi_route_plan_delegate-p_html"><div class="ttname"><a href="protocol_b_n_navi_route_plan_delegate-p.html">BNNaviRoutePlanDelegate-p</a></div><div class="ttdoc">算路回调 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_manager_protocol_8h_source.html#l00097">BNRoutePlanManagerProtocol.h:97</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+生成于 2016年 二月 29日 星期一 08:47:08 , 为 百度导航SDK for iOS v2.0.6类参考使用  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['bn_5fnavitypereal',['BN_NaviTypeReal',['../_b_n_common_def_8h.html#aba471e9bb08762dbf5c7c3e74e4811bda647657d7c59109f21ed6a34d088435d7',1,'BNCommonDef.h']]],
+  ['bn_5fnavitypesimulator',['BN_NaviTypeSimulator',['../_b_n_common_def_8h.html#aba471e9bb08762dbf5c7c3e74e4811bda327adc22acad8933f06862ec379aea1b',1,'BNCommonDef.h']]],
+  ['bn_5fspeak_5fmode_5fhigh',['BN_Speak_Mode_High',['../_b_n_common_def_8h.html#a30123483a3225619dc7513a0488cc503aea86b3afdf74385adae46452b1255d94',1,'BNCommonDef.h']]],
+  ['bn_5fspeak_5fmode_5flow',['BN_Speak_Mode_Low',['../_b_n_common_def_8h.html#a30123483a3225619dc7513a0488cc503a8aa371accb87c20031ecd0bcefbb4370',1,'BNCommonDef.h']]],
+  ['bn_5fspeak_5fmode_5fmid',['BN_Speak_Mode_Mid',['../_b_n_common_def_8h.html#a30123483a3225619dc7513a0488cc503a24166b9ec4e45e465387fae1d1956770',1,'BNCommonDef.h']]],
+  ['bncoordinate_5fbaidumapsdk',['BNCoordinate_BaiduMapSDK',['../_b_n_route_plan_model_8h.html#a9385cc6ee024e2966581edc4b3281c54a987849548179253a78d68742b0536601',1,'BNRoutePlanModel.h']]],
+  ['bncoordinate_5foriginalgps',['BNCoordinate_OriginalGPS',['../_b_n_route_plan_model_8h.html#a9385cc6ee024e2966581edc4b3281c54aa0dcb0cf772930155fbceb926ea5807f',1,'BNRoutePlanModel.h']]],
+  ['bndaynight_5fcfg_5ftype_5fauto',['BNDayNight_CFG_Type_Auto',['../_b_n_common_def_8h.html#ae14d368be665feac7db82741cecca6f5a4b5d12f933311daf0b476bacb9c859c6',1,'BNCommonDef.h']]],
+  ['bndaynight_5fcfg_5ftype_5fday',['BNDayNight_CFG_Type_Day',['../_b_n_common_def_8h.html#ae14d368be665feac7db82741cecca6f5a77a5be20fd00d25bced06e6bf9e21065',1,'BNCommonDef.h']]],
+  ['bndaynight_5fcfg_5ftype_5fnight',['BNDayNight_CFG_Type_Night',['../_b_n_common_def_8h.html#ae14d368be665feac7db82741cecca6f5a3f033584959b391db95f55d9ba71e052',1,'BNCommonDef.h']]],
+  ['bnrouteplanerror_5flocationfailed',['BNRoutePlanError_LocationFailed',['../_b_n_common_def_8h.html#a708c9991e073ce6982f80cc5b4ebd19ea7d79280b2ff40df1257a85b5fb48361a',1,'BNCommonDef.h']]],
+  ['bnrouteplanerror_5flocationserviceclosed',['BNRoutePlanError_LocationServiceClosed',['../_b_n_common_def_8h.html#a708c9991e073ce6982f80cc5b4ebd19eae3c9335ecc62cb86855c67daaf45af52',1,'BNCommonDef.h']]],
+  ['bnrouteplanerror_5fnodesinputerror',['BNRoutePlanError_NodesInputError',['../_b_n_common_def_8h.html#a708c9991e073ce6982f80cc5b4ebd19ea15e994f5187c811007a1e884781953e1',1,'BNCommonDef.h']]],
+  ['bnrouteplanerror_5fnodestoonear',['BNRoutePlanError_NodesTooNear',['../_b_n_common_def_8h.html#a708c9991e073ce6982f80cc5b4ebd19ea8aefefc9524352bf65fd92327305b2ab',1,'BNCommonDef.h']]],
+  ['bnrouteplanerror_5frouteplanfailed',['BNRoutePlanError_RoutePlanFailed',['../_b_n_common_def_8h.html#a708c9991e073ce6982f80cc5b4ebd19eaa5eda5942d4017be29739cbf0ea48e28',1,'BNCommonDef.h']]],
+  ['bnrouteplanerror_5fwaitamoment',['BNRoutePlanError_WaitAMoment',['../_b_n_common_def_8h.html#a708c9991e073ce6982f80cc5b4ebd19eaf7c4cf7ddc51f31966233ae0c85a51e7',1,'BNCommonDef.h']]],
+  ['bnrouteplanmode_5fhighway',['BNRoutePlanMode_Highway',['../_b_n_common_def_8h.html#a45119beb52b5edefe40243574ae9509ca0277fb64df6ae87856ad43dc42b74486',1,'BNCommonDef.h']]],
+  ['bnrouteplanmode_5finvalid',['BNRoutePlanMode_Invalid',['../_b_n_common_def_8h.html#a45119beb52b5edefe40243574ae9509ca4377df467916f89dfd53b7ed1bf913b7',1,'BNCommonDef.h']]],
+  ['bnrouteplanmode_5fnohighway',['BNRoutePlanMode_NoHighway',['../_b_n_common_def_8h.html#a45119beb52b5edefe40243574ae9509ca0f20558839b315fd9d0ef377f91cea4b',1,'BNCommonDef.h']]],
+  ['bnrouteplanmode_5frecommend',['BNRoutePlanMode_Recommend',['../_b_n_common_def_8h.html#a45119beb52b5edefe40243574ae9509ca854291ecbc5896bb0765a5d9ba95cd54',1,'BNCommonDef.h']]]
+];
