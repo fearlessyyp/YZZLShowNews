@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class Music;
+@class MusicSearchController;
 #warning 222222
 // 协议 代理
 //@protocol playerManagerDelegate <NSObject>
@@ -86,4 +87,6 @@
 @property (nonatomic, strong) UIButton *searchCollectButton;
 // 详情页的收藏BUTTON
 @property (nonatomic, strong) UIButton *detailCollectButton;
+
+- (void)requestData:(MusicSearchController *)searchVC;
 @end

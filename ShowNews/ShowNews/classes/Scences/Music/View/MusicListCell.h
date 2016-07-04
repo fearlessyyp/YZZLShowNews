@@ -10,6 +10,7 @@
 @class Music;
 @interface MusicListCell : UITableViewCell
 
+
 - (void)bindModel:(Music *)model;
 
 @end

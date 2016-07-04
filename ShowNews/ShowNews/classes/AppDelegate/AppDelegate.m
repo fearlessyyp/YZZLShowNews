@@ -28,6 +28,7 @@
 @property (nonatomic, strong) UITabBarController *rootTVC;
 // 记录当前的系统亮度
 @property (nonatomic, assign) float currentBrightness;
+@property (nonatomic, strong) MusicSearchController *musicSearchVC;
 @end
 
 @implementation AppDelegate
@@ -47,10 +48,11 @@
     [self.window makeKeyAndVisible];
     [self settabbarItemTextAttributes];
     self.rootTVC = [[UITabBarController alloc] init];
-    // 创建子控制器
-    [self createChildViewControllers];
     // 设置抽屉
     [self setRESideMenu];
+    // 创建子控制器
+    [self createChildViewControllers];
+    
     // NavigationBar设置
     [UINavigationBar appearance].barStyle = UIBarStyleBlack;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
@@ -74,10 +76,10 @@
 
 #pragma mark - 设置抽屉
 - (void)setRESideMenu {
-    MusicSearchController *musicVC = [[MusicSearchController alloc] init];
+    self.musicSearchVC = [[MusicSearchController alloc] init];
     RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:self.rootTVC
                                                                     leftMenuViewController:nil
-                                                                   rightMenuViewController:musicVC];
+                                                                   rightMenuViewController:self.musicSearchVC];
     sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
     sideMenuViewController.delegate = self;
     // 抽屉效果不变小
@@ -148,7 +150,9 @@
     [self addOneChildViewController:[[NewsViewController alloc] init] title:@"新闻" normalImage:@"tabbar_icon_news_normal@2x" selectedImage:@"tabbar_icon_news_highlight@2x"];
     [self addOneChildViewController:[[VideoViewController alloc] init] title:@"视频" normalImage:@"tabbar_icon_media_normal@2x" selectedImage:@"tabbar_icon_media_highlight@2x"];
     [self addOneChildViewController:[[MapViewController alloc] init] title:@"地图" normalImage:@"tabbar_icon_map_normal@2x" selectedImage:@"tabbar_icon_map_highlight@2x"];
-    [self addOneChildViewController:[[UserViewController alloc] init] title:@"我" normalImage:@"tabbar_icon_me_normal@2x" selectedImage:@"tabbar_icon_me_highlight@2x"];
+    UserViewController *userVC = [[UserViewController alloc] init];
+    userVC.musicSearchVC = self.musicSearchVC;
+    [self addOneChildViewController:userVC title:@"我" normalImage:@"tabbar_icon_me_normal@2x" selectedImage:@"tabbar_icon_me_highlight@2x"];
 }
 
 #pragma mark - 添加控制器
