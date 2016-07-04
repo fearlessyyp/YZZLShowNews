@@ -15,6 +15,7 @@
 #import "NewsCollectViewController.h"
 #import "UIImageView+WebCache.h"
 #import "Simple.h"
+#import "VideoViewController.h"
 #import "MusicSearchController.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "Music.h"
@@ -145,6 +146,8 @@
                         }
                             break;
                         case 2:
+                            
+                            
                             break;
                         case 3:
                             
