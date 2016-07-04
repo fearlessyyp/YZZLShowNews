@@ -49,6 +49,9 @@
                             <constraint firstAttribute="height" constant="30" id="oyC-9c-mda"/>
                         </constraints>
                         <state key="normal" image="action_love.png"/>
+                        <connections>
+                            <action selector="collectionButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="320-pK-LQN"/>
+                        </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="puH-CV-02G">
                         <rect key="frame" x="28" y="45" width="359" height="153"/>
@@ -67,7 +70,7 @@
                             <constraint firstAttribute="height" constant="30" id="7W8-lp-vo2"/>
                             <constraint firstAttribute="width" constant="30" id="oPG-CO-azE"/>
                         </constraints>
-                        <state key="normal" image="action_love.png"/>
+                        <state key="normal" image="share.png"/>
                         <state key="selected" image="action_love_selected.png"/>
                         <state key="highlighted" image="action_love_selected.png"/>
                         <connections>
@@ -110,5 +113,6 @@
         <image name="Unknown.png" width="200" height="200"/>
         <image name="action_love.png" width="20" height="17"/>
         <image name="action_love_selected.png" width="20" height="17"/>
+        <image name="share.png" width="200" height="200"/>
     </resources>
 </document>

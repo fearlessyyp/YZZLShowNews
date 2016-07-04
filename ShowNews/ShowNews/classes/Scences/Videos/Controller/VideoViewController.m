@@ -163,6 +163,7 @@
     VideoCell *cell = [VideoCell cellWithTableView:tableView];
 
     VideoModel *model = self.newMarray[indexPath.row];
+    NSLog(@"+++++++++=====%@", model);
     cell.model = model;
     [cell.playBtn addTarget:self action:@selector(startPlayVideo:) forControlEvents:UIControlEventTouchUpInside];
     cell.playBtn.tag = indexPath.row;
@@ -187,6 +188,7 @@
         [UMSocialSnsService presentSnsIconSheetView:self appKey:UmengAppkey shareText:shareText shareImage:[UIImage imageNamed:@"2.jpg"] shareToSnsNames:shareArr delegate:self];
 
     };
+    
     
     return cell;
 }
