@@ -27,6 +27,12 @@
 // 时间
 @property (nonatomic, strong) NSString * duration;     // 歌曲的时长
 
+// 判断是否收藏
+@property (nonatomic, assign) BOOL IsCollect;
+
+// 表的主键
+@property (nonatomic, copy) NSString *objectId;
+
 /////////////////////////
 
 @property (nonatomic, strong) NSString * duration1;     // 歌曲的时长

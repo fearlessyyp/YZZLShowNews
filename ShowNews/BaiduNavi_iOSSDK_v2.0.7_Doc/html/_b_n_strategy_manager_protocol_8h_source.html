@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>百度导航SDK for iOS v2.0.6类参考: BNStrategyManagerProtocol.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">百度导航SDK for iOS v2.0.6类参考
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_243a4ba6b4f893d71afbb5a3e90552fa.html">sdk</a></li><li class="navelem"><a class="el" href="dir_4b32f0b8d8b8575ac29719fa14db2e24.html">inc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">BNStrategyManagerProtocol.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_b_n_strategy_manager_protocol_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  BNStrategyManagerProtocol.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  baiduNaviSDK</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Created by Baidu on 11/10/13.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Copyright (c) 2013 baidu. All rights reserved.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef baiduNaviSDK_BNStrategyManagerProtocol_h</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define baiduNaviSDK_BNStrategyManagerProtocol_h</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#import &quot;<a class="code" href="_b_n_common_def_8h.html">BNCommonDef.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="protocol_b_n_strategy_manager_protocol-p.html">   17</a></span>&#160;<span class="keyword">@protocol </span><a class="code" href="protocol_b_n_strategy_manager_protocol-p.html">BNStrategyManagerProtocol</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;- (void)setSpeakMode:(<a class="code" href="_b_n_common_def_8h.html#a30123483a3225619dc7513a0488cc503">BN_Speak_Mode_Enum</a>)speakMode;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;- (void)trySetShowTraffic:(BOOL)showTraffic success:(<span class="keywordtype">void</span> (^)(<span class="keywordtype">void</span>))success  fail:(<span class="keywordtype">void</span> (^)(<span class="keywordtype">void</span>))fail;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;- (void)setDayNightType:(<a class="code" href="_b_n_common_def_8h.html#ae14d368be665feac7db82741cecca6f5">BNDayNight_CFG_Type</a>)dayNightType;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="protocol_b_n_strategy_manager_protocol-p_html"><div class="ttname"><a href="protocol_b_n_strategy_manager_protocol-p.html">BNStrategyManagerProtocol-p</a></div><div class="ttdoc">策略管理器 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_strategy_manager_protocol_8h_source.html#l00017">BNStrategyManagerProtocol.h:17</a></div></div>
+<div class="ttc" id="_b_n_common_def_8h_html_ae14d368be665feac7db82741cecca6f5"><div class="ttname"><a href="_b_n_common_def_8h.html#ae14d368be665feac7db82741cecca6f5">BNDayNight_CFG_Type</a></div><div class="ttdeci">BNDayNight_CFG_Type</div><div class="ttdoc">白天，黑夜模式类型 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_common_def_8h_source.html#l00060">BNCommonDef.h:60</a></div></div>
+<div class="ttc" id="_b_n_common_def_8h_html"><div class="ttname"><a href="_b_n_common_def_8h.html">BNCommonDef.h</a></div></div>
+<div class="ttc" id="_b_n_common_def_8h_html_a30123483a3225619dc7513a0488cc503"><div class="ttname"><a href="_b_n_common_def_8h.html#a30123483a3225619dc7513a0488cc503">BN_Speak_Mode_Enum</a></div><div class="ttdeci">BN_Speak_Mode_Enum</div><div class="ttdoc">播报模式 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_common_def_8h_source.html#l00050">BNCommonDef.h:50</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+生成于 2016年 二月 29日 星期一 08:47:08 , 为 百度导航SDK for iOS v2.0.6类参考使用  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

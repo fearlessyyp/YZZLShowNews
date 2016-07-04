@@ -121,7 +121,7 @@ singleton_implementation(DataBaseHandle)
     return ob;
 }
 
-#pragma mark - AVObject转换成转换成
+#pragma mark - AVObject转换成转换成News
 - (News *)aVObjectToNews:(AVObject *)object {
     News *news = [[News alloc] init];
     news.postid = [object objectForKey:@"postid"];
@@ -132,17 +132,17 @@ singleton_implementation(DataBaseHandle)
     return news;
 }
 
-#pragma mark - 返回新闻类型
-- (NewsType)newsTypeWithNews:(News *)news {
-    if (news.skipType == nil) {
-        return NewsTypeArticle;
-    } else if ([news.skipType isEqualToString:@"special"]) {
-        return NewsTypeSpecial;
-    } else if ([news.skipType isEqualToString:@"photoset"]) {
-        return NewsTypePhotoSet;
-    }
-    return NewsTypeUnknow;
-}
+//#pragma mark - 返回新闻类型
+//- (NewsType)newsTypeWithNews:(News *)news {
+//    if (news.skipType == nil) {
+//        return NewsTypeArticle;
+//    } else if ([news.skipType isEqualToString:@"special"]) {
+//        return NewsTypeSpecial;
+//    } else if ([news.skipType isEqualToString:@"photoset"]) {
+//        return NewsTypePhotoSet;
+//    }
+//    return NewsTypeUnknow;
+//}
 
 #pragma mark - Video转换成AVObject
 - (AVObject *)videoToAVObject:(VideoModel *)video {
@@ -173,9 +173,29 @@ singleton_implementation(DataBaseHandle)
 
 #pragma mark - Music转换成AVObject
 - (AVObject *)musicTOAVObject:(Music *)music {
-    AVObject *ob = [[AVObject alloc] init];
-    
+    AVObject *ob = [[AVObject alloc] initWithClassName:@"Music"];
+    [ob setObject:music.musicName forKey:@"musicName"];
+    [ob setObject:music.singerName forKey:@"singerName"];
+    [ob setObject:music.specialName forKey:@"specialName"];
+    [ob setObject:music.ID forKey:@"ID"];
+    [ob setObject:music.mp3Url forKey:@"mp3Url"];
+    [ob setObject:music.picUrl forKey:@"picUrl"];
+    [ob setObject:music.duration forKey:@"duration"];
+    [ob setObject:@1 forKey:@"username"];
     return ob;
+}
+
+#pragma mark - AVObject转换成转换成News
+- (Music *)aVObjectToMusic:(AVObject *)object {
+    Music *music = [[Music alloc] init];
+    music.musicName = [object objectForKey:@"musicName"];
+    music.singerName = [object objectForKey:@"singerName"];
+    music.specialName = [object objectForKey:@"specialName"];
+    music.ID = [object objectForKey:@"ID"];
+    music.mp3Url = [object objectForKey:@"mp3Url"];
+    music.picUrl = [object objectForKey:@"picUrl"];
+    music.duration = [object objectForKey:@"duration"];
+    return music;
 }
 
 //#pragma mark - User转换成AVObject

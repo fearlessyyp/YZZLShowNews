@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>百度导航SDK for iOS v2.0.6类参考: BNUIManagerProtocol.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">百度导航SDK for iOS v2.0.6类参考
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_243a4ba6b4f893d71afbb5a3e90552fa.html">sdk</a></li><li class="navelem"><a class="el" href="dir_4b32f0b8d8b8575ac29719fa14db2e24.html">inc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">BNUIManagerProtocol.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_b_n_u_i_manager_protocol_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  BNUIManagerProtocol.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  baiduNaviSDK</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Created by Baidu on 11/10/13.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Copyright (c) 2013 baidu. All rights reserved.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef baiduNaviSDK_BNUIManagerProtocol_h</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define baiduNaviSDK_BNUIManagerProtocol_h</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#import &quot;<a class="code" href="_b_n_common_def_8h.html">BNCommonDef.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#import &lt;UIKit/UIWindow.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">@protocol </span><a class="code" href="protocol_b_n_navi_u_i_manager_delegate-p.html">BNNaviUIManagerDelegate</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="protocol_b_n_u_i_manager_protocol-p.html">   21</a></span>&#160;<span class="keyword">@protocol </span><a class="code" href="protocol_b_n_u_i_manager_protocol-p.html">BNUIManagerProtocol</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">@required</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;- (BOOL)showNaviUI:(<a class="code" href="_b_n_common_def_8h.html#aba471e9bb08762dbf5c7c3e74e4811bd">BN_NaviType</a>)eType delegete:(<span class="keywordtype">id</span>&lt;<a class="code" href="protocol_b_n_navi_u_i_manager_delegate-p.html">BNNaviUIManagerDelegate</a>&gt;)delegate isNeedLandscape:(BOOL)isNeedLandscape;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;- (UIWindow *)<a class="code" href="protocol_b_n_u_i_manager_protocol-p.html#a0637ef5ac4bcaf3bd59456bac0677d23">getNaviWindow</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;- (BOOL)showDigitDogUI:(BOOL)isNeedLandscape delegete:(<span class="keywordtype">id</span>&lt;<a class="code" href="protocol_b_n_navi_u_i_manager_delegate-p.html">BNNaviUIManagerDelegate</a>&gt;)delegate;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">// 退出导航页面</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;- (BOOL)exitNaviUI:(NSDictionary *)userInfo;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="protocol_b_n_navi_u_i_manager_delegate-p.html">   63</a></span>&#160;<span class="keyword">@protocol </span><a class="code" href="protocol_b_n_navi_u_i_manager_delegate-p.html">BNNaviUIManagerDelegate</a> &lt;NSObject&gt;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">@optional</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;-(void)onExitNaviUI:(NSDictionary*)extraInfo;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;- (void)onExitexitDeclarationUI:(NSDictionary*)extraInfo;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;-(void)onExitDigitDogUI:(NSDictionary*)extraInfo;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="ttc" id="protocol_b_n_navi_u_i_manager_delegate-p_html"><div class="ttname"><a href="protocol_b_n_navi_u_i_manager_delegate-p.html">BNNaviUIManagerDelegate-p</a></div><div class="ttdoc">导航UI管理器回调 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_u_i_manager_protocol_8h_source.html#l00063">BNUIManagerProtocol.h:63</a></div></div>
+<div class="ttc" id="protocol_b_n_u_i_manager_protocol-p_html"><div class="ttname"><a href="protocol_b_n_u_i_manager_protocol-p.html">BNUIManagerProtocol-p</a></div><div class="ttdoc">UI管理协议，进入导航入口 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_u_i_manager_protocol_8h_source.html#l00021">BNUIManagerProtocol.h:21</a></div></div>
+<div class="ttc" id="_b_n_common_def_8h_html"><div class="ttname"><a href="_b_n_common_def_8h.html">BNCommonDef.h</a></div></div>
+<div class="ttc" id="_b_n_common_def_8h_html_aba471e9bb08762dbf5c7c3e74e4811bd"><div class="ttname"><a href="_b_n_common_def_8h.html#aba471e9bb08762dbf5c7c3e74e4811bd">BN_NaviType</a></div><div class="ttdeci">BN_NaviType</div><div class="ttdoc">导航类型 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_common_def_8h_source.html#l00041">BNCommonDef.h:41</a></div></div>
+<div class="ttc" id="protocol_b_n_u_i_manager_protocol-p_html_a0637ef5ac4bcaf3bd59456bac0677d23"><div class="ttname"><a href="protocol_b_n_u_i_manager_protocol-p.html#a0637ef5ac4bcaf3bd59456bac0677d23">-[BNUIManagerProtocol-p getNaviWindow]</a></div><div class="ttdeci">UIWindow * getNaviWindow()</div><div class="ttdoc">获取导航窗口, acquire the navigation window </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+生成于 2016年 二月 29日 星期一 08:47:08 , 为 百度导航SDK for iOS v2.0.6类参考使用  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

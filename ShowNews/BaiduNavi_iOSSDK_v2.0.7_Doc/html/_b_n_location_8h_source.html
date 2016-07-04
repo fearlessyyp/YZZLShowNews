@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>百度导航SDK for iOS v2.0.6类参考: BNLocation.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">百度导航SDK for iOS v2.0.6类参考
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_243a4ba6b4f893d71afbb5a3e90552fa.html">sdk</a></li><li class="navelem"><a class="el" href="dir_4b32f0b8d8b8575ac29719fa14db2e24.html">inc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">BNLocation.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_b_n_location_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  BNLocation.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  baiduNaviSDK</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Created by Baidu on 14/12/29.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Copyright (c) 2014年 baidu. All rights reserved.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#import &lt;CoreLocation/CLLocation.h&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="interface_b_n_location.html">   14</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_b_n_location.html">BNLocation</a> : NSObject</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="interface_b_n_location.html#a18abd897657bda9463f9fb07ef610168">   19</a></span>&#160;<span class="keyword">@property</span> (assign, nonatomic) CLLocationCoordinate2D <a class="code" href="interface_b_n_location.html#a18abd897657bda9463f9fb07ef610168">coordinate</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="interface_b_n_location.html#acdcd05d11f708ec7d9ea0df64b178e58">   24</a></span>&#160;<span class="keyword">@property</span> (assign, nonatomic) CLLocationDistance <a class="code" href="interface_b_n_location.html#acdcd05d11f708ec7d9ea0df64b178e58">altitude</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="interface_b_n_location.html#adb049d8a84b5d956a65e32ac139a5022">   29</a></span>&#160;<span class="keyword">@property</span> (assign, nonatomic) CLLocationAccuracy <a class="code" href="interface_b_n_location.html#adb049d8a84b5d956a65e32ac139a5022">horizontalAccuracy</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="interface_b_n_location.html#a7e1d599b689c0d95e3b20cbb62e9d864">   34</a></span>&#160;<span class="keyword">@property</span> (assign, nonatomic) CLLocationAccuracy <a class="code" href="interface_b_n_location.html#a7e1d599b689c0d95e3b20cbb62e9d864">verticalAccuracy</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="interface_b_n_location.html#a8a1d2d916d1e2a23dbd9838812b44efe">   39</a></span>&#160;<span class="keyword">@property</span> (assign, nonatomic) CLLocationDirection <a class="code" href="interface_b_n_location.html#a8a1d2d916d1e2a23dbd9838812b44efe">course</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="interface_b_n_location.html#a0e6939ef55d4141bc1b9e3ce56faa252">   44</a></span>&#160;<span class="keyword">@property</span> (assign, nonatomic) CLLocationSpeed <a class="code" href="interface_b_n_location.html#a0e6939ef55d4141bc1b9e3ce56faa252">speed</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">@end</span></div>
+<div class="ttc" id="interface_b_n_location_html_acdcd05d11f708ec7d9ea0df64b178e58"><div class="ttname"><a href="interface_b_n_location.html#acdcd05d11f708ec7d9ea0df64b178e58">BNLocation::altitude</a></div><div class="ttdeci">CLLocationDistance altitude</div><div class="ttdoc">海拔，单位为米 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_location_8h_source.html#l00024">BNLocation.h:24</a></div></div>
+<div class="ttc" id="interface_b_n_location_html"><div class="ttname"><a href="interface_b_n_location.html">BNLocation</a></div><div class="ttdoc">位置对象，使用外部GPS功能所需要传入的gps对象 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_location_8h_source.html#l00014">BNLocation.h:14</a></div></div>
+<div class="ttc" id="interface_b_n_location_html_adb049d8a84b5d956a65e32ac139a5022"><div class="ttname"><a href="interface_b_n_location.html#adb049d8a84b5d956a65e32ac139a5022">BNLocation::horizontalAccuracy</a></div><div class="ttdeci">CLLocationAccuracy horizontalAccuracy</div><div class="ttdoc">水平精度，单位为米 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_location_8h_source.html#l00029">BNLocation.h:29</a></div></div>
+<div class="ttc" id="interface_b_n_location_html_a7e1d599b689c0d95e3b20cbb62e9d864"><div class="ttname"><a href="interface_b_n_location.html#a7e1d599b689c0d95e3b20cbb62e9d864">BNLocation::verticalAccuracy</a></div><div class="ttdeci">CLLocationAccuracy verticalAccuracy</div><div class="ttdoc">垂直精度，单位为米 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_location_8h_source.html#l00034">BNLocation.h:34</a></div></div>
+<div class="ttc" id="interface_b_n_location_html_a0e6939ef55d4141bc1b9e3ce56faa252"><div class="ttname"><a href="interface_b_n_location.html#a0e6939ef55d4141bc1b9e3ce56faa252">BNLocation::speed</a></div><div class="ttdeci">CLLocationSpeed speed</div><div class="ttdoc">速度，单位为米/秒 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_location_8h_source.html#l00044">BNLocation.h:44</a></div></div>
+<div class="ttc" id="interface_b_n_location_html_a18abd897657bda9463f9fb07ef610168"><div class="ttname"><a href="interface_b_n_location.html#a18abd897657bda9463f9fb07ef610168">BNLocation::coordinate</a></div><div class="ttdeci">CLLocationCoordinate2D coordinate</div><div class="ttdoc">wgs84ll格式的经纬度，也即iOS设备所获取到的经纬度 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_location_8h_source.html#l00019">BNLocation.h:19</a></div></div>
+<div class="ttc" id="interface_b_n_location_html_a8a1d2d916d1e2a23dbd9838812b44efe"><div class="ttname"><a href="interface_b_n_location.html#a8a1d2d916d1e2a23dbd9838812b44efe">BNLocation::course</a></div><div class="ttdeci">CLLocationDirection course</div><div class="ttdoc">方向角度，单位为度，范围位0.0-359.9，0表示正北 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_location_8h_source.html#l00039">BNLocation.h:39</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+生成于 2016年 二月 29日 星期一 08:47:08 , 为 百度导航SDK for iOS v2.0.6类参考使用  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

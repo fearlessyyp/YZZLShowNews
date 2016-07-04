@@ -148,7 +148,7 @@
         NSString *cql = @"delete from News where objectId = ?";
         NSArray *pvalues =  @[self.objectId];
         [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
-            // 如果 error 为空，说明保存成功
+            // 如果 error 为空，说明删除成功
             if (!error) {
                 // 删除成功
                 sender.image = [[UIImage imageNamed:@"newscollect"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

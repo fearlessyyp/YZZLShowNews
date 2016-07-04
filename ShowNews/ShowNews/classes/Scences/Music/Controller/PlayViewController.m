@@ -35,6 +35,8 @@
 
 @property (nonatomic, copy) NSString *musicUrl;
 
+// 收藏按钮
+@property (weak, nonatomic) IBOutlet UIButton *collectButton;
 
 
 @end
@@ -68,7 +70,11 @@ static PlayViewController *playVC = nil;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.playManager prepareMusic:self.musicIndex];
+#warning 为什么
+    if (_musicIndex < 100000) {
+        [self.playManager prepareMusic:self.musicIndex];
+    }
+    
     
     [self.musicLyric registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ce"];
 }
@@ -143,6 +149,10 @@ static PlayViewController *playVC = nil;
         
     }
     
+//    if ([PlayerManager sharePlayer].isCollect == YES) {
+//        <#statements#>
+//    }
+    
     // 专辑图片
     // 将改变约束的生命周期提前
     [self.musicPic.layer setCornerRadius:(([UIScreen mainScreen].bounds.size.width) - 100) / 2];
@@ -156,7 +166,11 @@ static PlayViewController *playVC = nil;
         NSLog(@"++++++++++++++%@", musci.picUrl);
         weakSelf.titleLabel.text = musci.musicName;
         weakSelf.musicUrl = musci.mp3Url;
-        
+        if (musci.IsCollect == YES) {
+            [weakSelf.collectButton setImage:[UIImage imageNamed:@"newscollected"] forState:UIControlStateNormal];
+        }else {
+            [weakSelf.collectButton setImage:[UIImage imageNamed:@"newscollect"] forState:UIControlStateNormal];
+        }
         //刷新TableView
         dispatch_async(dispatch_get_main_queue(), ^{
             // 将时间歌词添加到当前VC的数组中
@@ -281,6 +295,7 @@ static PlayViewController *playVC = nil;
 
 // 收藏按钮
 - (IBAction)collectButtonClick:(UIButton *)sender {
+    [[PlayerManager sharePlayer] collectButtonClick:sender];
 }
 
 

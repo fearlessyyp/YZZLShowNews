@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayViewController">
             <connections>
+                <outlet property="collectButton" destination="6AR-30-Y63" id="cya-zQ-GqJ"/>
                 <outlet property="firstWith" destination="rre-ri-wUd" id="dN5-73-E6Z"/>
                 <outlet property="musicLyric" destination="xb6-W4-cYr" id="I6W-8f-J8y"/>
                 <outlet property="musicPic" destination="0mq-Rk-PYB" id="aBC-QQ-Z7Z"/>

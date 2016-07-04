@@ -50,6 +50,9 @@
     
 }
 
+
+
+
 // 分享友盟的button
 - (IBAction)shareButtonAction:(id)sender {
 

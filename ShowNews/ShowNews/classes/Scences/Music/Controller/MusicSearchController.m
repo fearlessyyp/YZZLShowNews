@@ -18,6 +18,9 @@
 #import "UIImageView+WebCache.h"
 #import <AVFoundation/AVFoundation.h>
 #import <MJRefresh.h>
+#import <AVOSCloud/AVOSCloud.h>
+#import <MBProgressHUD.h>
+#import "DataBaseHandle.h"
 
 @interface MusicSearchController ()<UITableViewDelegate, UITableViewDataSource>
 /// 搜索栏
@@ -66,6 +69,8 @@
 @property (nonatomic, strong) PlayerManager *playManager;
 
 @property (nonatomic, assign) NSInteger page;
+// 用于收藏的音乐
+@property (nonatomic, strong) Music *music;
 
 @end
 
@@ -168,6 +173,8 @@
         
     }];
     
+    [PlayerManager sharePlayer].searchCollectButton = _collect;
+    
     
 }
 // 隐藏上拉下拉刷新
@@ -189,12 +196,17 @@
 
         weakSelf.titleLabel.text = musci.musicName;
         weakSelf.singerLabel.text = musci.singerName;
-        
-        
-        //刷新TableView
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf.photoImage sd_setImageWithURL:[NSURL URLWithString:musci.picUrl]];
-        });
+      
+        [weakSelf.photoImage sd_setImageWithURL:[NSURL URLWithString:musci.picUrl]];
+        if (musci.IsCollect == YES) {
+            [weakSelf.collect setImage:[UIImage imageNamed:@"newscollected"] forState:UIControlStateNormal];
+        }else {
+            [weakSelf.collect setImage:[UIImage imageNamed:@"newscollect"] forState:UIControlStateNormal];
+        }
+//        //刷新TableView
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//          
+//        });
         
     };
 }
@@ -470,8 +482,12 @@
 #pragma mark --- 播放器
 
 - (void)bindSmallMusicController:(Music *)music {
+    if ([self.titleLabel.text isEqualToString:music.musicName] && [self.singerLabel.text isEqualToString:music.singerName]) {
+        return;
+    }
     self.titleLabel.text = music.musicName;
     self.singerLabel.text = music.singerName;
+   
     [self.photoImage sd_setImageWithURL:[NSURL URLWithString:music.image]];
     NSLog(@"z%@",music.picUrl);
 }
@@ -493,8 +509,11 @@
 // 点击CELL 跳转
 - (IBAction)imageClick:(UITapGestureRecognizer *)sender {
     PlayViewController *playVC = [PlayViewController sharePlayView];
+#warning  点击搜索按钮后currentIndex 值 特别大
+    if ([PlayerManager sharePlayer].currentIndex < 100000) {
+        playVC.musicIndex = [PlayerManager sharePlayer].currentIndex;
+    }
     
-    playVC.musicIndex = [PlayerManager sharePlayer].currentIndex;
     [self.navigationController pushViewController:playVC animated:YES];
     
 //    self.view.layer.borderWidth
@@ -569,6 +588,13 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
+}
+
+// 点击收藏按钮
+- (IBAction)collectButtonClick:(UIButton *)sender {
+
+    [[PlayerManager sharePlayer] collectButtonClick:sender];
+
 }
 
 
