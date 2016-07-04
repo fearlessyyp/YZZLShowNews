@@ -78,6 +78,8 @@ singleton_interface(DataBaseHandle)
 #pragma mark - Music转换成AVObject
 - (AVObject *)musicTOAVObject:(Music *)music;
 
+- (Music *)aVObjectToMusic:(AVObject *)object;
+
 #pragma mark - User转换成AVObject
 - (AVObject *)userToAVObject:(User *)user;
 

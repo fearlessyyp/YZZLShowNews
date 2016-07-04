@@ -77,4 +77,13 @@
 // 记录播放暂停
 @property (nonatomic, assign) BOOL isStart;
 
+// 记录是否收藏
+//@property (nonatomic, assign) BOOL isCollect;
+
+- (void)collectButtonClick:(UIButton *)sender;
+
+// 搜索页的收藏BUTTON
+@property (nonatomic, strong) UIButton *searchCollectButton;
+// 详情页的收藏BUTTON
+@property (nonatomic, strong) UIButton *detailCollectButton;
 @end

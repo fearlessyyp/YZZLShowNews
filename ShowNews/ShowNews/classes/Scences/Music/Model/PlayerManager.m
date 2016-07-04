@@ -13,6 +13,8 @@
 #import "MusicTimeFormatter.h"
 #import <MBProgressHUD.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVOSCloud/AVOSCloud.h>
+#import "DataBaseHandle.h"
 
 @interface PlayerManager ()
 @property (nonatomic,strong) AVPlayer *player; // 播放器属性
@@ -20,6 +22,7 @@
 @property (nonatomic, strong) Music *music;
 @property (nonatomic, strong) AVPlayerItem *playerItem;
 @property (nonatomic, strong)MBProgressHUD *HUD; // 小菊花
+
 @end
 
 
@@ -94,10 +97,10 @@ static PlayerManager *playerManager = nil;
     if ((self.playList.count <= 0)) {
         return;
     }
+    
     _music = self.playList[index];
-    if (self.blocl1) {
-        self.blocl1(_music);
-    }
+    // 从数据库查询是否收藏
+    [self selectFromMusicTable:nil];
     if (self.bloclAPP) {
         self.bloclAPP(_music);
     }
@@ -108,6 +111,8 @@ static PlayerManager *playerManager = nil;
         self.currentIndex = index;
         // 获取当前音乐信息
         _music = self.playList[index];
+        // 从数据库查询是否收藏
+        [self selectFromMusicTable:nil];
         if (self.playerItem) {
             [self.playerItem removeObserver:self forKeyPath:@"status"];
             //                    [self.player.currentItem removeObserver:self forKeyPath:@"status"];
@@ -124,9 +129,7 @@ static PlayerManager *playerManager = nil;
         self.player = nil;
         // 替换当前的playerItem
         self.player = [[AVPlayer alloc] initWithPlayerItem:_playerItem];
-        if (self.blocl) {
-            self.blocl(_music);
-        }
+        
         [self musicPlay];
         //        if (self.blocl1) {
         //            self.blocl1(music);
@@ -151,9 +154,9 @@ static PlayerManager *playerManager = nil;
         [dict setObject:music.specialName forKey:MPMediaItemPropertyAlbumTitle];
         
         //专辑缩略图
-//        UIImage *image = [UIImage imageNamed:[info objectForKey:@"image"]];
-//        MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithImage:image];
-//        [dict setObject:artwork forKey:MPMediaItemPropertyArtwork];
+        //        UIImage *image = [UIImage imageNamed:[info objectForKey:@"image"]];
+        //        MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithImage:image];
+        //        [dict setObject:artwork forKey:MPMediaItemPropertyArtwork];
         
         //音乐剩余时长
         [dict setObject:[NSNumber numberWithDouble:[music.duration floatValue] / 1000] forKey:MPMediaItemPropertyPlaybackDuration];
@@ -308,8 +311,82 @@ int i = 0;
     return result;
 }
 
+// 收藏按钮点击
+- (void)collectButtonClick:(UIButton *)sender {
+    _music = _playList[_currentIndex];
+    if (_music.IsCollect) {
+        // 删除逻辑
+        NSString *cql = @"delete from Music where objectId = ?";
+        NSArray *pvalues =  @[_music.objectId];
+        [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
+            // 如果 error 为空，说明删除成功
+            if (!error) {
+                // 删除成功
+                [sender setImage:[UIImage imageNamed:@"newscollect"] forState:UIControlStateNormal];
+                _music.IsCollect = NO;
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"取消收藏成功";
+                hud.margin = 10.f;
+                hud.yOffset = 0.f;
+                hud.removeFromSuperViewOnHide = YES;
+                [hud hide:YES afterDelay:1];
+            } else {
+                NSLog(@"~~~~~~error = %@", error);
+            }
+        }];
+        
+    } else {
+        // 存储逻辑
+        AVObject *object = [[DataBaseHandle sharedDataBaseHandle] musicTOAVObject:_music];
+        [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                // 从表中获取数据->objectID
+                [self selectFromMusicTable:sender];
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"收藏成功";
+                hud.margin = 10.f;
+                hud.yOffset = 0.f;
+                hud.removeFromSuperViewOnHide = YES;
+                [hud hide:YES afterDelay:1];
+            } else {
+                NSLog(@"!!!error = %@", error);
+            }
+        }];
+    }
+    
+    
+}
 
+- (void)selectFromMusicTable:(UIButton *)sender {
+    NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ? and ID = ?", @"Music"];
+    NSArray *pvalues =  @[@1, self.music.ID];
+        [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
+            if (!error) {
+                // 操作成功
+#warning 延迟不及时操作
+                
+                if (result.results.count > 0) {
+                    AVObject *obj = result.results[0];
+                    _music.objectId = obj.objectId;
+//                    [_detailCollectButton setImage:[UIImage imageNamed:@"newscollected"] forState:UIControlStateNormal];
+//                    [_searchCollectButton setImage:[UIImage imageNamed:@"newscollected"] forState:UIControlStateNormal];
+                    _music.IsCollect = YES;
+                    NSLog(@"IsCollect = %d", _music.IsCollect);
+                }
+            } else {
+                NSLog(@"%@", error);
+            }
+            if (self.blocl) {
+                self.blocl(_music);
+            }
+            if (self.blocl1) {
+                self.blocl1(_music);
+            }
 
-
+            NSLog(@"result ====== %@", result);
+        }];
+}
 
 @end
