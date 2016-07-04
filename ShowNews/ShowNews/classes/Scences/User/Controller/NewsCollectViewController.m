@@ -23,7 +23,6 @@ typedef NS_ENUM(NSUInteger, NewsType) {
     NewsTypeUnknow,
 };
 
-
 @interface NewsCollectViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *allNewsArray;
 @property (nonatomic, strong) UITableView *tableView;

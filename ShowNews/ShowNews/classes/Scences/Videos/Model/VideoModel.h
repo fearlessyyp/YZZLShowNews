@@ -26,5 +26,6 @@
 // /视频发布者头像
 @property (nonatomic, strong) NSString *topicImg;
 
+@property (nonnull, copy) NSString *topicSid;
 
 @end

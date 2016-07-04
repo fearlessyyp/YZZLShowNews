@@ -146,14 +146,31 @@ singleton_implementation(DataBaseHandle)
 
 #pragma mark - Video转换成AVObject
 - (AVObject *)videoToAVObject:(VideoModel *)video {
-    AVObject *ob = [[AVObject alloc] init];
+    AVObject *ob = [[AVObject alloc] initWithClassName:@"VideoModel"];
+    [ob setObject:video.topicSid forKey:@"topicSid"];
     [ob setObject:video.title forKey:@"title"];
     [ob setObject:video.cover forKey:@"cover"];
     [ob setObject:@(video.length) forKey:@"length"];
     [ob setObject:video.mp4_url forKey:@"mp4_url"];
     [ob setObject:video.topicName forKey:@"topicName"];
     [ob setObject:video.topicImg forKey:@"topicImg"];
+    [ob setObject:@1 forKey:@"username"];
     return ob;
+}
+
+#pragma mark -AVObject转换成Video
+- (VideoModel *)aVObjectToVideoModel:(AVObject *)object
+{
+    VideoModel *model = [[VideoModel alloc] init];
+    model.topicSid = [object objectForKey:@"topicSid"];
+    model.title = [object objectForKey:@"title"];
+    model.cover = [object objectForKey:@"cover"];
+    model.length = [[object objectForKey:@"length"] integerValue];
+    model.mp4_url = [object objectForKey:@"mp4_url"];
+    model.topicName = [object objectForKey:@"topicName"];
+    model.topicImg = [object objectForKey:@"topicImg"];
+    return model;
+    
 }
 
 #pragma mark - Music转换成AVObject
