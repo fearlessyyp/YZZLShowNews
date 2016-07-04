@@ -458,6 +458,7 @@
     }
 }
 
+
 -(void)fullScreenBtnClick:(NSNotification *)notice{
     UIButton *fullScreenBtn = (UIButton *)[notice object];
     if (fullScreenBtn.isSelected) {
@@ -475,6 +476,7 @@
     }
 }
 
+// 全屏播放视频
 -(void)toFullScreenWithInterfaceOrientation:(UIInterfaceOrientation )interfaceOrientation{
     [self.playView removeFromSuperview];
     self.playView.transform = CGAffineTransformIdentity;
