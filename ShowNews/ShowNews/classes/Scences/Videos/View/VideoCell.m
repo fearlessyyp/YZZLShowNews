@@ -20,7 +20,8 @@
 @property (nonatomic, assign) BOOL isCollect;
 /// 数据库中存储的id
 @property (nonatomic, strong) NSString *objectId;
-
+// /收藏的button
+@property (weak, nonatomic) IBOutlet UIButton *collectButton;
 
 @end
 
@@ -43,6 +44,8 @@
         self.titleLable.text = model.title;
         [self.backImageView sd_setImageWithURL:[NSURL URLWithString:model.cover]];
         self.topicNameLable.text = model.topicName;
+         // 查询是否被该用户收藏过
+        [self selectFromVideoTable:self.collectButton];
     }
     
 }
@@ -87,7 +90,7 @@
         [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 // 从表中获取数据->objectID
-                [self selectFromNewsTable:sender];
+                [self selectFromVideoTable:sender];
                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
                 hud.mode = MBProgressHUDModeText;
                 hud.labelText = @"收藏成功";
@@ -102,9 +105,8 @@
     }
 }
 
-- (void)selectFromNewsTable:(UIButton *)collectItem {
+- (void)selectFromVideoTable:(UIButton *)collectItem {
     NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ? and mp4_url = ?", @"VideoModel"];
-    NSLog(@"+++++++++%@", self.model);
     NSArray *pvalues =  @[@1, self.model.mp4_url];
     [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
         if (!error) {
@@ -112,7 +114,6 @@
             if (result.results.count > 0) {
                 AVObject *obj = result.results[0];
                 self.objectId = obj.objectId;
-//                collectItem.image = [[UIImage imageNamed:@"newscollected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
                 [collectItem setImage:[UIImage imageNamed:@"action_love_selected@2x"] forState:UIControlStateNormal];
                 self.isCollect = YES;
             }

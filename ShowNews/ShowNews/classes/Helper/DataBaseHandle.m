@@ -147,7 +147,6 @@ singleton_implementation(DataBaseHandle)
 #pragma mark - Video转换成AVObject
 - (AVObject *)videoToAVObject:(VideoModel *)video {
     AVObject *ob = [[AVObject alloc] initWithClassName:@"VideoModel"];
-    [ob setObject:video.topicSid forKey:@"topicSid"];
     [ob setObject:video.title forKey:@"title"];
     [ob setObject:video.cover forKey:@"cover"];
     [ob setObject:@(video.length) forKey:@"length"];
@@ -162,7 +161,6 @@ singleton_implementation(DataBaseHandle)
 - (VideoModel *)aVObjectToVideoModel:(AVObject *)object
 {
     VideoModel *model = [[VideoModel alloc] init];
-    model.topicSid = [object objectForKey:@"topicSid"];
     model.title = [object objectForKey:@"title"];
     model.cover = [object objectForKey:@"cover"];
     model.length = [[object objectForKey:@"length"] integerValue];
