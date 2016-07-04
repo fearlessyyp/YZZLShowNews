@@ -26,8 +26,7 @@
 /// 搜索栏
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 
-/// 搜索结果列表
-@property (weak, nonatomic) IBOutlet UITableView *listResultTableView;
+
 
 /// 播放控制器
 @property (weak, nonatomic) IBOutlet UIView *bofangView;
@@ -35,8 +34,7 @@
 /// 用于网络请求的session对象
 @property (nonatomic, strong) AFHTTPSessionManager *session;
 
-/// 大数组
-@property (nonatomic, strong) NSMutableArray *allArr;
+
 /// 距左的约束
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftTransform;
 /// button 的间距
@@ -84,6 +82,10 @@
 #warning 111
 // 收藏按钮
 - (IBAction)shareButton:(UIButton *)sender {
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     
 }
 
@@ -175,6 +177,8 @@
     
     [PlayerManager sharePlayer].searchCollectButton = _collect;
     
+    // 第一次进入时候显示收藏列表
+    [[PlayerManager sharePlayer] requestData:self];
     
 }
 // 隐藏上拉下拉刷新
@@ -199,9 +203,9 @@
       
         [weakSelf.photoImage sd_setImageWithURL:[NSURL URLWithString:musci.picUrl]];
         if (musci.IsCollect == YES) {
-            [weakSelf.collect setImage:[UIImage imageNamed:@"newscollected"] forState:UIControlStateNormal];
+            [weakSelf.collect setImage:[UIImage imageNamed:@"action_love_selected@2x"] forState:UIControlStateNormal];
         }else {
-            [weakSelf.collect setImage:[UIImage imageNamed:@"newscollect"] forState:UIControlStateNormal];
+            [weakSelf.collect setImage:[UIImage imageNamed:@"action_love@2x"] forState:UIControlStateNormal];
         }
 //        //刷新TableView
 //        dispatch_async(dispatch_get_main_queue(), ^{
@@ -364,7 +368,7 @@
     return [returnStr stringByReplacingOccurrencesOfString:@"\\r\\n"withString:@"\n"];
 }
 
-// 请求歌词 并把MODEL 添加到大数组
+// 请求歌词 
 - (void)requestLrc:(Music *)music {
     __weak typeof(self) weakSelf = self;
     NSURLSession *sesson = [NSURLSession sharedSession];
@@ -409,7 +413,7 @@
     MusicListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     Music *music = self.allArr[indexPath.row];
     [cell bindModel:music];
-//    [self bindDict:music];
+    
     return cell;
 }
 
@@ -424,6 +428,7 @@
     [[PlayerManager sharePlayer] prepareMusic:indexPath.row];
     Music *music = self.allArr[indexPath.row];
     [self bindSmallMusicController:music];
+    [self.view endEditing:YES];
 }
 
 - (void)configNowPlayingInfoCenter {
@@ -446,7 +451,7 @@
             //                [musicImage sd_setImageWithURL:[NSURL URLWithString:music.picUrl]];
             //
             //                MPMediaItemArtwork * mArt = [[MPMediaItemArtwork alloc] initWithImage:musicImage.image];
-            //
+            
             //                [dict setObject:mArt forKey:MPMediaItemPropertyArtwork];
             //            });
             
@@ -547,8 +552,9 @@
 }
 
 - (void)dealloc {
-    [[PlayerManager sharePlayer] removeObserver:self forKeyPath:@"isStart" context:nil];
     
+    [[PlayerManager sharePlayer] removeObserver:self forKeyPath:@"isStart" context:nil];
+//
 }
 
 

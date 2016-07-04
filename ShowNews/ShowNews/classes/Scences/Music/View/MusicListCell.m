@@ -8,6 +8,9 @@
 
 #import "MusicListCell.h"
 #import "Music.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import <MBProgressHUD.h>
+#import "DataBaseHandle.h"
 
 @interface MusicListCell ()
 // 歌曲名
@@ -17,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *specialLabel;
 
 
-@property (weak, nonatomic) IBOutlet UIButton *collectButton;
 
 @end
 
@@ -33,7 +35,9 @@
     self.musicLabel.text = model.musicName;
     self.singerLabel.text = model.singerName;
     self.specialLabel.text = model.specialName;
+ 
 }
+
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

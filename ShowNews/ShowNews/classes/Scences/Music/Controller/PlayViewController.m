@@ -167,9 +167,9 @@ static PlayViewController *playVC = nil;
         weakSelf.titleLabel.text = musci.musicName;
         weakSelf.musicUrl = musci.mp3Url;
         if (musci.IsCollect == YES) {
-            [weakSelf.collectButton setImage:[UIImage imageNamed:@"newscollected"] forState:UIControlStateNormal];
+            [weakSelf.collectButton setImage:[UIImage imageNamed:@"action_love_selected@2x"] forState:UIControlStateNormal];
         }else {
-            [weakSelf.collectButton setImage:[UIImage imageNamed:@"newscollect"] forState:UIControlStateNormal];
+            [weakSelf.collectButton setImage:[UIImage imageNamed:@"action_love@2x"] forState:UIControlStateNormal];
         }
         //刷新TableView
         dispatch_async(dispatch_get_main_queue(), ^{

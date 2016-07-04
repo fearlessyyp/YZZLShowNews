@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "MusicSearchController.h"
 @interface UserViewController : BaseViewController
-
+@property (nonatomic, strong) MusicSearchController *musicSearchVC;
 @end

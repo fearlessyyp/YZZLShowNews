@@ -10,6 +10,8 @@
 #import <MediaPlayer/MediaPlayer.h> 
 @interface MusicSearchController : UIViewController
 
-
-
+/// 大数组
+@property (nonatomic, strong) NSMutableArray *allArr;
+/// 搜索结果列表
+@property (weak, nonatomic) IBOutlet UITableView *listResultTableView;
 @end

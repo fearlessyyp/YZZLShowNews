@@ -16,6 +16,13 @@
 #import "UIImageView+WebCache.h"
 #import "Simple.h"
 #import "VideoViewController.h"
+#import "MusicSearchController.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import "Music.h"
+#import "DataBaseHandle.h"
+#import "PlayerManager.h"
+#import "RESideMenu.h"
+
 @interface UserViewController ()<UITableViewDelegate, UITableViewDataSource>
 // 提示清除缓存的文字
 @property (nonatomic, copy) NSString *cacheStr;
@@ -33,11 +40,20 @@
 @property (nonatomic, strong) UISwitch *cellSwitch;
 // 记录当前的亮度
 @property (nonatomic, assign) float currentBrightness;
+// 记录存放的收藏音乐 大数组
+@property (nonatomic, strong) NSMutableArray *allCollectMusicArr;
 
 
 @end
 
 @implementation UserViewController
+
+- (NSMutableArray *)allCollectMusicArr {
+    if (!_allCollectMusicArr) {
+        _allCollectMusicArr = [NSMutableArray array];
+    }
+    return _allCollectMusicArr;
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -122,10 +138,12 @@
 //                cell1.newsView.
                 
                 cell1.block = ^(NSInteger num){
-                    NewsCollectViewController * newsCollectVC = [[NewsCollectViewController alloc] init];
+                   
                     switch (num) {
-                        case 1:
-                            
+                        case 1:{
+                             NewsCollectViewController * newsCollectVC = [[NewsCollectViewController alloc] init];
+                            [self.navigationController pushViewController:newsCollectVC animated:YES];
+                        }
                             break;
                         case 2:
                             
@@ -134,15 +152,18 @@
                         case 3:
                             
                             break;
-                        case 4:
+                        case 4:{
                             
+                            [self requestData:self.musicSearchVC];
+                            [self presentRightMenuViewController:self.musicSearchVC];
+                        }    
                             break;
                             
                         default:
                             break;
                     }
                     
-                    [self.navigationController pushViewController:newsCollectVC animated:YES];
+                    
                 };
                 
             }
@@ -376,6 +397,33 @@
         [Simple sharedSimple].moon = 0;
     }
 }
+
+- (void)requestData:(MusicSearchController *)searchVC {
+    NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ?", @"Music"];
+    NSArray *pvalues =  @[@1];
+    [searchVC.allArr removeAllObjects];
+    [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
+        if (!error) {
+            // 操作成功
+            for (AVObject *obj in result.results) {
+                Music *music = [[DataBaseHandle sharedDataBaseHandle] aVObjectToMusic:obj];
+                [searchVC.allArr addObject:music];
+            }
+
+        } else {
+            NSLog(@"%@", error);
+        }
+//        searchVC.allArr = self.allCollectMusicArr;
+        [PlayerManager sharePlayer].playList = searchVC.allArr;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [searchVC.listResultTableView reloadData];
+            
+        });
+    }];
+    
+}
+
+
 
 
 /*
