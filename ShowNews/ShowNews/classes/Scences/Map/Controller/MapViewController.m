@@ -11,6 +11,8 @@
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>//引入定位功能所有的头文件
 #import <BaiduMapAPI_Search/BMKSearchComponent.h>//引入检索功能所有的头文件
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
+
+#import "CPSViewController.h"
 @interface MapViewController ()<BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,BMKPoiSearchDelegate>
 @property (strong,nonatomic) BMKMapView *mapView;
 @property (strong,nonatomic) BMKLocationService *locService;
@@ -66,9 +68,16 @@
     UIBarButtonItem *traffic = [[UIBarButtonItem alloc] initWithTitle:@"路况" style:(UIBarButtonItemStylePlain) target:self action:@selector(openTrafficAction:)];
     self.navigationItem.rightBarButtonItem = traffic;
     
-
+    UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithTitle:@"导航" style:UIBarButtonItemStylePlain target:self action:@selector(startNavi)];
+    self.navigationItem.leftBarButtonItem = left;
 }
-
+//发起导航
+- (void)startNavi
+{
+    CPSViewController *gps = [[CPSViewController alloc]init];
+    //self.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:gps animated:YES];
+}
 #pragma mark - 初始化检索对象
 - (void)initWithSearcher
 {

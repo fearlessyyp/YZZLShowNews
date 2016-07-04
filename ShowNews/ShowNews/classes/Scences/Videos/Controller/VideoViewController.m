@@ -31,9 +31,11 @@
 @property (nonatomic, strong)NSIndexPath *currentIndexPath;
 @property (nonatomic, strong)VideoCell *currentCell;
 @property (nonatomic, strong)VideoModel *currentModel;
-
+// 判断视频是否在cell上
 @property (nonatomic, assign)BOOL isOnCell;
+// 判断视频是否在window上
 @property (nonatomic, assign)BOOL isOnWindow;
+// 判断是否展示cell
 @property (assign, nonatomic)BOOL cellShouldShow;
 @property (assign, nonatomic) NSInteger page; //!< 数据页数.表示下次请求第几页的数据.
 @end
@@ -161,38 +163,38 @@
 // 返回cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     VideoCell *cell = [VideoCell cellWithTableView:tableView];
+    if (self.newMarray.count >= 1) {
+        VideoModel *model = self.newMarray[indexPath.row];
+        NSLog(@"+++++++++=====%@", model);
+        cell.model = model;
+        [cell.playBtn addTarget:self action:@selector(startPlayVideo:) forControlEvents:UIControlEventTouchUpInside];
+        cell.playBtn.tag = indexPath.row;
+        cell.playBtn.indexPath = indexPath;
+        
+        // 友盟分享的block实现
+        cell.Block = ^void(VideoModel *model)
+        {
+            model = self.newMarray[indexPath.row];
+            
+            [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:model.cover];
+            
+            //分享内嵌文字
+            NSString *shareText = [NSString stringWithFormat:@"%@[视频地址:%@]", model.title, model.mp4_url];
+            
+            //分享内嵌图片
+            //UIImage *shareImage = ;
+            
+            //分享样式数组
+            NSArray *shareArr = [NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToRenren,UMShareToDouban,UMShareToEmail,UMShareToSms, nil];
+            
+            [UMSocialSnsService presentSnsIconSheetView:self appKey:UmengAppkey shareText:shareText shareImage:[UIImage imageNamed:@"2.jpg"] shareToSnsNames:shareArr delegate:self];
+            
+        };
 
-    VideoModel *model = self.newMarray[indexPath.row];
-    NSLog(@"+++++++++=====%@", model);
-    cell.model = model;
-    [cell.playBtn addTarget:self action:@selector(startPlayVideo:) forControlEvents:UIControlEventTouchUpInside];
-    cell.playBtn.tag = indexPath.row;
-    cell.playBtn.indexPath = indexPath;
-    
-    // 友盟分享的block实现
-    cell.Block = ^void(VideoModel *model)
-    {
-        model = self.newMarray[indexPath.row];
-        
-        [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:model.cover];
-
-        //分享内嵌文字
-        NSString *shareText = [NSString stringWithFormat:@"%@[视频地址:%@]", model.title, model.mp4_url];
-        
-        //分享内嵌图片
-        //UIImage *shareImage = ;
-        
-        //分享样式数组
-        NSArray *shareArr = [NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToRenren,UMShareToDouban,UMShareToEmail,UMShareToSms, nil];
-        
-        [UMSocialSnsService presentSnsIconSheetView:self appKey:UmengAppkey shareText:shareText shareImage:[UIImage imageNamed:@"2.jpg"] shareToSnsNames:shareArr delegate:self];
-
-    };
-    
+    }
     
     return cell;
 }
-
 
 -(void)startPlayVideo:(UIButton *)sender{
     if (self.currentCell) {
@@ -256,6 +258,7 @@
     }
 }
 
+// 将视频在window显示
 - (void)putToWindow{
     if (!self.isOnWindow || self.playView.isFullScreen) {
         [self.playView removeFromSuperview];
@@ -278,6 +281,7 @@
     }
 }
 
+// 将视频在cell上显示
 - (void)backToCell{
     if (!self.isOnCell) {
         VideoCell *cell = [self.privateTableView cellForRowAtIndexPath:self.currentIndexPath];
@@ -318,8 +322,6 @@
 
 - (void)ButtonActionWithflvScreen: (NSNotification *)notice{
     
-//        NSString *requestUrl = [self.currentModel.ID stringByReplacingOccurrencesOfString:@"==" withString:@""];
-//        NSString *str = [NSString stringWithFormat:@"http://api.dotaly.com/lol/api/v1/getvideourl?iap=0&ident=408A6C12-3E61-42EE-A6DB-FB776FBB834E&jb=0&type=flv&vid=%@%%3D%%3D", requestUrl];
     VideoModel *model = [VideoModel new];
         __weak typeof(self) weakself = self;
         [[RequestHelper new] requestWithUrl:NEWS_VIDEO_LIST_URL WithSuccessBlock:^(id data) {
@@ -329,8 +331,7 @@
 
     }
 - (void)ButtonActionWithHighScreen: (NSNotification *)notice{
-//    NSString *requestUrl = [self.currentModel.ID stringByReplacingOccurrencesOfString:@"==" withString:@""];
-//    NSString *str = [NSString stringWithFormat:@"http://api.dotaly.com/lol/api/v1/getvideourl?iap=0&ident=408A6C12-3E61-42EE-A6DB-FB776FBB834E&jb=0&type=mp4&vid=%@%%3D%%3D", requestUrl];
+
     VideoModel *model = [VideoModel new];
 
     __weak typeof(self) weakself = self;
@@ -365,7 +366,6 @@
     return _newMarray;
 }
 
-
 - (void)dealloc{
     if (self.playView) {
         self.isOnWindow = NO;
@@ -376,9 +376,6 @@
 }
 
 #pragma mark - 切换清晰度
-
-
-
 /**
  *  释放WMPlayer
  */
@@ -407,19 +404,20 @@
     _playView = nil;
 }
 
+// 视图将要出现时
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDeviceOrientationChange) name:UIDeviceOrientationDidChangeNotification object:nil];
-    
   //  [super viewWillAppear:animated];
 #warning 判断当前时间与上次刷新时间,如果超过半个小时,自动刷新
-        // 马上进入刷新状态
-//        [self.privateTableView.mj_header beginRefreshing];
+    [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(timeAction:) userInfo:nil repeats:YES];
 }
 
-
-
+- (void)timeAction:(NSTimer *)time
+{
+    [self.privateTableView.mj_header beginRefreshing];
+}
 
 - (void)onDeviceOrientationChange{
     if (self.playView == nil || self.playView.superview == nil) {
@@ -460,6 +458,7 @@
     }
 }
 
+
 -(void)fullScreenBtnClick:(NSNotification *)notice{
     UIButton *fullScreenBtn = (UIButton *)[notice object];
     if (fullScreenBtn.isSelected) {
@@ -477,6 +476,7 @@
     }
 }
 
+// 全屏播放视频
 -(void)toFullScreenWithInterfaceOrientation:(UIInterfaceOrientation )interfaceOrientation{
     [self.playView removeFromSuperview];
     self.playView.transform = CGAffineTransformIdentity;

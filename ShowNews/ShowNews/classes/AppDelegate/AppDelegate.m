@@ -23,6 +23,7 @@
 #import "Music.h"
 #import "UIImageView+WebCache.h"
 #import "Simple.h"
+#import "BNCoreServices.h"
 #import <AVOSCloud/AVOSCloud.h>
 @interface AppDelegate ()<RESideMenuDelegate>
 @property (nonatomic, strong) UITabBarController *rootTVC;
@@ -62,6 +63,10 @@
     
     // leanCloud设置
     [self setLeanCloud];
+    
+    //初始化导航DSK
+    [BNCoreServices_Instance initServices:@"o5H8GiR7jg4w0UrP9mVOGPt2WGm4dnpy"];
+    [BNCoreServices_Instance startServicesAsyn:nil fail:nil];
     return YES;
 }
 
@@ -90,6 +95,13 @@
     sideMenuViewController.contentViewInLandscapeOffsetCenterX = [UIScreen mainScreen].bounds.size.width * 0.33;
     sideMenuViewController.contentViewInPortraitOffsetCenterX  = [UIScreen mainScreen].bounds.size.width * 0.33;
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:sideMenuViewController];
+//    self.window.rootViewController = sideMenuViewController;
+    [UINavigationBar appearance].barStyle = UIBarStyleBlack;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+    
+   
+
 }
 
 #pragma mark - 设置友盟的相关信息

@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>百度导航SDK for iOS v2.0.6类参考: BNRoutePlanModel.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">百度导航SDK for iOS v2.0.6类参考
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_243a4ba6b4f893d71afbb5a3e90552fa.html">sdk</a></li><li class="navelem"><a class="el" href="dir_4b32f0b8d8b8575ac29719fa14db2e24.html">inc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">BNRoutePlanModel.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_b_n_route_plan_model_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  BNaviRoutePlanModel.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  OfflineNavi</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Created by Baidu on 4/11/13.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Copyright (c) 2013 baidu. All rights reserved.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//  路线规划节点数据结构类</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#import &lt;Foundation/Foundation.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="_b_n_route_plan_model_8h.html#a9385cc6ee024e2966581edc4b3281c54">   16</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="_b_n_route_plan_model_8h.html#a9385cc6ee024e2966581edc4b3281c54aa0dcb0cf772930155fbceb926ea5807f">   18</a></span>&#160;    <a class="code" href="_b_n_route_plan_model_8h.html#a9385cc6ee024e2966581edc4b3281c54aa0dcb0cf772930155fbceb926ea5807f">BNCoordinate_OriginalGPS</a> = 0,</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="_b_n_route_plan_model_8h.html#a9385cc6ee024e2966581edc4b3281c54a987849548179253a78d68742b0536601">   19</a></span>&#160;    <a class="code" href="_b_n_route_plan_model_8h.html#a9385cc6ee024e2966581edc4b3281c54a987849548179253a78d68742b0536601">BNCoordinate_BaiduMapSDK</a> = 1,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}<a class="code" href="_b_n_route_plan_model_8h.html#a9385cc6ee024e2966581edc4b3281c54">BNCoordinate_Type</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="interface_b_n_position.html">   25</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_b_n_position.html">BNPosition</a> : NSObject</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="interface_b_n_position.html#a4af386a5501fdf51dd026d81d2ecbeb7">   30</a></span>&#160;<span class="keyword">@property</span>(nonatomic,assign)<span class="keywordtype">double</span> <a class="code" href="interface_b_n_position.html#a4af386a5501fdf51dd026d81d2ecbeb7">x</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="interface_b_n_position.html#aaae599f9f4ea9d5764aad21cd127523c">   35</a></span>&#160;<span class="keyword">@property</span>(nonatomic,assign)<span class="keywordtype">double</span> <a class="code" href="interface_b_n_position.html#aaae599f9f4ea9d5764aad21cd127523c">y</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="interface_b_n_position.html#a0d68337656d77fa3006dfde7116272d2">   40</a></span>&#160;<span class="keyword">@property</span>(nonatomic,assign)<a class="code" href="_b_n_route_plan_model_8h.html#a9385cc6ee024e2966581edc4b3281c54">BNCoordinate_Type</a> <a class="code" href="interface_b_n_position.html#a0d68337656d77fa3006dfde7116272d2">eType</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="interface_b_n_route_plan_node.html">   47</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_b_n_route_plan_node.html">BNRoutePlanNode</a> : NSObject</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="interface_b_n_route_plan_node.html#a1e2c3a3b1dcf41a714b1de431b9df024">   51</a></span>&#160;<span class="keyword">@property</span>(nonatomic,retain)<a class="code" href="interface_b_n_position.html">BNPosition</a>* pos;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="interface_b_n_route_plan_node.html#aa77a76e1ab085434e5093f95206aa630">   55</a></span>&#160;<span class="keyword">@property</span>(nonatomic,copy)NSString* title;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="interface_b_n_route_plan_node.html#aae0576cf5cb11fdfbe0285fff5ddac18">   59</a></span>&#160;<span class="keyword">@property</span>(nonatomic,copy)NSString* address;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="interface_b_navi_calc_route_time.html">   66</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_b_navi_calc_route_time.html">BNaviCalcRouteTime</a> : NSObject</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="interface_b_navi_calc_route_time.html#ad6ef7c0d56817f35aed72acb9382148e">   70</a></span>&#160;<span class="keyword">@property</span>(nonatomic,assign)<span class="keywordtype">int</span> unHour;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="interface_b_navi_calc_route_time.html#acc4d1de57e35f991e51309709e72782d">   74</a></span>&#160;<span class="keyword">@property</span>(nonatomic,assign)<span class="keywordtype">int</span> unMin;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="interface_b_n_route_item.html">   82</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_b_n_route_item.html">BNRouteItem</a> : NSObject</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">//@property(nonatomic,assign)BNavi_Maneuver_Kind_Enum eManeuverKind;</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="interface_b_n_route_item.html#a4caa7340e8bdfb48d525c21d312a4282">   92</a></span>&#160;<span class="keyword">@property</span>(nonatomic,copy)NSString* nextRoadName;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="interface_b_n_route_item.html#a768857681b309480cccbd6c3bc1fd2be">   97</a></span>&#160;<span class="keyword">@property</span>(nonatomic,assign)<span class="keywordtype">int</span> nLength;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="interface_b_n_route_item.html#a0e3001cd58bf945283ffad58e3e14c38">  102</a></span>&#160;<span class="keyword">@property</span>(nonatomic,assign)<span class="keywordtype">int</span> nTime;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="interface_b_n_route_item.html#ac9ac2c41ae6788042a2f9f3f41b6ae71">  107</a></span>&#160;<span class="keyword">@property</span>(nonatomic,retain)<a class="code" href="interface_b_n_position.html">BNPosition</a>* crossPos;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="interface_b_n_route_item.html#a2e5361724b301af0d0bbc510ff3d2446">  112</a></span>&#160;<span class="keyword">@property</span>(nonatomic,assign)<span class="keywordtype">int</span> nShapePointIdx;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="interface_b_n_route_item.html#ae6f03d8a51070a9f59d86774ac68dedb">  117</a></span>&#160;<span class="keyword">@property</span>(nonatomic,assign)<span class="keywordtype">int</span> unOutLinkAngle;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">//-(id)initWithNE_RouteInfoItem_t:(const NE_RouteInfoItem_t&amp;)stRouteInfoItem;</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="interface_b_n_route_detail_info.html">  125</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_b_n_route_detail_info.html">BNRouteDetailInfo</a> : NSObject</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="interface_b_n_route_detail_info.html#ab6f98e4f27c484498f6bc38e121cb33b">  130</a></span>&#160;<span class="keyword">@property</span>(nonatomic,assign)<span class="keywordtype">int</span> unLength;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="interface_b_n_route_detail_info.html#a935b725d1c4fb8de1d13e10e8762c8a7">  135</a></span>&#160;<span class="keyword">@property</span>(nonatomic,assign)<span class="keywordtype">int</span> unPasstime;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="interface_b_n_route_detail_info.html#ad360850fbff4d0ab71ef97032f2dc0aa">  140</a></span>&#160;<span class="keyword">@property</span>(nonatomic,retain)NSArray*  routeItemList;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="interface_b_n_route_detail_info.html#aa0e426fca769866c1d12e5cdec9119ac">  145</a></span>&#160;<span class="keyword">@property</span>(nonatomic,assign)BOOL bTolled;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment">//-(id)initWithRouteInfo:(const NE_RouteInfo_t&amp;)stRouteInfo;</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="ttc" id="interface_b_n_position_html_a4af386a5501fdf51dd026d81d2ecbeb7"><div class="ttname"><a href="interface_b_n_position.html#a4af386a5501fdf51dd026d81d2ecbeb7">BNPosition::x</a></div><div class="ttdeci">double x</div><div class="ttdoc">经度 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_model_8h_source.html#l00030">BNRoutePlanModel.h:30</a></div></div>
+<div class="ttc" id="interface_b_n_route_plan_node_html"><div class="ttname"><a href="interface_b_n_route_plan_node.html">BNRoutePlanNode</a></div><div class="ttdoc">路径规划节点对象 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_model_8h_source.html#l00047">BNRoutePlanModel.h:47</a></div></div>
+<div class="ttc" id="_b_n_route_plan_model_8h_html_a9385cc6ee024e2966581edc4b3281c54"><div class="ttname"><a href="_b_n_route_plan_model_8h.html#a9385cc6ee024e2966581edc4b3281c54">BNCoordinate_Type</a></div><div class="ttdeci">BNCoordinate_Type</div><div class="ttdoc">坐标系类型 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_model_8h_source.html#l00016">BNRoutePlanModel.h:16</a></div></div>
+<div class="ttc" id="interface_b_n_route_detail_info_html"><div class="ttname"><a href="interface_b_n_route_detail_info.html">BNRouteDetailInfo</a></div><div class="ttdoc">路线详情信息 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_model_8h_source.html#l00125">BNRoutePlanModel.h:125</a></div></div>
+<div class="ttc" id="interface_b_n_position_html"><div class="ttname"><a href="interface_b_n_position.html">BNPosition</a></div><div class="ttdoc">坐标对象 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_model_8h_source.html#l00025">BNRoutePlanModel.h:25</a></div></div>
+<div class="ttc" id="interface_b_n_route_item_html"><div class="ttname"><a href="interface_b_n_route_item.html">BNRouteItem</a></div><div class="ttdoc">每个路段信息 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_model_8h_source.html#l00082">BNRoutePlanModel.h:82</a></div></div>
+<div class="ttc" id="_b_n_route_plan_model_8h_html_a9385cc6ee024e2966581edc4b3281c54aa0dcb0cf772930155fbceb926ea5807f"><div class="ttname"><a href="_b_n_route_plan_model_8h.html#a9385cc6ee024e2966581edc4b3281c54aa0dcb0cf772930155fbceb926ea5807f">BNCoordinate_OriginalGPS</a></div><div class="ttdoc">原始的经纬度坐标 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_model_8h_source.html#l00018">BNRoutePlanModel.h:18</a></div></div>
+<div class="ttc" id="interface_b_n_position_html_aaae599f9f4ea9d5764aad21cd127523c"><div class="ttname"><a href="interface_b_n_position.html#aaae599f9f4ea9d5764aad21cd127523c">BNPosition::y</a></div><div class="ttdeci">double y</div><div class="ttdoc">纬度 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_model_8h_source.html#l00035">BNRoutePlanModel.h:35</a></div></div>
+<div class="ttc" id="_b_n_route_plan_model_8h_html_a9385cc6ee024e2966581edc4b3281c54a987849548179253a78d68742b0536601"><div class="ttname"><a href="_b_n_route_plan_model_8h.html#a9385cc6ee024e2966581edc4b3281c54a987849548179253a78d68742b0536601">BNCoordinate_BaiduMapSDK</a></div><div class="ttdoc">从百度地图中获取的sdk </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_model_8h_source.html#l00019">BNRoutePlanModel.h:19</a></div></div>
+<div class="ttc" id="interface_b_navi_calc_route_time_html"><div class="ttname"><a href="interface_b_navi_calc_route_time.html">BNaviCalcRouteTime</a></div><div class="ttdoc">分时段规划，路线的时间对象 </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_model_8h_source.html#l00066">BNRoutePlanModel.h:66</a></div></div>
+<div class="ttc" id="interface_b_n_position_html_a0d68337656d77fa3006dfde7116272d2"><div class="ttname"><a href="interface_b_n_position.html#a0d68337656d77fa3006dfde7116272d2">BNPosition::eType</a></div><div class="ttdeci">BNCoordinate_Type eType</div><div class="ttdoc">坐标系类型，默认是BNCoordinate_OriginalGPS </div><div class="ttdef"><b>Definition:</b> <a href="_b_n_route_plan_model_8h_source.html#l00040">BNRoutePlanModel.h:40</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+生成于 2016年 二月 29日 星期一 08:47:08 , 为 百度导航SDK for iOS v2.0.6类参考使用  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

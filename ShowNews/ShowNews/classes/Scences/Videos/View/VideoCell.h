@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *topicImgImageView;
 // / 视频发布者
 @property (weak, nonatomic) IBOutlet UILabel *topicNameLable;
-
+// 友盟分享的Block
 @property (nonatomic, copy) void (^Block)(VideoModel *);
 
 - (void)addMovie: (UIView *)view;

@@ -101,6 +101,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="backImageView" destination="puH-CV-02G" id="Vdh-84-YKv"/>
+                <outlet property="collectButton" destination="2PU-fA-jXa" id="clK-TY-cXL"/>
                 <outlet property="playBtn" destination="EO2-HU-yQF" id="8eI-5P-dhv"/>
                 <outlet property="titleLable" destination="bFP-Y3-jsD" id="mIo-3b-KD9"/>
                 <outlet property="topicImgImageView" destination="KD5-3Q-6Kn" id="aU4-N4-0TT"/>
