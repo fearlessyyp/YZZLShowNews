@@ -218,7 +218,6 @@
 		B25919771D27F423002EA49D /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25919761D27F423002EA49D /* JavaScriptCore.framework */; };
 		B29EE50D1D2A68F400368FDB /* baiduNaviSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B29EE4FD1D2A68F400368FDB /* baiduNaviSDK.bundle */; };
 		B29EE50E1D2A68F400368FDB /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B29EE5001D2A68F400368FDB /* libBaiduMobStat.a */; };
-		B29EE50F1D2A68F400368FDB /* libbaiduNaviSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B29EE50B1D2A68F400368FDB /* libbaiduNaviSDK.a */; };
 		B29EE5101D2A68F400368FDB /* updatelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = B29EE50C1D2A68F400368FDB /* updatelog.txt */; };
 		D60D377C1D274C2C00915F93 /* NewsPhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60D377B1D274C2C00915F93 /* NewsPhotoDetailViewController.m */; };
 		D60D37801D274DB000915F93 /* NewsPSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D60D377E1D274DB000915F93 /* NewsPSetTableViewCell.m */; };
@@ -350,6 +349,7 @@
 		D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED41D1D576D006B6C33 /* UILabel+Font.m */; };
 		D6EA5ED91D1D6BF1006B6C33 /* MusicSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */; };
 		D6EA5EDA1D1D6BF1006B6C33 /* MusicSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */; };
+		F51C2BB91D2A8DEC00BDBA4A /* libbaiduNaviSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F51C2BB81D2A8DEC00BDBA4A /* libbaiduNaviSDK.a */; };
 		F53783191D227866000B6A2C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53783181D227866000B6A2C /* Security.framework */; };
 		F537831B1D227873000B6A2C /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F537831A1D227873000B6A2C /* libiconv.tbd */; };
 		F537831D1D227882000B6A2C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F537831C1D227882000B6A2C /* SystemConfiguration.framework */; };
@@ -606,7 +606,6 @@
 		B29EE5081D2A68F400368FDB /* BNSoundEventProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSoundEventProtocol.h; sourceTree = "<group>"; };
 		B29EE5091D2A68F400368FDB /* BNStrategyManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNStrategyManagerProtocol.h; sourceTree = "<group>"; };
 		B29EE50A1D2A68F400368FDB /* BNUIManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNUIManagerProtocol.h; sourceTree = "<group>"; };
-		B29EE50B1D2A68F400368FDB /* libbaiduNaviSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaiduNaviSDK.a; sourceTree = "<group>"; };
 		B29EE50C1D2A68F400368FDB /* updatelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = updatelog.txt; sourceTree = "<group>"; };
 		D60D377A1D274C2C00915F93 /* NewsPhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPhotoDetailViewController.h; sourceTree = "<group>"; };
 		D60D377B1D274C2C00915F93 /* NewsPhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPhotoDetailViewController.m; sourceTree = "<group>"; };
@@ -806,6 +805,7 @@
 		D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicSearchController.m; sourceTree = "<group>"; };
 		D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicSearchController.xib; sourceTree = "<group>"; };
 		D99B500FD685B92161D43C8B /* Pods-ShowNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowNews/Pods-ShowNews.release.xcconfig"; sourceTree = "<group>"; };
+		F51C2BB81D2A8DEC00BDBA4A /* libbaiduNaviSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaiduNaviSDK.a; sourceTree = "<group>"; };
 		F53783181D227866000B6A2C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F537831A1D227873000B6A2C /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		F537831C1D227882000B6A2C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -861,7 +861,7 @@
 				B25919731D27F3F0002EA49D /* AVFoundation.framework in Frameworks */,
 				B25919711D27F3E9002EA49D /* MediaPlayer.framework in Frameworks */,
 				F53783231D2278A7000B6A2C /* CoreTelephony.framework in Frameworks */,
-				B29EE50F1D2A68F400368FDB /* libbaiduNaviSDK.a in Frameworks */,
+				F51C2BB91D2A8DEC00BDBA4A /* libbaiduNaviSDK.a in Frameworks */,
 				B259196F1D27F3CE002EA49D /* CoreLocation.framework in Frameworks */,
 				B259196D1D27F3C1002EA49D /* CoreMotion.framework in Frameworks */,
 				F53783291D227927000B6A2C /* ImageIO.framework in Frameworks */,
@@ -1105,10 +1105,10 @@
 		B29EE4FC1D2A68F400368FDB /* BaiduNavi_iOSSDK_v2.0.7_Lib */ = {
 			isa = PBXGroup;
 			children = (
+				F51C2BB81D2A8DEC00BDBA4A /* libbaiduNaviSDK.a */,
 				B29EE4FD1D2A68F400368FDB /* baiduNaviSDK.bundle */,
 				B29EE4FE1D2A68F400368FDB /* BaiduStatistics */,
 				B29EE5011D2A68F400368FDB /* inc */,
-				B29EE50B1D2A68F400368FDB /* libbaiduNaviSDK.a */,
 				B29EE50C1D2A68F400368FDB /* updatelog.txt */,
 			);
 			path = BaiduNavi_iOSSDK_v2.0.7_Lib;
@@ -2356,6 +2356,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BaiduNavi_iOSSDK_v2.0.7_Lib/BaiduStatistics",
 					"$(PROJECT_DIR)/BaiduNavi_iOSSDK_v2.0.7_Lib",
+					"$(PROJECT_DIR)/BaiduNavi_iOSSDK_v2.0.7_Lib/inc",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2438,6 +2439,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BaiduNavi_iOSSDK_v2.0.7_Lib/BaiduStatistics",
 					"$(PROJECT_DIR)/BaiduNavi_iOSSDK_v2.0.7_Lib",
+					"$(PROJECT_DIR)/BaiduNavi_iOSSDK_v2.0.7_Lib/inc",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

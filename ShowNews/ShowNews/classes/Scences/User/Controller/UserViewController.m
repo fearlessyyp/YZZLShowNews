@@ -15,7 +15,7 @@
 #import "NewsCollectViewController.h"
 #import "UIImageView+WebCache.h"
 #import "Simple.h"
-
+#import "VideoViewController.h"
 @interface UserViewController ()<UITableViewDelegate, UITableViewDataSource>
 // 提示清除缓存的文字
 @property (nonatomic, copy) NSString *cacheStr;
@@ -128,6 +128,7 @@
                             
                             break;
                         case 2:
+                            
                             
                             break;
                         case 3:
