@@ -24,7 +24,7 @@
 #import "DataBaseHandle.h"
 #import "PlayerManager.h"
 #import "RESideMenu.h"
-
+#import <MJRefresh.h>
 @interface UserViewController ()<UITableViewDelegate, UITableViewDataSource>
 // 提示清除缓存的文字
 @property (nonatomic, copy) NSString *cacheStr;
@@ -146,9 +146,12 @@
                             [self.navigationController pushViewController:newsCollectVC animated:YES];
                         }
                             break;
-                        case 2:
-                            
-                            
+                        case 2:{
+                            VideoViewController *videoVC = [[VideoViewController alloc] init];
+                            videoVC.iscollect = YES;
+                            [self requestData:videoVC];
+                            [self.navigationController pushViewController:videoVC animated:YES];
+                        }
                             break;
                         case 3:
                             
@@ -425,6 +428,32 @@
 //    
 //}
 
+
+- (void)requestData:(VideoViewController *)searchVC {
+    NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ?", @"VideoModel"];
+    NSArray *pvalues =  @[@1];
+    [self.allCollectMusicArr removeAllObjects];
+    [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
+        if (!error) {
+            // 操作成功
+            for (AVObject *obj in result.results) {
+                VideoModel *videoModel = [[DataBaseHandle sharedDataBaseHandle] aVObjectToVideoModel:obj];
+                [self.allCollectMusicArr addObject:videoModel];
+            }
+            
+        } else {
+            NSLog(@"%@", error);
+        }
+        searchVC.newMarray = self.allCollectMusicArr;
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+                        [searchVC.privateTableView reloadData];
+            
+                    });
+    }];
+    
+}
 
 
 

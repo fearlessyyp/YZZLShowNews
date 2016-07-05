@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 #import "MusicSearchController.h"
+#import "VideoViewController.h"
 @interface UserViewController : BaseViewController
 @property (nonatomic, strong) MusicSearchController *musicSearchVC;
+@property (nonatomic, strong) VideoViewController *videoVC;
 @end

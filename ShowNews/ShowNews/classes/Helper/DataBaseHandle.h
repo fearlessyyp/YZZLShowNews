@@ -75,6 +75,9 @@ singleton_interface(DataBaseHandle)
 #pragma mark - Video转换成AVObject
 - (AVObject *)videoToAVObject:(VideoModel *)video;
 
+#pragma mark -AVObject转换成Video
+- (VideoModel *)aVObjectToVideoModel:(AVObject *)object;
+
 #pragma mark - Music转换成AVObject
 - (AVObject *)musicTOAVObject:(Music *)music;
 
