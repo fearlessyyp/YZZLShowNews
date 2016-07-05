@@ -132,6 +132,8 @@ static PlayerManager *playerManager = nil;
         self.player = [[AVPlayer alloc] initWithPlayerItem:_playerItem];
         
         [self musicPlay];
+        
+        
         //        if (self.blocl1) {
         //            self.blocl1(music);
         //        }
@@ -167,6 +169,7 @@ static PlayerManager *playerManager = nil;
         
         //设置锁屏状态下屏幕显示播放音乐信息
         [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dict];
+        NSLog(@"------------222222222222%@", dict);
     }
 }
 
@@ -314,49 +317,52 @@ int i = 0;
 
 // 收藏按钮点击
 - (void)collectButtonClick:(UIButton *)sender {
-    _music = _playList[_currentIndex];
-    if (_music.IsCollect) {
-        // 删除逻辑
-        NSString *cql = @"delete from Music where objectId = ?";
-        NSArray *pvalues =  @[_music.objectId];
-        [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
-            // 如果 error 为空，说明删除成功
-            if (!error) {
-                // 删除成功
-                [sender setImage:[UIImage imageNamed:@"action_love@2x"] forState:UIControlStateNormal];
-                _music.IsCollect = NO;
-                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
-                hud.mode = MBProgressHUDModeText;
-                hud.labelText = @"取消收藏成功";
-                hud.margin = 10.f;
-                hud.yOffset = 0.f;
-                hud.removeFromSuperViewOnHide = YES;
-                [hud hide:YES afterDelay:1];
-            } else {
-                NSLog(@"~~~~~~error = %@", error);
-            }
-        }];
+    if (_currentIndex < 10000 && _currentIndex > 0) {
+        _music = _playList[_currentIndex];
+        if (_music.IsCollect) {
+            // 删除逻辑
+            NSString *cql = @"delete from Music where objectId = ?";
+            NSArray *pvalues =  @[_music.objectId];
+            [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
+                // 如果 error 为空，说明删除成功
+                if (!error) {
+                    // 删除成功
+                    [sender setImage:[UIImage imageNamed:@"action_love@2x"] forState:UIControlStateNormal];
+                    _music.IsCollect = NO;
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"取消收藏成功";
+                    hud.margin = 10.f;
+                    hud.yOffset = 0.f;
+                    hud.removeFromSuperViewOnHide = YES;
+                    [hud hide:YES afterDelay:1];
+                } else {
+                    NSLog(@"~~~~~~error = %@", error);
+                }
+            }];
+            
+        } else {
+            // 存储逻辑
+            AVObject *object = [[DataBaseHandle sharedDataBaseHandle] musicTOAVObject:_music];
+            [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    // 从表中获取数据->objectID
+                    [self selectFromMusicTable:sender];
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"收藏成功";
+                    hud.margin = 10.f;
+                    hud.yOffset = 0.f;
+                    hud.removeFromSuperViewOnHide = YES;
+                    [hud hide:YES afterDelay:1];
+                } else {
+                    NSLog(@"!!!error = %@", error);
+                }
+            }];
+        }
         
-    } else {
-        // 存储逻辑
-        AVObject *object = [[DataBaseHandle sharedDataBaseHandle] musicTOAVObject:_music];
-        [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                // 从表中获取数据->objectID
-                [self selectFromMusicTable:sender];
-                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
-                hud.mode = MBProgressHUDModeText;
-                hud.labelText = @"收藏成功";
-                hud.margin = 10.f;
-                hud.yOffset = 0.f;
-                hud.removeFromSuperViewOnHide = YES;
-                [hud hide:YES afterDelay:1];
-            } else {
-                NSLog(@"!!!error = %@", error);
-            }
-        }];
     }
-    
+
     
 }
 

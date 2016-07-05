@@ -39,6 +39,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *collectButton;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+
+
 @end
 
 @implementation PlayViewController
@@ -102,6 +105,8 @@ static PlayViewController *playVC = nil;
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     
     [self resignFirstResponder];
+    
+    
     
 }
 
@@ -212,6 +217,15 @@ static PlayViewController *playVC = nil;
     // 监听根据系统音量改变slder音量想
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(volumeChanged) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
     
+#pragma mark - 添加毛玻璃效果
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:self.backgroundImage.bounds];
+    toolbar.alpha = 0.8;
+    //toolbar.barStyle = UIBarStyleBlack;
+    [self.backgroundImage addSubview:toolbar];
+    
+    
+    
+    
     
 }
 // 系统音量发生变化
@@ -258,7 +272,7 @@ static PlayViewController *playVC = nil;
     cell.textLabel.font = [UIFont systemFontOfSize:13.0];
     
     // 设置文字高亮颜色
-    cell.textLabel.highlightedTextColor = [UIColor colorWithRed:0.2 green:0.3 blue:0.9 alpha:1];
+    cell.textLabel.highlightedTextColor = [UIColor blueColor];
     
     
     // 设置被选取的cell
