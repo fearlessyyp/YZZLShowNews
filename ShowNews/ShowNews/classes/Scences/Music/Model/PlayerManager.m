@@ -132,6 +132,8 @@ static PlayerManager *playerManager = nil;
         self.player = [[AVPlayer alloc] initWithPlayerItem:_playerItem];
         
         [self musicPlay];
+        
+        
         //        if (self.blocl1) {
         //            self.blocl1(music);
         //        }
