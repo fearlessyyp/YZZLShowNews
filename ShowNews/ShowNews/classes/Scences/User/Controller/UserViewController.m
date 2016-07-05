@@ -22,7 +22,7 @@
 #import "DataBaseHandle.h"
 #import "PlayerManager.h"
 #import "RESideMenu.h"
-
+#import <MJRefresh.h>
 @interface UserViewController ()<UITableViewDelegate, UITableViewDataSource>
 // 提示清除缓存的文字
 @property (nonatomic, copy) NSString *cacheStr;
@@ -145,18 +145,21 @@
                             [self.navigationController pushViewController:newsCollectVC animated:YES];
                         }
                             break;
-                        case 2:
-                            
-                            
+                        case 2:{
+                            VideoViewController *videoVC = [[VideoViewController alloc] init];
+                            videoVC.iscollect = YES;
+                            [self requestData:videoVC];
+                            [self.navigationController pushViewController:videoVC animated:YES];
+                        }
                             break;
                         case 3:
                             
                             break;
                         case 4:{
                             
-                            [self requestData:self.musicSearchVC];
-                            [self presentRightMenuViewController:self.musicSearchVC];
-                        }    
+//                            [self requestData:self.musicSearchVC];
+//                            [self presentRightMenuViewController:self.musicSearchVC];
+                        }
                             break;
                             
                         default:
@@ -398,32 +401,56 @@
     }
 }
 
-- (void)requestData:(MusicSearchController *)searchVC {
-    NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ?", @"Music"];
+//- (void)requestData:(MusicSearchController *)searchVC {
+//    NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ?", @"Music"];
+//    NSArray *pvalues =  @[@1];
+//    [searchVC.allArr removeAllObjects];
+//    [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
+//        if (!error) {
+//            // 操作成功
+//            for (AVObject *obj in result.results) {
+//                Music *music = [[DataBaseHandle sharedDataBaseHandle] aVObjectToMusic:obj];
+//                [searchVC.allArr addObject:music];
+//            }
+//
+//        } else {
+//            NSLog(@"%@", error);
+//        }
+////        searchVC.allArr = self.allCollectMusicArr;
+//        [PlayerManager sharePlayer].playList = searchVC.allArr;
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [searchVC.listResultTableView reloadData];
+//            
+//        });
+//    }];
+//    
+//}
+
+- (void)requestData:(VideoViewController *)searchVC {
+    NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ?", @"VideoModel"];
     NSArray *pvalues =  @[@1];
-    [searchVC.allArr removeAllObjects];
+    [self.allCollectMusicArr removeAllObjects];
     [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
         if (!error) {
             // 操作成功
             for (AVObject *obj in result.results) {
-                Music *music = [[DataBaseHandle sharedDataBaseHandle] aVObjectToMusic:obj];
-                [searchVC.allArr addObject:music];
+                VideoModel *videoModel = [[DataBaseHandle sharedDataBaseHandle] aVObjectToVideoModel:obj];
+                [self.allCollectMusicArr addObject:videoModel];
             }
-
+            
         } else {
             NSLog(@"%@", error);
         }
-//        searchVC.allArr = self.allCollectMusicArr;
-        [PlayerManager sharePlayer].playList = searchVC.allArr;
+        searchVC.newMarray = self.allCollectMusicArr;
+
         dispatch_async(dispatch_get_main_queue(), ^{
-            [searchVC.listResultTableView reloadData];
             
-        });
+                        [searchVC.privateTableView reloadData];
+            
+                    });
     }];
     
 }
-
-
 
 
 /*
