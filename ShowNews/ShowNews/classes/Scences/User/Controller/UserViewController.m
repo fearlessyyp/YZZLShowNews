@@ -94,12 +94,13 @@
     
     UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageWithColor:NEWS_MAIN_COLOR]];
     
-    UIButton *button = [self.userTableView addScalableCoverWithImage:image.image URLStr:@"http://imgcache.qq.com/music/photo/mid_album_90/8/V/002iWU6B2ZvA8V.jpg"];
+    UIButton *button = [self.userTableView addScalableCoverWithImage:image.image URLStr:nil];
     // 判断,如果有用户登录,就显示用户名,没有就显示登录
     if ([AVUser currentUser] != nil) {
         [button setTitle:[AVUser currentUser].username forState:UIControlStateNormal];
     } else {
         [button setTitle:@"登录" forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont systemFontOfSize:14.f];
     }
     
     [button addTarget:self action:@selector(loginButtonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -321,9 +322,18 @@
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
         UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 42, 42)];
-        image.image = [UIImage imageNamed:@"p1156430977.jpg"];
+        
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(50, 0, 50, 44)];
-        label.text = @"小丸子";
+        // 判断,如果有用户登录,就显示用户名,没有就显示登录
+        if ([AVUser currentUser] != nil) {
+            image.image = [UIImage imageNamed:@"comment_profile_default"];
+            label.text = [AVUser currentUser].username;
+        } else {
+            image.image = [UIImage imageNamed:@"comment_profile_default"];
+            label.text = nil;
+        }
+        
+        
         label.textColor = [UIColor whiteColor];
         label.font = [UIFont systemFontOfSize:12];
         

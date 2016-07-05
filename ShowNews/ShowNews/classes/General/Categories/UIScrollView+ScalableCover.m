@@ -66,7 +66,11 @@ static NSString * const kBigImage = @"bigImage";
     cover.scrollView = self;
 #warning - 50
     UIImageView *bigImage = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenSizeWidth / 2 - 50, 60 - 50, 100, 100)];
-    [bigImage sd_setImageWithURL:[NSURL URLWithString:url]];
+    bigImage.image = [UIImage imageNamed:@"comment_profile_default"];
+    if (url) {
+        [bigImage sd_setImageWithURL:[NSURL URLWithString:url]]; 
+    }
+
     bigImage.layer.cornerRadius = 50;
     bigImage.layer.masksToBounds = YES;
     self.bigImage = bigImage;

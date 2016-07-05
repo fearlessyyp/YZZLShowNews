@@ -16,10 +16,7 @@ static const CGFloat MaxHeight = 150;
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
-
 @end
-
-
 
 
 @interface UIScrollView (ScalableCover)

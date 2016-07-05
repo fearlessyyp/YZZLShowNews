@@ -3,10 +3,19 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController">
             <connections>
+                <outlet property="headImageView" destination="RJ1-sA-ZKh" id="p2P-fa-hlE"/>
+                <outlet property="nameButton" destination="uqU-T7-1Rx" id="ZsS-OG-ZW6"/>
+                <outlet property="nameTextField" destination="aHn-Nl-EAN" id="wHn-Cp-1SZ"/>
+                <outlet property="passwordButton" destination="StR-Uy-Ieb" id="arW-Mm-frd"/>
+                <outlet property="passwordTextField" destination="EcN-Kq-UKc" id="d5U-jh-61n"/>
+                <outlet property="surePasButton" destination="3df-gu-yQg" id="OGI-3i-9it"/>
+                <outlet property="surePasswordTextField" destination="xnn-SP-sE3" id="feH-cW-NPX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,46 +28,39 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horizontal_separator.png" translatesAutoresizingMaskIntoConstraints="NO" id="VJN-Ly-oLk">
-                    <rect key="frame" x="25" y="117" width="364" height="2"/>
+                    <rect key="frame" x="25" y="276" width="364" height="2"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="UqZ-Qw-ImF"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horizontal_separator.png" translatesAutoresizingMaskIntoConstraints="NO" id="a82-EQ-eHG">
-                    <rect key="frame" x="25" y="65" width="364" height="2"/>
+                    <rect key="frame" x="25" y="224" width="364" height="2"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="t5e-5Q-vzW"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horizontal_separator.png" translatesAutoresizingMaskIntoConstraints="NO" id="KiG-zA-gU1">
-                    <rect key="frame" x="25" y="169" width="364" height="2"/>
+                    <rect key="frame" x="25" y="328" width="364" height="2"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="3Us-js-53R"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2" id="QO5-HY-Uza"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_password_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="3mR-V5-wEb">
-                    <rect key="frame" x="25" y="134" width="30" height="30"/>
+                    <rect key="frame" x="25" y="293" width="30" height="30"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="确认密码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xnn-SP-sE3">
-                    <rect key="frame" x="65" y="134" width="294" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="确认密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xnn-SP-sE3">
+                    <rect key="frame" x="65" y="293" width="294" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                             <integer key="value" value="0"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_username_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="FSL-dP-M4y">
-                    <rect key="frame" x="25" y="30" width="30" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="30" id="kTh-Df-fXM"/>
-                        <constraint firstAttribute="height" constant="30" id="uGv-Rg-FUQ"/>
-                    </constraints>
-                </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aHn-Nl-EAN">
-                    <rect key="frame" x="65" y="30" width="294" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aHn-Nl-EAN">
+                    <rect key="frame" x="65" y="189" width="294" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
@@ -68,50 +70,79 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_password_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-0o-eYW">
-                    <rect key="frame" x="25" y="82" width="30" height="30"/>
+                    <rect key="frame" x="25" y="241" width="30" height="30"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EcN-Kq-UKc">
-                    <rect key="frame" x="65" y="82" width="294" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                            <integer key="value" value="0"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0G4-gq-X6U">
-                    <rect key="frame" x="25" y="201" width="364" height="40"/>
+                    <rect key="frame" x="25" y="360" width="364" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="oM9-nN-cUc"/>
                     </constraints>
                     <state key="normal" title="完成" backgroundImage="login_tip_button.png">
                         <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="registerButtonAction:" destination="-1" eventType="touchUpInside" id="abA-Jh-XFZ"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqU-T7-1Rx">
-                    <rect key="frame" x="369" y="38" width="15" height="15"/>
+                    <rect key="frame" x="369" y="197" width="15" height="15"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="SV5-KZ-kM8"/>
                         <constraint firstAttribute="height" constant="15" id="buK-J6-z5j"/>
                     </constraints>
+                    <connections>
+                        <action selector="nameButtonClick:" destination="-1" eventType="touchUpInside" id="CoI-93-Sup"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="StR-Uy-Ieb">
-                    <rect key="frame" x="369" y="90" width="15" height="15"/>
+                    <rect key="frame" x="369" y="249" width="15" height="15"/>
+                    <connections>
+                        <action selector="passwordButtonClick:" destination="-1" eventType="touchUpInside" id="tQc-Ic-PJA"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3df-gu-yQg">
-                    <rect key="frame" x="369" y="142" width="15" height="15"/>
+                    <rect key="frame" x="369" y="301" width="15" height="15"/>
+                    <connections>
+                        <action selector="surePasButton:" destination="-1" eventType="touchUpInside" id="1l5-Dx-hRQ"/>
+                    </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comment_profile_default@2x" translatesAutoresizingMaskIntoConstraints="NO" id="RJ1-sA-ZKh">
+                    <rect key="frame" x="145" y="40" width="124" height="124"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="RJ1-sA-ZKh" secondAttribute="height" multiplier="1:1" id="kXD-Pi-wJq"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="WQX-Mq-blr" appends="YES" id="eMh-5l-VTl"/>
+                    </connections>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_username_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="FSL-dP-M4y">
+                    <rect key="frame" x="25" y="189" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="kTh-Df-fXM"/>
+                        <constraint firstAttribute="height" constant="30" id="uGv-Rg-FUQ"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EcN-Kq-UKc">
+                    <rect key="frame" x="65" y="241" width="294" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="VJN-Ly-oLk" firstAttribute="top" secondItem="EcN-Kq-UKc" secondAttribute="bottom" constant="5" id="0EO-zS-XJu"/>
                 <constraint firstAttribute="trailing" secondItem="aHn-Nl-EAN" secondAttribute="trailing" constant="55" id="0FC-l5-V73"/>
                 <constraint firstItem="3df-gu-yQg" firstAttribute="width" secondItem="StR-Uy-Ieb" secondAttribute="width" id="0uU-Ok-inP"/>
+                <constraint firstItem="FSL-dP-M4y" firstAttribute="top" secondItem="RJ1-sA-ZKh" secondAttribute="bottom" constant="25" id="10y-wa-wHZ"/>
                 <constraint firstAttribute="trailing" secondItem="a82-EQ-eHG" secondAttribute="trailing" constant="25" id="1eH-M0-agf"/>
                 <constraint firstAttribute="trailing" secondItem="KiG-zA-gU1" secondAttribute="trailing" constant="25" id="48o-dz-9QW"/>
                 <constraint firstItem="qxh-0o-eYW" firstAttribute="top" secondItem="a82-EQ-eHG" secondAttribute="bottom" constant="15" id="4CG-PZ-aFz"/>
-                <constraint firstItem="FSL-dP-M4y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="4lj-pv-Dwy"/>
                 <constraint firstItem="a82-EQ-eHG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="7H3-IB-AjD"/>
                 <constraint firstItem="0G4-gq-X6U" firstAttribute="top" secondItem="KiG-zA-gU1" secondAttribute="bottom" constant="30" id="7gr-RZ-M0q"/>
                 <constraint firstItem="uqU-T7-1Rx" firstAttribute="centerY" secondItem="aHn-Nl-EAN" secondAttribute="centerY" id="8W8-Pa-K7G"/>
@@ -138,10 +169,12 @@
                 <constraint firstAttribute="bottom" secondItem="tr7-hB-UVT" secondAttribute="bottom" id="U6W-V6-pbx"/>
                 <constraint firstItem="StR-Uy-Ieb" firstAttribute="centerX" secondItem="uqU-T7-1Rx" secondAttribute="centerX" id="UQQ-56-6Ia"/>
                 <constraint firstItem="aHn-Nl-EAN" firstAttribute="centerY" secondItem="FSL-dP-M4y" secondAttribute="centerY" id="V5X-vu-yR6"/>
+                <constraint firstItem="RJ1-sA-ZKh" firstAttribute="width" secondItem="tr7-hB-UVT" secondAttribute="width" multiplier="0.3" id="VpU-7O-N0X"/>
                 <constraint firstItem="3mR-V5-wEb" firstAttribute="width" secondItem="qxh-0o-eYW" secondAttribute="width" id="W4U-Vf-H13"/>
                 <constraint firstItem="tr7-hB-UVT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Xuw-UJ-j5Z"/>
                 <constraint firstItem="EcN-Kq-UKc" firstAttribute="centerY" secondItem="qxh-0o-eYW" secondAttribute="centerY" id="aU1-fb-yU4"/>
                 <constraint firstItem="xnn-SP-sE3" firstAttribute="height" secondItem="EcN-Kq-UKc" secondAttribute="height" id="bkr-X4-b8g"/>
+                <constraint firstItem="RJ1-sA-ZKh" firstAttribute="centerX" secondItem="tr7-hB-UVT" secondAttribute="centerX" id="dlK-Wj-bcx"/>
                 <constraint firstItem="qxh-0o-eYW" firstAttribute="centerX" secondItem="FSL-dP-M4y" secondAttribute="centerX" id="gPo-Dz-sMK"/>
                 <constraint firstItem="EcN-Kq-UKc" firstAttribute="width" secondItem="aHn-Nl-EAN" secondAttribute="width" id="iwO-4F-6w4"/>
                 <constraint firstItem="aHn-Nl-EAN" firstAttribute="leading" secondItem="FSL-dP-M4y" secondAttribute="trailing" constant="10" id="kam-0J-rhs"/>
@@ -151,14 +184,21 @@
                 <constraint firstItem="a82-EQ-eHG" firstAttribute="top" secondItem="aHn-Nl-EAN" secondAttribute="bottom" constant="5" id="nDl-td-mhZ"/>
                 <constraint firstItem="3mR-V5-wEb" firstAttribute="centerX" secondItem="qxh-0o-eYW" secondAttribute="centerX" id="oJK-bO-ey8"/>
                 <constraint firstItem="3df-gu-yQg" firstAttribute="centerX" secondItem="StR-Uy-Ieb" secondAttribute="centerX" id="ueG-32-xG8"/>
+                <constraint firstItem="RJ1-sA-ZKh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="wBB-jV-UsD"/>
                 <constraint firstItem="3mR-V5-wEb" firstAttribute="top" secondItem="VJN-Ly-oLk" secondAttribute="bottom" constant="15" id="xlT-gf-e8v"/>
                 <constraint firstItem="EcN-Kq-UKc" firstAttribute="height" secondItem="aHn-Nl-EAN" secondAttribute="height" id="zwk-7w-YcJ"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
             <point key="canvasLocation" x="402" y="326"/>
         </view>
+        <tapGestureRecognizer id="WQX-Mq-blr">
+            <connections>
+                <action selector="tapGestureAction:" destination="-1" id="Wbc-jq-JBe"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
+        <image name="comment_profile_default@2x" width="30" height="30"/>
         <image name="horizontal_separator.png" width="447" height="1"/>
         <image name="login_password_icon.png" width="30" height="30"/>
         <image name="login_tip_button.png" width="30" height="30"/>
