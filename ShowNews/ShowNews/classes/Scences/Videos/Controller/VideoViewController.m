@@ -54,11 +54,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    if (self.newMarray.count <= 0) {
-        [self initLayouts];
-//    }
-    
- 
+
+    [self initLayouts];
 }
 
 // 结束更新 隐藏刷新
