@@ -70,7 +70,7 @@
                             <constraint firstAttribute="height" constant="30" id="7W8-lp-vo2"/>
                             <constraint firstAttribute="width" constant="30" id="oPG-CO-azE"/>
                         </constraints>
-                        <state key="normal" image="share.png"/>
+                        <state key="normal" image="contenttoolbar_hd_share_light@2x"/>
                         <state key="selected" image="action_love_selected.png"/>
                         <state key="highlighted" image="action_love_selected.png"/>
                         <connections>
@@ -114,6 +114,6 @@
         <image name="Unknown.png" width="200" height="200"/>
         <image name="action_love.png" width="20" height="17"/>
         <image name="action_love_selected.png" width="20" height="17"/>
-        <image name="share.png" width="200" height="200"/>
+        <image name="contenttoolbar_hd_share_light@2x" width="20" height="17"/>
     </resources>
 </document>

@@ -85,9 +85,9 @@
     
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    
+//}
 
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -160,20 +160,20 @@
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
     [session setActive:YES error:nil];
     
-    // 上拉刷新下拉刷新
-    self.listResultTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self.allArr removeAllObjects];
-        self.page = 1;
-        [self requestData];
-    }];
+//    // 上拉刷新下拉刷新
+//    self.listResultTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        [self.allArr removeAllObjects];
+//        self.page = 1;
+//        [self requestData];
+//    }];
     
-    self.listResultTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        
-        self.page++;
-        NSLog(@"==========================%ld", (long)self.page);
-        [self requestData];
-        
-    }];
+//    self.listResultTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+//        
+//        self.page++;
+//        NSLog(@"==========================%ld", (long)self.page);
+//        [self requestData];
+//        
+//    }];
     
     [PlayerManager sharePlayer].searchCollectButton = _collect;
     
@@ -182,19 +182,29 @@
     
     [self.searchTextField addTarget:self action:@selector(ifValueIsNil) forControlEvents:UIControlEventEditingDidEnd];
     
+    [self.searchTextField addTarget:self action:@selector(ifValueIsNilIsEQ:) forControlEvents:UIControlEventEditingChanged];
+    
+}
+
+- (void)ifValueIsNilIsEQ:(UITextField *)sender {
+    if ([sender.text isEqualToString:@""]) {
+        [sender resignFirstResponder];
+    }
+    
 }
 
 - (void)ifValueIsNil {
     if (self.searchTextField.text.length <= 0) {
         [[PlayerManager sharePlayer] requestData:self];
+       
     }
 }
 
-// 隐藏上拉下拉刷新
-- (void)endRefresh {
-    [self.listResultTableView.mj_header endRefreshing];
-    [self.listResultTableView.mj_footer endRefreshing];
-}
+//// 隐藏上拉下拉刷新
+//- (void)endRefresh {
+//    [self.listResultTableView.mj_header endRefreshing];
+//    [self.listResultTableView.mj_footer endRefreshing];
+//}
 
 
 #pragma mark ------  block
@@ -331,7 +341,7 @@
                 
             }
             // 隐藏下拉上拉刷新
-            [self endRefresh];
+//            [self endRefresh];
             dispatch_async(dispatch_get_main_queue(), ^{
             [PlayerManager sharePlayer].playList = weakSelf.allArr;
             [weakSelf.listResultTableView reloadData];
@@ -341,8 +351,8 @@
         // 解析数据代码写在这里
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         // 隐藏下拉上拉刷新
-        [self.listResultTableView.mj_footer endRefreshingWithNoMoreData];
-        [self.listResultTableView.mj_header endRefreshing];
+//        [self.listResultTableView.mj_footer endRefreshingWithNoMoreData];
+//        [self.listResultTableView.mj_header endRefreshing];
     }];
 }
 
@@ -483,7 +493,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 68;
 }
 
 
@@ -592,6 +602,23 @@
     [textField resignFirstResponder];//键盘回收代码
     return YES;
 }
+
+//- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+//{
+//    if ([@"\n" isEqualToString:text] == YES)
+//    {
+//        [textView resignFirstResponder];
+//        
+//        
+//        return NO;
+//    }
+//    
+//    return YES;
+//}
+
+
+
+
 /*
  #pragma mark - Navigation
  

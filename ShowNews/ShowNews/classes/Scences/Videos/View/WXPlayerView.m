@@ -156,6 +156,7 @@ static WXPlayerView *view = nil;
             systemSlider = (UISlider *)view;
         }
     }
+    // 自动尺寸调整行为
     systemSlider.autoresizesSubviews = NO;
     systemSlider.autoresizingMask = UIViewAutoresizingNone;
     [self addSubview:systemSlider];
@@ -169,6 +170,7 @@ static WXPlayerView *view = nil;
     self.volumeSlider.value = systemSlider.value;
     [self.volumeSlider addTarget:self action:@selector(updateSystemVolumeValue:) forControlEvents:UIControlEventValueChanged];
     [self addSubview:self.volumeSlider];
+    
     
     //ProgressView
     self.bufferProgressView = [[UIProgressView alloc] initWithProgressViewStyle:(UIProgressViewStyleDefault)];
@@ -273,31 +275,11 @@ static WXPlayerView *view = nil;
                           options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                           context:PlayViewStatusObservationContext];
     
-//
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appwillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     [self initTimer];
     
 }
-//- (void)appDidEnterBackground:(NSNotification*)note
-//{
-//    //    [self PlayOrPause:self.playOrPauseBtn];
-//    NSLog(@"appDidEnterBackground");
-//}
-//
-//- (void)appWillEnterForeground:(NSNotification*)note
-//{
-//    //    [self PlayOrPause:self.playOrPauseBtn];
-//    NSLog(@"appWillEnterForeground");
-//}
-//- (void)appwillResignActive:(NSNotification *)note
-//{
-//    //    [self PlayOrPause:self.playOrPauseBtn];
-//    NSLog(@"appwillResignActive");
-//}
+
 - (void)appBecomeActive:(NSNotification *)note
 {
     [self.player pause];
@@ -581,15 +563,13 @@ static WXPlayerView *view = nil;
                                  break;
                      case AFNetworkReachabilityStatusReachableViaWiFi: {
                          NSLog(@"wifi状态");
-                         
+                         [self setNeedsDisplay];
                          AVPlayerItem *playerItem = [self.player currentItem];
                          //    NSLog(@"%ld",playerItem.status);
                          if (playerItem.status == AVPlayerItemStatusFailed){
                              [self.player play];
-
-                      
-
                          }
+                         
                      }
                                  break;
                              default:
@@ -600,15 +580,6 @@ static WXPlayerView *view = nil;
 }
 
 
-//AVPlayerItem *playerItem = [self.player currentItem];
-////    NSLog(@"%ld",playerItem.status);
-//if (playerItem.status == AVPlayerItemStatusReadyToPlay){
-//    [self.player play];
-
-//}
-
-
-#pragma mark
 #pragma mark finishedPlay
 - (void)finishedPlay:(NSTimer *)timer{
     if (self.currentTime == self.duration&&self.player.rate==.0f) {

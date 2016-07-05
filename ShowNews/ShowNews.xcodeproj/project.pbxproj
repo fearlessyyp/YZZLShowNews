@@ -228,6 +228,7 @@
 		D60D37971D27F3DD00915F93 /* newscollected.png in Resources */ = {isa = PBXBuildFile; fileRef = D60D37961D27F3DD00915F93 /* newscollected.png */; };
 		D611904F1D226A92003F5447 /* NewsFirstViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D611904E1D226A92003F5447 /* NewsFirstViewCell.m */; };
 		D613BC001D253CCD000CB718 /* ToolForHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D613BBFF1D253CCD000CB718 /* ToolForHeight.m */; };
+		D61543001D2BB3C700D3DCD6 /* musicSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = D61542FF1D2BB3C700D3DCD6 /* musicSearch.png */; };
 		D6224A3E1D1E6A560048ED57 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = D6224A3D1D1E6A560048ED57 /* Foundation+Log.m */; };
 		D6224A471D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A411D1E6F6E0048ED57 /* README.md */; };
 		D6224A481D1E6F6E0048ED57 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D6224A431D1E6F6E0048ED57 /* README.md */; };
@@ -643,6 +644,7 @@
 		D611904E1D226A92003F5447 /* NewsFirstViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFirstViewCell.m; sourceTree = "<group>"; };
 		D613BBFE1D253CCD000CB718 /* ToolForHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolForHeight.h; sourceTree = "<group>"; };
 		D613BBFF1D253CCD000CB718 /* ToolForHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolForHeight.m; sourceTree = "<group>"; };
+		D61542FF1D2BB3C700D3DCD6 /* musicSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicSearch.png; sourceTree = "<group>"; };
 		D6224A3D1D1E6A560048ED57 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		D6224A411D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D6224A431D1E6F6E0048ED57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -1708,6 +1710,7 @@
 		D66AA28E1D1EC4BD00045D9E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D61542FF1D2BB3C700D3DCD6 /* musicSearch.png */,
 				D6A1D9CB1D2BA66700878313 /* true.png */,
 				D6A1D9C81D2BA24000878313 /* error.png */,
 				D6A1D9BD1D2B8C8500878313 /* phone.png */,
@@ -2095,6 +2098,7 @@
 				B25919061D27F33C002EA49D /* all_7.html in Resources */,
 				B25918B41D27F33C002EA49D /* bdwn.png in Resources */,
 				B25919171D27F33C002EA49D /* all_f.js in Resources */,
+				D61543001D2BB3C700D3DCD6 /* musicSearch.png in Resources */,
 				D6E954FE1D27BD400063E850 /* LoginViewController.xib in Resources */,
 				D64FA11E1D1D1C92007DE414 /* Assets.xcassets in Resources */,
 				B25918BB1D27F33C002EA49D /* class_b_navi_calc_route_time-members.html in Resources */,
