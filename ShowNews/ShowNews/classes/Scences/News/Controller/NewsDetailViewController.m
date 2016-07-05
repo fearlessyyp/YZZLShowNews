@@ -204,7 +204,7 @@
     
 }
 
-
+#pragma mark - 从news表中获取数据
 - (void)selectFromNewsTable:(UIBarButtonItem *)collectItem {
     NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ? and postid = ?", @"News"];
     NSArray *pvalues =  @[@1, self.news.postid];
@@ -222,15 +222,5 @@
         }
     }];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

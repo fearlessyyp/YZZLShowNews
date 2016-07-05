@@ -15,6 +15,8 @@
 #import "NewsCollectViewController.h"
 #import "UIImageView+WebCache.h"
 #import "Simple.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import "LoginViewController.h"
 #import "VideoViewController.h"
 #import "MusicSearchController.h"
 #import <AVOSCloud/AVOSCloud.h>
@@ -92,26 +94,29 @@
     
     UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageWithColor:NEWS_MAIN_COLOR]];
     
-   
-    
     UIButton *button = [self.userTableView addScalableCoverWithImage:image.image URLStr:@"http://imgcache.qq.com/music/photo/mid_album_90/8/V/002iWU6B2ZvA8V.jpg"];
+    // 判断,如果有用户登录,就显示用户名,没有就显示登录
+    if ([AVUser currentUser] != nil) {
+        [button setTitle:[AVUser currentUser].username forState:UIControlStateNormal];
+    } else {
+        [button setTitle:@"登录" forState:UIControlStateNormal];
+    }
     
-    [button setTitle:@"小丸子" forState:UIControlStateNormal];
-    
-    [button addTarget:self action:@selector(loginButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.userTableView.tableHeaderView = [[UITableViewHeaderFooterView alloc] initWithFrame:CGRectMake(0, 0, self.userTableView.frame.size.width, 200)];
+    [button addTarget:self action:@selector(loginButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+#warning 200 -> 150
+    self.userTableView.tableHeaderView = [[UITableViewHeaderFooterView alloc] initWithFrame:CGRectMake(0, 0, self.userTableView.frame.size.width, 150)];
 }
 
 // 登录按钮点击事件
-- (void)loginButtonClick {
-    NSLog(@"跳转到登录页面");
+- (void)loginButtonClick:(UIButton *)button {
+    // 判断,如果有用户登录,就显示用户名,没有就显示登录
+    if ([AVUser currentUser] == nil) {
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        loginVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -122,9 +127,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
     switch (indexPath.row) {
         case 0: {
             static NSString *collectCellID = @"collectCellID";
@@ -135,7 +137,6 @@
                 NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"collectCell" owner:nil options:nil];
                 // 队列顺序
                 cell1 = [arr firstObject];
-//                cell1.newsView.
                 
                 cell1.block = ^(NSInteger num){
                    
@@ -157,9 +158,9 @@
                             break;
                         case 4:{
                             
-//                            [self requestData:self.musicSearchVC];
-//                            [self presentRightMenuViewController:self.musicSearchVC];
-                        }
+                            [[PlayerManager sharePlayer] requestData:self.musicSearchVC];
+                            [self presentRightMenuViewController:self.musicSearchVC];
+                        }    
                             break;
                             
                         default:
@@ -311,7 +312,8 @@
 
 // 监听 table滑动Y值
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    if (_userTableView.contentOffset.y < 136) {
+#warning 136 -> 136 - 50
+    if (_userTableView.contentOffset.y < 136 - 50) {
         self.navigationItem.leftBarButtonItem = nil;
 //        [self.navigationController.navigationBar setHidden:YES];
     } else {
@@ -426,6 +428,7 @@
 //    
 //}
 
+
 - (void)requestData:(VideoViewController *)searchVC {
     NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ?", @"VideoModel"];
     NSArray *pvalues =  @[@1];
@@ -451,6 +454,7 @@
     }];
     
 }
+
 
 
 /*

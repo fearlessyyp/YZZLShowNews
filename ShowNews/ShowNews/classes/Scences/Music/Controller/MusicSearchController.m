@@ -180,7 +180,16 @@
     // 第一次进入时候显示收藏列表
     [[PlayerManager sharePlayer] requestData:self];
     
+    [self.searchTextField addTarget:self action:@selector(ifValueIsNil) forControlEvents:UIControlEventEditingDidEnd];
+    
 }
+
+- (void)ifValueIsNil {
+    if (self.searchTextField.text.length <= 0) {
+        [[PlayerManager sharePlayer] requestData:self];
+    }
+}
+
 // 隐藏上拉下拉刷新
 - (void)endRefresh {
     [self.listResultTableView.mj_header endRefreshing];
@@ -579,6 +588,7 @@
 //当点击键盘上return按钮的时候调用
 {
     //代理记录了当前正在工作的UITextField的实例，因此你点击哪个UITextField对象，形参就是哪个UITextField对象
+    [self searchButtonAction:nil];
     [textField resignFirstResponder];//键盘回收代码
     return YES;
 }
@@ -598,7 +608,7 @@
 
 // 点击收藏按钮
 - (IBAction)collectButtonClick:(UIButton *)sender {
-
+    
     [[PlayerManager sharePlayer] collectButtonClick:sender];
 
 }

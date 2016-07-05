@@ -85,8 +85,8 @@ singleton_implementation(DataBaseHandle)
 
 #pragma mark - 判断当前用户是否登录
 - (BOOL)userIsLogin {
-    AVUser *currentUser = [AVUser currentUser];
-    if (currentUser != nil) {
+//    AVUser *currentUser = ;
+    if ([AVUser currentUser] != nil) {
         // 跳转到首页
         return YES;
     } else {
