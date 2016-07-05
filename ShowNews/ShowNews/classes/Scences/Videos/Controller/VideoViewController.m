@@ -24,8 +24,8 @@
 //屏幕的高度
 #define WindowHeight [[UIScreen mainScreen] bounds].size.height
 @interface VideoViewController ()<UITableViewDelegate, UITableViewDataSource,UMSocialUIDelegate>
-@property (nonatomic, strong)UITableView *privateTableView;
-@property (nonatomic, strong)NSMutableArray *newMarray;
+
+
 @property (nonatomic, strong)NSString *string;
 @property (nonatomic, strong)WXPlayerView *playView;
 @property (nonatomic, strong)NSIndexPath *currentIndexPath;
@@ -54,7 +54,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initLayouts];
+//    if (self.newMarray.count <= 0) {
+        [self initLayouts];
+//    }
+    
  
 }
 
@@ -105,16 +108,19 @@
     self.privateTableView.delegate = self;
     self.privateTableView.dataSource = self;
     // 下拉刷新
-    _privateTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self.newMarray removeAllObjects];
-        self.page = 0;
-        [self updateData];
-    }];
-    // 上拉刷新
-    _privateTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        self.page += 10;
-        [self updateData];
-    }];
+    if (!self.iscollect) {
+        _privateTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self.newMarray removeAllObjects];
+            self.page = 0;
+            [self updateData];
+        }];
+        // 上拉刷新
+        _privateTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+            self.page += 10;
+            [self updateData];
+        }];
+    }
+  
     
     [self handel];
     [self.view addSubview:self.privateTableView];
