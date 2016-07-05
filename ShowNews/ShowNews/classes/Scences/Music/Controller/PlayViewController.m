@@ -258,7 +258,7 @@ static PlayViewController *playVC = nil;
     cell.textLabel.font = [UIFont systemFontOfSize:13.0];
     
     // 设置文字高亮颜色
-    cell.textLabel.highlightedTextColor = [UIColor colorWithRed:0.2 green:0.3 blue:0.9 alpha:1];
+    cell.textLabel.highlightedTextColor = [UIColor blueColor];
     
     
     // 设置被选取的cell
