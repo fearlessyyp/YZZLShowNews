@@ -67,8 +67,12 @@
     //初始化导航DSK
     [BNCoreServices_Instance initServices:@"o5H8GiR7jg4w0UrP9mVOGPt2WGm4dnpy"];
     [BNCoreServices_Instance startServicesAsyn:nil fail:nil];
+    
+    
     return YES;
 }
+
+
 
 #pragma mark - 设置leanCloud
 - (void)setLeanCloud {

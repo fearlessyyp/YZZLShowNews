@@ -39,6 +39,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *collectButton;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+
+
 @end
 
 @implementation PlayViewController
@@ -102,6 +105,8 @@ static PlayViewController *playVC = nil;
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     
     [self resignFirstResponder];
+    
+    
     
 }
 
@@ -211,6 +216,15 @@ static PlayViewController *playVC = nil;
     
     // 监听根据系统音量改变slder音量想
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(volumeChanged) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
+    
+#pragma mark - 添加毛玻璃效果
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:self.backgroundImage.bounds];
+    toolbar.alpha = 0.8;
+    //toolbar.barStyle = UIBarStyleBlack;
+    [self.backgroundImage addSubview:toolbar];
+    
+    
+    
     
     
 }
