@@ -57,7 +57,7 @@ static NSString * const kBigImage = @"bigImage";
 }
 
 
-- (UIButton *)addScalableCoverWithImage:(UIImage *)image URLStr:(NSString *)url
+- (UIButton *)addScalableCoverWithImage:(UIImage *)image headImage:(UIImage *)headImage
 {
     ScalableCover *cover = [[ScalableCover alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, MaxHeight)];
     
@@ -66,10 +66,7 @@ static NSString * const kBigImage = @"bigImage";
     cover.scrollView = self;
 #warning - 50
     UIImageView *bigImage = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenSizeWidth / 2 - 50, 60 - 50, 100, 100)];
-    bigImage.image = [UIImage imageNamed:@"comment_profile_default"];
-    if (url) {
-        [bigImage sd_setImageWithURL:[NSURL URLWithString:url]]; 
-    }
+    bigImage.image = headImage;
 
     bigImage.layer.cornerRadius = 50;
     bigImage.layer.masksToBounds = YES;
@@ -81,7 +78,7 @@ static NSString * const kBigImage = @"bigImage";
 #warning - 50
     button.frame = CGRectMake(0, 165 - 50, kScreenSizeWidth, 30);
     button.titleLabel.textAlignment = NSTextAlignmentCenter;
-    
+    button.titleLabel.font = [UIFont systemFontOfSize:14.f];
     self.button = button;
     [self addSubview:self.button];
     
