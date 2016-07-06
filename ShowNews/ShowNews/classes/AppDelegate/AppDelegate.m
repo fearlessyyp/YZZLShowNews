@@ -26,7 +26,7 @@
 #import "BNCoreServices.h"
 #import <AVOSCloud/AVOSCloud.h>
 @interface AppDelegate ()<RESideMenuDelegate>
-@property (nonatomic, strong) UITabBarController *rootTVC;
+
 // 记录当前的系统亮度
 @property (nonatomic, assign) float currentBrightness;
 @property (nonatomic, strong) MusicSearchController *musicSearchVC;

@@ -294,7 +294,7 @@
 
 - (void)selectFromNewsTable:(UIBarButtonItem *)collectItem {
     NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ? and postid = ?", @"News"];
-    NSArray *pvalues =  @[@1, self.news.postid];
+    NSArray *pvalues =  @[[AVUser currentUser].username, self.news.postid];
     [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
         if (!error) {
             // 操作成功

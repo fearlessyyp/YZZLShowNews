@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthenticationViewController">
             <connections>
+                <outlet property="codeButton" destination="8aW-K9-Mu3" id="3MR-zw-480"/>
                 <outlet property="phoneTextFiled" destination="kKA-YF-2kQ" id="D9r-gb-8eG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="yanzhengCodeTextField" destination="zin-2a-fVI" id="ZE4-0z-xn1"/>
@@ -120,7 +121,7 @@
                 <constraint firstItem="kKA-YF-2kQ" firstAttribute="centerY" secondItem="Ofz-Dr-7a2" secondAttribute="centerY" id="xzo-dU-Od8"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-            <point key="canvasLocation" x="309" y="461"/>
+            <point key="canvasLocation" x="322" y="376"/>
         </view>
     </objects>
     <resources>
