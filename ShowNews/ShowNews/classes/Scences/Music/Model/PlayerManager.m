@@ -317,7 +317,7 @@ int i = 0;
 
 // 收藏按钮点击
 - (void)collectButtonClick:(UIButton *)sender {
-    if (_currentIndex < 10000 && _currentIndex > 0) {
+    if (_currentIndex < 10000 && _currentIndex >= 0) {
         _music = _playList[_currentIndex];
         if (_music.IsCollect) {
             // 删除逻辑

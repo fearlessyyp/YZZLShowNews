@@ -637,7 +637,7 @@
 - (IBAction)collectButtonClick:(UIButton *)sender {
     
     [[PlayerManager sharePlayer] collectButtonClick:sender];
-
+    
 }
 
 

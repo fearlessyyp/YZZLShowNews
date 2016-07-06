@@ -181,6 +181,7 @@ singleton_implementation(DataBaseHandle)
     [ob setObject:music.mp3Url forKey:@"mp3Url"];
     [ob setObject:music.picUrl forKey:@"picUrl"];
     [ob setObject:music.duration forKey:@"duration"];
+    [ob setObject:music.lyricxxxx forKey:@"lyricxxxx"];
     [ob setObject:@1 forKey:@"username"];
     return ob;
 }
@@ -195,6 +196,7 @@ singleton_implementation(DataBaseHandle)
     music.mp3Url = [object objectForKey:@"mp3Url"];
     music.picUrl = [object objectForKey:@"picUrl"];
     music.duration = [object objectForKey:@"duration"];
+    music.lyricxxxx = [object objectForKey:@"lyricxxxx"];
     return music;
 }
 

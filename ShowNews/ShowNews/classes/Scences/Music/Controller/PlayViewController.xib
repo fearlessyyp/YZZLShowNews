@@ -40,7 +40,7 @@
                                     <subviews>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xb6-W4-cYr">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="586"/>
-                                            <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -70,7 +70,7 @@
                                                 <constraint firstAttribute="height" constant="40" id="Fgn-KJ-rSY"/>
                                                 <constraint firstAttribute="width" constant="40" id="LeB-DX-scl"/>
                                             </constraints>
-                                            <state key="normal" image="icon_back@2x"/>
+                                            <state key="normal" image="back_d.png"/>
                                             <connections>
                                                 <action selector="backButtonClick:" destination="-1" eventType="touchUpInside" id="3Se-Xv-GS8"/>
                                             </connections>
@@ -313,8 +313,8 @@
     <resources>
         <image name="action_love@2x" width="801" height="831"/>
         <image name="audionews_play_button.png" width="50" height="50"/>
+        <image name="back_d.png" width="32" height="32"/>
         <image name="background.png" width="375" height="516"/>
-        <image name="icon_back@2x" width="801" height="831"/>
         <image name="night_audio_button_bg@2x" width="801" height="831"/>
     </resources>
 </document>
