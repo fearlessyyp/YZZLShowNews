@@ -128,7 +128,6 @@ typedef NS_ENUM(NSUInteger, TestFieldError) {
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-
 - (IBAction)nameButtonClick:(UIButton *)sender {
  
 }
@@ -170,13 +169,11 @@ typedef NS_ENUM(NSUInteger, TestFieldError) {
     [self.view endEditing:YES];
 }
 
-
 #pragma mark - UITextFeld Delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     //键盘回收
     return [textField resignFirstResponder];
 }
-
 
 - (void)setHUDWithTitle:(NSString *)title {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
