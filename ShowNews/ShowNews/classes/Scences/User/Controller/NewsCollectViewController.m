@@ -64,7 +64,7 @@ typedef NS_ENUM(NSUInteger, NewsType) {
 #pragma mark - 请求数据
 - (void)requestData {
     NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ?", @"News"];
-    NSArray *pvalues =  @[@1];
+    NSArray *pvalues =  @[[AVUser currentUser].username];
     [self.allNewsArray removeAllObjects];
     [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
         if (!error) {

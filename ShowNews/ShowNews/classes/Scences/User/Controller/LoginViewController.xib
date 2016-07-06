@@ -9,7 +9,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="passwordTextField" destination="05K-Qj-LKi" id="hWt-qT-hQE"/>
                 <outlet property="registerButton" destination="QoK-Hk-fJb" id="8qT-M5-a8F"/>
+                <outlet property="userNameTextField" destination="62g-nD-27I" id="qGs-AR-AVu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -47,7 +49,7 @@
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="05K-Qj-LKi">
                     <rect key="frame" x="65" y="82" width="232" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                             <integer key="value" value="0"/>
@@ -76,6 +78,9 @@
                     <state key="normal" title="忘记密码" backgroundImage="login_forgot_button.png">
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="forgetPasswordButtonAction:" destination="-1" eventType="touchUpInside" id="7nJ-du-1ty"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6H-h8-TGi">
                     <rect key="frame" x="25" y="149" width="364" height="40"/>
@@ -85,6 +90,9 @@
                     <state key="normal" title="登录" backgroundImage="login_tip_button.png">
                         <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="loginButtonAction:" destination="-1" eventType="touchUpInside" id="f1s-hI-hbK"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="还可以选择以下方式登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJd-uS-0Oq">
                     <rect key="frame" x="20" y="229" width="364" height="17"/>
@@ -112,7 +120,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="mVZ-5S-NXh" secondAttribute="height" id="ueQ-vQ-EUx"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="account_snslogin_icon_1.png"/>
+                                    <state key="normal" backgroundImage="ic_share_mmg.png"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信账号登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6S4-Fc-TLf">
                                     <rect key="frame" x="0.0" y="91" width="138" height="19"/>
@@ -145,7 +153,7 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ga5-qR-MOa">
                                     <rect key="frame" x="35" y="12" width="69" height="69"/>
-                                    <state key="normal" backgroundImage="account_snslogin_icon_3.png"/>
+                                    <state key="normal" backgroundImage="ic_share_sina.png"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新浪微博登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYe-kM-a9E">
                                     <rect key="frame" x="0.0" y="91" width="138" height="19"/>
@@ -165,7 +173,7 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGm-IZ-Orw">
                                     <rect key="frame" x="35" y="12" width="69" height="69"/>
-                                    <state key="normal" backgroundImage="account_snslogin_icon_1.png"/>
+                                    <state key="normal" backgroundImage="anchor_sociaty_qq.png"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QQ账号登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaF-1E-9Af">
                                     <rect key="frame" x="0.0" y="91" width="138" height="19"/>
@@ -268,13 +276,14 @@
                 <constraint firstItem="62g-nD-27I" firstAttribute="leading" secondItem="JjQ-CH-7kY" secondAttribute="trailing" constant="10" id="zZy-4f-wAG"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-            <point key="canvasLocation" x="587" y="353"/>
+            <point key="canvasLocation" x="496" y="350"/>
         </view>
     </objects>
     <resources>
-        <image name="account_snslogin_icon_1.png" width="20" height="20"/>
-        <image name="account_snslogin_icon_3.png" width="20" height="20"/>
+        <image name="anchor_sociaty_qq.png" width="34" height="34"/>
         <image name="horizontal_separator.png" width="447" height="1"/>
+        <image name="ic_share_mmg.png" width="55" height="55"/>
+        <image name="ic_share_sina.png" width="55" height="55"/>
         <image name="login_forgot_button.png" width="72" height="30"/>
         <image name="login_password_icon.png" width="30" height="30"/>
         <image name="login_tip_button.png" width="30" height="30"/>

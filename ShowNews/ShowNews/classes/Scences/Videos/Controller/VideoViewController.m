@@ -18,6 +18,7 @@
 #import <Masonry.h>
 #import <AFNetworking.h>
 #import <MBProgressHUD.h>
+#import "LoginViewController.h"
 #import <UMSocial.h>
 //屏幕的宽度
 #define WindownWidth [[UIScreen mainScreen] bounds].size.width
@@ -192,6 +193,12 @@
             
             [UMSocialSnsService presentSnsIconSheetView:self appKey:UmengAppkey shareText:shareText shareImage:[UIImage imageNamed:@"2.jpg"] shareToSnsNames:shareArr delegate:self];
             
+        };
+        
+        // 跳转到登录页面
+        cell.LoginVCBlock = ^void() {
+            LoginViewController *loginVC = [[LoginViewController alloc] init];
+            [self.navigationController pushViewController:loginVC animated:YES];
         };
 
     }

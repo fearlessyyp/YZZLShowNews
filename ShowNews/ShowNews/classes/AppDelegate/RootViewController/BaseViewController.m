@@ -34,10 +34,7 @@
 //    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"redPacket_btn_1@2x"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:NEWS_MAIN_COLOR] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"musicBarButton"] style:UIBarButtonItemStylePlain target:self action:@selector(presentRightMenuViewController:)];
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"音乐"
-//                                                                              style:UIBarButtonItemStylePlain
-//                                                                             target:self
-//                                                                             action:@selector(presentRightMenuViewController:)];
+
     __weak typeof(self)weakSelf = self;
     // 初始化自定义视图
     self.myView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width * 0.2, kNavHeight)];

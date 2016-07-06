@@ -45,6 +45,9 @@
 // 记录存放的收藏音乐 大数组
 @property (nonatomic, strong) NSMutableArray *allCollectMusicArr;
 
+@property (nonatomic, strong) UIImage *image;
+
+@property (nonatomic, strong) NSString *username;
 
 @end
 
@@ -65,6 +68,17 @@
     _path = path;
     float size = [UserViewController folderSizeAtPath:path];
     _cacheStr = [NSString stringWithFormat:@"缓存大小为%.3fM, 确定要清除缓存?", size];
+    
+    NSData *data = [[AVUser currentUser] objectForKey:@"headImage"];
+    if (data) {
+        self.image = [UIImage imageWithData:data];
+        self.username = [AVUser currentUser].username;
+    } else {
+        self.image = [UIImage imageNamed:@"comment_profile_default"];
+        self.username = @"登录";
+    }
+    self.userTableView.bigImage.image = self.image;
+    [self.userTableView.button setTitle:self.username forState:UIControlStateNormal];
 }
 
 - (void)viewDidLoad {
@@ -74,7 +88,7 @@
     // 记录当前的亮度
     _currentBrightness = [UIScreen mainScreen].brightness;
     
-//    [self.userTableView registerNib:[arr firstObject] forCellReuseIdentifier:@"collect"];
+    //    [self.userTableView registerNib:[arr firstObject] forCellReuseIdentifier:@"collect"];
     [self.userTableView registerNib:[UINib nibWithNibName:@"SetCell" bundle:nil] forCellReuseIdentifier:@"SetImage"];
     [self.userTableView registerNib:[UINib nibWithNibName:@"SetCell" bundle:nil] forCellReuseIdentifier:@"SetSwitch"];
     // 头视图
@@ -94,15 +108,9 @@
     
     UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageWithColor:NEWS_MAIN_COLOR]];
     
-    UIButton *button = [self.userTableView addScalableCoverWithImage:image.image URLStr:nil];
-    // 判断,如果有用户登录,就显示用户名,没有就显示登录
-    if ([AVUser currentUser] != nil) {
-        [button setTitle:[AVUser currentUser].username forState:UIControlStateNormal];
-    } else {
-        [button setTitle:@"登录" forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:14.f];
-    }
+    UIButton *button = [self.userTableView addScalableCoverWithImage:image.image headImage:self.image];
     
+    [button setTitle:self.username forState:UIControlStateNormal];
     [button addTarget:self action:@selector(loginButtonClick:) forControlEvents:UIControlEventTouchUpInside];
 #warning 200 -> 150
     self.userTableView.tableHeaderView = [[UITableViewHeaderFooterView alloc] initWithFrame:CGRectMake(0, 0, self.userTableView.frame.size.width, 150)];
@@ -124,7 +132,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return 8;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -140,28 +148,43 @@
                 cell1 = [arr firstObject];
                 
                 cell1.block = ^(NSInteger num){
-                   
+                    
                     switch (num) {
                         case 1:{
-                             NewsCollectViewController * newsCollectVC = [[NewsCollectViewController alloc] init];
-                            [self.navigationController pushViewController:newsCollectVC animated:YES];
+                            if ([AVUser currentUser]) {
+                                NewsCollectViewController * newsCollectVC = [[NewsCollectViewController alloc] init];
+                                [self.navigationController pushViewController:newsCollectVC animated:YES];
+                            } else {
+                                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                                [self.navigationController pushViewController:loginVC animated:YES];
+                            }
                         }
                             break;
                         case 2:{
-                            VideoViewController *videoVC = [[VideoViewController alloc] init];
-                            videoVC.iscollect = YES;
-                            [self requestData:videoVC];
-                            [self.navigationController pushViewController:videoVC animated:YES];
+                            if ([AVUser currentUser]) {
+                                VideoViewController *videoVC = [[VideoViewController alloc] init];
+                                videoVC.iscollect = YES;
+                                [self requestData:videoVC];
+                                [self.navigationController pushViewController:videoVC animated:YES];
+                            } else {
+                                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                                [self.navigationController pushViewController:loginVC animated:YES];
+                            }
+                            
                         }
                             break;
                         case 3:
                             
                             break;
                         case 4:{
-                            
-                            [[PlayerManager sharePlayer] requestData:self.musicSearchVC];
-                            [self presentRightMenuViewController:self.musicSearchVC];
-                        }    
+                            if ([AVUser currentUser]) {
+                                [[PlayerManager sharePlayer] requestData:self.musicSearchVC];
+                                [self presentRightMenuViewController:self.musicSearchVC];
+                            } else {
+                                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                                [self.navigationController pushViewController:loginVC animated:YES];
+                            }
+                        }
                             break;
                             
                         default:
@@ -176,7 +199,7 @@
             break;
         }
         case 1:{
-           SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SetImage" forIndexPath:indexPath];
+            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SetImage" forIndexPath:indexPath];
             cell.nameLabel.text = @"清除缓存";
             [cell.cellSwitch removeFromSuperview];
             return cell;
@@ -193,6 +216,7 @@
 #warning 还得注册个CELL 不能添加SWITCH  会重复添加
             SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SetSwitch" forIndexPath:indexPath];
             cell.nameLabel.text = @"夜间模式";
+            [cell.cellSwitch setOn:NO];
             [cell.cellSwitch addTarget:self action:@selector(openChange:) forControlEvents:UIControlEventValueChanged];
             cell.cellButton = nil;
             return cell;
@@ -219,6 +243,13 @@
             return cell;
             break;
         }
+        case 7: {
+            SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SetImage" forIndexPath:indexPath];
+            cell.nameLabel.text = @"注销";
+            [cell.cellSwitch removeFromSuperview];
+            return cell;
+            break;
+        }
         default:
             break;
     }
@@ -227,9 +258,10 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView cellForRowAtIndexPath:indexPath].selectionStyle = UITableViewCellSelectionStyleNone;
     switch (indexPath.row) {
         case 1:{
-           
+            
             // 确定
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:_cacheStr preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -268,21 +300,25 @@
             [self presentViewController:sizeAlert animated:YES completion:nil];
         }
             break;
-//        case 3:
-//            <#statements#>
-//            break;
-//        case 4:
-//            <#statements#>
-//            break;
-//        case 5:
-//            <#statements#>
-//            break;
-//        case 6:
-//            <#statements#>
-//            break;
-//        case 7:
-//            <#statements#>
-//            break;
+        case 3:
+            
+            break;
+        case 4:
+            
+            break;
+        case 5:
+            
+            break;
+        case 6:
+            
+            break;
+        case 7:
+            [AVUser logOut];
+            self.image = [UIImage imageNamed:@"comment_profile_default"];
+            self.username = @"登录";
+            self.userTableView.bigImage.image = self.image;
+            [self.userTableView.button setTitle:self.username forState:UIControlStateNormal];
+            break;
             
         default:
             break;
@@ -316,9 +352,9 @@
 #warning 136 -> 136 - 50
     if (_userTableView.contentOffset.y < 136 - 50) {
         self.navigationItem.leftBarButtonItem = nil;
-//        [self.navigationController.navigationBar setHidden:YES];
+        //        [self.navigationController.navigationBar setHidden:YES];
     } else {
-//        [self.navigationController.navigationBar setHidden:NO];
+        //        [self.navigationController.navigationBar setHidden:NO];
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
         UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 42, 42)];
@@ -326,13 +362,11 @@
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(50, 0, 50, 44)];
         // 判断,如果有用户登录,就显示用户名,没有就显示登录
         if ([AVUser currentUser] != nil) {
-            image.image = [UIImage imageNamed:@"comment_profile_default"];
             label.text = [AVUser currentUser].username;
         } else {
-            image.image = [UIImage imageNamed:@"comment_profile_default"];
             label.text = nil;
         }
-        
+        image.image = self.image;
         
         label.textColor = [UIColor whiteColor];
         label.font = [UIFont systemFontOfSize:12];
@@ -390,25 +424,25 @@
 - (void)openChange:(UISwitch *)sender {
     if (sender.isOn == YES) {
 #warning  不对
-//        _moonView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//        _moonView.backgroundColor = [UIColor blackColor];
-//        _moonView.alpha = 0.3;
-//        _moonView.userInteractionEnabled = NO;
-//        NSArray* windows = [UIApplication sharedApplication].windows;
-//        
-//        _window = [windows objectAtIndex:0];
-//        if(_window.subviews.count > 0){
-//            
-//            _parentView = [_window.subviews objectAtIndex:0];
-//            
-//        }
-//        [_parentView insertSubview:_moonView atIndex:_parentView.subviews.count];
+        //        _moonView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        //        _moonView.backgroundColor = [UIColor blackColor];
+        //        _moonView.alpha = 0.3;
+        //        _moonView.userInteractionEnabled = NO;
+        //        NSArray* windows = [UIApplication sharedApplication].windows;
+        //
+        //        _window = [windows objectAtIndex:0];
+        //        if(_window.subviews.count > 0){
+        //
+        //            _parentView = [_window.subviews objectAtIndex:0];
+        //
+        //        }
+        //        [_parentView insertSubview:_moonView atIndex:_parentView.subviews.count];
         [[UIScreen mainScreen] setBrightness:0.2];
         [Simple sharedSimple].moon = 1;
         
     }else{
         [[UIScreen mainScreen] setBrightness:_currentBrightness];
-//        [_moonView removeFromSuperview];
+        //        [_moonView removeFromSuperview];
         [Simple sharedSimple].moon = 0;
     }
 }
@@ -432,16 +466,17 @@
 //        [PlayerManager sharePlayer].playList = searchVC.allArr;
 //        dispatch_async(dispatch_get_main_queue(), ^{
 //            [searchVC.listResultTableView reloadData];
-//            
+//
 //        });
 //    }];
-//    
+//
 //}
 
 
 - (void)requestData:(VideoViewController *)searchVC {
+    
     NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ?", @"VideoModel"];
-    NSArray *pvalues =  @[@1];
+    NSArray *pvalues =  @[[AVUser currentUser].username];
     [self.allCollectMusicArr removeAllObjects];
     [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
         if (!error) {
@@ -455,26 +490,27 @@
             NSLog(@"%@", error);
         }
         searchVC.newMarray = self.allCollectMusicArr;
-
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             
-                        [searchVC.privateTableView reloadData];
+            [searchVC.privateTableView reloadData];
             
-                    });
+        });
     }];
+    
     
 }
 
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

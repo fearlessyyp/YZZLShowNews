@@ -371,6 +371,9 @@
 		D6E2AC551D1E878B00B18F0E /* MusicTimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC541D1E878B00B18F0E /* MusicTimeFormatter.m */; };
 		D6E4996C1D240E3200892D54 /* NewsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4996B1D240E3200892D54 /* NewsImage.m */; };
 		D6E4996E1D240ED300892D54 /* Details.css in Resources */ = {isa = PBXBuildFile; fileRef = D6E4996D1D240ED300892D54 /* Details.css */; };
+		D6E861321D2C917E003F40FD /* anchor_sociaty_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E8612F1D2C917E003F40FD /* anchor_sociaty_qq@3x.png */; };
+		D6E861331D2C917E003F40FD /* ic_share_mmg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E861301D2C917E003F40FD /* ic_share_mmg@2x.png */; };
+		D6E861341D2C917E003F40FD /* ic_share_sina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E861311D2C917E003F40FD /* ic_share_sina@2x.png */; };
 		D6E954FD1D27BD400063E850 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E954FB1D27BD400063E850 /* LoginViewController.m */; };
 		D6E954FE1D27BD400063E850 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E954FC1D27BD400063E850 /* LoginViewController.xib */; };
 		D6E96A9D1D256CC300AF7AF3 /* SetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E96A9B1D256CC300AF7AF3 /* SetCell.m */; };
@@ -853,6 +856,9 @@
 		D6E4996A1D240E3200892D54 /* NewsImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsImage.h; sourceTree = "<group>"; };
 		D6E4996B1D240E3200892D54 /* NewsImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsImage.m; sourceTree = "<group>"; };
 		D6E4996D1D240ED300892D54 /* Details.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Details.css; sourceTree = "<group>"; };
+		D6E8612F1D2C917E003F40FD /* anchor_sociaty_qq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "anchor_sociaty_qq@3x.png"; sourceTree = "<group>"; };
+		D6E861301D2C917E003F40FD /* ic_share_mmg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_share_mmg@2x.png"; sourceTree = "<group>"; };
+		D6E861311D2C917E003F40FD /* ic_share_sina@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_share_sina@2x.png"; sourceTree = "<group>"; };
 		D6E954FA1D27BD400063E850 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D6E954FB1D27BD400063E850 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D6E954FC1D27BD400063E850 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -1710,6 +1716,9 @@
 		D66AA28E1D1EC4BD00045D9E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D6E8612F1D2C917E003F40FD /* anchor_sociaty_qq@3x.png */,
+				D6E861301D2C917E003F40FD /* ic_share_mmg@2x.png */,
+				D6E861311D2C917E003F40FD /* ic_share_sina@2x.png */,
 				D61542FF1D2BB3C700D3DCD6 /* musicSearch.png */,
 				D6A1D9CB1D2BA66700878313 /* true.png */,
 				D6A1D9C81D2BA24000878313 /* error.png */,
@@ -1966,6 +1975,7 @@
 				B25918D01D27F33C002EA49D /* interface_b_n_core_services.html in Resources */,
 				B25919641D27F33C002EA49D /* tabs.css in Resources */,
 				B25918B61D27F33C002EA49D /* class_b_n_location-members.html in Resources */,
+				D6E861341D2C917E003F40FD /* ic_share_sina@2x.png in Resources */,
 				B25919331D27F33C002EA49D /* functions_8.html in Resources */,
 				B25918D41D27F33C002EA49D /* interface_b_n_position.html in Resources */,
 				B25919051D27F33C002EA49D /* all_6.js in Resources */,
@@ -2078,6 +2088,7 @@
 				D6A5F3911D2A58E6003E13FE /* account_snslogin_icon_3@2x.png in Resources */,
 				B25919401D27F33C002EA49D /* properties_3.js in Resources */,
 				D6EA5EA41D1D2DF4006B6C33 /* NewsArticleCell.xib in Resources */,
+				D6E861321D2C917E003F40FD /* anchor_sociaty_qq@3x.png in Resources */,
 				B25918DD1D27F33C002EA49D /* interface_b_navi_calc_route_time.png in Resources */,
 				D686D4411D20FC9A002B75C2 /* redPacket_btn_1@2x.png in Resources */,
 				D6A5F39B1D2A58E6003E13FE /* login_password_icon@2x.png in Resources */,
@@ -2148,6 +2159,7 @@
 				B25918EC1D27F33C002EA49D /* protocol_b_n_route_plan_manager_protocol-p.html in Resources */,
 				B25919221D27F33C002EA49D /* files_0.js in Resources */,
 				D6A5F3B81D2A8FDD003E13FE /* login_tip_button@2x.png in Resources */,
+				D6E861331D2C917E003F40FD /* ic_share_mmg@2x.png in Resources */,
 				B25919191D27F33C002EA49D /* classes_0.js in Resources */,
 				D686D4211D20CBBD002B75C2 /* collect.png in Resources */,
 				D6A5F3951D2A58E6003E13FE /* contentview_hd_loading_black@2x.gif in Resources */,

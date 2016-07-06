@@ -368,7 +368,7 @@ int i = 0;
 
 - (void)selectFromMusicTable:(UIButton *)sender {
     NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ? and ID = ?", @"Music"];
-    NSArray *pvalues =  @[@1, self.music.ID];
+    NSArray *pvalues =  @[[AVUser currentUser].username, self.music.ID];
         [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
             if (!error) {
                 // 操作成功
@@ -397,28 +397,30 @@ int i = 0;
 
 // 判断收藏
 - (void)requestData:(MusicSearchController *)searchVC {
-    NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ?", @"Music"];
-    NSArray *pvalues =  @[@1];
-    [searchVC.allArr removeAllObjects];
-    [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
-        if (!error) {
-            // 操作成功
-            for (AVObject *obj in result.results) {
-                Music *music = [[DataBaseHandle sharedDataBaseHandle] aVObjectToMusic:obj];
-                [searchVC.allArr addObject:music];
+    if ([AVUser currentUser]) {
+        NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ?", @"Music"];
+        NSArray *pvalues =  @[[AVUser currentUser].username];
+        [searchVC.allArr removeAllObjects];
+        [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
+            if (!error) {
+                // 操作成功
+                for (AVObject *obj in result.results) {
+                    Music *music = [[DataBaseHandle sharedDataBaseHandle] aVObjectToMusic:obj];
+                    [searchVC.allArr addObject:music];
+                }
+                
+            } else {
+                NSLog(@"%@", error);
             }
-            
-        } else {
-            NSLog(@"%@", error);
-        }
-        //        searchVC.allArr = self.allCollectMusicArr;
-        [PlayerManager sharePlayer].playList = searchVC.allArr;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [searchVC.listResultTableView reloadData];
-            
-        });
-    }];
-    
+            //        searchVC.allArr = self.allCollectMusicArr;
+            [PlayerManager sharePlayer].playList = searchVC.allArr;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [searchVC.listResultTableView reloadData];
+                
+            });
+        }];
+
+    }
 }
 
 
