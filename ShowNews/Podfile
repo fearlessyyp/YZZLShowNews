@@ -9,4 +9,5 @@ pod 'Masonry', '~> 1.0.1'
 pod 'SMPageControl', '~> 1.2'
 pod 'UMengSocialCOM', '~> 5.2.1'
 pod 'AVOSCloud', '~> 3.3.5'
+pod 'IQKeyboardManager', '~> 4.0.3'
 end
