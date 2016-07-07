@@ -14,6 +14,7 @@
 #import "DataBaseHandle.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import <MBProgressHUD.h>
+#import "LoginViewController.h"
 
 @interface NewsDetailViewController ()<UMSocialUIDelegate>
 @property (nonatomic, strong) AFHTTPSessionManager *session;
@@ -134,6 +135,7 @@
 #pragma mark - 右按钮
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(backItemAction:)];
     UIBarButtonItem *collectItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"newscollect"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(collectItemAction:)];
     UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"newsshare"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(shareAction:)];
     self.navigationItem.rightBarButtonItems = @[shareItem, collectItem];
@@ -141,48 +143,57 @@
     [self selectFromNewsTable:collectItem];
 }
 
+- (void)backItemAction:(UIBarButtonItem *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - 收藏
 - (void)collectItemAction:(UIBarButtonItem *)sender {
-    if (self.isCollect) {
-        // 删除逻辑
-        NSString *cql = @"delete from News where objectId = ?";
-        NSArray *pvalues =  @[self.objectId];
-        [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
-            // 如果 error 为空，说明删除成功
-            if (!error) {
-                // 删除成功
-                sender.image = [[UIImage imageNamed:@"newscollect"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-                self.isCollect = NO;
-                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                hud.mode = MBProgressHUDModeText;
-                hud.labelText = @"取消收藏成功";
-                hud.margin = 10.f;
-                hud.yOffset = 0.f;
-                hud.removeFromSuperViewOnHide = YES;
-                [hud hide:YES afterDelay:1];
-            } else {
-                NSLog(@"~~~~~~error = %@", error);
-            }
-        }];
-        
+    if ([AVUser currentUser]) {
+        if (self.isCollect) {
+            // 删除逻辑
+            NSString *cql = @"delete from News where objectId = ?";
+            NSArray *pvalues =  @[self.objectId];
+            [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
+                // 如果 error 为空，说明删除成功
+                if (!error) {
+                    // 删除成功
+                    sender.image = [[UIImage imageNamed:@"newscollect"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                    self.isCollect = NO;
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"取消收藏成功";
+                    hud.margin = 10.f;
+                    hud.yOffset = 0.f;
+                    hud.removeFromSuperViewOnHide = YES;
+                    [hud hide:YES afterDelay:1];
+                } else {
+                    NSLog(@"~~~~~~error = %@", error);
+                }
+            }];
+            
+        } else {
+            // 存储逻辑
+            AVObject *object = [[DataBaseHandle sharedDataBaseHandle] newsToAVObject:self.news];
+            [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    // 从表中获取数据->objectID
+                    [self selectFromNewsTable:sender];
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"收藏成功";
+                    hud.margin = 10.f;
+                    hud.yOffset = 0.f;
+                    hud.removeFromSuperViewOnHide = YES;
+                    [hud hide:YES afterDelay:1];
+                } else {
+                    NSLog(@"!!!error = %@", error);
+                }
+            }];
+        }
     } else {
-        // 存储逻辑
-        AVObject *object = [[DataBaseHandle sharedDataBaseHandle] newsToAVObject:self.news];
-        [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                // 从表中获取数据->objectID
-                [self selectFromNewsTable:sender];
-                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                hud.mode = MBProgressHUDModeText;
-                hud.labelText = @"收藏成功";
-                hud.margin = 10.f;
-                hud.yOffset = 0.f;
-                hud.removeFromSuperViewOnHide = YES;
-                [hud hide:YES afterDelay:1];
-            } else {
-                NSLog(@"!!!error = %@", error);
-            }
-        }];
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        [self.navigationController pushViewController:loginVC animated:YES];
     }
     
    
@@ -206,21 +217,23 @@
 
 #pragma mark - 从news表中获取数据
 - (void)selectFromNewsTable:(UIBarButtonItem *)collectItem {
-    NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ? and postid = ?", @"News"];
-    NSArray *pvalues =  @[@1, self.news.postid];
-    [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
-        if (!error) {
-            // 操作成功
-            if (result.results.count > 0) {
-                AVObject *obj = result.results[0];
-                self.objectId = obj.objectId;
-                collectItem.image = [[UIImage imageNamed:@"newscollected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-                self.isCollect = YES;
+    if ([AVUser currentUser]) {
+        NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ? and postid = ?", @"News"];
+        NSArray *pvalues =  @[[AVUser currentUser].username, self.news.postid];
+        [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
+            if (!error) {
+                // 操作成功
+                if (result.results.count > 0) {
+                    AVObject *obj = result.results[0];
+                    self.objectId = obj.objectId;
+                    collectItem.image = [[UIImage imageNamed:@"newscollected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                    self.isCollect = YES;
+                }
+            } else {
+                NSLog(@"%@", error);
             }
-        } else {
-            NSLog(@"%@", error);
-        }
-    }];
+        }];
+    }
 }
 
 @end

@@ -218,18 +218,6 @@ typedef NS_ENUM(NSUInteger, NewsType) {
         if (flag == 0) {
             // 设置头条轮播图
             [self setScrollView:self.headlineScrollView pageControll:self.headLinePageControl dataArray:self.headLineScrollArr titleLabel:self.headlineTitleLabel];
-        } else if (flag == 1) {
-            // 设置娱乐轮播图
-//            [self setScrollView:self.entertainmentScrollView pageControll:self.entertainmentPageControl dataArray:self.entertainmentScrollArr];
-        } else if (flag == 2) {
-            // 设置时尚轮播图
-//            [self setScrollView:self.fashionScrollView pageControll:self.fashionPageControl dataArray:self.fashionScrollArr];
-        } else if (flag == 3) {
-            // 设置体育轮播图
-//            [self setScrollView:self.sportScrollView pageControll:self.sportPageControl dataArray:self.sportScrollArr];
-        } else if (flag == 4) {
-            // 设置科技轮播图
-//            [self setScrollView:self.technologyScrollView pageControll:self.technologyPageControl dataArray:self.technologyScrollArr];
         }
     }
 }
@@ -324,20 +312,12 @@ typedef NS_ENUM(NSUInteger, NewsType) {
                 NewsFirstViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsFirstViewCell" forIndexPath:indexPath];
                 NSMutableArray *imageArr = [NSMutableArray array];
                 [imageArr addObject:news];
-//                for (NSDictionary *resultDict in news.ads) {
-//                    News *model = [[News alloc] init];
-//                    [model setValuesForKeysWithDictionary:resultDict];
-//                    model.skipID = resultDict[@"url"];
-//                    [imageArr addObject:model];
-//                }
                 cell.imageArr = imageArr;
                 [cell addAllViews];
                 cell.titleLabel.text = news.title;
                 // 设置轮播图属性
                 self.entertainmentScrollArr = imageArr;
                 self.entertainmentScrollView = cell.scrollView;
-//                self.entertainmentScrollView.delegate = self;
-//                self.entertainmentPageControl = cell.pageControl;
                 // 取消选中效果
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 // 添加轻拍手势
@@ -367,20 +347,12 @@ typedef NS_ENUM(NSUInteger, NewsType) {
                 NewsFirstViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsFirstViewCell" forIndexPath:indexPath];
                 NSMutableArray *imageArr = [NSMutableArray array];
                 [imageArr addObject:news];
-//                for (NSDictionary *resultDict in news.ads) {
-//                    News *model = [[News alloc] init];
-//                    [model setValuesForKeysWithDictionary:resultDict];
-//                    model.skipID = resultDict[@"url"];
-//                    [imageArr addObject:model];
-//                }
                 cell.imageArr = imageArr;
                 [cell addAllViews];
                 cell.titleLabel.text = news.title;
                 // 设置轮播图属性
                 self.fashionScrollArr = imageArr;
                 self.fashionScrollView = cell.scrollView;
-//                self.fashionScrollView.delegate = self;
-//                self.fashionPageControl = cell.pageControl;
                 // 取消选中效果
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 // 添加轻拍手势
@@ -410,20 +382,12 @@ typedef NS_ENUM(NSUInteger, NewsType) {
                 NewsFirstViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsFirstViewCell" forIndexPath:indexPath];
                 NSMutableArray *imageArr = [NSMutableArray array];
                 [imageArr addObject:news];
-//                for (NSDictionary *resultDict in news.ads) {
-//                    News *model = [[News alloc] init];
-//                    [model setValuesForKeysWithDictionary:resultDict];
-//                    model.skipID = resultDict[@"url"];
-//                    [imageArr addObject:model];
-//                }
                 cell.imageArr = imageArr;
                 [cell addAllViews];
                 cell.titleLabel.text = news.title;
                 // 设置轮播图属性
                 self.sportScrollArr = imageArr;
                 self.sportScrollView = cell.scrollView;
-//                self.sportScrollView.delegate = self;
-//                self.sportPageControl = cell.pageControl;
                 // 取消选中效果
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 // 添加轻拍手势
@@ -453,20 +417,12 @@ typedef NS_ENUM(NSUInteger, NewsType) {
                 NewsFirstViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsFirstViewCell" forIndexPath:indexPath];
                 NSMutableArray *imageArr = [NSMutableArray array];
                 [imageArr addObject:news];
-//                for (NSDictionary *resultDict in news.ads) {
-//                    News *model = [[News alloc] init];
-//                    [model setValuesForKeysWithDictionary:resultDict];
-//                    model.skipID = resultDict[@"url"];
-//                    [imageArr addObject:model];
-//                }
                 cell.imageArr = imageArr;
                 [cell addAllViews];
                  cell.titleLabel.text = news.title;
                 // 设置轮播图属性
                 self.technologyScrollArr = imageArr;
                 self.technologyScrollView = cell.scrollView;
-//                self.technologyScrollView.delegate = self;
-//                self.technologyPageControl = cell.pageControl;
                 // 取消选中效果
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 // 添加轻拍手势
@@ -533,11 +489,6 @@ typedef NS_ENUM(NSUInteger, NewsType) {
 
 #pragma mark - 请求数据
 - (void)requestData {
-//    [self.allHeadlineArr removeAllObjects];
-//    [self.allEntertainmentArr removeAllObjects];
-//    [self.allFashionArr removeAllObjects];
-//    [self.allSportArr removeAllObjects];
-//    [self.allTechnologyArr removeAllObjects]
     [self requestWithUrl:[NSString stringWithFormat:NEWS_HEADLINE_URL, self.headlinePage] dataArray:self.allHeadlineArr key:@"T1348647909107" tableView:self.bigScrollView.headlineTableView];
     [self requestWithUrl:[NSString stringWithFormat:NEWS_ENTERTAINMENT_URL, self.entertainmentPage] dataArray:self.allEntertainmentArr key:@"T1348648517839" tableView:self.bigScrollView.entertainmentTableView];
     [self requestWithUrl:[NSString stringWithFormat:NEWS_FASHION_URL, self.fashionPage] dataArray:self.allFashionArr key:@"T1348650593803" tableView:self.bigScrollView.fashionTableView];
@@ -663,7 +614,6 @@ typedef NS_ENUM(NSUInteger, NewsType) {
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [self.navigationController setNavigationBarHidden:NO];
     [self.bigScrollView.headlineTableView reloadData];
     [self.bigScrollView.entertainmentTableView reloadData];
     [self.bigScrollView.fashionTableView reloadData];

@@ -30,6 +30,8 @@
 // 友盟分享的Block
 @property (nonatomic, copy) void (^Block)(VideoModel *);
 
+@property (nonatomic, copy) void (^LoginVCBlock)();
+
 - (void)addMovie: (UIView *)view;
 + (instancetype)cellWithTableView: (UITableView *)tableView;
 @end

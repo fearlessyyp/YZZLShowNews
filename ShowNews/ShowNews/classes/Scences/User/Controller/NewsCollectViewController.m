@@ -41,6 +41,11 @@ typedef NS_ENUM(NSUInteger, NewsType) {
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self requestData];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(backItemAction:)];
+}
+
+- (void)backItemAction:(UIBarButtonItem *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -64,7 +69,7 @@ typedef NS_ENUM(NSUInteger, NewsType) {
 #pragma mark - 请求数据
 - (void)requestData {
     NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ?", @"News"];
-    NSArray *pvalues =  @[@1];
+    NSArray *pvalues =  @[[AVUser currentUser].username];
     [self.allNewsArray removeAllObjects];
     [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
         if (!error) {
@@ -153,8 +158,6 @@ typedef NS_ENUM(NSUInteger, NewsType) {
         default:
             break;
     }
-    
-    
 }
 
 
@@ -175,14 +178,6 @@ typedef NS_ENUM(NSUInteger, NewsType) {
 }
 
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

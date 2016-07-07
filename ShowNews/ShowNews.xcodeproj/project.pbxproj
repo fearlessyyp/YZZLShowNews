@@ -293,6 +293,13 @@
 		D65A07A51D23EF6300DF3593 /* collectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65A07A21D23EF6300DF3593 /* collectCell.xib */; };
 		D65A07A61D23EF6300DF3593 /* collectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A07A31D23EF6300DF3593 /* collectCell.m */; };
 		D65E699F1D21081D004286E5 /* SmallPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E699E1D21081D004286E5 /* SmallPlayer.m */; };
+		D666EF8E1D2DEF7E00FAF168 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D666EF8C1D2DEF7E00FAF168 /* ForgetPasswordViewController.m */; };
+		D666EF8F1D2DEF7E00FAF168 /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D666EF8D1D2DEF7E00FAF168 /* ForgetPasswordViewController.xib */; };
+		D666EF931D2E37C100FAF168 /* NewsCollectede.png in Resources */ = {isa = PBXBuildFile; fileRef = D666EF921D2E37C100FAF168 /* NewsCollectede.png */; };
+		D666EF991D2E382000FAF168 /* VedioCollected.png in Resources */ = {isa = PBXBuildFile; fileRef = D666EF961D2E382000FAF168 /* VedioCollected.png */; };
+		D666EF9B1D2E384D00FAF168 /* musicCollected.png in Resources */ = {isa = PBXBuildFile; fileRef = D666EF9A1D2E384D00FAF168 /* musicCollected.png */; };
+		D666EF9D1D2E387400FAF168 /* placeCollected.png in Resources */ = {isa = PBXBuildFile; fileRef = D666EF9C1D2E387400FAF168 /* placeCollected.png */; };
+		D666EF9F1D2E4B4A00FAF168 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = D666EF9E1D2E4B4A00FAF168 /* back.png */; };
 		D66AA2961D1EC4BD00045D9E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2911D1EC4BD00045D9E /* icon.png */; };
 		D66AA29B1D1EC7FA00045D9E /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA29A1D1EC7FA00045D9E /* NewsViewController.m */; };
 		D66AA29F1D1ECCD900045D9E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA29D1D1ECCD900045D9E /* UserViewController.m */; };
@@ -303,7 +310,6 @@
 		D66E3E7D1D1FD6F500DB84BF /* MyScorllView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E7C1D1FD6F500DB84BF /* MyScorllView.m */; };
 		D66E3E831D1FEE5700DB84BF /* BigScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E821D1FEE5700DB84BF /* BigScrollView.m */; };
 		D66E6EA81D261F5600534723 /* NewsCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E6EA61D261F5600534723 /* NewsCollectViewController.m */; };
-		D66E6EA91D261F5600534723 /* NewsCollectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66E6EA71D261F5600534723 /* NewsCollectViewController.xib */; };
 		D66E6EAC1D266D6400534723 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E6EAB1D266D6400534723 /* Simple.m */; };
 		D686D3FC1D20B7FE002B75C2 /* UIImage+ImageByColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D686D3FB1D20B7FE002B75C2 /* UIImage+ImageByColor.m */; };
 		D686D4201D20CBBD002B75C2 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D686D4151D20CBBD002B75C2 /* background.png */; };
@@ -373,6 +379,9 @@
 		D6E2AC551D1E878B00B18F0E /* MusicTimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2AC541D1E878B00B18F0E /* MusicTimeFormatter.m */; };
 		D6E4996C1D240E3200892D54 /* NewsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4996B1D240E3200892D54 /* NewsImage.m */; };
 		D6E4996E1D240ED300892D54 /* Details.css in Resources */ = {isa = PBXBuildFile; fileRef = D6E4996D1D240ED300892D54 /* Details.css */; };
+		D6E861321D2C917E003F40FD /* anchor_sociaty_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E8612F1D2C917E003F40FD /* anchor_sociaty_qq@3x.png */; };
+		D6E861331D2C917E003F40FD /* ic_share_mmg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E861301D2C917E003F40FD /* ic_share_mmg@2x.png */; };
+		D6E861341D2C917E003F40FD /* ic_share_sina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E861311D2C917E003F40FD /* ic_share_sina@2x.png */; };
 		D6E954FD1D27BD400063E850 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E954FB1D27BD400063E850 /* LoginViewController.m */; };
 		D6E954FE1D27BD400063E850 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E954FC1D27BD400063E850 /* LoginViewController.xib */; };
 		D6E96A9D1D256CC300AF7AF3 /* SetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E96A9B1D256CC300AF7AF3 /* SetCell.m */; };
@@ -384,6 +393,7 @@
 		D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED41D1D576D006B6C33 /* UILabel+Font.m */; };
 		D6EA5ED91D1D6BF1006B6C33 /* MusicSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */; };
 		D6EA5EDA1D1D6BF1006B6C33 /* MusicSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */; };
+		D6EC771C1D2CE22C008A652B /* back_d.png in Resources */ = {isa = PBXBuildFile; fileRef = D6EC771B1D2CE22C008A652B /* back_d.png */; };
 		F53783191D227866000B6A2C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53783181D227866000B6A2C /* Security.framework */; };
 		F537831B1D227873000B6A2C /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F537831A1D227873000B6A2C /* libiconv.tbd */; };
 		F537831D1D227882000B6A2C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F537831C1D227882000B6A2C /* SystemConfiguration.framework */; };
@@ -741,6 +751,14 @@
 		D65A07A41D23EF6300DF3593 /* collectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectCell.h; sourceTree = "<group>"; };
 		D65E699D1D21081D004286E5 /* SmallPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallPlayer.h; sourceTree = "<group>"; };
 		D65E699E1D21081D004286E5 /* SmallPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallPlayer.m; sourceTree = "<group>"; };
+		D666EF8B1D2DEF7E00FAF168 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		D666EF8C1D2DEF7E00FAF168 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		D666EF8D1D2DEF7E00FAF168 /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
+		D666EF921D2E37C100FAF168 /* NewsCollectede.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewsCollectede.png; sourceTree = "<group>"; };
+		D666EF961D2E382000FAF168 /* VedioCollected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VedioCollected.png; sourceTree = "<group>"; };
+		D666EF9A1D2E384D00FAF168 /* musicCollected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicCollected.png; sourceTree = "<group>"; };
+		D666EF9C1D2E387400FAF168 /* placeCollected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeCollected.png; sourceTree = "<group>"; };
+		D666EF9E1D2E4B4A00FAF168 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		D66AA2911D1EC4BD00045D9E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		D66AA2991D1EC7FA00045D9E /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		D66AA29A1D1EC7FA00045D9E /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
@@ -758,7 +776,6 @@
 		D66E3E821D1FEE5700DB84BF /* BigScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigScrollView.m; sourceTree = "<group>"; };
 		D66E6EA51D261F5600534723 /* NewsCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCollectViewController.h; sourceTree = "<group>"; };
 		D66E6EA61D261F5600534723 /* NewsCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCollectViewController.m; sourceTree = "<group>"; };
-		D66E6EA71D261F5600534723 /* NewsCollectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCollectViewController.xib; sourceTree = "<group>"; };
 		D66E6EAA1D266D6400534723 /* Simple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simple.h; sourceTree = "<group>"; };
 		D66E6EAB1D266D6400534723 /* Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simple.m; sourceTree = "<group>"; };
 		D686D3FA1D20B7FE002B75C2 /* UIImage+ImageByColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageByColor.h"; sourceTree = "<group>"; };
@@ -858,6 +875,9 @@
 		D6E4996A1D240E3200892D54 /* NewsImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsImage.h; sourceTree = "<group>"; };
 		D6E4996B1D240E3200892D54 /* NewsImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsImage.m; sourceTree = "<group>"; };
 		D6E4996D1D240ED300892D54 /* Details.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Details.css; sourceTree = "<group>"; };
+		D6E8612F1D2C917E003F40FD /* anchor_sociaty_qq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "anchor_sociaty_qq@3x.png"; sourceTree = "<group>"; };
+		D6E861301D2C917E003F40FD /* ic_share_mmg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_share_mmg@2x.png"; sourceTree = "<group>"; };
+		D6E861311D2C917E003F40FD /* ic_share_sina@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_share_sina@2x.png"; sourceTree = "<group>"; };
 		D6E954FA1D27BD400063E850 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D6E954FB1D27BD400063E850 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D6E954FC1D27BD400063E850 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -875,6 +895,7 @@
 		D6EA5ED61D1D6BF1006B6C33 /* MusicSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicSearchController.h; sourceTree = "<group>"; };
 		D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicSearchController.m; sourceTree = "<group>"; };
 		D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicSearchController.xib; sourceTree = "<group>"; };
+		D6EC771B1D2CE22C008A652B /* back_d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_d.png; sourceTree = "<group>"; };
 		D99B500FD685B92161D43C8B /* Pods-ShowNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowNews/Pods-ShowNews.release.xcconfig"; sourceTree = "<group>"; };
 		F53783181D227866000B6A2C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F537831A1D227873000B6A2C /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -1644,7 +1665,6 @@
 				D66AA29E1D1ECCD900045D9E /* UserViewController.xib */,
 				D66E6EA51D261F5600534723 /* NewsCollectViewController.h */,
 				D66E6EA61D261F5600534723 /* NewsCollectViewController.m */,
-				D66E6EA71D261F5600534723 /* NewsCollectViewController.xib */,
 				F574AE6B1D27B72B00FBEE2C /* RegisterViewController.h */,
 				F574AE6C1D27B72B00FBEE2C /* RegisterViewController.m */,
 				F574AE6D1D27B72B00FBEE2C /* RegisterViewController.xib */,
@@ -1654,6 +1674,9 @@
 				D6A1D9B81D2B8BD800878313 /* AuthenticationViewController.h */,
 				D6A1D9B91D2B8BD800878313 /* AuthenticationViewController.m */,
 				D6A1D9BA1D2B8BD800878313 /* AuthenticationViewController.xib */,
+				D666EF8B1D2DEF7E00FAF168 /* ForgetPasswordViewController.h */,
+				D666EF8C1D2DEF7E00FAF168 /* ForgetPasswordViewController.m */,
+				D666EF8D1D2DEF7E00FAF168 /* ForgetPasswordViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1718,14 +1741,22 @@
 		D66AA28E1D1EC4BD00045D9E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D666EF961D2E382000FAF168 /* VedioCollected.png */,
+				D6EC771B1D2CE22C008A652B /* back_d.png */,
+				D6E8612F1D2C917E003F40FD /* anchor_sociaty_qq@3x.png */,
+				D6E861301D2C917E003F40FD /* ic_share_mmg@2x.png */,
+				D6E861311D2C917E003F40FD /* ic_share_sina@2x.png */,
 				D61542FF1D2BB3C700D3DCD6 /* musicSearch.png */,
 				D6A1D9CB1D2BA66700878313 /* true.png */,
 				D6A1D9C81D2BA24000878313 /* error.png */,
 				D6A1D9BD1D2B8C8500878313 /* phone.png */,
 				D6A1D9BE1D2B8C8500878313 /* yanzheng.png */,
 				D6A1D9BF1D2B8C8500878313 /* name.png */,
+				D666EF9A1D2E384D00FAF168 /* musicCollected.png */,
 				D6A1D9C01D2B8C8500878313 /* password.png */,
 				D6A1D9C11D2B8C8500878313 /* email.png */,
+				D666EF921D2E37C100FAF168 /* NewsCollectede.png */,
+				D666EF9C1D2E387400FAF168 /* placeCollected.png */,
 				D6A5F3B51D2A8FDD003E13FE /* login_forgot_button@2x.png */,
 				D6A5F3B61D2A8FDD003E13FE /* login_tip_button@2x.png */,
 				D6A5F3B31D2A8F0F003E13FE /* account_button@2x.png */,
@@ -1750,6 +1781,7 @@
 				D6A5F3891D2A58E6003E13FE /* login_password_icon@2x.png */,
 				D60D37921D27E29500915F93 /* newscollect.png */,
 				D60D37941D27E43F00915F93 /* newsshare.png */,
+				D666EF9E1D2E4B4A00FAF168 /* back.png */,
 				D60D378E1D27DE8400915F93 /* share.png */,
 				D60D37961D27F3DD00915F93 /* newscollected.png */,
 				D686D4401D20FC9A002B75C2 /* redPacket_btn_1@2x.png */,
@@ -1924,6 +1956,7 @@
 				B25919551D27F33C002EA49D /* properties_e.html in Resources */,
 				B25919211D27F33C002EA49D /* files_0.html in Resources */,
 				D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */,
+				D6EC771C1D2CE22C008A652B /* back_d.png in Resources */,
 				B259192D1D27F33C002EA49D /* functions_5.html in Resources */,
 				B259192C1D27F33C002EA49D /* functions_4.js in Resources */,
 				B259195C1D27F33C002EA49D /* searchdata.js in Resources */,
@@ -1974,6 +2007,7 @@
 				B25918D01D27F33C002EA49D /* interface_b_n_core_services.html in Resources */,
 				B25919641D27F33C002EA49D /* tabs.css in Resources */,
 				B25918B61D27F33C002EA49D /* class_b_n_location-members.html in Resources */,
+				D6E861341D2C917E003F40FD /* ic_share_sina@2x.png in Resources */,
 				B25919331D27F33C002EA49D /* functions_8.html in Resources */,
 				B25918D41D27F33C002EA49D /* interface_b_n_position.html in Resources */,
 				B25919051D27F33C002EA49D /* all_6.js in Resources */,
@@ -1990,6 +2024,7 @@
 				B25918A21D27F33C002EA49D /* _b_n_location_8h.html in Resources */,
 				B25919001D27F33C002EA49D /* all_4.html in Resources */,
 				B25918A11D27F33C002EA49D /* _b_n_core_services_8h_source.html in Resources */,
+				D666EF9F1D2E4B4A00FAF168 /* back.png in Resources */,
 				B259193F1D27F33C002EA49D /* properties_3.html in Resources */,
 				B25918FA1D27F33C002EA49D /* all_11.html in Resources */,
 				B25918FC1D27F33C002EA49D /* all_2.html in Resources */,
@@ -2071,6 +2106,7 @@
 				D686D43F1D20FB97002B75C2 /* tabbar_icon_map_highlight@2x.png in Resources */,
 				B259193D1D27F33C002EA49D /* properties_2.html in Resources */,
 				D6EA5EDA1D1D6BF1006B6C33 /* MusicSearchController.xib in Resources */,
+				D666EF991D2E382000FAF168 /* VedioCollected.png in Resources */,
 				B25919361D27F33C002EA49D /* functions_9.js in Resources */,
 				B25919071D27F33C002EA49D /* all_7.js in Resources */,
 				B25918E91D27F33C002EA49D /* protocol_b_n_navi_u_i_manager_delegate-p.html in Resources */,
@@ -2084,9 +2120,11 @@
 				B25918FF1D27F33C002EA49D /* all_3.js in Resources */,
 				B25918D11D27F33C002EA49D /* interface_b_n_core_services.png in Resources */,
 				D6E4996E1D240ED300892D54 /* Details.css in Resources */,
+				D666EF9B1D2E384D00FAF168 /* musicCollected.png in Resources */,
 				D6A5F3911D2A58E6003E13FE /* account_snslogin_icon_3@2x.png in Resources */,
 				B25919401D27F33C002EA49D /* properties_3.js in Resources */,
 				D6EA5EA41D1D2DF4006B6C33 /* NewsArticleCell.xib in Resources */,
+				D6E861321D2C917E003F40FD /* anchor_sociaty_qq@3x.png in Resources */,
 				B25918DD1D27F33C002EA49D /* interface_b_navi_calc_route_time.png in Resources */,
 				D686D4411D20FC9A002B75C2 /* redPacket_btn_1@2x.png in Resources */,
 				D6A5F39B1D2A58E6003E13FE /* login_password_icon@2x.png in Resources */,
@@ -2105,6 +2143,7 @@
 				F5D2E3641D20BE9500D297A3 /* audionews_play_button@2x.png in Resources */,
 				B259193E1D27F33C002EA49D /* properties_2.js in Resources */,
 				B25919061D27F33C002EA49D /* all_7.html in Resources */,
+				D666EF931D2E37C100FAF168 /* NewsCollectede.png in Resources */,
 				B25918B41D27F33C002EA49D /* bdwn.png in Resources */,
 				B25919171D27F33C002EA49D /* all_f.js in Resources */,
 				D61543001D2BB3C700D3DCD6 /* musicSearch.png in Resources */,
@@ -2141,7 +2180,6 @@
 				B25919041D27F33C002EA49D /* all_6.html in Resources */,
 				B25918FB1D27F33C002EA49D /* all_11.js in Resources */,
 				D686D4271D20CBBD002B75C2 /* tabbar_icon_news_highlight@2x.png in Resources */,
-				D66E6EA91D261F5600534723 /* NewsCollectViewController.xib in Resources */,
 				B25919471D27F33C002EA49D /* properties_7.html in Resources */,
 				B259195A1D27F33C002EA49D /* search_m.png in Resources */,
 				B25918B81D27F33C002EA49D /* class_b_n_route_detail_info-members.html in Resources */,
@@ -2157,6 +2195,7 @@
 				B25918EC1D27F33C002EA49D /* protocol_b_n_route_plan_manager_protocol-p.html in Resources */,
 				B25919221D27F33C002EA49D /* files_0.js in Resources */,
 				D6A5F3B81D2A8FDD003E13FE /* login_tip_button@2x.png in Resources */,
+				D6E861331D2C917E003F40FD /* ic_share_mmg@2x.png in Resources */,
 				B25919191D27F33C002EA49D /* classes_0.js in Resources */,
 				D686D4211D20CBBD002B75C2 /* collect.png in Resources */,
 				D6A5F3951D2A58E6003E13FE /* contentview_hd_loading_black@2x.gif in Resources */,
@@ -2171,11 +2210,13 @@
 				B25918CC1D27F33C002EA49D /* globals_enum.html in Resources */,
 				B25918C61D27F33C002EA49D /* folderopen.png in Resources */,
 				B25918A01D27F33C002EA49D /* _b_n_core_services_8h.html in Resources */,
+				D666EF8F1D2DEF7E00FAF168 /* ForgetPasswordViewController.xib in Resources */,
 				B25918F81D27F33C002EA49D /* all_10.html in Resources */,
 				B25918B21D27F33C002EA49D /* arrowright.png in Resources */,
 				B25918FE1D27F33C002EA49D /* all_3.html in Resources */,
 				B25918D61D27F33C002EA49D /* interface_b_n_route_detail_info.html in Resources */,
 				D686D4281D20CBBD002B75C2 /* tabbar_icon_news_normal@2x.png in Resources */,
+				D666EF9D1D2E387400FAF168 /* placeCollected.png in Resources */,
 				D6A5F39A1D2A58E6003E13FE /* contentview_hd_loading.gif in Resources */,
 				D6A5F38F1D2A58E6003E13FE /* night_audio_button_bg@2x.png in Resources */,
 				B25918C81D27F33C002EA49D /* functions_func.html in Resources */,
@@ -2308,6 +2349,7 @@
 				F557EF851D1FAE9B00C3C241 /* City.m in Sources */,
 				D64FA1B41D1D2B9F007DE414 /* README.md in Sources */,
 				F53D262B1D1E6CFD002E0644 /* GiFHUD.m in Sources */,
+				D666EF8E1D2DEF7E00FAF168 /* ForgetPasswordViewController.m in Sources */,
 				D60D37801D274DB000915F93 /* NewsPSetTableViewCell.m in Sources */,
 				D6E96A9D1D256CC300AF7AF3 /* SetCell.m in Sources */,
 				D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */,

@@ -28,7 +28,7 @@ static const CGFloat MaxHeight = 150;
 @property (nonatomic, strong) UIImageView *bigImage;
 
 
-- (UIButton *)addScalableCoverWithImage:(UIImage *)image URLStr:(NSString *)url;
+- (UIButton *)addScalableCoverWithImage:(UIImage *)image headImage:(UIImage *)headImage;
 - (void)removeScalableCover;
 
 @end

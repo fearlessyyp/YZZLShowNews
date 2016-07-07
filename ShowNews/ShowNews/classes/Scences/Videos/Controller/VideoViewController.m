@@ -18,6 +18,7 @@
 #import <Masonry.h>
 #import <AFNetworking.h>
 #import <MBProgressHUD.h>
+#import "LoginViewController.h"
 #import <UMSocial.h>
 //屏幕的宽度
 #define WindownWidth [[UIScreen mainScreen] bounds].size.width
@@ -192,6 +193,12 @@
             
             [UMSocialSnsService presentSnsIconSheetView:self appKey:UmengAppkey shareText:shareText shareImage:[UIImage imageNamed:@"2.jpg"] shareToSnsNames:shareArr delegate:self];
             
+        };
+        
+        // 跳转到登录页面
+        cell.LoginVCBlock = ^void() {
+            LoginViewController *loginVC = [[LoginViewController alloc] init];
+            [self.navigationController pushViewController:loginVC animated:YES];
         };
 
     }
@@ -412,10 +419,17 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDeviceOrientationChange) name:UIDeviceOrientationDidChangeNotification object:nil];
-  //  [super viewWillAppear:animated];
+    if (self.iscollect) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(backItemAction:)];
+    }
 #warning 判断当前时间与上次刷新时间,如果超过半个小时,自动刷新
-    [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(timeAction:) userInfo:nil repeats:YES];
+//    [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(timeAction:) userInfo:nil repeats:YES];
 }
+
+- (void)backItemAction:(UIBarButtonItem *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)timeAction:(NSTimer *)time
 {
