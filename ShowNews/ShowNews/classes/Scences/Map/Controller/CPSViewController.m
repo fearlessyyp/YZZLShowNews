@@ -9,7 +9,7 @@
 #import "CPSViewController.h"
 
 @interface CPSViewController ()<BNNaviUIManagerDelegate,BNNaviRoutePlanDelegate>
-
+@property (strong,nonatomic) BNRoutePlanNode *startNode;
 @end
 
 @implementation CPSViewController
@@ -29,16 +29,16 @@
     //起点
     BNRoutePlanNode *startNode = [[BNRoutePlanNode alloc] init];
     startNode.pos = [[BNPosition alloc] init];
-    startNode.pos.x = 113.936392;
-    startNode.pos.y = 22.547058;
+    startNode.pos.x = self.coor.latitude;
+    startNode.pos.y = self.coor.longitude;
     startNode.pos.eType = BNCoordinate_BaiduMapSDK;
     [nodesArray addObject:startNode];
     
     //终点
     BNRoutePlanNode *endNode = [[BNRoutePlanNode alloc] init];
     endNode.pos = [[BNPosition alloc] init];
-    endNode.pos.x = 114.077075;
-    endNode.pos.y = 22.543634;
+    endNode.pos.x = self.coorFirst.latitude;
+    endNode.pos.y = self.coorFirst.longitude;
     endNode.pos.eType = BNCoordinate_BaiduMapSDK;
     [nodesArray addObject:endNode];
     //发起路径规划
@@ -83,12 +83,16 @@
 - (void)onExitDeclarationUI:(NSDictionary*)extraInfo
 {
     NSLog(@"退出导航声明页面");
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 //退出巡航回调
 -(void)onExitDigitDogUI:(NSDictionary*)extraInfo
 {
     NSLog(@"退出电子狗页面");
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {

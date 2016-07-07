@@ -216,6 +216,8 @@
 		B25919731D27F3F0002EA49D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25919721D27F3F0002EA49D /* AVFoundation.framework */; };
 		B25919751D27F407002EA49D /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B25919741D27F407002EA49D /* libstdc++.6.0.9.tbd */; };
 		B25919771D27F423002EA49D /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25919761D27F423002EA49D /* JavaScriptCore.framework */; };
+		B2B167941D2E354D001A7FDB /* StartingPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B167921D2E354D001A7FDB /* StartingPointViewController.m */; };
+		B2B167951D2E354D001A7FDB /* StartingPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2B167931D2E354D001A7FDB /* StartingPointViewController.xib */; };
 		D60D377C1D274C2C00915F93 /* NewsPhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60D377B1D274C2C00915F93 /* NewsPhotoDetailViewController.m */; };
 		D60D37801D274DB000915F93 /* NewsPSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D60D377E1D274DB000915F93 /* NewsPSetTableViewCell.m */; };
 		D60D37811D274DB000915F93 /* NewsPSetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60D377F1D274DB000915F93 /* NewsPSetTableViewCell.xib */; };
@@ -626,6 +628,9 @@
 		B25919721D27F3F0002EA49D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B25919741D27F407002EA49D /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		B25919761D27F423002EA49D /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		B2B167911D2E354D001A7FDB /* StartingPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartingPointViewController.h; sourceTree = "<group>"; };
+		B2B167921D2E354D001A7FDB /* StartingPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartingPointViewController.m; sourceTree = "<group>"; };
+		B2B167931D2E354D001A7FDB /* StartingPointViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartingPointViewController.xib; sourceTree = "<group>"; };
 		D60D377A1D274C2C00915F93 /* NewsPhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPhotoDetailViewController.h; sourceTree = "<group>"; };
 		D60D377B1D274C2C00915F93 /* NewsPhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPhotoDetailViewController.m; sourceTree = "<group>"; };
 		D60D377D1D274DB000915F93 /* NewsPSetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPSetTableViewCell.h; sourceTree = "<group>"; };
@@ -1507,6 +1512,9 @@
 				D66AA2A11D1ECCF100045D9E /* MapViewController.h */,
 				D66AA2A21D1ECCF100045D9E /* MapViewController.m */,
 				D66AA2A31D1ECCF100045D9E /* MapViewController.xib */,
+				B2B167911D2E354D001A7FDB /* StartingPointViewController.h */,
+				B2B167921D2E354D001A7FDB /* StartingPointViewController.m */,
+				B2B167931D2E354D001A7FDB /* StartingPointViewController.xib */,
 				B21F8D991D27D80E003AD5D1 /* CPSViewController.h */,
 				B21F8D9A1D27D80E003AD5D1 /* CPSViewController.m */,
 			);
@@ -1970,6 +1978,7 @@
 				B25918D41D27F33C002EA49D /* interface_b_n_position.html in Resources */,
 				B25919051D27F33C002EA49D /* all_6.js in Resources */,
 				B25919081D27F33C002EA49D /* all_8.html in Resources */,
+				B2B167951D2E354D001A7FDB /* StartingPointViewController.xib in Resources */,
 				B259191F1D27F33C002EA49D /* enumvalues_0.html in Resources */,
 				B25918D51D27F33C002EA49D /* interface_b_n_position.png in Resources */,
 				B25918B91D27F33C002EA49D /* class_b_n_route_item-members.html in Resources */,
@@ -2316,6 +2325,7 @@
 				D6321E1C1D23BE69002F137F /* NewsSpecialListViewController.m in Sources */,
 				D64FA1AC1D1D2B97007DE414 /* README.md in Sources */,
 				D645913F1D26219E004AA246 /* UIImage+MultiFormat.m in Sources */,
+				B2B167941D2E354D001A7FDB /* StartingPointViewController.m in Sources */,
 				D64591401D26219E004AA246 /* UIImage+WebP.m in Sources */,
 				D64591381D26219E004AA246 /* SDWebImageDecoder.m in Sources */,
 				D64FA17C1D1D1D95007DE414 /* README.md in Sources */,
@@ -2417,7 +2427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2454,7 +2464,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -2482,7 +2492,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = ShowNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2565,7 +2575,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = ShowNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
