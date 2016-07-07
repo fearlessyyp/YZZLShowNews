@@ -12,7 +12,7 @@
 #import <BaiduMapAPI_Search/BMKSearchComponent.h>//引入检索功能所有的头文件
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
 
-#import "CPSViewController.h"
+#import "StartingPointViewController.h"
 @interface MapViewController ()<BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,BMKPoiSearchDelegate>
 @property (strong,nonatomic) BMKMapView *mapView;
 @property (strong,nonatomic) BMKLocationService *locService;
@@ -20,6 +20,9 @@
 @property (nonatomic, strong) BMKPoiSearch *searcher_POI;
 @property (nonatomic, strong)BMKGeoCodeSearch *searcher;
 @property (nonatomic, strong)BMKPointAnnotation *annotation;
+#warning mark --- 记录定位的当前地点
+@property (nonatomic, assign)CLLocationCoordinate2D coor;
+@property(nonatomic,weak)UITextField * tf;
 @end
 
 @implementation MapViewController
@@ -28,6 +31,7 @@
     [super viewWillAppear:animated];
     [_mapView viewWillAppear];
     _mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
+     _searcher_POI.delegate = self;
     _searcher.delegate = self;
     _locService.delegate = self;
     }
@@ -50,7 +54,9 @@
     self.mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, kScreenSizeWidth, kScreenSizeHeight - kNavigationAndStatusHeight)];
     [self.view addSubview:self.mapView];
     _locService = [[BMKLocationService alloc]init];
-    
+#warning mark -- 初始化并设置地图缩放比例
+    _searcher_POI = [[BMKPoiSearch alloc]init];
+    self.mapView.zoomLevel = 17;
     //初始化BMKLocationService
     NSLog(@"进入普通定位态");
     [_locService startUserLocationService];
@@ -70,13 +76,56 @@
     
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithTitle:@"导航" style:UIBarButtonItemStylePlain target:self action:@selector(startNavi)];
     self.navigationItem.leftBarButtonItem = left;
+    [self search];
+}
+- (void)search {
+    UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(30, 30, 100, 30)];
+    [btn setTitle:@"开始查找" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+    [btn setBackgroundColor:[UIColor orangeColor]];
+    [self.mapView addSubview:btn];
+    
+    UITextField * tf = [[UITextField alloc]initWithFrame:CGRectMake(150, 30, 100, 30)];
+    self.tf= tf;
+    tf.backgroundColor = [UIColor orangeColor];
+    [self.mapView addSubview:tf];
+}
+- (void)btnClick
+{
+#warning mark -- 释放第一相应折
+    [self.tf resignFirstResponder];
+    if (self.tf == nil) {
+        return;
+        
+        }
+    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
+    option.pageIndex = 0;
+    option.pageCapacity = 10;
+#warning mark -- 搜索当前的位置
+    option.location = self.coor;
+    //option.keyword = @"小吃";
+    option.keyword = self.tf.text;
+    BOOL flag = [_searcher_POI poiSearchNearBy:option];
+    
+    if(flag)
+    {
+        NSLog(@"周边检索发送成功");
+    }
+    else
+    {
+        NSLog(@"周边检索发送失败");
+    }
+
 }
 //发起导航
 - (void)startNavi
 {
-    CPSViewController *gps = [[CPSViewController alloc]init];
+    StartingPointViewController *starting = [[StartingPointViewController alloc]init];
+    starting.coorfirst = self.coor.latitude;
+    starting.coorSecond = self.coor.longitude;
     //self.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:gps animated:YES];
+    
+    [self.navigationController pushViewController:starting animated:YES];
 }
 #pragma mark - 初始化检索对象
 - (void)initWithSearcher
@@ -85,8 +134,8 @@
     _searcher =[[BMKGeoCodeSearch alloc]init];
     _searcher.delegate = self;
     BMKGeoCodeSearchOption *geoCodeSearchOption = [[BMKGeoCodeSearchOption alloc]init];
-    geoCodeSearchOption.city= @"北京市";
-    geoCodeSearchOption.address = @"海淀区清河中街";
+//    geoCodeSearchOption.city= @"北京市";
+//    geoCodeSearchOption.address = @"海淀区清河中街";
     BOOL flag = [_searcher geoCode:geoCodeSearchOption];
     if(flag)
     {
@@ -142,22 +191,6 @@ static BOOL isOpen = NO;
         //初始化检索对象
         _searcher_POI =[[BMKPoiSearch alloc]init];
         _searcher_POI.delegate = self;
-        //发起检索
-        BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
-        option.pageIndex = 0;
-        option.pageCapacity = 10;
-        option.location = result.location;
-        option.keyword = @"小吃";
-        BOOL flag = [_searcher_POI poiSearchNearBy:option];
-        
-        if(flag)
-        {
-            NSLog(@"周边检索发送成功");
-        }
-        else
-        {
-            NSLog(@"周边检索发送失败");
-        }
     }
     else {
         NSLog(@"抱歉，未找到结果");
@@ -213,6 +246,9 @@ static BOOL isOpen = NO;
     CGFloat a = userLocation.location.coordinate.latitude;
     CGFloat b = userLocation.location.coordinate.longitude;
     NSLog(@"========%f,++++++++%f",a,b);
+#warning mark -- 将定位到的位置赋给相对应的值并将定位的位置放到中间
+    self.coor =CLLocationCoordinate2DMake(a, b);
+    _mapView.centerCoordinate = self.coor;
     
     _mapView.showsUserLocation = YES;//显示定位图层
     [_mapView updateLocationData:userLocation];
@@ -258,6 +294,7 @@ static BOOL isOpen = NO;
         
         
     }
+    _mapView.centerCoordinate = self.coor;
 }
 
 /**
