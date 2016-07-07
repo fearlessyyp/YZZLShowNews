@@ -63,12 +63,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // 缓存文件路径
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    // 缓存文件大小
-    _path = path;
-    float size = [UserViewController folderSizeAtPath:path];
-    _cacheStr = [NSString stringWithFormat:@"%.2fM", size];
+  
+    
     
     NSData *data = [[AVUser currentUser] objectForKey:@"headImage"];
     if (data) {
@@ -194,7 +190,7 @@
         case 1:{
             SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SetImage" forIndexPath:indexPath];
             cell.nameLabel.text = @"清除缓存";
-            cell.cellLabel.text = _cacheStr;
+//            cell.cellLabel.text = _cacheStr;
             [cell.cellSwitch removeFromSuperview];
             return cell;
             break;
@@ -250,13 +246,19 @@
     switch (indexPath.row) {
         case 1:{
             
-            // 确定
+          
+            // 缓存文件路径
+            NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+            float size = [UserViewController folderSizeAtPath:path];
+            _cacheStr = [NSString stringWithFormat:@"%.2fM", size];
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:[NSString stringWithFormat:@"缓存大小为%@,确定要清除吗?", _cacheStr] preferredStyle:UIAlertControllerStyleAlert];
+            
+            
             UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 [UserViewController clearCache:_path];
                 _cacheStr = [NSString stringWithFormat:@"0.00M"];
-                SetCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-                cell.cellLabel.text = _cacheStr;
+//                SetCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//                cell.cellLabel.text = _cacheStr;
             }];
             
             UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
