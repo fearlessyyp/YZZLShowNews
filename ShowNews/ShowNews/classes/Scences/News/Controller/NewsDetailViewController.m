@@ -14,6 +14,7 @@
 #import "DataBaseHandle.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import <MBProgressHUD.h>
+#import "LoginViewController.h"
 
 @interface NewsDetailViewController ()<UMSocialUIDelegate>
 @property (nonatomic, strong) AFHTTPSessionManager *session;
@@ -185,8 +186,10 @@
                 }
             }];
         }
-
-    } 
+    } else {
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
     
    
 }
