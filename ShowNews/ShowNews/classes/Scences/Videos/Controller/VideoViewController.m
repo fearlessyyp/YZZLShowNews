@@ -419,10 +419,17 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDeviceOrientationChange) name:UIDeviceOrientationDidChangeNotification object:nil];
-  //  [super viewWillAppear:animated];
+    if (self.iscollect) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(backItemAction:)];
+    }
 #warning 判断当前时间与上次刷新时间,如果超过半个小时,自动刷新
-    [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(timeAction:) userInfo:nil repeats:YES];
+//    [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(timeAction:) userInfo:nil repeats:YES];
 }
+
+- (void)backItemAction:(UIBarButtonItem *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)timeAction:(NSTimer *)time
 {

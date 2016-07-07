@@ -222,12 +222,17 @@
 #pragma mark - 右按钮
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(backItemAction:)];
     UIBarButtonItem *collectItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"newscollect"] style:UIBarButtonItemStylePlain target:self action:@selector(collectItemAction:)];
     UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"newsshare"] style:UIBarButtonItemStylePlain target:self action:@selector(shareAction:)];
     self.navigationItem.rightBarButtonItems = @[shareItem, collectItem];
     // 查询是否被该用户收藏过
     [self selectFromNewsTable:collectItem];
 
+}
+
+- (void)backItemAction:(UIBarButtonItem *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - 收藏
@@ -301,8 +306,8 @@
 
 - (void)selectFromNewsTable:(UIBarButtonItem *)collectItem {
     if ([AVUser currentUser]) {
-        NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ? and postid = ?", @"News"];
-        NSArray *pvalues =  @[[AVUser currentUser].username, self.news.postid];
+        NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ? and skipID = ?", @"News"];
+        NSArray *pvalues =  @[[AVUser currentUser].username, self.news.skipID];
         [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
             if (!error) {
                 // 操作成功
