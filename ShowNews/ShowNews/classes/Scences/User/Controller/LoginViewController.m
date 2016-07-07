@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.navigationController setNavigationBarHidden:NO];
     self.title = @"登录";
     self.userNameTextField.text = self.username;
 }
@@ -80,4 +81,11 @@
     [hud hide:YES afterDelay:1];
 }
 
+
+- (void)viewWillDisappear:(BOOL)animated {
+    if (self.isMusic) {
+        [self.navigationController setNavigationBarHidden:YES];	 
+    }
+   
+}
 @end
