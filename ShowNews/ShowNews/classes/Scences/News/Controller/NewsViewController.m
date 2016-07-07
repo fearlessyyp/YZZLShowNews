@@ -468,24 +468,6 @@ typedef NS_ENUM(NSUInteger, NewsType) {
         } else if (tableView == self.bigScrollView.technologyTableView){
             news = self.allTechnologyArr[indexPath.row];
         }
-//        switch (flag) {
-//            case 0:
-//                news = self.allHeadlineArr[indexPath.row];
-//                break;
-//            case 1:
-//                news = self.allEntertainmentArr[indexPath.row];
-//                break;
-//            case 2:
-//                news = self.allFashionArr[indexPath.row];
-//                break;
-//            case 3:
-//                news = self.allSportArr[indexPath.row];
-//                break;
-//            case 4:
-//                news = self.allTechnologyArr[indexPath.row];
-//            default:
-//                break;
-////        }
         switch ([self newsTypeWithNews:news]) {
             case NewsTypePhotoSet:
                 return 115;
