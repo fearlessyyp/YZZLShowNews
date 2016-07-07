@@ -11,6 +11,15 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import <MBProgressHUD.h>
 
+
+typedef NS_ENUM(NSUInteger, TextFieldError) {
+    TextFieldErrorNil,
+    TextFieldErrorError,
+    TextFieldErrorNoMatch,
+    TextFieldErrorNormal,
+};
+
+
 @interface AuthenticationViewController ()
 /// 电话号码
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextFiled;
@@ -23,33 +32,110 @@
 
 @property (nonatomic, strong) UILabel *timeLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *phoneButton;
+
+@property (nonatomic, assign) TextFieldError phoneError;
+
+@property (nonatomic, assign) TextFieldError codeError;
+
 @end
 
 @implementation AuthenticationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"快速注册 - 验证手机";
     self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
     self.timeLabel.font = [UIFont systemFontOfSize:12.f];
     self.timeLabel.textColor = NEWS_MAIN_COLOR;
-    
+    self.codeButton.userInteractionEnabled = NO;
+    [self.phoneTextFiled addTarget:self action:@selector(phoneTextFieldAction:) forControlEvents:UIControlEventEditingDidEnd];
+    [self.yanzhengCodeTextField addTarget:self action:@selector(codeTextFieldAction:) forControlEvents:UIControlEventEditingDidEnd];
 }
-#pragma mark - 下一步按钮点击事件
-- (IBAction)nextStepAction:(UIButton *)sender {
+
+#pragma mark - 电话号码输入框
+- (void)phoneTextFieldAction:(UITextField *)sender {
+    if (sender.text.length == 0) {
+        [self setHUDWithTitle:@"请输入电话号码"];
+        self.phoneError = TextFieldErrorNil;
+    } else {
+        NSString*pattern =@"^1+[3578]+\\d{9}";
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",pattern];
+        BOOL isMatch = [pred evaluateWithObject:self.phoneTextFiled.text];
+        if (isMatch) {
+            NSString *cql = @"select * from _User where mobilePhoneNumber = ?";
+            NSArray *pvalues =  @[self.phoneTextFiled.text];
+            [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
+                if (!error) {
+                    // 操作成功
+                    if (result.results.count > 0) {
+                        [self.phoneButton setImage:[[UIImage imageNamed:@"error"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
+                        self.phoneError = TextFieldErrorError;
+                        [self setHUDWithTitle:@"该手机号已被注册"];
+                        
+                    } else {
+                        [self.phoneButton setImage:[[UIImage imageNamed:@"true"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
+                        self.phoneError = TextFieldErrorNormal;
+                        self.codeButton.userInteractionEnabled = YES;
+                        self.codeButton.titleLabel.textColor = NEWS_MAIN_COLOR;
+                    }
+                } else {
+                    NSLog(@"%@", error);
+                }
+            }];
+            
+        } else {
+            [self.phoneButton setImage:[[UIImage imageNamed:@"error"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
+            self.phoneError = TextFieldErrorNoMatch;
+            [self setHUDWithTitle:@"请输入正确的手机号码"];
+            
+        }
+    }
+}
+
+
+- (IBAction)phoneButtonClick:(UIButton *)sender {
+    switch (self.phoneError) {
+        case TextFieldErrorNormal:
+            break;
+        case TextFieldErrorError:
+            [self setHUDWithTitle:@"该手机号已被注册"];
+            break;
+        case TextFieldErrorNil:
+            [self setHUDWithTitle:@"请输入手机号码"];
+            break;
+        case TextFieldErrorNoMatch:
+            [self setHUDWithTitle:@"请输入正确的手机号码"];
+        default:
+            break;
+    }
+}
+
+
+#pragma mark - 验证码
+- (void)codeTextFieldAction:(UITextField *)textField {
     if (self.yanzhengCodeTextField.text.length == 0) {
+        self.codeError = TextFieldErrorNil;
         [self setHUDWithTitle:@"请输入验证码"];
     } else {
+        self.codeError = TextFieldErrorNormal;
+    }
+}
+
+#pragma mark - 下一步按钮点击事件
+- (IBAction)nextStepAction:(UIButton *)sender {
+    [self.view endEditing:YES];
+    if (self.phoneError == TextFieldErrorNormal && self.codeError == TextFieldErrorNormal) {
         [AVUser signUpOrLoginWithMobilePhoneNumberInBackground:self.phoneTextFiled.text smsCode:self.yanzhengCodeTextField.text block:^(AVUser *user, NSError *error) {
             // 如果 error 为空就可以表示登录成功了，并且 user 是一个全新的用户
             if (!error) {
-//                // 验证手机号码成功,注册了一个新的用户
+            // 验证手机号码成功,注册了一个新的用户
                 RegisterViewController *registerVC = [[RegisterViewController alloc] init];
                 registerVC.phoneNum = self.phoneTextFiled.text;
                 [self.navigationController pushViewController:registerVC animated:YES];
             }
         }];
     }
-    
 }
 #pragma mark - 获取验证码按钮点击事件
 - (IBAction)getCodeButtonAction:(UIButton *)sender {

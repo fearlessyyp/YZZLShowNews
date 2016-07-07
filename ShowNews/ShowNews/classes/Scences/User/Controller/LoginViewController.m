@@ -10,6 +10,7 @@
 #import "AuthenticationViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import <MBProgressHUD.h>
+#import "ForgetPasswordViewController.h"
 
 @interface LoginViewController ()
 /// 注册按钮
@@ -55,10 +56,13 @@
                 if (user != nil) {
                     [self.navigationController popViewControllerAnimated:YES];
                 } else {
-                    if (error.code == 201) {
+                    if (error.code == 210) {
                         [self setHUDWithTitle:@"用户名或密码错误"];
                     } else if (error.code == 211 || error.code == 213) {
                         [self setHUDWithTitle:@"用户名或手机号不存在"];
+                    } else if (error.code == 1) {
+                        [self setHUDWithTitle:@"登录失败次数过多,请稍后再试"];
+                        
                     }
                 }
             }];
@@ -67,7 +71,8 @@
 }
 #pragma mark- 忘记密码点击事件
 - (IBAction)forgetPasswordButtonAction:(id)sender {
-
+    ForgetPasswordViewController *forgetPasswordVC = [[ForgetPasswordViewController alloc] init];
+    [self.navigationController pushViewController:forgetPasswordVC animated:YES];
 }
 
 
