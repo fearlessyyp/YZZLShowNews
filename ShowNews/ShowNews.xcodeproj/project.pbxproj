@@ -291,6 +291,8 @@
 		D65A07A51D23EF6300DF3593 /* collectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65A07A21D23EF6300DF3593 /* collectCell.xib */; };
 		D65A07A61D23EF6300DF3593 /* collectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A07A31D23EF6300DF3593 /* collectCell.m */; };
 		D65E699F1D21081D004286E5 /* SmallPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E699E1D21081D004286E5 /* SmallPlayer.m */; };
+		D666EF8E1D2DEF7E00FAF168 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D666EF8C1D2DEF7E00FAF168 /* ForgetPasswordViewController.m */; };
+		D666EF8F1D2DEF7E00FAF168 /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D666EF8D1D2DEF7E00FAF168 /* ForgetPasswordViewController.xib */; };
 		D66AA2961D1EC4BD00045D9E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2911D1EC4BD00045D9E /* icon.png */; };
 		D66AA29B1D1EC7FA00045D9E /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA29A1D1EC7FA00045D9E /* NewsViewController.m */; };
 		D66AA29F1D1ECCD900045D9E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA29D1D1ECCD900045D9E /* UserViewController.m */; };
@@ -301,7 +303,6 @@
 		D66E3E7D1D1FD6F500DB84BF /* MyScorllView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E7C1D1FD6F500DB84BF /* MyScorllView.m */; };
 		D66E3E831D1FEE5700DB84BF /* BigScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E3E821D1FEE5700DB84BF /* BigScrollView.m */; };
 		D66E6EA81D261F5600534723 /* NewsCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E6EA61D261F5600534723 /* NewsCollectViewController.m */; };
-		D66E6EA91D261F5600534723 /* NewsCollectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66E6EA71D261F5600534723 /* NewsCollectViewController.xib */; };
 		D66E6EAC1D266D6400534723 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E6EAB1D266D6400534723 /* Simple.m */; };
 		D686D3FC1D20B7FE002B75C2 /* UIImage+ImageByColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D686D3FB1D20B7FE002B75C2 /* UIImage+ImageByColor.m */; };
 		D686D4201D20CBBD002B75C2 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D686D4151D20CBBD002B75C2 /* background.png */; };
@@ -740,6 +741,9 @@
 		D65A07A41D23EF6300DF3593 /* collectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectCell.h; sourceTree = "<group>"; };
 		D65E699D1D21081D004286E5 /* SmallPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallPlayer.h; sourceTree = "<group>"; };
 		D65E699E1D21081D004286E5 /* SmallPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallPlayer.m; sourceTree = "<group>"; };
+		D666EF8B1D2DEF7E00FAF168 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		D666EF8C1D2DEF7E00FAF168 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		D666EF8D1D2DEF7E00FAF168 /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
 		D66AA2911D1EC4BD00045D9E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		D66AA2991D1EC7FA00045D9E /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		D66AA29A1D1EC7FA00045D9E /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
@@ -757,7 +761,6 @@
 		D66E3E821D1FEE5700DB84BF /* BigScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigScrollView.m; sourceTree = "<group>"; };
 		D66E6EA51D261F5600534723 /* NewsCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCollectViewController.h; sourceTree = "<group>"; };
 		D66E6EA61D261F5600534723 /* NewsCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCollectViewController.m; sourceTree = "<group>"; };
-		D66E6EA71D261F5600534723 /* NewsCollectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCollectViewController.xib; sourceTree = "<group>"; };
 		D66E6EAA1D266D6400534723 /* Simple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simple.h; sourceTree = "<group>"; };
 		D66E6EAB1D266D6400534723 /* Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simple.m; sourceTree = "<group>"; };
 		D686D3FA1D20B7FE002B75C2 /* UIImage+ImageByColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageByColor.h"; sourceTree = "<group>"; };
@@ -1644,7 +1647,6 @@
 				D66AA29E1D1ECCD900045D9E /* UserViewController.xib */,
 				D66E6EA51D261F5600534723 /* NewsCollectViewController.h */,
 				D66E6EA61D261F5600534723 /* NewsCollectViewController.m */,
-				D66E6EA71D261F5600534723 /* NewsCollectViewController.xib */,
 				F574AE6B1D27B72B00FBEE2C /* RegisterViewController.h */,
 				F574AE6C1D27B72B00FBEE2C /* RegisterViewController.m */,
 				F574AE6D1D27B72B00FBEE2C /* RegisterViewController.xib */,
@@ -1654,6 +1656,9 @@
 				D6A1D9B81D2B8BD800878313 /* AuthenticationViewController.h */,
 				D6A1D9B91D2B8BD800878313 /* AuthenticationViewController.m */,
 				D6A1D9BA1D2B8BD800878313 /* AuthenticationViewController.xib */,
+				D666EF8B1D2DEF7E00FAF168 /* ForgetPasswordViewController.h */,
+				D666EF8C1D2DEF7E00FAF168 /* ForgetPasswordViewController.m */,
+				D666EF8D1D2DEF7E00FAF168 /* ForgetPasswordViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2147,7 +2152,6 @@
 				B25919041D27F33C002EA49D /* all_6.html in Resources */,
 				B25918FB1D27F33C002EA49D /* all_11.js in Resources */,
 				D686D4271D20CBBD002B75C2 /* tabbar_icon_news_highlight@2x.png in Resources */,
-				D66E6EA91D261F5600534723 /* NewsCollectViewController.xib in Resources */,
 				B25919471D27F33C002EA49D /* properties_7.html in Resources */,
 				B259195A1D27F33C002EA49D /* search_m.png in Resources */,
 				B25918B81D27F33C002EA49D /* class_b_n_route_detail_info-members.html in Resources */,
@@ -2178,6 +2182,7 @@
 				B25918CC1D27F33C002EA49D /* globals_enum.html in Resources */,
 				B25918C61D27F33C002EA49D /* folderopen.png in Resources */,
 				B25918A01D27F33C002EA49D /* _b_n_core_services_8h.html in Resources */,
+				D666EF8F1D2DEF7E00FAF168 /* ForgetPasswordViewController.xib in Resources */,
 				B25918F81D27F33C002EA49D /* all_10.html in Resources */,
 				B25918B21D27F33C002EA49D /* arrowright.png in Resources */,
 				B25918FE1D27F33C002EA49D /* all_3.html in Resources */,
@@ -2315,6 +2320,7 @@
 				F557EF851D1FAE9B00C3C241 /* City.m in Sources */,
 				D64FA1B41D1D2B9F007DE414 /* README.md in Sources */,
 				F53D262B1D1E6CFD002E0644 /* GiFHUD.m in Sources */,
+				D666EF8E1D2DEF7E00FAF168 /* ForgetPasswordViewController.m in Sources */,
 				D60D37801D274DB000915F93 /* NewsPSetTableViewCell.m in Sources */,
 				D6E96A9D1D256CC300AF7AF3 /* SetCell.m in Sources */,
 				D6BA65401D1E253200ECA213 /* WeatherHandle.m in Sources */,

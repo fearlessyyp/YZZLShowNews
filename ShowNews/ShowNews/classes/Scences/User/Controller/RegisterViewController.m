@@ -51,8 +51,7 @@ typedef NS_ENUM(NSUInteger, TextFieldError) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"注册";
-    //    self.phoneNum = @"17888843599";
+    self.title = @"快速注册 - 完善资料";
     self.headImageView.userInteractionEnabled = YES;
     self.headImageView.layer.cornerRadius = kScreenSizeWidth * 0.15f;
     self.headImageView.layer.masksToBounds = YES;
@@ -153,6 +152,7 @@ typedef NS_ENUM(NSUInteger, TextFieldError) {
             break;
         case TextFieldErrorNil:
             [self setHUDWithTitle:@"请输入昵称"];
+            break;
         default:
             break;
     }
@@ -202,7 +202,6 @@ typedef NS_ENUM(NSUInteger, TextFieldError) {
                 loginVC.username = [AVUser currentUser].username;
                 [AVUser logOut];  //清除缓存用户对象
                   [self.navigationController popToViewController:loginVC animated:YES];
-//                [self.navigationController pushViewController:loginVC animated:YES];
             }
         }];
     } else {
