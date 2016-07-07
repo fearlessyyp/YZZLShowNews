@@ -454,8 +454,48 @@ typedef NS_ENUM(NSUInteger, NewsType) {
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         return 150;
+    } else {
+//        int flag = (int)self.bigScrollView.bigScrollView.contentOffset.x / kScreenSizeWidth;
+        News *news = [[News alloc] init];
+        if (tableView == self.bigScrollView.headlineTableView) {
+            news = self.allHeadlineArr[indexPath.row];
+        } else if (tableView == self.bigScrollView.entertainmentTableView) {
+            news = self.allEntertainmentArr[indexPath.row];
+        } else if (tableView == self.bigScrollView.fashionTableView) {
+            news = self.allFashionArr[indexPath.row];
+        } else if (tableView == self.bigScrollView.sportTableView) {
+            news = self.allSportArr[indexPath.row];
+        } else if (tableView == self.bigScrollView.technologyTableView){
+            news = self.allTechnologyArr[indexPath.row];
+        }
+//        switch (flag) {
+//            case 0:
+//                news = self.allHeadlineArr[indexPath.row];
+//                break;
+//            case 1:
+//                news = self.allEntertainmentArr[indexPath.row];
+//                break;
+//            case 2:
+//                news = self.allFashionArr[indexPath.row];
+//                break;
+//            case 3:
+//                news = self.allSportArr[indexPath.row];
+//                break;
+//            case 4:
+//                news = self.allTechnologyArr[indexPath.row];
+//            default:
+//                break;
+////        }
+        switch ([self newsTypeWithNews:news]) {
+            case NewsTypePhotoSet:
+                return 115;
+                break;
+            default:
+                return 90;
+                break;
+        }
+        return 100;
     }
-    return 100;
 }
 
 #pragma mark - 点击cell
