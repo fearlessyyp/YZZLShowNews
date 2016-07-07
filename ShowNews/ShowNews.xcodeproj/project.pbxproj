@@ -385,6 +385,7 @@
 		D6EA5ED51D1D576D006B6C33 /* UILabel+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED41D1D576D006B6C33 /* UILabel+Font.m */; };
 		D6EA5ED91D1D6BF1006B6C33 /* MusicSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */; };
 		D6EA5EDA1D1D6BF1006B6C33 /* MusicSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */; };
+		D6EC771C1D2CE22C008A652B /* back_d.png in Resources */ = {isa = PBXBuildFile; fileRef = D6EC771B1D2CE22C008A652B /* back_d.png */; };
 		F53783191D227866000B6A2C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53783181D227866000B6A2C /* Security.framework */; };
 		F537831B1D227873000B6A2C /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F537831A1D227873000B6A2C /* libiconv.tbd */; };
 		F537831D1D227882000B6A2C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F537831C1D227882000B6A2C /* SystemConfiguration.framework */; };
@@ -876,6 +877,7 @@
 		D6EA5ED61D1D6BF1006B6C33 /* MusicSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicSearchController.h; sourceTree = "<group>"; };
 		D6EA5ED71D1D6BF1006B6C33 /* MusicSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicSearchController.m; sourceTree = "<group>"; };
 		D6EA5ED81D1D6BF1006B6C33 /* MusicSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicSearchController.xib; sourceTree = "<group>"; };
+		D6EC771B1D2CE22C008A652B /* back_d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_d.png; sourceTree = "<group>"; };
 		D99B500FD685B92161D43C8B /* Pods-ShowNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowNews/Pods-ShowNews.release.xcconfig"; sourceTree = "<group>"; };
 		F53783181D227866000B6A2C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F537831A1D227873000B6A2C /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -1716,6 +1718,7 @@
 		D66AA28E1D1EC4BD00045D9E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D6EC771B1D2CE22C008A652B /* back_d.png */,
 				D6E8612F1D2C917E003F40FD /* anchor_sociaty_qq@3x.png */,
 				D6E861301D2C917E003F40FD /* ic_share_mmg@2x.png */,
 				D6E861311D2C917E003F40FD /* ic_share_sina@2x.png */,
@@ -1925,6 +1928,7 @@
 				B25919551D27F33C002EA49D /* properties_e.html in Resources */,
 				B25919211D27F33C002EA49D /* files_0.html in Resources */,
 				D6EA5E9F1D1D2DCF006B6C33 /* NewsPhotoSetCell.xib in Resources */,
+				D6EC771C1D2CE22C008A652B /* back_d.png in Resources */,
 				B259192D1D27F33C002EA49D /* functions_5.html in Resources */,
 				B259192C1D27F33C002EA49D /* functions_4.js in Resources */,
 				B259195C1D27F33C002EA49D /* searchdata.js in Resources */,
