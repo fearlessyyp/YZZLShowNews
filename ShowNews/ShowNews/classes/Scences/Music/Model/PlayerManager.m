@@ -260,24 +260,24 @@ int i = 0;
             NSLog(@"++++++++++ 失败了");
             _HUD = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
             _HUD.mode = MBProgressHUDModeText;
-            _HUD.labelColor = [UIColor greenColor];
+//            _HUD.labelColor = [UIColor greenColor];
             NSString *str = [NSString stringWithFormat:@"<%@>因版权问题无法播放",_music.musicName];
             _HUD.labelText = str;
             _HUD.minShowTime = 2;
-            _HUD.opacity = 0.1;
-            _HUD.color = [UIColor clearColor];
-            _HUD.yOffset = i += 30;
-            if (i > [UIScreen mainScreen].bounds.size.height / 2 - 30) {
-                i = - [UIScreen mainScreen].bounds.size.height / 2;
-            }
-            //            _HUD.dimBackground = YES;
+            _HUD.opacity = 0.7;
+//            _HUD.color = [UIColor clearColor];
+//            _HUD.yOffset = i += 30;
+//            if (i > [UIScreen mainScreen].bounds.size.height / 2 - 30) {
+//                i = - [UIScreen mainScreen].bounds.size.height / 2;
+//            }
+//                        _HUD.dimBackground = YES;
             [_HUD hide:YES];
             _HUD.userInteractionEnabled = NO;
             [self pause];
-            if (self.currentIndex != self.playList.count -1) {
-                [self nextMusic];
-                [self musicPlay];
-            }
+//            if (self.currentIndex != self.playList.count -1) {
+//                [self nextMusic];
+//                [self musicPlay];
+//            }
             
         }
             break;
@@ -330,6 +330,8 @@ int i = 0;
                     if (!error) {
                         // 删除成功
                         [sender setImage:[UIImage imageNamed:@"action_love@2x"] forState:UIControlStateNormal];
+                        // 添加了代码
+                        [[MusicSearchController sharedMusicSearchController].collect setImage:[UIImage imageNamed:@"action_love@2x"] forState:UIControlStateNormal];
                         _music.IsCollect = NO;
                         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
                         hud.mode = MBProgressHUDModeText;

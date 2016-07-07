@@ -17,4 +17,7 @@ singleton_interface(MusicSearchController);
 @property (nonatomic, strong) NSMutableArray *allArr;
 /// 搜索结果列表
 @property (weak, nonatomic) IBOutlet UITableView *listResultTableView;
+/// 收藏
+@property (weak, nonatomic) IBOutlet UIButton *collect;
+
 @end
