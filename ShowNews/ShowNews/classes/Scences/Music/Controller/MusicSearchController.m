@@ -22,6 +22,7 @@
 #import <MBProgressHUD.h>
 #import "DataBaseHandle.h"
 
+
 @interface MusicSearchController ()<UITableViewDelegate, UITableViewDataSource>
 /// 搜索栏
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -61,8 +62,6 @@
 /// 播放
 @property (weak, nonatomic) IBOutlet UIButton *palyButton;
 
-/// 收藏
-@property (weak, nonatomic) IBOutlet UIButton *collect;
 
 @property (nonatomic, strong) PlayerManager *playManager;
 
@@ -74,6 +73,7 @@
 
 @implementation MusicSearchController
 
+singleton_implementation(MusicSearchController);
 
 - (IBAction)touchView:(id)sender {
      [self.view endEditing:YES];  
@@ -181,17 +181,10 @@
     [[PlayerManager sharePlayer] requestData:self];
     
     [self.searchTextField addTarget:self action:@selector(ifValueIsNil) forControlEvents:UIControlEventEditingDidEnd];
-    
-    [self.searchTextField addTarget:self action:@selector(ifValueIsNilIsEQ:) forControlEvents:UIControlEventEditingChanged];
+
     
 }
 
-- (void)ifValueIsNilIsEQ:(UITextField *)sender {
-    if ([sender.text isEqualToString:@""]) {
-        [sender resignFirstResponder];
-    }
-    
-}
 
 - (void)ifValueIsNil {
     if (self.searchTextField.text.length <= 0) {
@@ -344,6 +337,8 @@
 //            [self endRefresh];
             dispatch_async(dispatch_get_main_queue(), ^{
             [PlayerManager sharePlayer].playList = weakSelf.allArr;
+                // 刷新后滚动到最上面
+                weakSelf.listResultTableView.contentOffset = CGPointMake(0, 0);
             [weakSelf.listResultTableView reloadData];
             });
         }

@@ -23,37 +23,32 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBv-Mh-cWA">
-                                <rect key="frame" x="494" y="0.0" width="45" height="157"/>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI2-Cf-XRy">
+                                <rect key="frame" x="441" y="68" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="q4K-UE-XdC"/>
+                                    <constraint firstAttribute="height" constant="21" id="xPM-aR-lfB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nxp-Nz-3X3">
                                 <rect key="frame" x="492" y="63" width="51" height="31"/>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vI2-Cf-XRy" secondAttribute="trailing" constant="13" id="2NX-xk-R6t"/>
                             <constraint firstItem="EZ9-qq-ULL" firstAttribute="leading" secondItem="KRG-tz-UA6" secondAttribute="leading" constant="20" id="4uM-GD-Pp9"/>
                             <constraint firstAttribute="trailing" secondItem="EZ9-qq-ULL" secondAttribute="trailing" constant="70" id="6IU-rE-Wv8"/>
                             <constraint firstItem="nxp-Nz-3X3" firstAttribute="leading" secondItem="EZ9-qq-ULL" secondAttribute="trailing" constant="8" id="9yh-Wi-yj1"/>
-                            <constraint firstItem="nxp-Nz-3X3" firstAttribute="width" secondItem="HBv-Mh-cWA" secondAttribute="width" id="Fta-0U-py1"/>
-                            <constraint firstItem="nxp-Nz-3X3" firstAttribute="top" secondItem="HBv-Mh-cWA" secondAttribute="bottom" constant="-94" id="J7i-wb-YXO"/>
-                            <constraint firstAttribute="bottom" secondItem="HBv-Mh-cWA" secondAttribute="bottom" id="T7q-XG-Pwh"/>
-                            <constraint firstItem="HBv-Mh-cWA" firstAttribute="top" secondItem="KRG-tz-UA6" secondAttribute="top" id="UA3-jh-Yem"/>
-                            <constraint firstItem="nxp-Nz-3X3" firstAttribute="centerX" secondItem="HBv-Mh-cWA" secondAttribute="centerX" id="Zfk-Y4-IfC"/>
-                            <constraint firstAttribute="trailing" secondItem="HBv-Mh-cWA" secondAttribute="trailing" constant="15" id="ewo-Or-f6k"/>
                             <constraint firstAttribute="trailing" secondItem="nxp-Nz-3X3" secondAttribute="trailing" constant="13" id="k6D-tG-Qip"/>
                             <constraint firstItem="EZ9-qq-ULL" firstAttribute="top" secondItem="KRG-tz-UA6" secondAttribute="top" id="ksv-vd-f93"/>
                             <constraint firstItem="nxp-Nz-3X3" firstAttribute="centerY" secondItem="EZ9-qq-ULL" secondAttribute="centerY" id="m7c-i8-Pua"/>
-                            <constraint firstItem="HBv-Mh-cWA" firstAttribute="leading" secondItem="EZ9-qq-ULL" secondAttribute="trailing" constant="10" id="sQV-nA-5wJ"/>
+                            <constraint firstItem="vI2-Cf-XRy" firstAttribute="centerY" secondItem="KRG-tz-UA6" secondAttribute="centerY" id="ptr-Rw-RME"/>
                             <constraint firstAttribute="bottom" secondItem="EZ9-qq-ULL" secondAttribute="bottom" id="zuJ-Vz-TaD"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Fta-0U-py1"/>
-                                <exclude reference="J7i-wb-YXO"/>
-                                <exclude reference="Zfk-Y4-IfC"/>
-                            </mask>
-                        </variation>
                     </view>
                 </subviews>
                 <constraints>
@@ -64,7 +59,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="cellButton" destination="HBv-Mh-cWA" id="L5I-3Y-ye9"/>
+                <outlet property="cellLabel" destination="vI2-Cf-XRy" id="SDE-3F-Bhm"/>
                 <outlet property="cellSwitch" destination="nxp-Nz-3X3" id="1Dg-2l-9Yr"/>
                 <outlet property="nameLabel" destination="EZ9-qq-ULL" id="Lkr-pY-uVL"/>
             </connections>

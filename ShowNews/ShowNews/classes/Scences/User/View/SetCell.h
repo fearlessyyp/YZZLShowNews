@@ -11,8 +11,8 @@
 @interface SetCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
-@property (weak, nonatomic) IBOutlet UIButton *cellButton;
-
 @property (weak, nonatomic) IBOutlet UISwitch *cellSwitch;
+
+@property (weak, nonatomic) IBOutlet UILabel *cellLabel;
 
 @end

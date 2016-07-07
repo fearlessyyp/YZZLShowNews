@@ -8,22 +8,9 @@
 
 #import "DataBaseHandle.h"
 
-
-
-typedef NS_ENUM(NSUInteger, NewsType) {
-    NewsTypePhotoSet,
-    NewsTypeSpecial,
-    NewsTypeArticle,
-    NewsTypeUnknow,
-};
-
-
-
 @implementation DataBaseHandle
 #pragma mark - 声明单例
 singleton_implementation(DataBaseHandle)
-
-
 
 #pragma mark - News转换成AVObject
 - (AVObject *)newsToAVObject:(News *)news {

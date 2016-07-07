@@ -16,6 +16,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "DataBaseHandle.h"
 #import "MusicSearchController.h"
+#import "LoginViewController.h"
 
 @interface PlayerManager ()
 @property (nonatomic,strong) AVPlayer *player; // 播放器属性
@@ -259,24 +260,24 @@ int i = 0;
             NSLog(@"++++++++++ 失败了");
             _HUD = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
             _HUD.mode = MBProgressHUDModeText;
-            _HUD.labelColor = [UIColor greenColor];
+//            _HUD.labelColor = [UIColor greenColor];
             NSString *str = [NSString stringWithFormat:@"<%@>因版权问题无法播放",_music.musicName];
             _HUD.labelText = str;
             _HUD.minShowTime = 2;
-            _HUD.opacity = 0.1;
-            _HUD.color = [UIColor clearColor];
-            _HUD.yOffset = i += 30;
-            if (i > [UIScreen mainScreen].bounds.size.height / 2 - 30) {
-                i = - [UIScreen mainScreen].bounds.size.height / 2;
-            }
-            //            _HUD.dimBackground = YES;
+            _HUD.opacity = 0.7;
+//            _HUD.color = [UIColor clearColor];
+//            _HUD.yOffset = i += 30;
+//            if (i > [UIScreen mainScreen].bounds.size.height / 2 - 30) {
+//                i = - [UIScreen mainScreen].bounds.size.height / 2;
+//            }
+//                        _HUD.dimBackground = YES;
             [_HUD hide:YES];
             _HUD.userInteractionEnabled = NO;
             [self pause];
-            if (self.currentIndex != self.playList.count -1) {
-                [self nextMusic];
-                [self musicPlay];
-            }
+//            if (self.currentIndex != self.playList.count -1) {
+//                [self nextMusic];
+//                [self musicPlay];
+//            }
             
         }
             break;
@@ -319,56 +320,66 @@ int i = 0;
 - (void)collectButtonClick:(UIButton *)sender {
     if (_currentIndex < 10000 && _currentIndex >= 0) {
         _music = _playList[_currentIndex];
-        if (_music.IsCollect) {
-            // 删除逻辑
-            NSString *cql = @"delete from Music where objectId = ?";
-            NSArray *pvalues =  @[_music.objectId];
-            [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
-                // 如果 error 为空，说明删除成功
-                if (!error) {
-                    // 删除成功
-                    [sender setImage:[UIImage imageNamed:@"action_love@2x"] forState:UIControlStateNormal];
-                    _music.IsCollect = NO;
-                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
-                    hud.mode = MBProgressHUDModeText;
-                    hud.labelText = @"取消收藏成功";
-                    hud.margin = 10.f;
-                    hud.yOffset = 0.f;
-                    hud.removeFromSuperViewOnHide = YES;
-                    [hud hide:YES afterDelay:1];
-                } else {
-                    NSLog(@"~~~~~~error = %@", error);
-                }
-            }];
-            
-        } else {
-            // 存储逻辑
-            AVObject *object = [[DataBaseHandle sharedDataBaseHandle] musicTOAVObject:_music];
-            [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (succeeded) {
-                    // 从表中获取数据->objectID
-                    [self selectFromMusicTable:sender];
-                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
-                    hud.mode = MBProgressHUDModeText;
-                    hud.labelText = @"收藏成功";
-                    hud.margin = 10.f;
-                    hud.yOffset = 0.f;
-                    hud.removeFromSuperViewOnHide = YES;
-                    [hud hide:YES afterDelay:1];
-                } else {
-                    NSLog(@"!!!error = %@", error);
-                }
-            }];
+        if ([AVUser currentUser]) {
+            if (_music.IsCollect) {
+                // 删除逻辑
+                NSString *cql = @"delete from Music where objectId = ?";
+                NSArray *pvalues =  @[_music.objectId];
+                [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
+                    // 如果 error 为空，说明删除成功
+                    if (!error) {
+                        // 删除成功
+                        [sender setImage:[UIImage imageNamed:@"action_love@2x"] forState:UIControlStateNormal];
+                        // 添加了代码
+                        [[MusicSearchController sharedMusicSearchController].collect setImage:[UIImage imageNamed:@"action_love@2x"] forState:UIControlStateNormal];
+                        _music.IsCollect = NO;
+                        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
+                        hud.mode = MBProgressHUDModeText;
+                        hud.labelText = @"取消收藏成功";
+                        hud.margin = 10.f;
+                        hud.yOffset = 0.f;
+                        hud.removeFromSuperViewOnHide = YES;
+                        [hud hide:YES afterDelay:1];
+                    } else {
+                        NSLog(@"~~~~~~error = %@", error);
+                    }
+                }];
+            } else {
+                // 存储逻辑
+                AVObject *object = [[DataBaseHandle sharedDataBaseHandle] musicTOAVObject:_music];
+                [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        // 从表中获取数据->objectID
+                        [self selectFromMusicTable:sender];
+                        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self getCurrentVC].view animated:YES];
+                        hud.mode = MBProgressHUDModeText;
+                        hud.labelText = @"收藏成功";
+                        hud.margin = 10.f;
+                        hud.yOffset = 0.f;
+                        hud.removeFromSuperViewOnHide = YES;
+                        [hud hide:YES afterDelay:1];
+                    } else {
+                        NSLog(@"!!!error = %@", error);
+                    }
+                }];
+            }
+        }else {
+#warning 跳转到登录页面
+            LoginViewController *loginVC = [[LoginViewController alloc] init];
+            loginVC.isMusic = YES;
+            [(UINavigationController *)[self getCurrentVC] pushViewController:loginVC animated:YES];
         }
-        
     }
-
+    
+    
+    
     
 }
 
 - (void)selectFromMusicTable:(UIButton *)sender {
-    NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ? and ID = ?", @"Music"];
-    NSArray *pvalues =  @[[AVUser currentUser].username, self.music.ID];
+    if ([AVUser currentUser]) {
+        NSString *cql = [NSString stringWithFormat:@"select * from %@ where username = ? and ID = ?", @"Music"];
+        NSArray *pvalues =  @[[AVUser currentUser].username, self.music.ID];
         [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
             if (!error) {
                 // 操作成功
@@ -389,9 +400,18 @@ int i = 0;
             if (self.blocl1) {
                 self.blocl1(_music);
             }
-
+            
             NSLog(@"result ====== %@", result);
         }];
+    } else {
+        if (self.blocl) {
+            self.blocl(_music);
+        }
+        if (self.blocl1) {
+            self.blocl1(_music);
+        }
+    }
+    
 }
 
 
@@ -419,7 +439,7 @@ int i = 0;
                 
             });
         }];
-
+        
     }
 }
 

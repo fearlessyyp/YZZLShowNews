@@ -37,7 +37,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esf-LN-0Rd" customClass="SmallPlayer">
                     <rect key="frame" x="83" y="656" width="323" height="72"/>
                     <subviews>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="night_audio_button_bg@2x" translatesAutoresizingMaskIntoConstraints="NO" id="J9g-LK-jPF">
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="night_audio_button_bg@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="J9g-LK-jPF">
                             <rect key="frame" x="0.0" y="5" width="67" height="67"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -161,7 +161,7 @@
                         <constraint firstAttribute="height" constant="30" id="Qwa-b1-G8b"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="TZm-26-bMO"/>
                     </connections>
@@ -224,6 +224,6 @@
         <image name="action_love@2x.png" width="375" height="516"/>
         <image name="audionews_play_button.png" width="50" height="50"/>
         <image name="musicSearch.png" width="32" height="32"/>
-        <image name="night_audio_button_bg@2x" width="801" height="831"/>
+        <image name="night_audio_button_bg@2x.png" width="801" height="831"/>
     </resources>
 </document>
