@@ -409,7 +409,6 @@
 //                [weakSelf.listResultTableView reloadData];
 
 //            });
-            
         }
         NSLog(@"haha");
     }];

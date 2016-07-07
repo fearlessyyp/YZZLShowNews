@@ -20,6 +20,7 @@
 #import <MBProgressHUD.h>
 #import "LoginViewController.h"
 #import <UMSocial.h>
+#import "DataBaseHandle.h"
 //屏幕的宽度
 #define WindownWidth [[UIScreen mainScreen] bounds].size.width
 //屏幕的高度
@@ -39,6 +40,8 @@
 // 判断是否展示cell
 @property (assign, nonatomic)BOOL cellShouldShow;
 @property (assign, nonatomic) NSInteger page; //!< 数据页数.表示下次请求第几页的数据.
+// 进行网络监测判断的bool值
+@property (nonatomic, assign) BOOL isOpen;
 @end
 
 @implementation VideoViewController
@@ -55,8 +58,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [self initLayouts];
+    
+    
 }
 
 // 结束更新 隐藏刷新
@@ -72,9 +77,9 @@
     __weak typeof (self)weakSelf = self;
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:NES_VIDEO_DOWN_URL((long)self.page) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-         NSLog(@"下载的进度");
+        NSLog(@"下载的进度");
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-
+        
         NSArray *resultArr = responseObject[@"V9LG4B3A0"];
         for (NSDictionary *dict in resultArr) {
             VideoModel *model = [[VideoModel alloc] init];
@@ -118,7 +123,7 @@
             [self updateData];
         }];
     }
-  
+    
     
     [self handel];
     [self.view addSubview:self.privateTableView];
@@ -138,7 +143,9 @@
 
 // 解析数据
 - (void)handel{
- 
+    if (self.isUser == YES) {
+        return;
+    }
     __weak typeof(self) weakself = self;
     [[RequestHelper new] requestWithUrl:NEWS_VIDEO_LIST_URL WithSuccessBlock:^(id data) {
         if (data != nil) {
@@ -149,7 +156,7 @@
                 [weakself.privateTableView reloadData];
             }
         }
-       
+        
     } failBlock:^(NSError *err) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
@@ -200,7 +207,7 @@
             LoginViewController *loginVC = [[LoginViewController alloc] init];
             [self.navigationController pushViewController:loginVC animated:YES];
         };
-
+        
     }
     
     return cell;
@@ -228,14 +235,55 @@
         [self releaseWXPlayer];
         
     }
+    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    if (![DataBaseHandle sharedDataBaseHandle].isWifi) {
+        // 接下来会判断当前是WiFi状态还是3g状态,网络不可用状态
+        [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            switch (status) {
+                case AFNetworkReachabilityStatusUnknown:
+                    [self setHUD:@"请检查网络"];
+//                    NSLog(@"当前网络处于未知状态");
+                    break;
+                case AFNetworkReachabilityStatusNotReachable:
+                    [self setHUD:@"请检查网络"];
+//                    NSLog(@"当前网络处于未链接状态");
+                    break;
+                case AFNetworkReachabilityStatusReachableViaWWAN:
+                    [self setHUD:@"当前处于3g/4g状态"];
+//                    NSLog(@"手机流量网络");
+                    break;
+                case AFNetworkReachabilityStatusReachableViaWiFi: {
+                    NSLog(@"wifi状态");
+                    VideoModel *model = self.newMarray[sender.indexPath.row];
+                    
+                    self.playView = [[WXPlayerView alloc]initWithFrame:self.currentCell.backImageView.frame];
+                    [self.playView setURLString:model.mp4_url];
+                    [self.currentCell.contentView addSubview:self.playView];
+                    [self.currentCell.playBtn.superview sendSubviewToBack:self.currentCell.playBtn];
+                    [self.playView play];
+                    self.isOnCell = YES;
+                    break;
+                }
+                    
+                default:
+                    break;
+            }
+        }];
+        
+    } else {
+        NSLog(@"+++++++++++");
         VideoModel *model = self.newMarray[sender.indexPath.row];
-
-                self.playView = [[WXPlayerView alloc]initWithFrame:self.currentCell.backImageView.frame];
-                [self.playView setURLString:model.mp4_url];
-                [self.currentCell.contentView addSubview:self.playView];
-                [self.currentCell.playBtn.superview sendSubviewToBack:self.currentCell.playBtn];
-                [self.playView play];
-                self.isOnCell = YES;
+        self.playView = [[WXPlayerView alloc]initWithFrame:self.currentCell.backImageView.frame];
+        [self.playView setURLString:model.mp4_url];
+        [self.currentCell.contentView addSubview:self.playView];
+        [self.currentCell.playBtn.superview sendSubviewToBack:self.currentCell.playBtn];
+        [self.playView play];
+        self.isOnCell = YES;
+        
+    }
+    
+    
     
 }
 
@@ -333,17 +381,17 @@
 - (void)ButtonActionWithflvScreen: (NSNotification *)notice{
     
     VideoModel *model = [VideoModel new];
-        __weak typeof(self) weakself = self;
-        [[RequestHelper new] requestWithUrl:NEWS_VIDEO_LIST_URL WithSuccessBlock:^(id data) {
-            [weakself.playView setURLString:model.mp4_url];
-        } failBlock:^(NSError *err) {
-        }];
-
-    }
+    __weak typeof(self) weakself = self;
+    [[RequestHelper new] requestWithUrl:NEWS_VIDEO_LIST_URL WithSuccessBlock:^(id data) {
+        [weakself.playView setURLString:model.mp4_url];
+    } failBlock:^(NSError *err) {
+    }];
+    
+}
 - (void)ButtonActionWithHighScreen: (NSNotification *)notice{
-
+    
     VideoModel *model = [VideoModel new];
-
+    
     __weak typeof(self) weakself = self;
     [[RequestHelper new] requestWithUrl:NEWS_VIDEO_LIST_URL WithSuccessBlock:^(id data) {
         [weakself.playView setURLString:model.mp4_url];
@@ -353,10 +401,10 @@
 }
 
 - (void)ButtonActionWithSuperScreen: (NSNotification *)notice{
-//    NSString *requestUrl = [self.currentModel.ID stringByReplacingOccurrencesOfString:@"==" withString:@""];
-//    NSString *str = [NSString stringWithFormat:@"http://api.dotaly.com/lol/api/v1/getvideourl?iap=0&ident=408A6C12-3E61-42EE-A6DB-FB776FBB834E&jb=0&type=hd2&vid=%@%%3D%%3D", requestUrl];
+    //    NSString *requestUrl = [self.currentModel.ID stringByReplacingOccurrencesOfString:@"==" withString:@""];
+    //    NSString *str = [NSString stringWithFormat:@"http://api.dotaly.com/lol/api/v1/getvideourl?iap=0&ident=408A6C12-3E61-42EE-A6DB-FB776FBB834E&jb=0&type=hd2&vid=%@%%3D%%3D", requestUrl];
     VideoModel *model = [VideoModel new];
-
+    
     __weak typeof(self) weakself = self;
     [[RequestHelper new] requestWithUrl:NEWS_VIDEO_LIST_URL WithSuccessBlock:^(id data) {
         [weakself.playView setURLString:model.mp4_url];
@@ -419,7 +467,7 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDeviceOrientationChange) name:UIDeviceOrientationDidChangeNotification object:nil];
-  //  [super viewWillAppear:animated];
+    //  [super viewWillAppear:animated];
 #warning 判断当前时间与上次刷新时间,如果超过半个小时,自动刷新
     [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(timeAction:) userInfo:nil repeats:YES];
 }
@@ -502,12 +550,12 @@
         make.top.mas_equalTo(WindownWidth - 40);
         make.width.mas_equalTo(WindowHeight);
     }];
-//    [self.playView.closeBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        make.right.equalTo(self.playView).width.offset((-WindowHeight / 2));
-//        make.height.mas_equalTo(30);
-//        make.width.mas_equalTo(30);
-//        make.top.equalTo(self.playView).with.offset(5);
-//    }];
+    //    [self.playView.closeBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+    //        make.right.equalTo(self.playView).width.offset((-WindowHeight / 2));
+    //        make.height.mas_equalTo(30);
+    //        make.width.mas_equalTo(30);
+    //        make.top.equalTo(self.playView).with.offset(5);
+    //    }];
     
     [[UIApplication sharedApplication].keyWindow addSubview:self.playView];
     self.isOnCell = NO;
@@ -515,16 +563,22 @@
     [self.playView bringSubviewToFront:self.playView.bottomView];
 }
 
+- (void)setHUD:(NSString *)string {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = string;
+    [hud hide: YES afterDelay: 2];
 
+}
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
