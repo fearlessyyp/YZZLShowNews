@@ -293,6 +293,10 @@
 		D65E699F1D21081D004286E5 /* SmallPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E699E1D21081D004286E5 /* SmallPlayer.m */; };
 		D666EF8E1D2DEF7E00FAF168 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D666EF8C1D2DEF7E00FAF168 /* ForgetPasswordViewController.m */; };
 		D666EF8F1D2DEF7E00FAF168 /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D666EF8D1D2DEF7E00FAF168 /* ForgetPasswordViewController.xib */; };
+		D666EF931D2E37C100FAF168 /* NewsCollectede.png in Resources */ = {isa = PBXBuildFile; fileRef = D666EF921D2E37C100FAF168 /* NewsCollectede.png */; };
+		D666EF991D2E382000FAF168 /* VedioCollected.png in Resources */ = {isa = PBXBuildFile; fileRef = D666EF961D2E382000FAF168 /* VedioCollected.png */; };
+		D666EF9B1D2E384D00FAF168 /* musicCollected.png in Resources */ = {isa = PBXBuildFile; fileRef = D666EF9A1D2E384D00FAF168 /* musicCollected.png */; };
+		D666EF9D1D2E387400FAF168 /* placeCollected.png in Resources */ = {isa = PBXBuildFile; fileRef = D666EF9C1D2E387400FAF168 /* placeCollected.png */; };
 		D66AA2961D1EC4BD00045D9E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D66AA2911D1EC4BD00045D9E /* icon.png */; };
 		D66AA29B1D1EC7FA00045D9E /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA29A1D1EC7FA00045D9E /* NewsViewController.m */; };
 		D66AA29F1D1ECCD900045D9E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66AA29D1D1ECCD900045D9E /* UserViewController.m */; };
@@ -744,6 +748,10 @@
 		D666EF8B1D2DEF7E00FAF168 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		D666EF8C1D2DEF7E00FAF168 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		D666EF8D1D2DEF7E00FAF168 /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
+		D666EF921D2E37C100FAF168 /* NewsCollectede.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewsCollectede.png; sourceTree = "<group>"; };
+		D666EF961D2E382000FAF168 /* VedioCollected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VedioCollected.png; sourceTree = "<group>"; };
+		D666EF9A1D2E384D00FAF168 /* musicCollected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicCollected.png; sourceTree = "<group>"; };
+		D666EF9C1D2E387400FAF168 /* placeCollected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeCollected.png; sourceTree = "<group>"; };
 		D66AA2911D1EC4BD00045D9E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		D66AA2991D1EC7FA00045D9E /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		D66AA29A1D1EC7FA00045D9E /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
@@ -1723,6 +1731,7 @@
 		D66AA28E1D1EC4BD00045D9E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D666EF961D2E382000FAF168 /* VedioCollected.png */,
 				D6EC771B1D2CE22C008A652B /* back_d.png */,
 				D6E8612F1D2C917E003F40FD /* anchor_sociaty_qq@3x.png */,
 				D6E861301D2C917E003F40FD /* ic_share_mmg@2x.png */,
@@ -1733,8 +1742,11 @@
 				D6A1D9BD1D2B8C8500878313 /* phone.png */,
 				D6A1D9BE1D2B8C8500878313 /* yanzheng.png */,
 				D6A1D9BF1D2B8C8500878313 /* name.png */,
+				D666EF9A1D2E384D00FAF168 /* musicCollected.png */,
 				D6A1D9C01D2B8C8500878313 /* password.png */,
 				D6A1D9C11D2B8C8500878313 /* email.png */,
+				D666EF921D2E37C100FAF168 /* NewsCollectede.png */,
+				D666EF9C1D2E387400FAF168 /* placeCollected.png */,
 				D6A5F3B51D2A8FDD003E13FE /* login_forgot_button@2x.png */,
 				D6A5F3B61D2A8FDD003E13FE /* login_tip_button@2x.png */,
 				D6A5F3B31D2A8F0F003E13FE /* account_button@2x.png */,
@@ -2081,6 +2093,7 @@
 				D686D43F1D20FB97002B75C2 /* tabbar_icon_map_highlight@2x.png in Resources */,
 				B259193D1D27F33C002EA49D /* properties_2.html in Resources */,
 				D6EA5EDA1D1D6BF1006B6C33 /* MusicSearchController.xib in Resources */,
+				D666EF991D2E382000FAF168 /* VedioCollected.png in Resources */,
 				B25919361D27F33C002EA49D /* functions_9.js in Resources */,
 				B25919071D27F33C002EA49D /* all_7.js in Resources */,
 				B25918E91D27F33C002EA49D /* protocol_b_n_navi_u_i_manager_delegate-p.html in Resources */,
@@ -2094,6 +2107,7 @@
 				B25918FF1D27F33C002EA49D /* all_3.js in Resources */,
 				B25918D11D27F33C002EA49D /* interface_b_n_core_services.png in Resources */,
 				D6E4996E1D240ED300892D54 /* Details.css in Resources */,
+				D666EF9B1D2E384D00FAF168 /* musicCollected.png in Resources */,
 				D6A5F3911D2A58E6003E13FE /* account_snslogin_icon_3@2x.png in Resources */,
 				B25919401D27F33C002EA49D /* properties_3.js in Resources */,
 				D6EA5EA41D1D2DF4006B6C33 /* NewsArticleCell.xib in Resources */,
@@ -2116,6 +2130,7 @@
 				F5D2E3641D20BE9500D297A3 /* audionews_play_button@2x.png in Resources */,
 				B259193E1D27F33C002EA49D /* properties_2.js in Resources */,
 				B25919061D27F33C002EA49D /* all_7.html in Resources */,
+				D666EF931D2E37C100FAF168 /* NewsCollectede.png in Resources */,
 				B25918B41D27F33C002EA49D /* bdwn.png in Resources */,
 				B25919171D27F33C002EA49D /* all_f.js in Resources */,
 				D61543001D2BB3C700D3DCD6 /* musicSearch.png in Resources */,
@@ -2188,6 +2203,7 @@
 				B25918FE1D27F33C002EA49D /* all_3.html in Resources */,
 				B25918D61D27F33C002EA49D /* interface_b_n_route_detail_info.html in Resources */,
 				D686D4281D20CBBD002B75C2 /* tabbar_icon_news_normal@2x.png in Resources */,
+				D666EF9D1D2E387400FAF168 /* placeCollected.png in Resources */,
 				D6A5F39A1D2A58E6003E13FE /* contentview_hd_loading.gif in Resources */,
 				D6A5F38F1D2A58E6003E13FE /* night_audio_button_bg@2x.png in Resources */,
 				B25918C81D27F33C002EA49D /* functions_func.html in Resources */,

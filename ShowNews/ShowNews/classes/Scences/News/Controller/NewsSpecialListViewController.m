@@ -28,8 +28,6 @@ typedef NS_ENUM(NSUInteger, NewsType) {
 @property (nonatomic, strong) AFHTTPSessionManager *session;
 @end
 
-
-
 @implementation NewsSpecialListViewController
 
 #pragma mark - 懒加载
@@ -155,8 +153,6 @@ typedef NS_ENUM(NSUInteger, NewsType) {
         default:
             break;
     }
-
-    
 }
 
 
@@ -174,5 +170,9 @@ typedef NS_ENUM(NSUInteger, NewsType) {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 100;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 @end
