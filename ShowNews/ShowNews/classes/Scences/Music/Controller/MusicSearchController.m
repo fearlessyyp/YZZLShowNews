@@ -22,6 +22,7 @@
 #import <MBProgressHUD.h>
 #import "DataBaseHandle.h"
 
+
 @interface MusicSearchController ()<UITableViewDelegate, UITableViewDataSource>
 /// 搜索栏
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -74,6 +75,7 @@
 
 @implementation MusicSearchController
 
+singleton_implementation(MusicSearchController);
 
 - (IBAction)touchView:(id)sender {
      [self.view endEditing:YES];  

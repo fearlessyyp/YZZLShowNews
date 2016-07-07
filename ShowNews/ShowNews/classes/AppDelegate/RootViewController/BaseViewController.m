@@ -10,6 +10,8 @@
 #import <Masonry.h>
 #import <RESideMenu.h>
 #import "UIImage+ImageByColor.h"
+#import "PlayerManager.h"
+#import "MusicSearchController.h"
 
 // 导航栏高度
 #define kNavHeight self.navigationController.navigationBar.frame.size.height
@@ -33,7 +35,7 @@
    
 //    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"redPacket_btn_1@2x"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:NEWS_MAIN_COLOR] forBarMetrics:UIBarMetricsDefault];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"musicBarButton"] style:UIBarButtonItemStylePlain target:self action:@selector(presentRightMenuViewController:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"musicBarButton"] style:UIBarButtonItemStylePlain target:self action:@selector(presentRightMenuView:)];
 
     __weak typeof(self)weakSelf = self;
     // 初始化自定义视图
@@ -89,7 +91,10 @@
 }
 
 
-
+- (void)presentRightMenuView:(UIBarButtonItem *)sender {
+//    [[PlayerManager sharePlayer] requestData:[MusicSearchController sharedMusicSearchController]];
+    [self presentRightMenuViewController:sender];
+}
 /*
 #pragma mark - Navigation
 

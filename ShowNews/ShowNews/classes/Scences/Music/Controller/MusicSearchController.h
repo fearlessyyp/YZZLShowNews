@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h> 
-@interface MusicSearchController : UIViewController
+#import "Singleton.h"
+@interface MusicSearchController : BaseViewController
+
+singleton_interface(MusicSearchController);
 
 /// 大数组
 @property (nonatomic, strong) NSMutableArray *allArr;

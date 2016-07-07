@@ -87,7 +87,7 @@
 
 #pragma mark - 设置抽屉
 - (void)setRESideMenu {
-    self.musicSearchVC = [[MusicSearchController alloc] init];
+    self.musicSearchVC = [MusicSearchController sharedMusicSearchController];
     RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:self.rootTVC
                                                                     leftMenuViewController:nil
                                                                    rightMenuViewController:self.musicSearchVC];

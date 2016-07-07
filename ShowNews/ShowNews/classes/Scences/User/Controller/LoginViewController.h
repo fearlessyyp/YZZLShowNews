@@ -10,4 +10,5 @@
 
 @interface LoginViewController : UIViewController
 @property (nonatomic, strong) NSString *username;
+@property (nonatomic, assign) BOOL isMusic;
 @end
