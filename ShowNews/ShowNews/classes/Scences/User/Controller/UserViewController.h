@@ -6,6 +6,9 @@
 //  Copyright © 2016年 YZZL. All rights reserved.
 //
 
+
+#define Min(X,Y) ((X>Y) ? X : Y)
+
 #import "BaseViewController.h"
 #import "MusicSearchController.h"
 #import "VideoViewController.h"
