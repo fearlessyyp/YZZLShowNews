@@ -121,6 +121,9 @@
                                         <constraint firstAttribute="width" secondItem="mVZ-5S-NXh" secondAttribute="height" id="ueQ-vQ-EUx"/>
                                     </constraints>
                                     <state key="normal" backgroundImage="ic_share_mmg.png"/>
+                                    <connections>
+                                        <action selector="weixinLogin:" destination="-1" eventType="touchUpInside" id="7kt-jH-loW"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信账号登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6S4-Fc-TLf">
                                     <rect key="frame" x="0.0" y="91" width="138" height="19"/>
@@ -154,6 +157,9 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ga5-qR-MOa">
                                     <rect key="frame" x="35" y="12" width="69" height="69"/>
                                     <state key="normal" backgroundImage="ic_share_sina.png"/>
+                                    <connections>
+                                        <action selector="weiboLogin:" destination="-1" eventType="touchUpInside" id="Stn-Pk-Wel"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新浪微博登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYe-kM-a9E">
                                     <rect key="frame" x="0.0" y="91" width="138" height="19"/>
@@ -174,6 +180,9 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGm-IZ-Orw">
                                     <rect key="frame" x="35" y="12" width="69" height="69"/>
                                     <state key="normal" backgroundImage="anchor_sociaty_qq.png"/>
+                                    <connections>
+                                        <action selector="qqLogin:" destination="-1" eventType="touchUpInside" id="9RE-Fl-nZa"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QQ账号登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaF-1E-9Af">
                                     <rect key="frame" x="0.0" y="91" width="138" height="19"/>
@@ -276,7 +285,7 @@
                 <constraint firstItem="62g-nD-27I" firstAttribute="leading" secondItem="JjQ-CH-7kY" secondAttribute="trailing" constant="10" id="zZy-4f-wAG"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-            <point key="canvasLocation" x="496" y="350"/>
+            <point key="canvasLocation" x="477" y="344"/>
         </view>
     </objects>
     <resources>
