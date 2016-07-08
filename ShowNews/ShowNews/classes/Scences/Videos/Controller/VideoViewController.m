@@ -45,6 +45,9 @@
 @end
 
 @implementation VideoViewController
+
+
+
 - (BOOL)prefersStatusBarHidden{
     if (_playView) {
         if (_playView.isFullScreen) {
@@ -58,7 +61,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+//    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [self initLayouts];
     
     
@@ -131,10 +134,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoDidFinished:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     //屏幕旋转的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreenBtnClick:) name:WMPlayerFullScreenButtonClickedNotification object:nil];
-    //切换清晰度的通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ButtonActionWithflvScreen:) name:WXPlayerChangeFlvButtonClickNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ButtonActionWithHighScreen:) name:WXPlayerChangeHighButtonClickNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ButtonActionWithSuperScreen:) name:WXPlayerChangeSuperButtonClickNotification object:nil];
     //关闭通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeTheVideo:) name:WMPlayerClosedNotification object:nil];
     [super viewDidLoad];
@@ -143,7 +142,7 @@
 
 // 解析数据
 - (void)handel{
-    if (self.isUser == YES) {
+    if (self.iscollect == YES) {
         return;
     }
     __weak typeof(self) weakself = self;
@@ -291,8 +290,10 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    [self.playView.player play];
-    [self.playView pause];
+    [self.playView colseTheVideo:nil];
+
+//    [self.playView.player play];
+//    [self.playView pause];
 }
 
 // 设置cell的高度
@@ -465,12 +466,13 @@
 // 视图将要出现时
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDeviceOrientationChange) name:UIDeviceOrientationDidChangeNotification object:nil];
-    //  [super viewWillAppear:animated];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDeviceOrientationChange) name:UIDeviceOrientationDidChangeNotification object:nil];
+
     if (self.iscollect) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(backItemAction:)];
     }
+    [self.privateTableView reloadData];
 #warning 判断当前时间与上次刷新时间,如果超过半个小时,自动刷新
 //    [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(timeAction:) userInfo:nil repeats:YES];
 }

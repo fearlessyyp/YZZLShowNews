@@ -166,7 +166,8 @@
 #pragma mark - 创建四个根视图控制器
 - (void)createChildViewControllers {
     [self addOneChildViewController:[[NewsViewController alloc] init] title:@"新闻" normalImage:@"tabbar_icon_news_normal@2x" selectedImage:@"tabbar_icon_news_highlight@2x"];
-    [self addOneChildViewController:[[VideoViewController alloc] init] title:@"视频" normalImage:@"tabbar_icon_media_normal@2x" selectedImage:@"tabbar_icon_media_highlight@2x"];
+    VideoViewController *videoVC = [[VideoViewController alloc] init];
+    [self addOneChildViewController:videoVC title:@"视频" normalImage:@"tabbar_icon_media_normal@2x" selectedImage:@"tabbar_icon_media_highlight@2x"];
     [self addOneChildViewController:[[MapViewController alloc] init] title:@"地图" normalImage:@"tabbar_icon_map_normal@2x" selectedImage:@"tabbar_icon_map_highlight@2x"];
     UserViewController *userVC = [[UserViewController alloc] init];
     userVC.musicSearchVC = self.musicSearchVC;

@@ -157,7 +157,7 @@
                                 VideoViewController *videoVC = [[VideoViewController alloc] init];
                                 videoVC.iscollect = YES;
                                 [self requestData:videoVC];
-                                videoVC.isUser = YES;
+                                
                                 [self.navigationController pushViewController:videoVC animated:YES];
                             } else {
                                 LoginViewController *loginVC = [[LoginViewController alloc] init];
