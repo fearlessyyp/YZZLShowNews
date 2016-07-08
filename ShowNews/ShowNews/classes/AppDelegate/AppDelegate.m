@@ -93,6 +93,8 @@
                                                                    rightMenuViewController:self.musicSearchVC];
     sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
     sideMenuViewController.delegate = self;
+    // 关闭重量感应
+    sideMenuViewController.parallaxEnabled = NO;
     // 抽屉效果不变小
     sideMenuViewController.scaleContentView = NO;
     // 设置不能侧滑效果

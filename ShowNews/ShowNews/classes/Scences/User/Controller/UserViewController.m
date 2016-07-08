@@ -145,9 +145,11 @@
                         case 1:{
                             if ([AVUser currentUser]) {
                                 NewsCollectViewController * newsCollectVC = [[NewsCollectViewController alloc] init];
+                                newsCollectVC.hidesBottomBarWhenPushed = YES;
                                 [self.navigationController pushViewController:newsCollectVC animated:YES];
                             } else {
                                 LoginViewController *loginVC = [[LoginViewController alloc] init];
+                                loginVC.hidesBottomBarWhenPushed = YES;
                                 [self.navigationController pushViewController:loginVC animated:YES];
                             }
                         }
@@ -161,7 +163,7 @@
                                 [self.navigationController pushViewController:videoVC animated:YES];
                             } else {
                                 LoginViewController *loginVC = [[LoginViewController alloc] init];
-                                
+                                loginVC.hidesBottomBarWhenPushed = YES;
                                 [self.navigationController pushViewController:loginVC animated:YES];
                             }
                             
@@ -176,6 +178,7 @@
                                 [self presentRightMenuViewController:self.musicSearchVC];
                             } else {
                                 LoginViewController *loginVC = [[LoginViewController alloc] init];
+                                loginVC.hidesBottomBarWhenPushed = YES;
                                 [self.navigationController pushViewController:loginVC animated:YES];
                             }
                         }

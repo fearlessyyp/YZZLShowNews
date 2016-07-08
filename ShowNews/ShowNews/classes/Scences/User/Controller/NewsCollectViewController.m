@@ -42,6 +42,7 @@ typedef NS_ENUM(NSUInteger, NewsType) {
     [super viewWillAppear:animated];
     [self requestData];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(backItemAction:)];
+    
 }
 
 - (void)backItemAction:(UIBarButtonItem *)sender {
@@ -177,7 +178,10 @@ typedef NS_ENUM(NSUInteger, NewsType) {
     return 100;
 }
 
-
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.hidesBottomBarWhenPushed = NO;
+}
 
 
 @end
