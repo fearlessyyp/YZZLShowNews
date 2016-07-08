@@ -210,7 +210,7 @@
 #warning 还得注册个CELL 不能添加SWITCH  会重复添加
             SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SetSwitch" forIndexPath:indexPath];
             cell.nameLabel.text = @"仅WIFI播放视频";
-//            cell.cellButton = nil;
+
             [cell.cellSwitch addTarget:self action:@selector(isWifiChange:) forControlEvents:UIControlEventValueChanged];
             
             return cell;
@@ -318,7 +318,7 @@
         UILabel *headLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, kScreenSizeWidth, 30)];
         headLabel.text = @"      收藏";
         headLabel.font = [UIFont systemFontOfSize:14.f];
-        return headLabel;
+        return headLabel;//
     }
     return nil;
 }
