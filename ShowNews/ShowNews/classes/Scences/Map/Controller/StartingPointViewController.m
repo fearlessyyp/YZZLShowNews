@@ -13,22 +13,29 @@
 #import "CPSViewController.h"
 @interface StartingPointViewController ()<BNNaviRoutePlanDelegate,BMKGeoCodeSearchDelegate>
 // 当前位置
-@property (weak, nonatomic) IBOutlet UITextField *currentTF;
+
 @property (weak, nonatomic) IBOutlet UITextField *stopTF;
-@property (nonatomic, assign)CLLocationCoordinate2D coor;
 @property (nonatomic, strong)BMKGeoCodeSearch *searcher;
+@property (nonatomic,strong) NSMutableArray *dataArray;
 
 
 @end
 
 @implementation StartingPointViewController
+- (NSMutableArray *)dataArray {
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+        
+    }
+    return _dataArray;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
   
-    //初始化检索对象
-    [self initWithSearcher];
+       NSLog(@"%lf",self.coorfirst.latitude);
 }
 
 - (void)initWithSearcher {
@@ -37,7 +44,7 @@
     _searcher.delegate = self;
     BMKGeoCodeSearchOption *geoCodeSearchOption = [[BMKGeoCodeSearchOption alloc]init];
 //    geoCodeSearchOption.city= @"北京市";
-    geoCodeSearchOption.address = self.currentTF.text;
+    geoCodeSearchOption.address = self.stopTF.text;
     BOOL flag = [_searcher geoCode:geoCodeSearchOption];
     if(flag)
     {
@@ -52,7 +59,9 @@
 - (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
     if (error == BMK_SEARCH_NO_ERROR) {
         //在此处理正常结果
-        self.coor = CLLocationCoordinate2DMake(result.location.latitude, result.location.longitude);
+        self.coorEnd = CLLocationCoordinate2DMake(result.location.latitude, result.location.longitude);
+        //检索成功后跳转
+        [self pushNextController];
     }
     else {
         NSLog(@"抱歉，未找到结果");
@@ -60,12 +69,16 @@
 }
 
 - (IBAction)startSPSBtn:(id)sender {
+    //检索写在这里
+    [self initWithSearcher];
+}
+-(void)pushNextController {
     CPSViewController *gps = [[CPSViewController alloc]init];
-    gps.coor = CLLocationCoordinate2DMake(self.coorfirst, self.coorSecond);
-    gps.coorFirst = self.coor;
+    NSLog(@"%lf %lf",self.coorfirst.latitude,self.coorEnd.latitude);
+    gps.startNode = self.coorfirst;
+    gps.endNode = self.coorEnd;
     [self.navigationController pushViewController:gps animated:YES];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

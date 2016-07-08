@@ -10,6 +10,6 @@
 #import "BNRoutePlanModel.h"
 #import "BNCoreServices.h"
 @interface CPSViewController : UIViewController
-@property (nonatomic, assign)CLLocationCoordinate2D coor;
-@property (nonatomic, assign)CLLocationCoordinate2D coorFirst;
+@property (nonatomic, assign) CLLocationCoordinate2D startNode;
+@property (nonatomic, assign) CLLocationCoordinate2D endNode;
 @end
