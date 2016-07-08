@@ -51,7 +51,9 @@
                                 <constraint firstAttribute="width" constant="30" id="KEu-dm-Hb6"/>
                                 <constraint firstAttribute="height" constant="30" id="ghn-HF-6IR"/>
                             </constraints>
-                            <state key="normal" title="&lt;&lt;&lt;"/>
+                            <state key="normal" title="&lt;&lt;&lt;">
+                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="UpButtonClick:" destination="-1" eventType="touchUpInside" id="Vit-f1-Gp7"/>
                             </connections>
@@ -94,7 +96,9 @@
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Iv-3s-8WO">
                             <rect key="frame" x="145" y="42" width="30" height="30"/>
-                            <state key="normal" title="&gt;&gt;&gt;"/>
+                            <state key="normal" title="&gt;&gt;&gt;">
+                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="nextButtonClick:" destination="-1" eventType="touchUpInside" id="Dlb-mO-fT2"/>
                             </connections>
@@ -224,6 +228,6 @@
         <image name="action_love@2x.png" width="375" height="516"/>
         <image name="audionews_play_button.png" width="50" height="50"/>
         <image name="musicSearch.png" width="32" height="32"/>
-        <image name="night_audio_button_bg@2x.png" width="801" height="831"/>
+        <image name="night_audio_button_bg@2x.png" width="375" height="516"/>
     </resources>
 </document>
