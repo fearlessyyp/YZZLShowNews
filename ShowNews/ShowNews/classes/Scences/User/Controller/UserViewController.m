@@ -157,9 +157,11 @@
                                 VideoViewController *videoVC = [[VideoViewController alloc] init];
                                 videoVC.iscollect = YES;
                                 [self requestData:videoVC];
+                                videoVC.isUser = YES;
                                 [self.navigationController pushViewController:videoVC animated:YES];
                             } else {
                                 LoginViewController *loginVC = [[LoginViewController alloc] init];
+                                
                                 [self.navigationController pushViewController:loginVC animated:YES];
                             }
                             
@@ -208,6 +210,8 @@
 #warning 还得注册个CELL 不能添加SWITCH  会重复添加
             SetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SetSwitch" forIndexPath:indexPath];
             cell.nameLabel.text = @"仅WIFI播放视频";
+//            cell.cellButton = nil;
+            [cell.cellSwitch addTarget:self action:@selector(isWifiChange:) forControlEvents:UIControlEventValueChanged];
             
             return cell;
             break;
@@ -238,6 +242,11 @@
             break;
     }
     return nil;
+}
+
+- (void)isWifiChange:(UISwitch *)sender
+{
+    [DataBaseHandle sharedDataBaseHandle].isWifi = sender.isOn;
 }
 
 

@@ -36,6 +36,10 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 // 时间
 @property (nonatomic, assign)double saveCurrentTime;
 
+// 进行网络监测判断的bool值
+@property (nonatomic, assign) BOOL isOpen;
+
+
 ///*! 资源文件 */
 //@property (nonatomic, strong)AVPlayerItem *item;
 ///** slider */
@@ -285,6 +289,7 @@ static WXPlayerView *view = nil;
     [self.player pause];
     self.playOrPauseBtn.selected = YES;
 }
+
 //视频进度条的点击事件
 - (void)actionTapGesture:(UITapGestureRecognizer *)sender {
     
@@ -297,6 +302,7 @@ static WXPlayerView *view = nil;
 - (void)updateSystemVolumeValue:(UISlider *)slider{
     systemSlider.value = slider.value;
 }
+
 -(void)layoutSubviews{
     [super layoutSubviews];
     self.playerLayer.frame = self.bounds;
@@ -352,19 +358,21 @@ static WXPlayerView *view = nil;
         [self.player play];
 #pragma mark  - 音乐停止
         [[PlayerManager sharePlayer] pause];
-
+        
     } else {
         sender.selected = YES;
         [self.player pause];
 #pragma mark - 音乐播放
-//        [[PlayerManager sharePlayer] musicPlay];
+        //        [[PlayerManager sharePlayer] musicPlay];
     }
+    
     
     //    CMTime time = [self.player currentTime];
 }
 -(void)play{
+    
     [self PlayOrPause:self.playOrPauseBtn];
-   }
+}
 -(void)pause{
     [self PlayOrPause:self.playOrPauseBtn];
     
@@ -527,7 +535,7 @@ static WXPlayerView *view = nil;
                 
                 [button setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
                 [button setTitle:@"加载失败" forState:UIControlStateNormal];
-                [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+//                [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
                 [self addSubview:button];
                                //[HUD show:YES];
                 
@@ -576,7 +584,12 @@ static WXPlayerView *view = nil;
                                  break;
                      }
              }];
-
+    [self setNeedsDisplay];
+    AVPlayerItem *playerItem = [self.player currentItem];
+    //    NSLog(@"%ld",playerItem.status);
+    if (playerItem.status == AVPlayerItemStatusFailed){
+        [self.player play];
+    }
 }
 
 

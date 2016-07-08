@@ -404,7 +404,6 @@ singleton_implementation(MusicSearchController);
 //                [weakSelf.listResultTableView reloadData];
 
 //            });
-            
         }
         NSLog(@"haha");
     }];
