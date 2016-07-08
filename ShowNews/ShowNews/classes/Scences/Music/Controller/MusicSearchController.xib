@@ -224,6 +224,6 @@
         <image name="action_love@2x.png" width="375" height="516"/>
         <image name="audionews_play_button.png" width="50" height="50"/>
         <image name="musicSearch.png" width="32" height="32"/>
-        <image name="night_audio_button_bg@2x.png" width="801" height="831"/>
+        <image name="night_audio_button_bg@2x.png" width="375" height="516"/>
     </resources>
 </document>
