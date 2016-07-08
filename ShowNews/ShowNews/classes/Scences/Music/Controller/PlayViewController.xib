@@ -219,9 +219,9 @@
                                 <action selector="NextButtonClicked:" destination="OCN-cA-CEi" eventType="touchUpInside" id="yZ1-57-iO7"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a53-Ay-dwf">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a53-Ay-dwf">
                             <rect key="frame" x="379" y="90" width="30" height="30"/>
-                            <state key="normal" backgroundImage="share.png"/>
+                            <state key="normal" image="share.png"/>
                             <connections>
                                 <action selector="shareButtonClick:" destination="-1" eventType="touchUpInside" id="6J2-N9-jmm"/>
                             </connections>

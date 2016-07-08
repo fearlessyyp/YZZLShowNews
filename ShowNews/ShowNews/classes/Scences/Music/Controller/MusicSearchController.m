@@ -59,8 +59,7 @@
 
 /// 下一首
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
-/// 播放
-@property (weak, nonatomic) IBOutlet UIButton *palyButton;
+
 
 
 @property (nonatomic, strong) PlayerManager *playManager;

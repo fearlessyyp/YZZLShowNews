@@ -286,8 +286,12 @@
         case 4:
             
             break;
-        case 5:
-            
+        case 5:{
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"免责声明" message:@"  本APP所有内容,包括文字、图片、音频、视频、软件、程序、以及版本设计均在网上搜集。访问者将本APP提供的内容或服务用于个人学习、研究或欣赏，以及其他非商业性或非盈利性用途，但同时应遵守著作权法及其他相关法律的规定，不得侵犯本APP及相关权利人的合法权利。除此以外，将本APP任何内容或服务用于其他用途时，需征得本APP及相关权利人的书面许可，并支付报酬。本APP内容原作者如不愿意在本APP刊登内容，请及时通知本APP，予以删除。" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:nil];
+            [alert addAction:action];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
             break;
         case 6:
             [AVUser logOut];

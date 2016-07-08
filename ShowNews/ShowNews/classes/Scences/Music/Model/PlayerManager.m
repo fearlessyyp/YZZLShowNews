@@ -17,7 +17,8 @@
 #import "DataBaseHandle.h"
 #import "MusicSearchController.h"
 #import "LoginViewController.h"
-
+#import <AudioToolbox/AudioToolbox.h>
+#import "PlayViewController.h"
 @interface PlayerManager ()
 @property (nonatomic,strong) AVPlayer *player; // 播放器属性
 @property (nonatomic,strong) NSTimer *timer;  // 定时器
@@ -236,6 +237,7 @@ static PlayerManager *playerManager = nil;
 }
 int i = 0;
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
     AVPlayerStatus status = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
     switch (status)
     {
@@ -442,6 +444,7 @@ int i = 0;
         
     }
 }
+
 
 
 @end
