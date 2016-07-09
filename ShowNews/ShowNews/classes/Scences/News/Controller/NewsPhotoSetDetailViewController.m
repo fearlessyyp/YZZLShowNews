@@ -139,9 +139,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView == self.imageScrollView) {
         int temp = self.imageScrollView.contentOffset.x / kScreenSizeWidth;
-        
-        UIImageView *imageView = [self.imageScrollView viewWithTag:(400 + temp)];
-        
+
         
         self.imgsumLabel.text = [NSString stringWithFormat:@"%d/%@", temp + 1, self.news.imgsum];
         self.noteLabel.text = [NSString stringWithFormat:@"%@ %@", [self.news.photos[temp] imgtitle], [self.news.photos[temp] note]];

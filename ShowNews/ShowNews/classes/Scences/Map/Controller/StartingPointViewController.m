@@ -86,12 +86,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.hidesBottomBarWhenPushed = YES;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(backItemAction:)];
 }
 
 - (void)backItemAction:(UIBarButtonItem *)sender {
 //    CPSViewController *gps = [[CPSViewController alloc]init];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 /*

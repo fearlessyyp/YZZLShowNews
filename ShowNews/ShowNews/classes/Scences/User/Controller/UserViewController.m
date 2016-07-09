@@ -372,15 +372,15 @@
 // 计算目录大小
 +(float)folderSizeAtPath:(NSString *)path{
     NSFileManager *fileManager=[NSFileManager defaultManager];
-    float folderSize;
+    float folderSize = 0.0f;
     if ([fileManager fileExistsAtPath:path]) {
         NSArray *childerFiles=[fileManager subpathsAtPath:path];
         for (NSString *fileName in childerFiles) {
             NSString *absolutePath=[path stringByAppendingPathComponent:fileName];
-            folderSize +=[UserViewController fileSizeAtPath:absolutePath];
+            folderSize += [UserViewController fileSizeAtPath:absolutePath];
         }
         //SDWebImage框架自身计算缓存的实现
-        folderSize+=[[SDImageCache sharedImageCache] getSize]/1024.0/1024.0;
+        folderSize += [[SDImageCache sharedImageCache] getSize]/1024.0/1024.0;
         return folderSize;
     }
     return 0;

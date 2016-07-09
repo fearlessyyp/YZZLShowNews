@@ -472,7 +472,7 @@
         self.title = @"视频收藏";
     }
     [self.privateTableView reloadData];
-#warning 判断当前时间与上次刷新时间,如果超过半个小时,自动刷新
+//#warning 判断当前时间与上次刷新时间,如果超过半个小时,自动刷新
 //    [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(timeAction:) userInfo:nil repeats:YES];
 }
 

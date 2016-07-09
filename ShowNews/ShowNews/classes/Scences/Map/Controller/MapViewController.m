@@ -73,12 +73,12 @@
 #pragma mark 初始化检索对象
     [self initWithSearcher];
     
-#pragma mark 路况
-    UIBarButtonItem *traffic = [[UIBarButtonItem alloc] initWithTitle:@"路况" style:(UIBarButtonItemStylePlain) target:self action:@selector(openTrafficAction:)];
-    self.navigationItem.rightBarButtonItem = traffic;
-    
-    UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithTitle:@"导航" style:UIBarButtonItemStylePlain target:self action:@selector(startNavi)];
-    self.navigationItem.leftBarButtonItem = left;
+//#pragma mark 路况
+//    UIBarButtonItem *traffic = [[UIBarButtonItem alloc] initWithTitle:@"路况" style:(UIBarButtonItemStylePlain) target:self action:@selector(openTrafficAction:)];
+//    self.navigationItem.rightBarButtonItem = traffic;
+//    
+//    UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithTitle:@"导航" style:UIBarButtonItemStylePlain target:self action:@selector(startNavi)];
+//    self.navigationItem.leftBarButtonItem = left;
     [self search];
 }
 - (void)search {
@@ -141,7 +141,7 @@
 {
     StartingPointViewController *starting = [[StartingPointViewController alloc]init];
     starting.coorfirst = self.coor;
-        
+    starting.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:starting animated:YES];
 }
 -(void)buttonAction:(UIButton *)sender {

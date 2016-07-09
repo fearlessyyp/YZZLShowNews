@@ -229,7 +229,7 @@ typedef NS_ENUM(NSUInteger, TextFieldError) {
 
 
 - (void)saveImage {
-#warning 存储图片??????
+//#warning 存储图片??????
 }
 
 // 触摸空白区回收键盘

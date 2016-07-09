@@ -71,13 +71,13 @@
                     [self.hud hide:YES];
                     [self.navigationController popViewControllerAnimated:YES];
                 } else {
+                    [self.hud hide:YES];
                     if (error.code == 210) {
                         [self setHUDWithTitle:@"用户名或密码错误"];
                     } else if (error.code == 211 || error.code == 213) {
                         [self setHUDWithTitle:@"用户名或手机号不存在"];
                     } else if (error.code == 1) {
                         [self setHUDWithTitle:@"登录失败次数过多,请稍后再试"];
-                        
                     }
                 }
             }];
@@ -103,6 +103,7 @@
 
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     if (self.isMusic) {
         [self.navigationController setNavigationBarHidden:YES];	 
     }
