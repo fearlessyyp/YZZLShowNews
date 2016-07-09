@@ -216,6 +216,7 @@
 		B25919731D27F3F0002EA49D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25919721D27F3F0002EA49D /* AVFoundation.framework */; };
 		B25919751D27F407002EA49D /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B25919741D27F407002EA49D /* libstdc++.6.0.9.tbd */; };
 		B25919771D27F423002EA49D /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25919761D27F423002EA49D /* JavaScriptCore.framework */; };
+		B276414F1D2FB1950058F664 /* daohang.png in Resources */ = {isa = PBXBuildFile; fileRef = B276414E1D2FB1950058F664 /* daohang.png */; };
 		B2B167941D2E354D001A7FDB /* StartingPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B167921D2E354D001A7FDB /* StartingPointViewController.m */; };
 		B2B167951D2E354D001A7FDB /* StartingPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2B167931D2E354D001A7FDB /* StartingPointViewController.xib */; };
 		D60D377C1D274C2C00915F93 /* NewsPhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60D377B1D274C2C00915F93 /* NewsPhotoDetailViewController.m */; };
@@ -638,6 +639,7 @@
 		B25919721D27F3F0002EA49D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B25919741D27F407002EA49D /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		B25919761D27F423002EA49D /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		B276414E1D2FB1950058F664 /* daohang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daohang.png; sourceTree = "<group>"; };
 		B2B167911D2E354D001A7FDB /* StartingPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartingPointViewController.h; sourceTree = "<group>"; };
 		B2B167921D2E354D001A7FDB /* StartingPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartingPointViewController.m; sourceTree = "<group>"; };
 		B2B167931D2E354D001A7FDB /* StartingPointViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartingPointViewController.xib; sourceTree = "<group>"; };
@@ -1882,6 +1884,7 @@
 				F5D2E3661D20BE9D00D297A3 /* action_love@2x.png */,
 				F5D2E3691D20BEBD00D297A3 /* tabbar_icon_media_normal@2x.png */,
 				F5D2E37F1D212F4600D297A3 /* Unknown.png */,
+				B276414E1D2FB1950058F664 /* daohang.png */,
 				F537832A1D229A6B000B6A2C /* 2.jpg */,
 			);
 			name = VideoImage;
@@ -2069,6 +2072,7 @@
 				B25919131D27F33C002EA49D /* all_d.js in Resources */,
 				B25919561D27F33C002EA49D /* properties_e.js in Resources */,
 				B259193B1D27F33C002EA49D /* properties_1.html in Resources */,
+				B276414F1D2FB1950058F664 /* daohang.png in Resources */,
 				B25918D91D27F33C002EA49D /* interface_b_n_route_item.png in Resources */,
 				B259191D1D27F33C002EA49D /* enums_0.html in Resources */,
 				B25918BF1D27F33C002EA49D /* dir_4b32f0b8d8b8575ac29719fa14db2e24.html in Resources */,

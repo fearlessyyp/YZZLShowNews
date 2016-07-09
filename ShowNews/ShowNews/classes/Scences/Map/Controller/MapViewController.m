@@ -84,12 +84,12 @@
     UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(150, 10, 100, 30)];
     [btn setTitle:@"开始查找" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
-    [btn setBackgroundColor:[UIColor lightGrayColor]];
+    [btn setBackgroundColor:[UIColor colorWithRed:235 green:235 blue:241 alpha:1]];
     [self.view addSubview:btn];
     
     UITextField * tf = [[UITextField alloc]initWithFrame:CGRectMake(30, 10, 100, 30)];
     self.tf= tf;
-    tf.backgroundColor = [UIColor lightGrayColor];
+    tf.backgroundColor = [UIColor colorWithRed:235 green:235 blue:241 alpha:1];
     [self.view addSubview:tf];
 }
 - (void)btnClick
