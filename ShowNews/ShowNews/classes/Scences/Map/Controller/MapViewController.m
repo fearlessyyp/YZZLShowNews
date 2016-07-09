@@ -13,6 +13,7 @@
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
 
 #import "StartingPointViewController.h"
+#import "CPSViewController.h"
 @interface MapViewController ()<BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,BMKPoiSearchDelegate>
 @property (strong,nonatomic) BMKMapView *mapView;
 @property (strong,nonatomic) BMKLocationService *locService;
@@ -23,6 +24,7 @@
 #warning mark --- 记录定位的当前地点
 @property (nonatomic, assign)CLLocationCoordinate2D coor;
 @property(nonatomic,weak)UITextField * tf;
+@property (nonatomic, strong) UITextField *addresssTextField;
 @end
 
 @implementation MapViewController
@@ -51,7 +53,7 @@
     // Do any additional setup after loading the view from its nib.
     
     
-    self.mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, kScreenSizeWidth, kScreenSizeHeight - kNavigationAndStatusHeight)];
+    self.mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 50, kScreenSizeWidth, kScreenSizeHeight - kNavigationAndStatusHeight)];
     [self.view addSubview:self.mapView];
     _locService = [[BMKLocationService alloc]init];
 #warning mark -- 初始化并设置地图缩放比例
@@ -79,16 +81,16 @@
     [self search];
 }
 - (void)search {
-    UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(30, 30, 100, 30)];
+    UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(150, 10, 100, 30)];
     [btn setTitle:@"开始查找" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
-    [btn setBackgroundColor:[UIColor orangeColor]];
-    [self.mapView addSubview:btn];
+    [btn setBackgroundColor:[UIColor colorWithRed:235 green:235 blue:241 alpha:1]];
+    [self.view addSubview:btn];
     
-    UITextField * tf = [[UITextField alloc]initWithFrame:CGRectMake(150, 30, 100, 30)];
+    UITextField * tf = [[UITextField alloc]initWithFrame:CGRectMake(30, 10, 100, 30)];
     self.tf= tf;
-    tf.backgroundColor = [UIColor orangeColor];
-    [self.mapView addSubview:tf];
+    tf.backgroundColor = [UIColor colorWithRed:235 green:235 blue:241 alpha:1];
+    [self.view addSubview:tf];
 }
 - (void)btnClick
 {
@@ -121,11 +123,13 @@
 - (void)startNavi
 {
     StartingPointViewController *starting = [[StartingPointViewController alloc]init];
-    starting.coorfirst = self.coor.latitude;
-    starting.coorSecond = self.coor.longitude;
-    //self.hidesBottomBarWhenPushed=YES;
-    
+    starting.coorfirst = self.coor;
+        
     [self.navigationController pushViewController:starting animated:YES];
+}
+-(void)buttonAction:(UIButton *)sender {
+    [self initWithSearcher];
+    
 }
 #pragma mark - 初始化检索对象
 - (void)initWithSearcher

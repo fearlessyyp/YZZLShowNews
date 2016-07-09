@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BNRoutePlanModel.h"
+#import "BNCoreServices.h"
 @interface StartingPointViewController : UIViewController
-@property (nonatomic, assign)CGFloat coorfirst;
-@property (nonatomic,assign)CGFloat coorSecond;
+@property (nonatomic, assign)CLLocationCoordinate2D coorfirst;
+@property (nonatomic, assign)CLLocationCoordinate2D coorEnd;
 
 
 @end
