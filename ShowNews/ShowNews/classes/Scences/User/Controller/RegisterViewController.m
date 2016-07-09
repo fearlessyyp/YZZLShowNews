@@ -52,6 +52,7 @@ typedef NS_ENUM(NSUInteger, TextFieldError) {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"快速注册 - 完善资料";
+    [self.nameTextField becomeFirstResponder];
     self.headImageView.userInteractionEnabled = YES;
     self.headImageView.layer.cornerRadius = kScreenSizeWidth * 0.15f;
     self.headImageView.layer.masksToBounds = YES;

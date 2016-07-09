@@ -14,6 +14,7 @@
 
 #import "StartingPointViewController.h"
 #import "CPSViewController.h"
+
 @interface MapViewController ()<BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,BMKPoiSearchDelegate>
 @property (strong,nonatomic) BMKMapView *mapView;
 @property (strong,nonatomic) BMKLocationService *locService;
@@ -121,6 +122,8 @@
     option.location = self.coor;
     //option.keyword = @"小吃";
     option.keyword = self.tf.text;
+    option.pageIndex = 0;
+    option.pageCapacity = 10;
     BOOL flag = [_searcher_POI poiSearchNearBy:option];
     
     if(flag)
@@ -165,7 +168,6 @@
     }
 }
 
-
 static BOOL isOpen = NO;
 - (void)openTrafficAction:(id)sender {
     // 路况的打开关闭
@@ -185,11 +187,11 @@ static BOOL isOpen = NO;
     if (error == BMK_SEARCH_NO_ERROR) {
         //在此处理正常结果
         
-        // 可以讲上一次的大头针数据清空
+        // 将上一次的大头针数据清空
         NSArray *array = [NSArray arrayWithArray:_mapView.annotations];
         [_mapView removeAnnotations:array];
         
-        // 讲上一次添加的覆盖视图清空
+        // 将上一次添加的覆盖视图清空
         array = [NSArray arrayWithArray:_mapView.overlays];
         [_mapView removeOverlays:array];
         
@@ -220,23 +222,30 @@ static BOOL isOpen = NO;
     if (error == BMK_SEARCH_NO_ERROR) {
         //在此处理正常结果
         NSArray *poiInfoList = poiResultList.poiInfoList;
+        // 将上一次的大头针数据清空
+        NSArray *array1 = [NSArray arrayWithArray:_mapView.annotations];
+        [_mapView removeAnnotations:array1];
         
+        // 将上一次添加的覆盖视图清空
+        array1 = [NSArray arrayWithArray:_mapView.overlays];
+        [_mapView removeOverlays:array1];
+
         [poiInfoList enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             BMKPoiInfo *info = obj;
             NSLog(@"name = %@, address = %@", info.name , info.address );
-            
-            // 添加大头针
+                       // 添加大头针
             BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
-            
             annotation.coordinate = info.pt;
             annotation.title = info.name;
             [_mapView addAnnotation:annotation];
             
             
+
+            
         }];
     }
     else if (error == BMK_SEARCH_AMBIGUOUS_KEYWORD){
-        //当在设置城市未找到结果，但在其他城市找到结果时，回调建议检索城市列表
+        //当在设置城市未找到结果，但在其他城市找到结果时，回调议建检索城市列表
         // result.cityList;
         NSLog(@"起始点有歧义");
     } else {
@@ -244,6 +253,24 @@ static BOOL isOpen = NO;
     }
 }
 
+//- (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
+//{
+//    NSArray* array = [NSArray arrayWithArray:_mapView.annotations];
+//    [_mapView removeAnnotations:array];
+//    array = [NSArray arrayWithArray:_mapView.overlays];
+//    [_mapView removeOverlays:array];
+//    if (error == 0) {
+//        BMKPointAnnotation* item = [[BMKPointAnnotation alloc]init];
+//        item.coordinate = result.location;
+//        item.title = result.address;
+//        [_mapView addAnnotation:item];
+//        _mapView.centerCoordinate = result.location;
+//        NSString* titleStr;
+//        NSString* showmeg;
+//        titleStr = @"正向地理编码";
+//        showmeg = [NSString stringWithFormat:@"经度:%f,纬度:%f",item.coordinate.latitude,item.coordinate.longitude];
+//    }
+//}
 
 
 

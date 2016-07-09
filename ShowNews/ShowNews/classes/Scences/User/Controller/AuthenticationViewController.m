@@ -53,6 +53,7 @@ typedef NS_ENUM(NSUInteger, TextFieldError) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"快速注册 - 验证手机";
+    [self.phoneTextFiled becomeFirstResponder];
     self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
     self.timeLabel.font = [UIFont systemFontOfSize:12.f];
     self.timeLabel.textColor = NEWS_MAIN_COLOR;

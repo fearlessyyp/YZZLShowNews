@@ -306,6 +306,7 @@
 		D686D43F1D20FB97002B75C2 /* tabbar_icon_map_highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D686D43E1D20FB97002B75C2 /* tabbar_icon_map_highlight@2x.png */; };
 		D686D4411D20FC9A002B75C2 /* redPacket_btn_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D686D4401D20FC9A002B75C2 /* redPacket_btn_1@2x.png */; };
 		D686D4471D21616C002B75C2 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = D686D4461D21616C002B75C2 /* News.m */; };
+		D68C337C1D30FDB5006E8041 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D68C337B1D30FDB5006E8041 /* Media.xcassets */; };
 		D6A1D9BB1D2B8BD800878313 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1D9B91D2B8BD800878313 /* AuthenticationViewController.m */; };
 		D6A1D9BC1D2B8BD800878313 /* AuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A1D9BA1D2B8BD800878313 /* AuthenticationViewController.xib */; };
 		D6A1D9C21D2B8C8500878313 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A1D9BD1D2B8C8500878313 /* phone.png */; };
@@ -751,6 +752,7 @@
 		D686D4401D20FC9A002B75C2 /* redPacket_btn_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redPacket_btn_1@2x.png"; sourceTree = "<group>"; };
 		D686D4451D21616C002B75C2 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		D686D4461D21616C002B75C2 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
+		D68C337B1D30FDB5006E8041 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		D6A1D9B81D2B8BD800878313 /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
 		D6A1D9B91D2B8BD800878313 /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
 		D6A1D9BA1D2B8BD800878313 /* AuthenticationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthenticationViewController.xib; sourceTree = "<group>"; };
@@ -1257,6 +1259,7 @@
 				D64FA1171D1D1C92007DE414 /* ViewController.h */,
 				D64FA1181D1D1C92007DE414 /* ViewController.m */,
 				D64FA11A1D1D1C92007DE414 /* Main.storyboard */,
+				D68C337B1D30FDB5006E8041 /* Media.xcassets */,
 				D64FA11D1D1D1C92007DE414 /* Assets.xcassets */,
 				D64FA11F1D1D1C92007DE414 /* LaunchScreen.storyboard */,
 				D64FA1221D1D1C92007DE414 /* Info.plist */,
@@ -2130,6 +2133,7 @@
 				D6A1D9BC1D2B8BD800878313 /* AuthenticationViewController.xib in Resources */,
 				D6E2AC471D1E681900B18F0E /* MusicListCell.xib in Resources */,
 				D686D4251D20CBBD002B75C2 /* tabbar_icon_media_highlight@2x.png in Resources */,
+				D68C337C1D30FDB5006E8041 /* Media.xcassets in Resources */,
 				B25919451D27F33C002EA49D /* properties_6.html in Resources */,
 				B25918AD1D27F33C002EA49D /* _b_n_strategy_manager_protocol_8h_source.html in Resources */,
 				B25918CC1D27F33C002EA49D /* globals_enum.html in Resources */,
