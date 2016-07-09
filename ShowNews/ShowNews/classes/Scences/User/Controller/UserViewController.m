@@ -170,10 +170,7 @@
                             
                         }
                             break;
-                        case 3:
-                            
-                            break;
-                        case 4:{
+                        case 3:{
                             if ([AVUser currentUser]) {
                                 [[PlayerManager sharePlayer] requestData:self.musicSearchVC];
                                 [self presentRightMenuViewController:self.musicSearchVC];
