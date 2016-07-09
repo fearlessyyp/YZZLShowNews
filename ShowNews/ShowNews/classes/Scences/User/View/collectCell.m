@@ -32,9 +32,5 @@
     self.block(3);
 }
 
-- (IBAction)locationCollectTap:(id)sender {
-    self.block(4);
-}
-
 
 @end

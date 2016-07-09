@@ -103,6 +103,7 @@
 
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     if (self.isMusic) {
         [self.navigationController setNavigationBarHidden:YES];	 
     }
