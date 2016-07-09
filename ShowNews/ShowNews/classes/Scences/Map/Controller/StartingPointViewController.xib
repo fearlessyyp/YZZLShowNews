@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,29 +16,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="daohang.png" translatesAutoresizingMaskIntoConstraints="NO" id="eNb-Ae-0qx">
-                    <rect key="frame" x="16" y="135" width="30" height="30"/>
+                    <rect key="frame" x="25" y="30" width="30" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="6gG-W1-Rfy"/>
-                        <constraint firstAttribute="height" constant="30" id="dIf-wo-R3h"/>
+                        <constraint firstAttribute="width" constant="30" id="iQr-WD-dzd"/>
+                        <constraint firstAttribute="height" constant="30" id="sR0-l5-Xpx"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="horizontal_separator.png" translatesAutoresizingMaskIntoConstraints="NO" id="Guk-80-7na">
-                    <rect key="frame" x="16" y="202" width="364" height="46"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horizontal_separator.png" translatesAutoresizingMaskIntoConstraints="NO" id="Guk-80-7na">
+                    <rect key="frame" x="25" y="65" width="364" height="2"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="wVS-ej-BLX"/>
+                    </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxr-DN-ju1">
-                    <rect key="frame" x="157" y="210" width="60" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="60" id="Snz-5H-ots"/>
-                        <constraint firstAttribute="height" constant="30" id="kXp-VP-j30"/>
-                    </constraints>
-                    <state key="normal" title="开始登陆"/>
-                </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号或者昵称" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="W3x-gP-V5w">
-                    <rect key="frame" x="73" y="135" width="324" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="324" id="Nfw-mf-IJ5"/>
-                        <constraint firstAttribute="height" constant="30" id="Qb5-VB-195"/>
-                    </constraints>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入终点" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="W3x-gP-V5w">
+                    <rect key="frame" x="65" y="30" width="324" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
@@ -47,24 +38,38 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxr-DN-ju1">
+                    <rect key="frame" x="25" y="97" width="364" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="g7k-AT-oiB"/>
+                    </constraints>
+                    <state key="normal" title="开始导航" backgroundImage="login_tip_button.png">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="W3x-gP-V5w" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="135" id="5Vv-Ud-C3i"/>
-                <constraint firstItem="fxr-DN-ju1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="157" id="BKv-72-cAM"/>
-                <constraint firstItem="W3x-gP-V5w" firstAttribute="leading" secondItem="eNb-Ae-0qx" secondAttribute="trailing" constant="27" id="IRm-MV-W3N"/>
-                <constraint firstItem="fxr-DN-ju1" firstAttribute="top" secondItem="W3x-gP-V5w" secondAttribute="bottom" constant="45" id="L2L-Pu-zZz"/>
-                <constraint firstAttribute="trailing" secondItem="fxr-DN-ju1" secondAttribute="trailing" constant="197" id="LSi-Nu-iUd"/>
-                <constraint firstItem="eNb-Ae-0qx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="135" id="cpW-N2-hsv"/>
-                <constraint firstItem="eNb-Ae-0qx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="dKG-da-aza"/>
-                <constraint firstAttribute="trailing" secondItem="W3x-gP-V5w" secondAttribute="trailing" constant="17" id="shL-Re-8nj"/>
+                <constraint firstItem="Guk-80-7na" firstAttribute="top" secondItem="W3x-gP-V5w" secondAttribute="bottom" constant="5" id="3nO-8s-i23"/>
+                <constraint firstItem="eNb-Ae-0qx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="CfO-w9-nXj"/>
+                <constraint firstItem="Guk-80-7na" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="DIF-OP-i0Y"/>
+                <constraint firstItem="fxr-DN-ju1" firstAttribute="top" secondItem="Guk-80-7na" secondAttribute="bottom" constant="30" id="DPv-Ql-19I"/>
+                <constraint firstItem="W3x-gP-V5w" firstAttribute="centerY" secondItem="eNb-Ae-0qx" secondAttribute="centerY" id="Ilh-T8-V6v"/>
+                <constraint firstItem="eNb-Ae-0qx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="KYL-mW-AA7"/>
+                <constraint firstAttribute="trailing" secondItem="W3x-gP-V5w" secondAttribute="trailing" constant="25" id="Qy9-jv-uVK"/>
+                <constraint firstItem="W3x-gP-V5w" firstAttribute="leading" secondItem="eNb-Ae-0qx" secondAttribute="trailing" constant="10" id="ROv-t5-Hwz"/>
+                <constraint firstItem="W3x-gP-V5w" firstAttribute="height" secondItem="eNb-Ae-0qx" secondAttribute="height" id="T2P-im-wIc"/>
+                <constraint firstAttribute="trailing" secondItem="fxr-DN-ju1" secondAttribute="trailing" constant="25" id="TDe-Gf-Zhe"/>
+                <constraint firstItem="fxr-DN-ju1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="gBF-EX-Hwx"/>
+                <constraint firstAttribute="trailing" secondItem="Guk-80-7na" secondAttribute="trailing" constant="25" id="qPi-XA-N2n"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-            <point key="canvasLocation" x="285" y="270"/>
+            <point key="canvasLocation" x="524" y="315"/>
         </view>
     </objects>
     <resources>
         <image name="daohang.png" width="30" height="30"/>
         <image name="horizontal_separator.png" width="447" height="1"/>
+        <image name="login_tip_button.png" width="30" height="30"/>
     </resources>
 </document>
