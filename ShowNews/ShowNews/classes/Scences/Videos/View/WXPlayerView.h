@@ -68,6 +68,10 @@ typedef NS_ENUM(NSInteger, WXPlayerState) {
 @property (nonatomic, strong)UIButton *flvButton;
 @property (nonatomic, strong)UIButton *highDefinitionButton;
 @property (nonatomic, strong)UIButton *superDefinitionButton;
+
+@property (nonatomic, assign) BOOL isKKKKK;
+
+
 /** 播放 */
 - (void)play;
 /** 暂停 */
@@ -76,6 +80,8 @@ typedef NS_ENUM(NSInteger, WXPlayerState) {
 - (void)seekToTimeToPlay: (double)time;
 /** 获取正在播放的点 */
 - (double)currentTime;
+
+- (void)colseTheVideo:(UIButton *)sender;
 
 //- (void)updateLayerFrame: (CGRect)frame;
 //+ (instancetype)shareWXPlayerView: (CGRect)frame;

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Singleton.h"
 
 @interface VideoViewController : BaseViewController
+
+
 @property (nonatomic, strong)NSMutableArray *newMarray;
 @property (nonatomic, strong)UITableView *privateTableView;
 @property (nonatomic, assign) BOOL iscollect;
-@property (nonatomic, assign) BOOL isUser;
 @end

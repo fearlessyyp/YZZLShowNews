@@ -25,12 +25,18 @@
 #import "Simple.h"
 #import "BNCoreServices.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import<AVFoundation/AVFoundation.h>
+#import "PlayViewController.h"
+
 @interface AppDelegate ()<RESideMenuDelegate>
 
 // 记录当前的系统亮度
 @property (nonatomic, assign) float currentBrightness;
 @property (nonatomic, strong) MusicSearchController *musicSearchVC;
 @end
+
+
 
 @implementation AppDelegate
 
@@ -71,8 +77,22 @@
     [BNCoreServices_Instance startServices];
     
     
+    //监听耳机插入和拔出
+    //监听耳机事件
+    
+    [[AVAudioSession sharedInstance] setDelegate:self];
+    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    AudioSessionAddPropertyListener(
+                                                      kAudioSessionProperty_AudioRouteChange,
+                                                      audioRouteChangeListenerCallback,(__bridge void *)(self));
+    
+    AudioSessionInitialize(NULL, NULL, interruptionListenner, (__bridge void*)self);
+    
     return YES;
 }
+
 
 
 
@@ -93,6 +113,8 @@
                                                                    rightMenuViewController:self.musicSearchVC];
     sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
     sideMenuViewController.delegate = self;
+    // 关闭重量感应
+    sideMenuViewController.parallaxEnabled = NO;
     // 抽屉效果不变小
     sideMenuViewController.scaleContentView = NO;
     // 设置不能侧滑效果
@@ -166,7 +188,8 @@
 #pragma mark - 创建四个根视图控制器
 - (void)createChildViewControllers {
     [self addOneChildViewController:[[NewsViewController alloc] init] title:@"新闻" normalImage:@"tabbar_icon_news_normal@2x" selectedImage:@"tabbar_icon_news_highlight@2x"];
-    [self addOneChildViewController:[[VideoViewController alloc] init] title:@"视频" normalImage:@"tabbar_icon_media_normal@2x" selectedImage:@"tabbar_icon_media_highlight@2x"];
+    VideoViewController *videoVC = [[VideoViewController alloc] init];
+    [self addOneChildViewController:videoVC title:@"视频" normalImage:@"tabbar_icon_media_normal@2x" selectedImage:@"tabbar_icon_media_highlight@2x"];
     [self addOneChildViewController:[[MapViewController alloc] init] title:@"地图" normalImage:@"tabbar_icon_map_normal@2x" selectedImage:@"tabbar_icon_map_highlight@2x"];
     UserViewController *userVC = [[UserViewController alloc] init];
     userVC.musicSearchVC = self.musicSearchVC;
@@ -309,5 +332,59 @@
 }
 
 
+//播放音乐文件打断处理
+void interruptionListenner(void* inClientData, UInt32 inInterruptionState)
+
+{
+    AppDelegate* pTHIS = (__bridge AppDelegate*)inClientData;
+    //AppDelegate *applegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    if (pTHIS) {
+        NSLog(@"interruptionListenner %d", (unsigned int)inInterruptionState);
+        if (kAudioSessionBeginInterruption == inInterruptionState) {
+            NSLog(@"Begin interruption");//开始打断打断处理
+            [[PlayerManager sharePlayer] pause];
+        }
+        else if (inInterruptionState == kAudioSessionEndInterruption)
+        {
+            NSLog(@"End end interruption");//结束打断处理
+            [[PlayerManager sharePlayer] musicPlay];
+        }
+    }
+}
+
+
+
+
+
+
+void audioRouteChangeListenerCallback (
+                                       void                      *inUserData,
+                                       AudioSessionPropertyID    inPropertyID,
+                                       UInt32                    inPropertyValueS,
+                                       const void                *inPropertyValue
+                                       ) {
+    if (inPropertyID != kAudioSessionProperty_AudioRouteChange) return;
+    {
+        CFDictionaryRef routeChangeDictionary = (CFDictionaryRef)inPropertyValue;
+        CFNumberRef routeChangeReasonRef = (CFNumberRef)CFDictionaryGetValue (routeChangeDictionary, CFSTR (kAudioSession_AudioRouteChangeKey_Reason) );
+        SInt32 routeChangeReason;
+        CFNumberGetValue (routeChangeReasonRef, kCFNumberSInt32Type, &routeChangeReason);
+
+        if (routeChangeReason == kAudioSessionRouteChangeReason_OldDeviceUnavailable) {
+            DLog(@"没有耳机！");
+            NSLog(@"ahah");
+            [[MusicSearchController sharedMusicSearchController].palyButton setImage:[UIImage imageNamed:@"audionews_play_button@2x"] forState:UIControlStateNormal];
+            [[PlayViewController sharePlayView].playButton setImage:[UIImage imageNamed:@"audionews_play_button@2x"] forState:UIControlStateNormal];
+            [[PlayerManager sharePlayer] pause];
+        } else if (routeChangeReason == kAudioSessionRouteChangeReason_NewDeviceAvailable) {
+            
+            //Handle Headset plugged in
+            
+            DLog(@"有耳机！");
+            
+        }
+    }
+    
+}
 
 @end

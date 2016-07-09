@@ -19,6 +19,7 @@
 
 @property (nonatomic, assign) BOOL isWifi;
 
+
 #pragma mark - 声明单例
 singleton_interface(DataBaseHandle)
 

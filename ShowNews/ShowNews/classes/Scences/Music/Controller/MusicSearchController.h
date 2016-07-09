@@ -19,5 +19,6 @@ singleton_interface(MusicSearchController);
 @property (weak, nonatomic) IBOutlet UITableView *listResultTableView;
 /// 收藏
 @property (weak, nonatomic) IBOutlet UIButton *collect;
-
+/// 播放
+@property (weak, nonatomic) IBOutlet UIButton *palyButton;
 @end
