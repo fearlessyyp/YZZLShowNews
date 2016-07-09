@@ -59,6 +59,7 @@ typedef NS_ENUM(NSUInteger, TextFieldError) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"找回密码";
+    [self.phoneNumTextField becomeFirstResponder];
     self.codeButton.userInteractionEnabled = NO;
     
     self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
