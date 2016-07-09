@@ -13,6 +13,7 @@
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
 
 #import "StartingPointViewController.h"
+#import "CPSViewController.h"
 @interface MapViewController ()<BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,BMKPoiSearchDelegate>
 @property (strong,nonatomic) BMKMapView *mapView;
 @property (strong,nonatomic) BMKLocationService *locService;
@@ -20,9 +21,10 @@
 @property (nonatomic, strong) BMKPoiSearch *searcher_POI;
 @property (nonatomic, strong)BMKGeoCodeSearch *searcher;
 @property (nonatomic, strong)BMKPointAnnotation *annotation;
-#warning mark --- 记录定位的当前地点
+#pragma mark --- 记录定位的当前地点
 @property (nonatomic, assign)CLLocationCoordinate2D coor;
 @property(nonatomic,weak)UITextField * tf;
+@property (nonatomic, strong) UITextField *addresssTextField;
 @end
 
 @implementation MapViewController
@@ -51,10 +53,10 @@
     // Do any additional setup after loading the view from its nib.
     
     
-    self.mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, kScreenSizeWidth, kScreenSizeHeight - kNavigationAndStatusHeight)];
+    self.mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 50, kScreenSizeWidth, kScreenSizeHeight - kNavigationAndStatusHeight)];
     [self.view addSubview:self.mapView];
     _locService = [[BMKLocationService alloc]init];
-#warning mark -- 初始化并设置地图缩放比例
+#pragma mark -- 初始化并设置地图缩放比例
     _searcher_POI = [[BMKPoiSearch alloc]init];
     self.mapView.zoomLevel = 17;
     //初始化BMKLocationService
@@ -79,20 +81,34 @@
     [self search];
 }
 - (void)search {
-    UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(30, 30, 100, 30)];
-    [btn setTitle:@"开始查找" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
-    [btn setBackgroundColor:[UIColor orangeColor]];
-    [self.mapView addSubview:btn];
     
-    UITextField * tf = [[UITextField alloc]initWithFrame:CGRectMake(150, 30, 100, 30)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 30, 30)];
+    imageView.image = [UIImage imageNamed:@"zhoubian"];
+    [self.view addSubview:imageView];
+    
+    
+    UITextField * tf = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(imageView.frame) + 10, 10, kScreenSizeWidth - CGRectGetMaxX(imageView.frame) - 50, 30)];
+    tf.placeholder = @"在附近搜索...";
+
+    tf.borderStyle = UITextBorderStyleRoundedRect;
+    tf.layer.borderColor = [UIColor grayColor].CGColor;
+    tf.font = [UIFont systemFontOfSize:14.f];
     self.tf= tf;
-    tf.backgroundColor = [UIColor orangeColor];
-    [self.mapView addSubview:tf];
+    tf.backgroundColor = [UIColor colorWithRed:235 green:235 blue:241 alpha:1];
+    [self.view addSubview:tf];
+    
+    
+    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    searchButton.frame = CGRectMake(CGRectGetMaxX(tf.frame) + 5, 10, 30, 30);
+    [searchButton setBackgroundImage:[UIImage imageNamed:@"musicSearch"] forState:UIControlStateNormal];
+
+    [searchButton addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:searchButton];
+  
 }
 - (void)btnClick
 {
-#warning mark -- 释放第一相应折
+#pragma mark -- 释放第一相应折
     [self.tf resignFirstResponder];
     if (self.tf == nil) {
         return;
@@ -101,7 +117,7 @@
     BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
     option.pageIndex = 0;
     option.pageCapacity = 10;
-#warning mark -- 搜索当前的位置
+#pragma mark -- 搜索当前的位置
     option.location = self.coor;
     //option.keyword = @"小吃";
     option.keyword = self.tf.text;
@@ -121,11 +137,13 @@
 - (void)startNavi
 {
     StartingPointViewController *starting = [[StartingPointViewController alloc]init];
-    starting.coorfirst = self.coor.latitude;
-    starting.coorSecond = self.coor.longitude;
-    //self.hidesBottomBarWhenPushed=YES;
-    
+    starting.coorfirst = self.coor;
+        
     [self.navigationController pushViewController:starting animated:YES];
+}
+-(void)buttonAction:(UIButton *)sender {
+    [self initWithSearcher];
+    
 }
 #pragma mark - 初始化检索对象
 - (void)initWithSearcher
@@ -246,7 +264,7 @@ static BOOL isOpen = NO;
     CGFloat a = userLocation.location.coordinate.latitude;
     CGFloat b = userLocation.location.coordinate.longitude;
     NSLog(@"========%f,++++++++%f",a,b);
-#warning mark -- 将定位到的位置赋给相对应的值并将定位的位置放到中间
+#pragma mark -- 将定位到的位置赋给相对应的值并将定位的位置放到中间
     self.coor =CLLocationCoordinate2DMake(a, b);
     _mapView.centerCoordinate = self.coor;
     

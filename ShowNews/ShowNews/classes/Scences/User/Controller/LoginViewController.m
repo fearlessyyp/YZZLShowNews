@@ -19,6 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
+@property (nonatomic, strong) MBProgressHUD *hud;
+
 @end
 
 @implementation LoginViewController
@@ -54,7 +56,9 @@
     }
     if (self.userNameTextField.text.length == 0) {
         [self setHUDWithTitle:@"请输入用户名或手机号码"];
+        return;
     }
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     // 手机号密码登录
     // 不成功 - > 用户名密码登录
     [AVUser logInWithMobilePhoneNumberInBackground:self.userNameTextField.text password:self.passwordTextField.text block:^(AVUser *user, NSError *error) {
@@ -63,6 +67,7 @@
         }else {
             [AVUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passwordTextField.text block:^(AVUser *user, NSError *error) {
                 if (user != nil) {
+                    [self.hud hide:YES];
                     [self.navigationController popViewControllerAnimated:YES];
                 } else {
                     if (error.code == 210) {

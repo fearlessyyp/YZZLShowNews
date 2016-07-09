@@ -9,7 +9,6 @@
 #import "CPSViewController.h"
 
 @interface CPSViewController ()<BNNaviUIManagerDelegate,BNNaviRoutePlanDelegate>
-@property (strong,nonatomic) BNRoutePlanNode *startNode;
 @end
 
 @implementation CPSViewController
@@ -29,16 +28,16 @@
     //起点
     BNRoutePlanNode *startNode = [[BNRoutePlanNode alloc] init];
     startNode.pos = [[BNPosition alloc] init];
-    startNode.pos.x = self.coor.latitude;
-    startNode.pos.y = self.coor.longitude;
+    startNode.pos.x = self.startNode.longitude;
+    startNode.pos.y = self.startNode.latitude;
     startNode.pos.eType = BNCoordinate_BaiduMapSDK;
     [nodesArray addObject:startNode];
     
     //终点
     BNRoutePlanNode *endNode = [[BNRoutePlanNode alloc] init];
     endNode.pos = [[BNPosition alloc] init];
-    endNode.pos.x = self.coorFirst.latitude;
-    endNode.pos.y = self.coorFirst.longitude;
+    endNode.pos.x = self.endNode.longitude;
+    endNode.pos.y = self.endNode.latitude;
     endNode.pos.eType = BNCoordinate_BaiduMapSDK;
     [nodesArray addObject:endNode];
     //发起路径规划
