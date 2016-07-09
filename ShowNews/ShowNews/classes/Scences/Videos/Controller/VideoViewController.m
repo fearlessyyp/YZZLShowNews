@@ -140,7 +140,7 @@
 }
 
 
-// 解析数据
+// 解析数据LeanCloudSocial
 - (void)handel{
     if (self.iscollect == YES) {
         return;
@@ -471,6 +471,7 @@
 
     if (self.iscollect) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(backItemAction:)];
+        self.title = @"视频收藏";
     }
     [self.privateTableView reloadData];
 #warning 判断当前时间与上次刷新时间,如果超过半个小时,自动刷新

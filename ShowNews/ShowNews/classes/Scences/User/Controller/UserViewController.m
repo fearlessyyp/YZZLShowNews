@@ -159,8 +159,9 @@
                                 VideoViewController *videoVC = [[VideoViewController alloc] init];
                                 videoVC.iscollect = YES;
                                 [self requestData:videoVC];
-                                
+                                self.hidesBottomBarWhenPushed = YES;
                                 [self.navigationController pushViewController:videoVC animated:YES];
+                                self.hidesBottomBarWhenPushed = NO;
                             } else {
                                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                                 loginVC.hidesBottomBarWhenPushed = YES;

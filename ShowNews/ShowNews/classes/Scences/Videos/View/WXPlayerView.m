@@ -530,15 +530,11 @@ static WXPlayerView *view = nil;
                 
             case AVPlayerStatusFailed:
             {
-                UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-                button.frame = CGRectMake(0, 100, 200, 40);
-                
-                [button setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
-                [button setTitle:@"加载失败" forState:UIControlStateNormal];
-//                [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-                [self addSubview:button];
-                               //[HUD show:YES];
-                
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"加载失败!";
+                [hud hide: YES afterDelay: 2];
+
             }
                 break;
         
@@ -554,43 +550,6 @@ static WXPlayerView *view = nil;
     }
 }
 
-- (void)buttonAction:(UIButton *)sender
-{
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    // 接下来会判断当前是WiFi状态还是3g状态,网络不可用状态
-         [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-                 switch (status) {
-                             case AFNetworkReachabilityStatusUnknown:
-                                NSLog(@"当前网络处于未知状态");
-                               break;
-                           case AFNetworkReachabilityStatusNotReachable:
-                                 NSLog(@"当前网络处于未链接状态");
-                                 break;
-                             case AFNetworkReachabilityStatusReachableViaWWAN:
-                                 NSLog(@"手机流量网络");
-                                 break;
-                     case AFNetworkReachabilityStatusReachableViaWiFi: {
-                         NSLog(@"wifi状态");
-                         [self setNeedsDisplay];
-                         AVPlayerItem *playerItem = [self.player currentItem];
-                         //    NSLog(@"%ld",playerItem.status);
-                         if (playerItem.status == AVPlayerItemStatusFailed){
-                             [self.player play];
-                         }
-                         
-                     }
-                                 break;
-                             default:
-                                 break;
-                     }
-             }];
-    [self setNeedsDisplay];
-    AVPlayerItem *playerItem = [self.player currentItem];
-    //    NSLog(@"%ld",playerItem.status);
-    if (playerItem.status == AVPlayerItemStatusFailed){
-        [self.player play];
-    }
-}
 
 
 #pragma mark finishedPlay
