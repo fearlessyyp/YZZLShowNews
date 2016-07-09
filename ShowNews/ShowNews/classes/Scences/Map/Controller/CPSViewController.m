@@ -19,6 +19,7 @@
     [self GPS];
     // 进入巡航页面
     [BNCoreServices_UI showDigitDogUI:YES delegete:self];
+     [self GPS];
 
 }
 - (void)GPS {

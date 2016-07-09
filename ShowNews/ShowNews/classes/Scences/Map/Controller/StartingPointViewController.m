@@ -90,6 +90,7 @@
 }
 
 - (void)backItemAction:(UIBarButtonItem *)sender {
+//    CPSViewController *gps = [[CPSViewController alloc]init];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
