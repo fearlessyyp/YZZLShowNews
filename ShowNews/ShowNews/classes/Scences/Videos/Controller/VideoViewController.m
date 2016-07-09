@@ -25,8 +25,9 @@
 #define WindownWidth [[UIScreen mainScreen] bounds].size.width
 //屏幕的高度
 #define WindowHeight [[UIScreen mainScreen] bounds].size.height
-@interface VideoViewController ()<UITableViewDelegate, UITableViewDataSource,UMSocialUIDelegate>
 
+
+@interface VideoViewController ()<UITableViewDelegate, UITableViewDataSource,UMSocialUIDelegate>
 
 @property (nonatomic, strong)NSString *string;
 @property (nonatomic, strong)WXPlayerView *playView;
@@ -66,6 +67,7 @@
     
     
 }
+
 
 // 结束更新 隐藏刷新
 - (void)endRefresh
@@ -414,10 +416,6 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (NSMutableArray *)newMarray{
     if (!_newMarray) {
         _newMarray = [NSMutableArray array];

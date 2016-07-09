@@ -19,16 +19,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wez-Bi-dwZ">
-                                <rect key="frame" x="0.0" y="0.0" width="104" height="89"/>
+                                <rect key="frame" x="0.0" y="0.0" width="138" height="89"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewsCollectede.png" translatesAutoresizingMaskIntoConstraints="NO" id="E27-Jo-URv">
-                                        <rect key="frame" x="29" y="10" width="45" height="45"/>
+                                        <rect key="frame" x="47" y="10" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="E27-Jo-URv" secondAttribute="height" multiplier="1:1" id="RLT-lc-DVO"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新闻" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZC-Lo-eG1">
-                                        <rect key="frame" x="0.0" y="63" width="104" height="21"/>
+                                        <rect key="frame" x="0.0" y="63" width="138" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="YUt-Ss-hSn"/>
                                         </constraints>
@@ -52,13 +52,13 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNB-uz-0qR">
-                                <rect key="frame" x="104" y="0.0" width="103" height="89"/>
+                                <rect key="frame" x="138" y="0.0" width="138" height="89"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VedioCollected.png" translatesAutoresizingMaskIntoConstraints="NO" id="mTn-px-yh2">
-                                        <rect key="frame" x="29" y="10" width="45" height="45"/>
+                                        <rect key="frame" x="47" y="10" width="45" height="45"/>
                                     </imageView>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="视频" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3U-Kb-czN">
-                                        <rect key="frame" x="0.0" y="63" width="103" height="21"/>
+                                        <rect key="frame" x="0.0" y="63" width="138" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -75,41 +75,17 @@
                                     <outletCollection property="gestureRecognizers" destination="iYE-o9-wgv" appends="YES" id="7OV-cr-Gx4"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gma-HO-QD3">
-                                <rect key="frame" x="207" y="0.0" width="104" height="89"/>
-                                <subviews>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="位置" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zy-xj-m8W">
-                                        <rect key="frame" x="0.0" y="63" width="104" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeCollected.png" translatesAutoresizingMaskIntoConstraints="NO" id="6VT-2e-Els">
-                                        <rect key="frame" x="30" y="10" width="45" height="45"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstItem="6VT-2e-Els" firstAttribute="centerX" secondItem="0Zy-xj-m8W" secondAttribute="centerX" id="7T8-HH-frO"/>
-                                    <constraint firstAttribute="trailing" secondItem="0Zy-xj-m8W" secondAttribute="trailing" id="8kc-wJ-Dq7"/>
-                                    <constraint firstItem="0Zy-xj-m8W" firstAttribute="leading" secondItem="Gma-HO-QD3" secondAttribute="leading" id="yLF-eW-UpQ"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="t6L-TJ-qq0" appends="YES" id="rbI-4c-cCq"/>
-                                </connections>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nh8-y4-BM1">
-                                <rect key="frame" x="311" y="0.0" width="103" height="89"/>
+                                <rect key="frame" x="276" y="0.0" width="138" height="89"/>
                                 <subviews>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音乐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgP-br-RbQ">
-                                        <rect key="frame" x="0.0" y="63" width="103" height="21"/>
+                                        <rect key="frame" x="0.0" y="66" width="138" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="musicCollected.png" translatesAutoresizingMaskIntoConstraints="NO" id="MSj-eB-BiX">
-                                        <rect key="frame" x="29" y="10" width="45" height="45"/>
+                                        <rect key="frame" x="47" y="10" width="45" height="45"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -119,30 +95,21 @@
                                     <constraint firstAttribute="trailing" secondItem="jgP-br-RbQ" secondAttribute="trailing" id="XnO-AH-HR7"/>
                                     <constraint firstItem="jgP-br-RbQ" firstAttribute="leading" secondItem="Nh8-y4-BM1" secondAttribute="leading" id="qTI-Fv-YIH"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="kjV-9X-23v" appends="YES" id="G5k-fp-bLt"/>
-                                </connections>
                             </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="a3U-Kb-czN" firstAttribute="height" secondItem="xZC-Lo-eG1" secondAttribute="height" id="2mB-sR-bXQ"/>
+                            <constraint firstItem="MSj-eB-BiX" firstAttribute="height" secondItem="mTn-px-yh2" secondAttribute="height" id="3Ta-ds-OBP"/>
                             <constraint firstAttribute="bottom" secondItem="Wez-Bi-dwZ" secondAttribute="bottom" id="ESb-Yc-MD4"/>
-                            <constraint firstItem="MSj-eB-BiX" firstAttribute="centerY" secondItem="6VT-2e-Els" secondAttribute="centerY" id="FAG-8J-v04"/>
-                            <constraint firstItem="jgP-br-RbQ" firstAttribute="height" secondItem="0Zy-xj-m8W" secondAttribute="height" id="FGo-xv-seI"/>
-                            <constraint firstItem="6VT-2e-Els" firstAttribute="height" secondItem="mTn-px-yh2" secondAttribute="height" id="HFe-9I-E5S"/>
                             <constraint firstItem="mTn-px-yh2" firstAttribute="centerY" secondItem="E27-Jo-URv" secondAttribute="centerY" id="LoN-pH-GwO"/>
+                            <constraint firstItem="MSj-eB-BiX" firstAttribute="width" secondItem="mTn-px-yh2" secondAttribute="width" id="Pc3-N3-vD9"/>
                             <constraint firstItem="mTn-px-yh2" firstAttribute="width" secondItem="E27-Jo-URv" secondAttribute="width" id="UV5-Fv-tl9"/>
-                            <constraint firstItem="0Zy-xj-m8W" firstAttribute="top" secondItem="a3U-Kb-czN" secondAttribute="top" id="VTn-lA-K3B"/>
                             <constraint firstItem="Wez-Bi-dwZ" firstAttribute="leading" secondItem="O3h-tN-goH" secondAttribute="leading" id="X7M-tU-L3R"/>
                             <constraint firstItem="Wez-Bi-dwZ" firstAttribute="top" secondItem="O3h-tN-goH" secondAttribute="top" id="blD-7V-Rd4"/>
                             <constraint firstItem="mTn-px-yh2" firstAttribute="height" secondItem="E27-Jo-URv" secondAttribute="height" id="cnW-7D-fxp"/>
-                            <constraint firstItem="MSj-eB-BiX" firstAttribute="height" secondItem="6VT-2e-Els" secondAttribute="height" id="kiW-gO-3kB"/>
-                            <constraint firstItem="0Zy-xj-m8W" firstAttribute="height" secondItem="a3U-Kb-czN" secondAttribute="height" id="mla-0L-y1I"/>
-                            <constraint firstItem="6VT-2e-Els" firstAttribute="width" secondItem="mTn-px-yh2" secondAttribute="width" id="piw-xf-WY6"/>
-                            <constraint firstItem="MSj-eB-BiX" firstAttribute="width" secondItem="6VT-2e-Els" secondAttribute="width" id="tX8-6r-BlG"/>
-                            <constraint firstItem="6VT-2e-Els" firstAttribute="centerY" secondItem="mTn-px-yh2" secondAttribute="centerY" id="vTl-a0-2iB"/>
-                            <constraint firstItem="jgP-br-RbQ" firstAttribute="centerY" secondItem="0Zy-xj-m8W" secondAttribute="centerY" id="yBq-ci-A8O"/>
+                            <constraint firstItem="jgP-br-RbQ" firstAttribute="centerY" secondItem="a3U-Kb-czN" secondAttribute="centerY" id="hog-a9-BXK"/>
                             <constraint firstItem="a3U-Kb-czN" firstAttribute="top" secondItem="xZC-Lo-eG1" secondAttribute="top" id="zd5-Xd-JmD"/>
+                            <constraint firstItem="MSj-eB-BiX" firstAttribute="centerY" secondItem="mTn-px-yh2" secondAttribute="centerY" id="zgW-nV-6PY"/>
                         </constraints>
                     </stackView>
                 </subviews>
@@ -173,16 +140,10 @@
                 <action selector="musicCollectTap:" destination="KGk-i7-Jjw" id="XrY-GW-PgG"/>
             </connections>
         </tapGestureRecognizer>
-        <tapGestureRecognizer id="kjV-9X-23v">
-            <connections>
-                <action selector="locationCollectTap:" destination="KGk-i7-Jjw" id="RNF-jM-F2v"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="NewsCollectede.png" width="46" height="45"/>
         <image name="VedioCollected.png" width="45" height="45"/>
         <image name="musicCollected.png" width="45" height="45"/>
-        <image name="placeCollected.png" width="45" height="45"/>
     </resources>
 </document>
