@@ -39,7 +39,7 @@
     // Do any additional setup after loading the view from its nib.
     [self.navigationController setNavigationBarHidden:NO];
     self.title = @"登录";
-    [self.userNameTextField becomeFirstResponder];
+//    [self.userNameTextField becomeFirstResponder];
     self.userNameTextField.text = self.username;
 }
 

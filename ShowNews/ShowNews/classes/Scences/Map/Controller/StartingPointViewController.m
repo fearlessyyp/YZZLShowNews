@@ -39,6 +39,7 @@
 }
 
 - (void)initWithSearcher {
+    [self.stopTF resignFirstResponder];
     //初始化检索对象
     _searcher =[[BMKGeoCodeSearch alloc]init];
     _searcher.delegate = self;

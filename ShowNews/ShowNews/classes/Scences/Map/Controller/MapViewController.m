@@ -77,8 +77,8 @@
 //    UIBarButtonItem *traffic = [[UIBarButtonItem alloc] initWithTitle:@"路况" style:(UIBarButtonItemStylePlain) target:self action:@selector(openTrafficAction:)];
 //    self.navigationItem.rightBarButtonItem = traffic;
 //    
-//    UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithTitle:@"导航" style:UIBarButtonItemStylePlain target:self action:@selector(startNavi)];
-//    self.navigationItem.leftBarButtonItem = left;
+    UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithTitle:@"导航" style:UIBarButtonItemStylePlain target:self action:@selector(startNavi)];
+    self.navigationItem.leftBarButtonItem = left;
     [self search];
 }
 - (void)search {
