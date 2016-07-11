@@ -170,10 +170,7 @@
                             
                         }
                             break;
-                        case 3:
-                            
-                            break;
-                        case 4:{
+                        case 3:{
                             if ([AVUser currentUser]) {
                                 [[PlayerManager sharePlayer] requestData:self.musicSearchVC];
                                 [self presentRightMenuViewController:self.musicSearchVC];
@@ -375,7 +372,7 @@
 // 计算目录大小
 +(float)folderSizeAtPath:(NSString *)path{
     NSFileManager *fileManager=[NSFileManager defaultManager];
-    float folderSize;
+    float folderSize = 0.0f;
     if ([fileManager fileExistsAtPath:path]) {
         NSArray *childerFiles=[fileManager subpathsAtPath:path];
         for (NSString *fileName in childerFiles) {

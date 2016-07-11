@@ -95,6 +95,9 @@
                                     <constraint firstAttribute="trailing" secondItem="jgP-br-RbQ" secondAttribute="trailing" id="XnO-AH-HR7"/>
                                     <constraint firstItem="jgP-br-RbQ" firstAttribute="leading" secondItem="Nh8-y4-BM1" secondAttribute="leading" id="qTI-Fv-YIH"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="t6L-TJ-qq0" appends="YES" id="ek6-aV-c7R"/>
+                                </connections>
                             </view>
                         </subviews>
                         <constraints>

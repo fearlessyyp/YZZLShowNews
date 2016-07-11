@@ -256,9 +256,9 @@ static WXPlayerView *view = nil;
     
     
     [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.bottomView).with.offset(5);
+        make.left.equalTo(self.bottomView).with.offset(15);
         make.height.mas_equalTo(30);
-        make.top.equalTo(self).with.offset(5);
+        make.top.equalTo(self).with.offset(15);
         make.width.mas_equalTo(30);
     }];
     
