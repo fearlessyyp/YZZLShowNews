@@ -109,7 +109,7 @@
 }
 - (void)btnClick
 {
-#pragma mark -- 释放第一相应折
+#pragma mark -- 释放第一相应者
     [self.tf resignFirstResponder];
     if (self.tf == nil) {
         return;

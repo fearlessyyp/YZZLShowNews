@@ -33,8 +33,8 @@
     startNode.pos.y = self.startNode.latitude;
     startNode.pos.eType = BNCoordinate_BaiduMapSDK;
     [nodesArray addObject:startNode];
-    
-    //终点
+
+        //终点
     BNRoutePlanNode *endNode = [[BNRoutePlanNode alloc] init];
     endNode.pos = [[BNPosition alloc] init];
     endNode.pos.x = self.endNode.longitude;
@@ -84,6 +84,7 @@
 {
     NSLog(@"退出导航声明页面");
     [self.navigationController popViewControllerAnimated:YES];
+    
 
 }
 
@@ -91,8 +92,10 @@
 -(void)onExitDigitDogUI:(NSDictionary*)extraInfo
 {
     NSLog(@"退出电子狗页面");
-    [self.navigationController popViewControllerAnimated:YES];
-
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [self.navigationController popViewControllerAnimated:YES];
+    });
+    
 }
 
 - (void)didReceiveMemoryWarning {
