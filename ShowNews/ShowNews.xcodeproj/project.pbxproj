@@ -2472,8 +2472,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Wei Yang (ZFBE9NJZM6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wei Yang (ZFBE9NJZM6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Yang (F2N9DLANA4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wei Yang (F2N9DLANA4)";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ShowNews/classes/Marco/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -2546,7 +2546,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.YZZL.ShowNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c3a9ce4a-1a6a-4204-bf96-2b20b6891760";
+				PROVISIONING_PROFILE = "b72ed5ba-2c80-4fc4-ad1b-b5d374b7c63c";
 			};
 			name = Debug;
 		};
@@ -2556,8 +2556,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Wei Yang (ZFBE9NJZM6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wei Yang (ZFBE9NJZM6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Yang (F2N9DLANA4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wei Yang (F2N9DLANA4)";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ShowNews/classes/Marco/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -2630,7 +2630,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.YZZL.ShowNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c3a9ce4a-1a6a-4204-bf96-2b20b6891760";
+				PROVISIONING_PROFILE = "b72ed5ba-2c80-4fc4-ad1b-b5d374b7c63c";
 			};
 			name = Release;
 		};
