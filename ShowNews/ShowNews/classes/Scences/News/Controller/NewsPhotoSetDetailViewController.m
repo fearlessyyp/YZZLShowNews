@@ -139,7 +139,9 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView == self.imageScrollView) {
         int temp = self.imageScrollView.contentOffset.x / kScreenSizeWidth;
-               
+
+        
+        
         self.imgsumLabel.text = [NSString stringWithFormat:@"%d/%@", temp + 1, self.news.imgsum];
         self.noteLabel.text = [NSString stringWithFormat:@"%@ %@", [self.news.photos[temp] imgtitle], [self.news.photos[temp] note]];
         CGFloat noteHeight = [ToolForHeight textHeightWithText:[NSString stringWithFormat:@"%@ %@", [self.news.photos[temp] imgtitle], [self.news.photos[temp] note]] font:[UIFont systemFontOfSize:kNoteFont] width:kScreenSizeWidth - 10];

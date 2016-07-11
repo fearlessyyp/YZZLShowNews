@@ -64,7 +64,7 @@ static NSString * const kBigImage = @"bigImage";
     cover.backgroundColor = [UIColor clearColor];
     cover.image = image;
     cover.scrollView = self;
-#warning - 50
+
     UIImageView *bigImage = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenSizeWidth / 2 - 50, 60 - 50, 100, 100)];
     bigImage.image = headImage;
 
@@ -75,7 +75,6 @@ static NSString * const kBigImage = @"bigImage";
     
 
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-#warning - 50
     button.frame = CGRectMake(0, 165 - 50, kScreenSizeWidth, 30);
     button.titleLabel.textAlignment = NSTextAlignmentCenter;
     button.titleLabel.font = [UIFont systemFontOfSize:14.f];
@@ -161,7 +160,6 @@ static NSString * const kBigImage = @"bigImage";
         CGFloat offset = -self.scrollView.contentOffset.y;
         
         self.frame = CGRectMake(-0, -offset, _scrollView.bounds.size.width + offset * 2, MaxHeight + offset);
-#warning  -50
         _scrollView.button.center = CGPointMake(kScreenSizeWidth / 2 , 180 - 50);
         _scrollView.bigImage.center = CGPointMake(kScreenSizeWidth / 2, 110 - 50 + offset);
     } else {

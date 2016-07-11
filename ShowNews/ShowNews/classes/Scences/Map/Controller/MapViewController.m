@@ -141,7 +141,7 @@
 {
     StartingPointViewController *starting = [[StartingPointViewController alloc]init];
     starting.coorfirst = self.coor;
-        
+    starting.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:starting animated:YES];
 }
 -(void)buttonAction:(UIButton *)sender {

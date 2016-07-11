@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @class Music;
 @class MusicSearchController;
-#warning 222222
+
 // 协议 代理
 //@protocol playerManagerDelegate <NSObject>
 

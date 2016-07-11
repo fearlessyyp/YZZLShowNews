@@ -627,7 +627,7 @@ typedef NS_ENUM(NSUInteger, NewsType) {
             break;
         }
         case NewsTypeUnknow:
-#warning 提醒
+//#warning 提醒
             NSLog(@"unknow");
             break;
         default:

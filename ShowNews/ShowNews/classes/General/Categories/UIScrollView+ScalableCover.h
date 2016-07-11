@@ -7,7 +7,6 @@
 //
 #import <UIKit/UIKit.h>
 
-#warning 200 -> 150
 static const CGFloat MaxHeight = 150;
 
 
